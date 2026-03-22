@@ -3,635 +3,338 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Season — It's Always Somebody's Season</title>
-  <meta name="description" content="Daily horoscopes, zodiac compatibility, crystal guides, and cosmic chaos. Your astrology-obsessed best friend, in website form.">
+  <title>Sign Season</title>
+  <meta name="description" content="It's always somebody's season. Horoscopes, compatibility, crystals, and the cosmic content your group chat needs.">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="theme-color" content="#0D0D1A">
-
-  <!-- Open Graph -->
   <meta property="og:title" content="Sign Season">
-  <meta property="og:description" content="It's always somebody's season. Horoscopes, compatibility, crystals, and cosmic content you'll actually screenshot.">
+  <meta property="og:description" content="It's always somebody's season. Horoscopes, compatibility, crystals, and cosmic content you'll screenshot.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://signseason.com">
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    :root {
-      --deep-night: #0D0D1A;
-      --cosmic-violet: #7B68EE;
-      --soft-moonlight: #F0EEFF;
-      --celestial-gold: #E8C547;
-      --nebula-pink: #E88DB5;
-      --void: #000000;
-      --card-bg: #0F0F24;
-      --card-border: rgba(123, 104, 238, 0.12);
-      --card-border-hover: rgba(123, 104, 238, 0.4);
-      --text-muted: #8888AA;
-      --font-display: 'Playfair Display', Georgia, serif;
-      --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-mono: 'Space Mono', 'Courier New', monospace;
-    }
-
-    body {
-      background: var(--deep-night);
-      color: var(--soft-moonlight);
-      font-family: var(--font-body);
-      font-size: 16px;
-      line-height: 1.6;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ============ STAR FIELD ============ */
-    .stars {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .stars .layer {
-      position: absolute;
-      inset: 0;
-      background-repeat: repeat;
-    }
-
-    .stars .layer-1 {
-      background-image:
-        radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.5), transparent),
-        radial-gradient(1px 1px at 25% 45%, rgba(255,255,255,0.3), transparent),
-        radial-gradient(1px 1px at 47% 22%, rgba(255,255,255,0.4), transparent),
-        radial-gradient(1px 1px at 63% 68%, rgba(255,255,255,0.3), transparent),
-        radial-gradient(1px 1px at 82% 33%, rgba(255,255,255,0.5), transparent),
-        radial-gradient(1px 1px at 91% 72%, rgba(255,255,255,0.3), transparent),
-        radial-gradient(1px 1px at 5% 88%, rgba(255,255,255,0.4), transparent),
-        radial-gradient(1px 1px at 38% 91%, rgba(255,255,255,0.3), transparent),
-        radial-gradient(1px 1px at 72% 8%, rgba(255,255,255,0.5), transparent);
-      animation: drift 80s linear infinite;
-    }
-
-    .stars .layer-2 {
-      background-image:
-        radial-gradient(1.5px 1.5px at 18% 52%, rgba(232,197,71,0.25), transparent),
-        radial-gradient(1.5px 1.5px at 55% 35%, rgba(123,104,238,0.2), transparent),
-        radial-gradient(1px 1px at 78% 85%, rgba(232,141,181,0.15), transparent),
-        radial-gradient(1.5px 1.5px at 35% 78%, rgba(232,197,71,0.2), transparent),
-        radial-gradient(1px 1px at 92% 18%, rgba(123,104,238,0.15), transparent);
-      animation: drift 120s linear infinite reverse;
-    }
-
-    @keyframes drift {
-      from { transform: translateY(0); }
-      to { transform: translateY(-20px); }
-    }
-
-    /* ============ LAYOUT ============ */
-    .page { position: relative; z-index: 1; }
-
-    .container {
-      width: 100%;
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* ============ NAV ============ */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 16px 24px;
-      background: rgba(13, 13, 26, 0.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(123, 104, 238, 0.08);
-      transition: all 0.3s ease;
-    }
-
-    nav .nav-inner {
-      max-width: 1080px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .nav-brand {
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--soft-moonlight);
-      text-decoration: none;
-      letter-spacing: -0.02em;
-    }
-
-    .nav-brand .star { color: var(--celestial-gold); margin-left: 2px; }
-
-    .nav-links { display: flex; gap: 24px; }
-    .nav-links a {
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--soft-moonlight); }
-
-    /* ============ HERO ============ */
-    .hero {
-      min-height: 100svh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 100px 24px 60px;
-      position: relative;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 200px;
-      background: linear-gradient(to top, var(--deep-night), transparent);
-      pointer-events: none;
-    }
-
-    .hero-label {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.25em;
-      color: var(--cosmic-violet);
-      margin-bottom: 28px;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.2s forwards;
-    }
-
-    .hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(2.5rem, 10vw, 5rem);
-      font-weight: 700;
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      margin-bottom: 24px;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.4s forwards;
-    }
-
-    .hero h1 em {
-      font-style: italic;
-      color: var(--celestial-gold);
-      position: relative;
-    }
-
-    .hero h1 em::after {
-      content: '';
-      position: absolute;
-      bottom: 4px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--celestial-gold), transparent);
-      opacity: 0.4;
-    }
-
-    .hero-sub {
-      font-size: clamp(1rem, 3vw, 1.2rem);
-      color: var(--text-muted);
-      max-width: 460px;
-      line-height: 1.7;
-      margin-bottom: 40px;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.6s forwards;
-    }
-
-    .hero-form-wrap {
-      opacity: 0;
-      animation: fadeUp 0.8s 0.8s forwards;
-      width: 100%;
-      max-width: 440px;
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ============ EMAIL FORM ============ */
-    .email-form {
-      display: flex;
-      gap: 10px;
-      width: 100%;
-    }
-
-    .email-form input {
-      flex: 1;
-      min-width: 0;
-      padding: 14px 20px;
-      background: rgba(15, 15, 36, 0.8);
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      color: var(--soft-moonlight);
-      font-family: var(--font-body);
-      font-size: 0.95rem;
-      outline: none;
-      transition: border-color 0.25s, box-shadow 0.25s;
-    }
-
-    .email-form input::placeholder { color: #555570; }
-
-    .email-form input:focus {
-      border-color: var(--cosmic-violet);
-      box-shadow: 0 0 0 3px rgba(123, 104, 238, 0.15);
-    }
-
-    .email-form button {
-      padding: 14px 24px;
-      background: var(--celestial-gold);
-      color: var(--deep-night);
-      border: none;
-      border-radius: 12px;
-      font-family: var(--font-body);
-      font-size: 0.9rem;
-      font-weight: 700;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: all 0.25s;
-      letter-spacing: 0.02em;
-    }
-
-    .email-form button:hover {
-      background: #f0d05a;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 20px rgba(232, 197, 71, 0.3);
-    }
-
-    .email-form button:active { transform: translateY(0); }
-
-    .form-note {
-      font-size: 0.72rem;
-      color: #555570;
-      margin-top: 12px;
-      text-align: center;
-    }
-
-    .email-success {
-      display: none;
-      text-align: center;
-      padding: 16px;
-      color: var(--celestial-gold);
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
-    .form-wrap.submitted .email-form { display: none; }
-    .form-wrap.submitted .form-note { display: none; }
-    .form-wrap.submitted .email-success { display: block; }
-
-    /* ============ SECTIONS ============ */
-    section { padding: 80px 0; }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .section-label {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.25em;
-      color: var(--cosmic-violet);
-      margin-bottom: 12px;
-    }
-
-    .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(1.8rem, 5vw, 2.8rem);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.15;
-    }
-
-    .section-sub {
-      color: var(--text-muted);
-      margin-top: 10px;
-      font-size: 0.95rem;
-    }
-
-    /* ============ SIGN GRID ============ */
-    .signs-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-
-    .sign-card {
-      position: relative;
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      padding: 24px 12px 20px;
-      text-align: center;
-      text-decoration: none;
-      color: var(--soft-moonlight);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.3s ease;
-      overflow: hidden;
-    }
-
-    .sign-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 16px;
-      padding: 1px;
-      background: linear-gradient(135deg, rgba(123,104,238,0.15), transparent 50%, rgba(232,197,71,0.1));
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .sign-card:hover::before,
-    .sign-card:active::before { opacity: 1; }
-
-    .sign-card:hover,
-    .sign-card:active {
-      border-color: var(--card-border-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(123, 104, 238, 0.12);
-    }
-
-    .sign-card.current-season {
-      border-color: rgba(232, 197, 71, 0.3);
-      background: linear-gradient(135deg, var(--card-bg), rgba(232, 197, 71, 0.04));
-    }
-
-    .sign-card.current-season .sign-badge {
-      display: block;
-    }
-
-    .sign-badge {
-      display: none;
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      font-family: var(--font-mono);
-      font-size: 0.5rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      background: rgba(232, 197, 71, 0.15);
-      color: var(--celestial-gold);
-      padding: 3px 8px;
-      border-radius: 6px;
-    }
-
-    .sign-symbol {
-      font-size: 2rem;
-      line-height: 1;
-    }
-
-    .sign-name {
-      font-family: var(--font-display);
-      font-size: 1rem;
-      font-weight: 600;
-    }
-
-    .sign-dates {
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      color: var(--text-muted);
-      letter-spacing: 0.04em;
-    }
-
-    /* ============ EXPLORE CARDS ============ */
-    .explore-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-
-    .explore-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
-      padding: 32px 28px;
-      transition: all 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .explore-card::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0;
-      transition: opacity 0.4s;
-      pointer-events: none;
-    }
-
-    .explore-card:nth-child(1)::after { background: rgba(123, 104, 238, 0.15); }
-    .explore-card:nth-child(2)::after { background: rgba(232, 141, 181, 0.12); }
-    .explore-card:nth-child(3)::after { background: rgba(232, 197, 71, 0.1); }
-
-    .explore-card:hover::after { opacity: 1; }
-
-    .explore-card:hover {
-      border-color: var(--card-border-hover);
-      transform: translateY(-2px);
-    }
-
-    .explore-tag {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--cosmic-violet);
-      margin-bottom: 14px;
-    }
-
-    .explore-card:nth-child(2) .explore-tag { color: var(--nebula-pink); }
-    .explore-card:nth-child(3) .explore-tag { color: var(--celestial-gold); }
-
-    .explore-card h3 {
-      font-family: var(--font-display);
-      font-size: 1.35rem;
-      font-weight: 600;
-      line-height: 1.25;
-      margin-bottom: 10px;
-      letter-spacing: -0.01em;
-    }
-
-    .explore-card p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      line-height: 1.65;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* ============ BOTTOM CTA ============ */
-    .bottom-cta {
-      text-align: center;
-      padding: 80px 0 100px;
-      border-top: 1px solid rgba(123, 104, 238, 0.08);
-    }
-
-    .bottom-cta h2 {
-      font-family: var(--font-display);
-      font-size: clamp(1.8rem, 5vw, 2.5rem);
-      font-weight: 700;
-      margin-bottom: 12px;
-      letter-spacing: -0.02em;
-    }
-
-    .bottom-cta .cta-sub {
-      color: var(--text-muted);
-      margin-bottom: 36px;
-      font-size: 0.95rem;
-    }
-
-    .bottom-cta .hero-form-wrap {
-      margin: 0 auto;
-      animation: none;
-      opacity: 1;
-    }
-
-    /* ============ FOOTER ============ */
-    footer {
-      text-align: center;
-      padding: 32px 24px;
-      border-top: 1px solid rgba(123, 104, 238, 0.06);
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 28px;
-      margin-bottom: 16px;
-    }
-
-    .footer-links a {
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      text-decoration: none;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover { color: var(--cosmic-violet); }
-
-    .footer-copy {
-      font-size: 0.7rem;
-      color: #444460;
-    }
-
-    /* ============ SCROLL ANIMATIONS ============ */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ============ MOBILE RESPONSIVE ============ */
-    @media (max-width: 480px) {
-      .email-form {
-        flex-direction: column;
-      }
-
-      .email-form button {
-        width: 100%;
-        padding: 16px;
-      }
-
-      .nav-links { gap: 16px; }
-      .nav-links a { font-size: 0.7rem; }
-
-      .signs-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-      .sign-card { padding: 20px 10px 16px; }
-      .sign-symbol { font-size: 1.75rem; }
-    }
-
-    @media (min-width: 481px) and (max-width: 768px) {
-      .signs-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-
-    @media (min-width: 769px) {
-      .signs-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 16px;
-      }
-
-      .explore-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-      }
-
-      .sign-card { padding: 28px 16px 24px; }
-      .sign-symbol { font-size: 2.2rem; }
-      .sign-name { font-size: 1.05rem; }
-
-      .email-form input { padding: 16px 24px; }
-      .email-form button { padding: 16px 32px; }
-
-      section { padding: 100px 0; }
-    }
-
-    @media (min-width: 1024px) {
-      .signs-grid { grid-template-columns: repeat(6, 1fr); }
-    }
-
-    /* ============ SELECTION ============ */
-    ::selection {
-      background: rgba(123, 104, 238, 0.3);
-      color: var(--soft-moonlight);
-    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    :root{
+      --night:#0D0D1A;--night-up:#111128;--night-card:#0C0C1E;
+      --violet:#7B68EE;--gold:#E8C547;--pink:#E88DB5;
+      --moon:#F0EEFF;--muted:#7A7A9E;--dim:#44445E;
+      --serif:'Playfair Display',Georgia,serif;
+      --sans:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+      --mono:'Space Mono','Courier New',monospace;
+    }
+    body{
+      background:var(--night);color:var(--moon);
+      font-family:var(--sans);-webkit-font-smoothing:antialiased;
+      overflow-x:hidden;font-size:16px;line-height:1.6;
+    }
+    ::selection{background:rgba(123,104,238,.3)}
+
+    /* ── stars ── */
+    .sky{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+    .sky i{position:absolute;border-radius:50%;background:#fff}
+    .sky .s1{width:1px;height:1px;opacity:.35;animation:twinkle 4s ease-in-out infinite}
+    .sky .s2{width:1.5px;height:1.5px;opacity:.2;animation:twinkle 6s ease-in-out infinite 1s}
+    .sky .s3{width:2px;height:2px;opacity:.15;background:var(--gold);animation:twinkle 5s ease-in-out infinite 2s}
+    @keyframes twinkle{0%,100%{opacity:.15}50%{opacity:.6}}
+
+    .page{position:relative;z-index:1}
+
+    /* ── nav ── */
+    .nav{
+      position:fixed;top:0;left:0;right:0;z-index:100;
+      padding:18px 28px;
+      background:rgba(13,13,26,.0);backdrop-filter:blur(0px);
+      -webkit-backdrop-filter:blur(0px);
+      border-bottom:1px solid transparent;
+      transition:all .5s cubic-bezier(.16,1,.3,1);
+      transform:translateY(-100%);opacity:0;
+    }
+    .nav.visible{
+      transform:translateY(0);opacity:1;
+      background:rgba(13,13,26,.88);
+      backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+      border-bottom-color:rgba(123,104,238,.06);
+    }
+    .nav-inner{max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+    .nav-brand{
+      font-family:var(--serif);font-size:1.1rem;font-weight:600;
+      color:var(--moon);text-decoration:none;letter-spacing:-.02em;
+    }
+    .nav-brand b{color:var(--gold);font-weight:600}
+    .nav-links{display:flex;gap:20px}
+    .nav-links a{
+      font-family:var(--mono);font-size:.6rem;font-weight:400;
+      color:var(--muted);text-decoration:none;text-transform:uppercase;
+      letter-spacing:.18em;transition:color .2s;
+    }
+    .nav-links a:hover{color:var(--moon)}
+
+    /* ── hero ── */
+    .hero{
+      min-height:100svh;display:flex;flex-direction:column;
+      justify-content:center;align-items:center;text-align:center;
+      padding:0 28px;position:relative;
+    }
+    .hero-label{
+      font-family:var(--mono);font-size:.55rem;font-weight:700;
+      text-transform:uppercase;letter-spacing:.35em;
+      color:var(--violet);margin-bottom:36px;
+      opacity:0;animation:rise .9s .3s cubic-bezier(.16,1,.3,1) forwards;
+    }
+    .hero-h1{
+      font-family:var(--serif);font-weight:800;
+      font-size:clamp(3rem,12vw,7.5rem);
+      line-height:.92;letter-spacing:-.04em;
+      margin-bottom:32px;
+      opacity:0;animation:rise .9s .5s cubic-bezier(.16,1,.3,1) forwards;
+    }
+    .hero-h1 .line{display:block}
+    .hero-h1 .gold{
+      font-style:italic;font-weight:500;color:var(--gold);
+      position:relative;
+    }
+    .hero-h1 .gold::after{
+      content:'';position:absolute;bottom:.08em;left:-.02em;right:-.02em;
+      height:1px;
+      background:linear-gradient(90deg,transparent,rgba(232,197,71,.5),transparent);
+    }
+    @keyframes shimmer{
+      0%{background-position:-200% center}
+      100%{background-position:200% center}
+    }
+    .hero-sub{
+      font-size:clamp(.9rem,2.5vw,1.15rem);
+      color:var(--muted);max-width:420px;line-height:1.75;
+      margin-bottom:48px;
+      opacity:0;animation:rise .9s .7s cubic-bezier(.16,1,.3,1) forwards;
+    }
+    .hero-form{
+      width:100%;max-width:400px;
+      opacity:0;animation:rise .9s .9s cubic-bezier(.16,1,.3,1) forwards;
+    }
+    .hero .scroll-hint{
+      position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
+      display:flex;flex-direction:column;align-items:center;gap:8px;
+      opacity:0;animation:rise .9s 1.2s cubic-bezier(.16,1,.3,1) forwards;
+    }
+    .scroll-hint span{
+      font-family:var(--mono);font-size:.5rem;text-transform:uppercase;
+      letter-spacing:.25em;color:var(--dim);
+    }
+    .scroll-hint .line{
+      width:1px;height:32px;background:linear-gradient(to bottom,var(--dim),transparent);
+      animation:pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse{0%,100%{opacity:.3}50%{opacity:.8}}
+    @keyframes rise{
+      from{opacity:0;transform:translateY(28px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+
+    /* ── form ── */
+    .form-group{display:flex;flex-direction:column;gap:10px}
+    .form-group input{
+      width:100%;padding:16px 20px;
+      background:rgba(15,15,36,.6);
+      border:1px solid rgba(123,104,238,.1);border-radius:14px;
+      color:var(--moon);font-family:var(--sans);font-size:.9rem;
+      outline:none;transition:all .3s;
+    }
+    .form-group input::placeholder{color:var(--dim)}
+    .form-group input:focus{
+      border-color:rgba(123,104,238,.35);
+      box-shadow:0 0 0 4px rgba(123,104,238,.08);
+    }
+    .form-group button{
+      width:100%;padding:16px;
+      background:var(--gold);color:var(--night);border:none;border-radius:14px;
+      font-family:var(--sans);font-size:.85rem;font-weight:700;
+      letter-spacing:.04em;cursor:pointer;transition:all .3s;
+    }
+    .form-group button:hover{
+      background:#f2d45c;
+      box-shadow:0 6px 28px rgba(232,197,71,.25);
+      transform:translateY(-1px);
+    }
+    .form-group button:active{transform:translateY(0)}
+    .form-note{
+      text-align:center;margin-top:12px;
+      font-size:.65rem;color:var(--dim);letter-spacing:.02em;
+    }
+    .form-success{
+      display:none;text-align:center;padding:20px 0;
+      font-family:var(--serif);font-size:1.1rem;
+      color:var(--gold);font-style:italic;
+    }
+    .fw.done .form-group{display:none}
+    .fw.done .form-note{display:none}
+    .fw.done .form-success{display:block}
+
+    @media(min-width:481px){
+      .form-group{flex-direction:row}
+      .form-group input{flex:1}
+      .form-group button{width:auto;padding:16px 28px;white-space:nowrap}
+    }
+
+    /* ── divider ── */
+    .divider{
+      width:40px;height:1px;margin:0 auto;
+      background:linear-gradient(90deg,transparent,var(--violet),transparent);
+      opacity:.4;
+    }
+
+    /* ── sections ── */
+    .sect{padding:100px 28px}
+    .sect-inner{max-width:1080px;margin:0 auto}
+    .sect-header{text-align:center;margin-bottom:56px}
+    .sect-label{
+      font-family:var(--mono);font-size:.55rem;font-weight:700;
+      text-transform:uppercase;letter-spacing:.3em;color:var(--violet);
+      margin-bottom:14px;
+    }
+    .sect-title{
+      font-family:var(--serif);font-size:clamp(2rem,6vw,3.2rem);
+      font-weight:700;letter-spacing:-.03em;line-height:1.08;
+    }
+    .sect-sub{color:var(--muted);margin-top:12px;font-size:.9rem}
+
+    /* ── signs ── */
+    .signs{
+      display:grid;grid-template-columns:repeat(2,1fr);
+      gap:12px;
+    }
+    .sign{
+      position:relative;
+      background:var(--night-card);
+      border:1px solid rgba(123,104,238,.06);
+      border-radius:18px;
+      padding:28px 12px 22px;text-align:center;
+      text-decoration:none;color:var(--moon);
+      display:flex;flex-direction:column;align-items:center;gap:8px;
+      transition:all .35s cubic-bezier(.16,1,.3,1);
+      overflow:hidden;
+    }
+    .sign::before{
+      content:'';position:absolute;inset:-1px;border-radius:18px;
+      background:conic-gradient(from var(--angle,0deg),transparent 40%,rgba(123,104,238,.2) 50%,transparent 60%);
+      opacity:0;transition:opacity .4s;z-index:0;
+      animation:rotate 8s linear infinite;
+    }
+    @property --angle{syntax:'<angle>';initial-value:0deg;inherits:false}
+    @keyframes rotate{to{--angle:360deg}}
+    .sign::after{
+      content:'';position:absolute;inset:1px;border-radius:17px;
+      background:var(--night-card);z-index:0;
+    }
+    .sign>*{position:relative;z-index:1}
+    .sign:hover::before,.sign:active::before{opacity:1}
+    .sign:hover,.sign:active{
+      transform:translateY(-3px) scale(1.01);
+      box-shadow:0 12px 40px rgba(123,104,238,.1);
+    }
+    .sign.now{border-color:rgba(232,197,71,.2)}
+    .sign.now::after{background:linear-gradient(160deg,var(--night-card) 60%,rgba(232,197,71,.03))}
+    .sign-now-tag{
+      display:none;position:absolute;top:10px;right:10px;z-index:2;
+      font-family:var(--mono);font-size:.45rem;font-weight:700;
+      text-transform:uppercase;letter-spacing:.15em;
+      background:rgba(232,197,71,.12);color:var(--gold);
+      padding:3px 8px;border-radius:8px;
+    }
+    .sign.now .sign-now-tag{display:block}
+    .sign-glyph{font-size:2.2rem;line-height:1}
+    .sign-name{font-family:var(--serif);font-size:1rem;font-weight:600}
+    .sign-date{font-family:var(--mono);font-size:.55rem;color:var(--muted);letter-spacing:.04em}
+
+    @media(min-width:481px){.signs{grid-template-columns:repeat(3,1fr);gap:14px}}
+    @media(min-width:769px){.signs{grid-template-columns:repeat(4,1fr);gap:16px}.sign{padding:32px 16px 26px}}
+    @media(min-width:1024px){.signs{grid-template-columns:repeat(6,1fr)}}
+
+    /* ── explore ── */
+    .explore{display:grid;grid-template-columns:1fr;gap:16px}
+    .ex-card{
+      background:var(--night-card);
+      border:1px solid rgba(123,104,238,.06);
+      border-radius:22px;padding:36px 28px;
+      position:relative;overflow:hidden;
+      transition:all .35s cubic-bezier(.16,1,.3,1);
+    }
+    .ex-card::before{
+      content:'';position:absolute;top:-40px;right:-40px;
+      width:180px;height:180px;border-radius:50%;
+      filter:blur(70px);opacity:0;transition:opacity .5s;
+      pointer-events:none;
+    }
+    .ex-card:nth-child(1)::before{background:rgba(123,104,238,.12)}
+    .ex-card:nth-child(2)::before{background:rgba(232,141,181,.1)}
+    .ex-card:nth-child(3)::before{background:rgba(232,197,71,.08)}
+    .ex-card:hover::before{opacity:1}
+    .ex-card:hover{
+      border-color:rgba(123,104,238,.15);
+      transform:translateY(-2px);
+    }
+    .ex-tag{
+      font-family:var(--mono);font-size:.55rem;font-weight:700;
+      text-transform:uppercase;letter-spacing:.2em;
+      margin-bottom:16px;
+    }
+    .ex-card:nth-child(1) .ex-tag{color:var(--violet)}
+    .ex-card:nth-child(2) .ex-tag{color:var(--pink)}
+    .ex-card:nth-child(3) .ex-tag{color:var(--gold)}
+    .ex-card h3{
+      font-family:var(--serif);font-size:1.4rem;font-weight:600;
+      line-height:1.2;margin-bottom:12px;letter-spacing:-.01em;
+    }
+    .ex-card p{color:var(--muted);font-size:.88rem;line-height:1.7}
+
+    @media(min-width:769px){.explore{grid-template-columns:repeat(3,1fr);gap:20px}}
+
+    /* ── bottom cta ── */
+    .cta-sect{
+      text-align:center;padding:100px 28px 120px;
+    }
+    .cta-sect h2{
+      font-family:var(--serif);font-size:clamp(2rem,6vw,3rem);
+      font-weight:700;letter-spacing:-.02em;margin-bottom:14px;
+    }
+    .cta-sect .cta-sub{
+      color:var(--muted);margin-bottom:40px;font-size:.9rem;
+      max-width:420px;margin-left:auto;margin-right:auto;line-height:1.7;
+    }
+    .cta-sect .hero-form{margin:0 auto;animation:none;opacity:1}
+
+    /* ── footer ── */
+    footer{
+      text-align:center;padding:28px;
+      border-top:1px solid rgba(123,104,238,.04);
+    }
+    .foot-links{display:flex;justify-content:center;gap:28px;margin-bottom:14px}
+    .foot-links a{
+      font-family:var(--mono);font-size:.55rem;font-weight:400;
+      color:var(--dim);text-decoration:none;text-transform:uppercase;
+      letter-spacing:.18em;transition:color .2s;
+    }
+    .foot-links a:hover{color:var(--violet)}
+    .foot-copy{font-size:.6rem;color:#333348;letter-spacing:.02em}
+
+    /* ── scroll reveal ── */
+    .rv{opacity:0;transform:translateY(32px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+    .rv.in{opacity:1;transform:translateY(0)}
+    .rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}
   </style>
 </head>
 <body>
 
-<div class="stars" aria-hidden="true">
-  <div class="layer layer-1"></div>
-  <div class="layer layer-2"></div>
-</div>
+<div class="sky" id="sky" aria-hidden="true"></div>
 
 <div class="page">
-  <nav>
+
+  <nav class="nav" id="nav">
     <div class="nav-inner">
-      <a href="/" class="nav-brand">sign season<span class="star"> ✦</span></a>
+      <a href="/" class="nav-brand">sign season <b>✦</b></a>
       <div class="nav-links">
         <a href="#signs">Signs</a>
         <a href="#explore">Explore</a>
@@ -642,215 +345,234 @@
 
   <section class="hero">
     <div class="hero-label">✨ your daily cosmic update</div>
-    <h1>It's always<br>somebody's <em>season.</em></h1>
+    <h1 class="hero-h1">
+      <span class="line">It's always</span>
+      <span class="line">somebody's</span>
+      <span class="line"><span class="gold">season.</span></span>
+    </h1>
     <p class="hero-sub">The horoscopes, compatibility deep-dives, and crystal recs your group chat has been missing.</p>
-    <div class="hero-form-wrap">
-      <div class="form-wrap" id="hero-form-wrap">
-        <form class="email-form" id="hero-form">
-          <input type="email" name="email" placeholder="your@email.com" required autocomplete="email">
+    <div class="hero-form">
+      <div class="fw" id="fw1">
+        <form class="form-group" id="f1">
+          <input type="email" placeholder="your@email.com" required autocomplete="email">
           <button type="submit">Get Your Horoscope</button>
         </form>
         <p class="form-note">Free weekly horoscope. No spam. Just the stars.</p>
-        <div class="email-success">✨ You're in. Check your inbox.</div>
+        <div class="form-success">✨ You're in. Check your inbox.</div>
       </div>
+    </div>
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="line"></div>
     </div>
   </section>
 
-  <section id="signs">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-label">The Zodiac</div>
-        <h2 class="section-title">Choose your sign.</h2>
-        <p class="section-sub">Or don't. We already know which one you clicked first.</p>
-      </div>
+  <div class="divider"></div>
 
-      <div class="signs-grid reveal">
-        <a href="/signs/aries" class="sign-card current-season">
-          <span class="sign-badge">now</span>
-          <span class="sign-symbol">♈</span>
+  <section class="sect" id="signs">
+    <div class="sect-inner">
+      <div class="sect-header rv">
+        <div class="sect-label">The Zodiac</div>
+        <h2 class="sect-title">Choose your sign.</h2>
+        <p class="sect-sub">Or don't. We already know which one you clicked first.</p>
+      </div>
+      <div class="signs rv rv-d1" id="signs-grid">
+        <a href="/signs/aries" class="sign" data-sign="aries">
+          <span class="sign-now-tag">now</span>
+          <span class="sign-glyph">♈</span>
           <span class="sign-name">Aries</span>
-          <span class="sign-dates">Mar 21 – Apr 19</span>
+          <span class="sign-date">Mar 21 – Apr 19</span>
         </a>
-        <a href="/signs/taurus" class="sign-card">
-          <span class="sign-badge">now</span>
-          <span class="sign-symbol">♉</span>
+        <a href="/signs/taurus" class="sign" data-sign="taurus">
+          <span class="sign-now-tag">now</span>
+          <span class="sign-glyph">♉</span>
           <span class="sign-name">Taurus</span>
-          <span class="sign-dates">Apr 20 – May 20</span>
+          <span class="sign-date">Apr 20 – May 20</span>
         </a>
-        <a href="/signs/gemini" class="sign-card">
-          <span class="sign-badge">now</span>
-          <span class="sign-symbol">♊</span>
+        <a href="/signs/gemini" class="sign" data-sign="gemini">
+          <span class="sign-now-tag">now</span>
+          <span class="sign-glyph">♊</span>
           <span class="sign-name">Gemini</span>
-          <span class="sign-dates">May 21 – Jun 20</span>
+          <span class="sign-date">May 21 – Jun 20</span>
         </a>
-        <a href="/signs/cancer" class="sign-card">
-          <span class="sign-badge">now</span>
-          <span class="sign-symbol">♋</span>
+        <a href="/signs/cancer" class="sign" data-sign="cancer">
+          <span class="sign-now-tag">now</span>
+          <span class="sign-glyph">♋</span>
           <span class="sign-name">Cancer</span>
-          <span class="sign-dates">Jun 21 – Jul 22</span>
+          <span class="sign-date">Jun 21 – Jul 22</span>
         </a>
-        <a href="/signs/leo" class="sign-card">
-          <span class="sign-badge">now</span>
-          <span class="sign-symbol">♌</span>
+        <a href="/signs/leo" class="sign" data-sign="leo">
+          <span class="sign-now-tag">now</span>
+          <span class="sign-glyph">♌</span>
           <span class="sign-name">Leo</span>
-          <span class="sign-dates">Jul 23 – Aug 22</span>
+          <span class="sign-date">Jul 23 – Aug 22</span>
         </a>
-        <a href="/signs/virgo" class="sign-card">
-          <span class="sign-badge">now</span>
-          <span class="sign-symbol">♍</span>
+        <a href="/signs/virgo" class="sign" data-sign="virgo">
+          <span class="sign-now-tag">now</span>
+          <span class="sign-glyph">♍</span>
           <span class="sign-name">Virgo</span>
-          <span class="sign-dates">Aug 23 – Sep 22</span>
+          <span class="sign-date">Aug 23 – Sep 22</span>
         </a>
-        <a href="/signs/libra" class="sign-card">
-          <span class="sign-badge">now</span>
-          <span class="sign-symbol">♎</span>
+        <a href="/signs/libra" class="sign" data-sign="libra">
+          <span class="sign-now-tag">now</span>
+          <span class="sign-glyph">♎</span>
           <span class="sign-name">Libra</span>
-          <span class="sign-dates">Sep 23 – Oct 22</span>
+          <span class="sign-date">Sep 23 – Oct 22</span>
         </a>
-        <a href="/signs/scorpio" class="sign-card">
-          <span class="sign-badge">now</span>
-          <span class="sign-symbol">♏</span>
+        <a href="/signs/scorpio" class="sign" data-sign="scorpio">
+          <span class="sign-now-tag">now</span>
+          <span class="sign-glyph">♏</span>
           <span class="sign-name">Scorpio</span>
-          <span class="sign-dates">Oct 23 – Nov 21</span>
+          <span class="sign-date">Oct 23 – Nov 21</span>
         </a>
-        <a href="/signs/sagittarius" class="sign-card">
-          <span class="sign-badge">now</span>
-          <span class="sign-symbol">♐</span>
+        <a href="/signs/sagittarius" class="sign" data-sign="sagittarius">
+          <span class="sign-now-tag">now</span>
+          <span class="sign-glyph">♐</span>
           <span class="sign-name">Sagittarius</span>
-          <span class="sign-dates">Nov 22 – Dec 21</span>
+          <span class="sign-date">Nov 22 – Dec 21</span>
         </a>
-        <a href="/signs/capricorn" class="sign-card">
-          <span class="sign-badge">now</span>
-          <span class="sign-symbol">♑</span>
+        <a href="/signs/capricorn" class="sign" data-sign="capricorn">
+          <span class="sign-now-tag">now</span>
+          <span class="sign-glyph">♑</span>
           <span class="sign-name">Capricorn</span>
-          <span class="sign-dates">Dec 22 – Jan 19</span>
+          <span class="sign-date">Dec 22 – Jan 19</span>
         </a>
-        <a href="/signs/aquarius" class="sign-card">
-          <span class="sign-badge">now</span>
-          <span class="sign-symbol">♒</span>
+        <a href="/signs/aquarius" class="sign" data-sign="aquarius">
+          <span class="sign-now-tag">now</span>
+          <span class="sign-glyph">♒</span>
           <span class="sign-name">Aquarius</span>
-          <span class="sign-dates">Jan 20 – Feb 18</span>
+          <span class="sign-date">Jan 20 – Feb 18</span>
         </a>
-        <a href="/signs/pisces" class="sign-card">
-          <span class="sign-badge">now</span>
-          <span class="sign-symbol">♓</span>
+        <a href="/signs/pisces" class="sign" data-sign="pisces">
+          <span class="sign-now-tag">now</span>
+          <span class="sign-glyph">♓</span>
           <span class="sign-name">Pisces</span>
-          <span class="sign-dates">Feb 19 – Mar 20</span>
+          <span class="sign-date">Feb 19 – Mar 20</span>
         </a>
       </div>
     </div>
   </section>
 
-  <section id="explore">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-label">Go Deeper</div>
-        <h2 class="section-title">The stuff you actually<br>want to read about.</h2>
-      </div>
+  <div class="divider"></div>
 
-      <div class="explore-grid">
-        <div class="explore-card reveal">
-          <div class="explore-tag">Compatibility</div>
+  <section class="sect" id="explore">
+    <div class="sect-inner">
+      <div class="sect-header rv">
+        <div class="sect-label">Go Deeper</div>
+        <h2 class="sect-title">The stuff you actually<br>want to read about.</h2>
+      </div>
+      <div class="explore">
+        <div class="ex-card rv rv-d1">
+          <div class="ex-tag">Compatibility</div>
           <h3>Who should you actually date?</h3>
           <p>Sun sign chemistry is just the start. Moon signs, Venus placements, and why that Gemini keeps texting you back at 2am.</p>
         </div>
-        <div class="explore-card reveal">
-          <div class="explore-tag">Crystals + Rituals</div>
+        <div class="ex-card rv rv-d2">
+          <div class="ex-tag">Crystals + Rituals</div>
           <h3>Stones that match your chart.</h3>
-          <p>Not generic crystal content. The specific stones that align with your placements, and what to actually do with them once you buy them.</p>
+          <p>Not generic crystal content. The specific stones that align with your placements, and what to actually do with them.</p>
         </div>
-        <div class="explore-card reveal">
-          <div class="explore-tag">Weekly Horoscope</div>
+        <div class="ex-card rv rv-d3">
+          <div class="ex-tag">Weekly Horoscope</div>
           <h3>Your week, cosmically speaking.</h3>
-          <p>Skip the vague "today is a good day for love" energy. Specific, occasionally uncomfortable, and weirdly accurate.</p>
+          <p>Skip the vague today-is-a-good-day-for-love energy. Specific, occasionally uncomfortable, and weirdly accurate.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="subscribe" class="bottom-cta">
-    <div class="container">
-      <div class="reveal">
-        <h2>The stars have notes.</h2>
-        <p class="cta-sub">Weekly horoscope, crystal recs, and the cosmic updates your group chat needs. Free forever.</p>
-        <div class="hero-form-wrap">
-          <div class="form-wrap" id="bottom-form-wrap">
-            <form class="email-form" id="bottom-form">
-              <input type="email" name="email" placeholder="your@email.com" required autocomplete="email">
-              <button type="submit">Subscribe Free</button>
-            </form>
-            <div class="email-success">✨ You're in. Welcome to the season.</div>
-          </div>
+  <div class="divider"></div>
+
+  <section class="cta-sect" id="subscribe">
+    <div class="rv">
+      <h2>The stars have notes.</h2>
+      <p class="cta-sub">Weekly horoscope, crystal recs, and the cosmic updates your group chat needs. Free forever.</p>
+      <div class="hero-form" style="opacity:1;animation:none">
+        <div class="fw" id="fw2">
+          <form class="form-group" id="f2">
+            <input type="email" placeholder="your@email.com" required autocomplete="email">
+            <button type="submit">Subscribe Free</button>
+          </form>
+          <div class="form-success">✨ Welcome to the season.</div>
         </div>
       </div>
     </div>
   </section>
 
   <footer>
-    <div class="footer-links">
+    <div class="foot-links">
       <a href="https://tiktok.com/@signseason" target="_blank" rel="noopener">TikTok</a>
       <a href="https://instagram.com/signseason" target="_blank" rel="noopener">Instagram</a>
       <a href="https://pinterest.com/signseason" target="_blank" rel="noopener">Pinterest</a>
     </div>
-    <p class="footer-copy">&copy; 2026 Sign Season. It's always somebody's season.</p>
+    <p class="foot-copy">&copy; 2026 Sign Season</p>
   </footer>
+
 </div>
 
 <script>
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  reveals.forEach(el => observer.observe(el));
+// ── star field ──
+(function(){
+  const sky=document.getElementById('sky');
+  const count=window.innerWidth<600?60:120;
+  for(let i=0;i<count;i++){
+    const s=document.createElement('i');
+    const r=Math.random();
+    s.className=r<.5?'s1':r<.85?'s2':'s3';
+    s.style.left=Math.random()*100+'%';
+    s.style.top=Math.random()*100+'%';
+    s.style.animationDelay=Math.random()*6+'s';
+    sky.appendChild(s);
+  }
+})();
 
-  // Highlight current zodiac season
-  const signs = [
-    { name: 'aries', start: [3, 21], end: [4, 19] },
-    { name: 'taurus', start: [4, 20], end: [5, 20] },
-    { name: 'gemini', start: [5, 21], end: [6, 20] },
-    { name: 'cancer', start: [6, 21], end: [7, 22] },
-    { name: 'leo', start: [7, 23], end: [8, 22] },
-    { name: 'virgo', start: [8, 23], end: [9, 22] },
-    { name: 'libra', start: [9, 23], end: [10, 22] },
-    { name: 'scorpio', start: [10, 23], end: [11, 21] },
-    { name: 'sagittarius', start: [11, 22], end: [12, 21] },
-    { name: 'capricorn', start: [12, 22], end: [1, 19] },
-    { name: 'aquarius', start: [1, 20], end: [2, 18] },
-    { name: 'pisces', start: [2, 19], end: [3, 20] }
-  ];
-  const now = new Date();
-  const m = now.getMonth() + 1, d = now.getDate();
-  const cards = document.querySelectorAll('.sign-card');
-  cards.forEach(c => c.classList.remove('current-season'));
-  signs.forEach((s, i) => {
-    let inSeason = false;
-    if (s.name === 'capricorn') {
-      inSeason = (m === 12 && d >= 22) || (m === 1 && d <= 19);
-    } else {
-      inSeason = (m === s.start[0] && d >= s.start[1]) || (m === s.end[0] && d <= s.end[1]);
-    }
-    if (inSeason) cards[i].classList.add('current-season');
-  });
+// ── nav reveal on scroll ──
+const nav=document.getElementById('nav');
+let lastY=0;
+const heroH=window.innerHeight;
+window.addEventListener('scroll',()=>{
+  const y=window.scrollY;
+  if(y>heroH*.6)nav.classList.add('visible');
+  else nav.classList.remove('visible');
+  lastY=y;
+},{passive:true});
 
-  // Email form handling
-  document.querySelectorAll('.email-form').forEach(form => {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const email = form.querySelector('input[type="email"]').value;
-      if (!email) return;
-      const stored = JSON.parse(localStorage.getItem('ss_signups') || '[]');
-      stored.push({ email, ts: new Date().toISOString() });
-      localStorage.setItem('ss_signups', JSON.stringify(stored));
-      form.closest('.form-wrap').classList.add('submitted');
-    });
+// ── scroll reveal ──
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}
   });
+},{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+// ── current sign ──
+const signDates=[
+  ['aries',[3,21],[4,19]],['taurus',[4,20],[5,20]],['gemini',[5,21],[6,20]],
+  ['cancer',[6,21],[7,22]],['leo',[7,23],[8,22]],['virgo',[8,23],[9,22]],
+  ['libra',[9,23],[10,22]],['scorpio',[10,23],[11,21]],['sagittarius',[11,22],[12,21]],
+  ['capricorn',[12,22],[1,19]],['aquarius',[1,20],[2,18]],['pisces',[2,19],[3,20]]
+];
+const now=new Date(),mo=now.getMonth()+1,dy=now.getDate();
+signDates.forEach(([name,s,e])=>{
+  let hit=name==='capricorn'
+    ?(mo===12&&dy>=22)||(mo===1&&dy<=19)
+    :(mo===s[0]&&dy>=s[1])||(mo===e[0]&&dy<=e[1]);
+  if(hit){
+    const el=document.querySelector(`[data-sign="${name}"]`);
+    if(el)el.classList.add('now');
+  }
+});
+
+// ── forms ──
+document.querySelectorAll('.form-group').forEach(f=>{
+  f.addEventListener('submit',e=>{
+    e.preventDefault();
+    const em=f.querySelector('input').value;if(!em)return;
+    const d=JSON.parse(localStorage.getItem('ss_emails')||'[]');
+    d.push({email:em,t:Date.now()});localStorage.setItem('ss_emails',JSON.stringify(d));
+    f.closest('.fw').classList.add('done');
+  });
+});
 </script>
-
 </body>
 </html>
