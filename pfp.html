@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0}
 body{
@@ -9,58 +8,54 @@ body{
   display:flex;align-items:center;justify-content:center;
   position:relative;overflow:hidden;
 }
-/* subtle ring */
-.ring{
-  position:absolute;
-  width:680px;height:680px;
-  border-radius:50%;
-  border:1px solid rgba(123,104,238,.15);
-}
-.ring-2{
-  width:780px;height:780px;
-  border-color:rgba(123,104,238,.07);
-}
-/* radial glow */
-.glow{
-  position:absolute;
-  width:500px;height:500px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(123,104,238,.12) 0%,transparent 70%);
-}
-/* the mark */
-.mark{
-  position:relative;z-index:1;
-  display:flex;flex-direction:column;align-items:center;
-  gap:12px;
-}
-.mark .ss{
-  font-family:'Playfair Display',serif;
-  font-weight:700;font-size:280px;
-  color:#F0EEFF;letter-spacing:-.08em;
-  line-height:.85;
-}
-.mark .dot{
-  width:8px;height:8px;border-radius:50%;
-  background:#E8C547;
-  box-shadow:0 0 20px rgba(232,197,71,.4),0 0 60px rgba(232,197,71,.15);
-}
-.mark .wordmark{
-  font-family:'Playfair Display',serif;
-  font-style:italic;font-weight:500;
-  font-size:48px;color:rgba(240,238,255,.35);
-  letter-spacing:.15em;text-transform:lowercase;
-  margin-top:8px;
-}
+svg{width:720px;height:720px}
 </style>
 </head>
 <body>
-  <div class="glow"></div>
-  <div class="ring"></div>
-  <div class="ring ring-2"></div>
-  <div class="mark">
-    <div class="ss">ss</div>
-    <div class="dot"></div>
-    <div class="wordmark">sign season</div>
-  </div>
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- outer glow -->
+  <defs>
+    <radialGradient id="bg-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7B68EE" stop-opacity=".08"/>
+      <stop offset="100%" stop-color="#0D0D1A" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="gold-glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <circle cx="100" cy="100" r="99" fill="url(#bg-glow)"/>
+
+  <!-- crescent moon -->
+  <g transform="translate(100,100)">
+    <!-- moon body -->
+    <circle cx="0" cy="0" r="52" fill="#F0EEFF" opacity=".95"/>
+    <!-- moon shadow (creates crescent) -->
+    <circle cx="22" cy="-14" r="44" fill="#0D0D1A"/>
+  </g>
+
+  <!-- orbital ring -->
+  <ellipse cx="100" cy="100" rx="72" ry="72" fill="none" stroke="#7B68EE" stroke-width=".5" opacity=".25"/>
+
+  <!-- three stars along the orbit -->
+  <g filter="url(#gold-glow)">
+    <!-- large star top right -->
+    <g transform="translate(155,48)">
+      <line x1="0" y1="-8" x2="0" y2="8" stroke="#E8C547" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="-8" y1="0" x2="8" y2="0" stroke="#E8C547" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="-5" y1="-5" x2="5" y2="5" stroke="#E8C547" stroke-width="1" stroke-linecap="round"/>
+      <line x1="5" y1="-5" x2="-5" y2="5" stroke="#E8C547" stroke-width="1" stroke-linecap="round"/>
+    </g>
+    <!-- small star bottom left -->
+    <g transform="translate(38,148)">
+      <line x1="0" y1="-5" x2="0" y2="5" stroke="#E8C547" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="-5" y1="0" x2="5" y2="0" stroke="#E8C547" stroke-width="1.2" stroke-linecap="round"/>
+    </g>
+    <!-- tiny star left -->
+    <g transform="translate(30,72)">
+      <circle cx="0" cy="0" r="1.5" fill="#E8C547"/>
+    </g>
+  </g>
+</svg>
 </body>
 </html>
