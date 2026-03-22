@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Season — It's Always Somebody's Season</title>
+  <meta name="description" content="Daily horoscopes, zodiac compatibility, crystal guides, and cosmic chaos. Your astrology-obsessed best friend, in website form.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/style/tokens.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Stars background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.4), transparent),
+        radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 50% 10%, rgba(255,255,255,0.5), transparent),
+        radial-gradient(1px 1px at 70% 40%, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 90% 80%, rgba(255,255,255,0.4), transparent),
+        radial-gradient(1px 1px at 15% 85%, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 45% 45%, rgba(255,255,255,0.2), transparent),
+        radial-gradient(1px 1px at 80% 15%, rgba(255,255,255,0.4), transparent),
+        radial-gradient(2px 2px at 25% 35%, rgba(232,197,71,0.3), transparent),
+        radial-gradient(2px 2px at 65% 70%, rgba(123,104,238,0.3), transparent);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    a { color: var(--color-link); text-decoration: none; transition: color var(--transition-fast); }
+    a:hover { color: var(--color-link-hover); }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Nav */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-lg) 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .nav-brand {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 600;
+      color: var(--color-text);
+      letter-spacing: -0.02em;
+    }
+
+    .nav-brand span { color: var(--color-celestial-gold); }
+
+    .nav-links { display: flex; gap: var(--space-lg); align-items: center; }
+    .nav-links a { font-size: var(--text-sm); color: var(--color-text-muted); font-weight: 500; }
+    .nav-links a:hover { color: var(--color-text); }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: var(--space-4xl) 0 var(--space-3xl);
+      max-width: var(--max-width-content);
+      margin: 0 auto;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-cosmic-violet);
+      margin-bottom: var(--space-lg);
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(var(--text-4xl), 8vw, var(--text-5xl));
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: var(--space-lg);
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--color-celestial-gold);
+    }
+
+    .hero p {
+      font-size: var(--text-lg);
+      color: var(--color-text-muted);
+      max-width: var(--max-width-narrow);
+      margin: 0 auto var(--space-2xl);
+      line-height: 1.7;
+    }
+
+    /* Email capture */
+    .email-form {
+      display: flex;
+      gap: var(--space-sm);
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    .email-form input[type="email"] {
+      flex: 1;
+      padding: var(--space-md) var(--space-lg);
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      outline: none;
+      transition: border-color var(--transition-fast);
+    }
+
+    .email-form input[type="email"]::placeholder { color: var(--color-text-muted); }
+    .email-form input[type="email"]:focus { border-color: var(--color-cosmic-violet); }
+
+    .email-form button {
+      padding: var(--space-md) var(--space-xl);
+      background: var(--color-cta);
+      color: var(--color-void);
+      border: none;
+      border-radius: var(--radius-lg);
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      font-weight: 600;
+      cursor: pointer;
+      transition: background var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .email-form button:hover { background: var(--color-cta-hover); }
+
+    .email-note {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-top: var(--space-md);
+    }
+
+    /* Sign Grid */
+    .section-title {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: var(--space-sm);
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-2xl);
+    }
+
+    .signs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: var(--space-md);
+      padding: var(--space-3xl) 0;
+    }
+
+    .sign-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl) var(--space-lg);
+      text-align: center;
+      transition: all var(--transition-base);
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+    }
+
+    .sign-card:hover {
+      border-color: var(--color-cosmic-violet);
+      box-shadow: var(--shadow-glow);
+      transform: translateY(-2px);
+    }
+
+    .sign-card .sign-symbol {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-sm);
+      display: block;
+    }
+
+    .sign-card .sign-name {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--color-text);
+      display: block;
+      margin-bottom: var(--space-xs);
+    }
+
+    .sign-card .sign-dates {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+    }
+
+    /* Content preview section */
+    .content-section {
+      padding: var(--space-3xl) 0;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--space-xl);
+    }
+
+    .content-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      transition: all var(--transition-base);
+    }
+
+    .content-card:hover {
+      border-color: var(--color-cosmic-violet);
+    }
+
+    .content-card .card-tag {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-cosmic-violet);
+      margin-bottom: var(--space-md);
+    }
+
+    .content-card h3 {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 600;
+      margin-bottom: var(--space-sm);
+      line-height: 1.3;
+    }
+
+    .content-card p {
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+      line-height: 1.6;
+    }
+
+    /* Bottom CTA */
+    .bottom-cta {
+      text-align: center;
+      padding: var(--space-4xl) 0;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .bottom-cta h2 {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      font-weight: 700;
+      margin-bottom: var(--space-md);
+    }
+
+    .bottom-cta p {
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-xl);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: var(--space-xl) 0;
+      border-top: 1px solid var(--color-border);
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+    }
+
+    footer a { color: var(--color-text-muted); }
+    footer a:hover { color: var(--color-text); }
+    .footer-links { display: flex; justify-content: center; gap: var(--space-lg); margin-bottom: var(--space-md); }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      .email-form { flex-direction: column; }
+      .email-form button { width: 100%; }
+      .signs-grid { grid-template-columns: repeat(3, 1fr); }
+      .content-grid { grid-template-columns: 1fr; }
+      .nav-links { gap: var(--space-md); }
+    }
+
+    /* Success state for form */
+    .email-success {
+      display: none;
+      text-align: center;
+      color: var(--color-celestial-gold);
+      font-weight: 500;
+    }
+
+    .email-form.submitted { display: none; }
+    .email-form.submitted + .email-success { display: block; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="/" class="nav-brand">sign season <span>✦</span></a>
+      <div class="nav-links">
+        <a href="#signs">Signs</a>
+        <a href="#explore">Explore</a>
+        <a href="#subscribe">Subscribe</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-tagline">✨ Your daily cosmic update</div>
+      <h1>It's always somebody's <em>season.</em></h1>
+      <p>Horoscopes, compatibility, crystal guides, and the kind of astrology content you screenshot and send to your group chat.</p>
+
+      <form class="email-form" id="email-form">
+        <input type="email" name="email" placeholder="your@email.com" required>
+        <button type="submit">Get Your Horoscope</button>
+      </form>
+      <div class="email-success">✨ You're in. Check your inbox for the stars.</div>
+      <p class="email-note">Free weekly horoscope. No spam. Unsubscribe anytime.</p>
+    </section>
+
+    <section id="signs">
+      <h2 class="section-title">Choose Your Sign</h2>
+      <p class="section-subtitle">Or don't. We already know which one you clicked first.</p>
+
+      <div class="signs-grid">
+        <a href="/signs/aries" class="sign-card">
+          <span class="sign-symbol">♈</span>
+          <span class="sign-name">Aries</span>
+          <span class="sign-dates">Mar 21 – Apr 19</span>
+        </a>
+        <a href="/signs/taurus" class="sign-card">
+          <span class="sign-symbol">♉</span>
+          <span class="sign-name">Taurus</span>
+          <span class="sign-dates">Apr 20 – May 20</span>
+        </a>
+        <a href="/signs/gemini" class="sign-card">
+          <span class="sign-symbol">♊</span>
+          <span class="sign-name">Gemini</span>
+          <span class="sign-dates">May 21 – Jun 20</span>
+        </a>
+        <a href="/signs/cancer" class="sign-card">
+          <span class="sign-symbol">♋</span>
+          <span class="sign-name">Cancer</span>
+          <span class="sign-dates">Jun 21 – Jul 22</span>
+        </a>
+        <a href="/signs/leo" class="sign-card">
+          <span class="sign-symbol">♌</span>
+          <span class="sign-name">Leo</span>
+          <span class="sign-dates">Jul 23 – Aug 22</span>
+        </a>
+        <a href="/signs/virgo" class="sign-card">
+          <span class="sign-symbol">♍</span>
+          <span class="sign-name">Virgo</span>
+          <span class="sign-dates">Aug 23 – Sep 22</span>
+        </a>
+        <a href="/signs/libra" class="sign-card">
+          <span class="sign-symbol">♎</span>
+          <span class="sign-name">Libra</span>
+          <span class="sign-dates">Sep 23 – Oct 22</span>
+        </a>
+        <a href="/signs/scorpio" class="sign-card">
+          <span class="sign-symbol">♏</span>
+          <span class="sign-name">Scorpio</span>
+          <span class="sign-dates">Oct 23 – Nov 21</span>
+        </a>
+        <a href="/signs/sagittarius" class="sign-card">
+          <span class="sign-symbol">♐</span>
+          <span class="sign-name">Sagittarius</span>
+          <span class="sign-dates">Nov 22 – Dec 21</span>
+        </a>
+        <a href="/signs/capricorn" class="sign-card">
+          <span class="sign-symbol">♑</span>
+          <span class="sign-name">Capricorn</span>
+          <span class="sign-dates">Dec 22 – Jan 19</span>
+        </a>
+        <a href="/signs/aquarius" class="sign-card">
+          <span class="sign-symbol">♒</span>
+          <span class="sign-name">Aquarius</span>
+          <span class="sign-dates">Jan 20 – Feb 18</span>
+        </a>
+        <a href="/signs/pisces" class="sign-card">
+          <span class="sign-symbol">♓</span>
+          <span class="sign-name">Pisces</span>
+          <span class="sign-dates">Feb 19 – Mar 20</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="explore" class="content-section">
+      <h2 class="section-title">Explore</h2>
+      <p class="section-subtitle">The stuff you actually want to read about.</p>
+
+      <div class="content-grid">
+        <div class="content-card">
+          <div class="card-tag">Compatibility</div>
+          <h3>Who should you actually date?</h3>
+          <p>Sun sign compatibility is just the start. We go deeper: moon signs, Venus placements, and why that Gemini keeps texting you back.</p>
+        </div>
+        <div class="content-card">
+          <div class="card-tag">Crystals</div>
+          <h3>Crystals for every sign</h3>
+          <p>The stones that match your energy. Not just "amethyst is pretty." Which crystals actually align with your chart, and what to do with them.</p>
+        </div>
+        <div class="content-card">
+          <div class="card-tag">Weekly Horoscope</div>
+          <h3>Your week in the stars</h3>
+          <p>Not the vague "today is a good day for love" kind. Specific, actionable, and occasionally uncomfortably accurate.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="subscribe" class="bottom-cta">
+      <h2>The stars have notes.</h2>
+      <p>Get your free weekly horoscope, crystal recs, and the cosmic updates your group chat needs.</p>
+      <form class="email-form" id="email-form-bottom">
+        <input type="email" name="email" placeholder="your@email.com" required>
+        <button type="submit">Subscribe Free</button>
+      </form>
+      <div class="email-success">✨ You're in. Check your inbox for the stars.</div>
+    </section>
+
+    <footer>
+      <div class="footer-links">
+        <a href="https://tiktok.com/@signseason" target="_blank">TikTok</a>
+        <a href="https://instagram.com/signseason" target="_blank">Instagram</a>
+        <a href="https://pinterest.com/signseason" target="_blank">Pinterest</a>
+      </div>
+      <p>&copy; 2026 Sign Season. It's always somebody's season.</p>
+    </footer>
+  </div>
+
+  <script>
+    document.querySelectorAll('.email-form').forEach(form => {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = form.querySelector('input[type="email"]').value;
+        if (!email) return;
+
+        // TODO: Connect to Resend API endpoint
+        // For now, store in localStorage as backup
+        const signups = JSON.parse(localStorage.getItem('signseason_signups') || '[]');
+        signups.push({ email, timestamp: new Date().toISOString() });
+        localStorage.setItem('signseason_signups', JSON.stringify(signups));
+
+        form.classList.add('submitted');
+      });
+    });
+  </script>
+</body>
+</html>
