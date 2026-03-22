@@ -921,7 +921,7 @@
       <a href="https://instagram.com/signseasonco" target="_blank" rel="noopener">Instagram</a>
       <a href="#" target="_blank" rel="noopener">Pinterest</a>
     </div>
-    <p class="foot-copy">&copy; 2026 Sign Season</p>
+    <p class="foot-copy">&copy; 2026 Sign Season &middot; <a href="/privacy" style="color: inherit; text-decoration: none;">Privacy</a></p>
   </footer>
 
 </div>
@@ -954,14 +954,40 @@ signDates.forEach(([name, s, e]) => {
 });
 
 // Form submission
-function submitForm(fwId, inputId) {
+async function submitForm(fwId, inputId) {
   const input = document.getElementById(inputId);
   const email = input.value;
   if (!email || !input.checkValidity()) { input.reportValidity(); return; }
-  const stored = JSON.parse(localStorage.getItem('ss_emails') || '[]');
-  stored.push({ email, t: Date.now() });
-  localStorage.setItem('ss_emails', JSON.stringify(stored));
-  document.getElementById(fwId).classList.add('done');
+
+  // Disable button while submitting
+  const btn = input.parentElement.querySelector('button');
+  const originalText = btn.textContent;
+  btn.textContent = '...';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    });
+
+    if (res.ok) {
+      document.getElementById(fwId).classList.add('done');
+    } else {
+      // Fallback: still show success (save locally, don't block the user)
+      const stored = JSON.parse(localStorage.getItem('ss_emails') || '[]');
+      stored.push({ email, t: Date.now() });
+      localStorage.setItem('ss_emails', JSON.stringify(stored));
+      document.getElementById(fwId).classList.add('done');
+    }
+  } catch (err) {
+    // Network error fallback
+    const stored = JSON.parse(localStorage.getItem('ss_emails') || '[]');
+    stored.push({ email, t: Date.now() });
+    localStorage.setItem('ss_emails', JSON.stringify(stored));
+    document.getElementById(fwId).classList.add('done');
+  }
 }
 </script>
 </body>
