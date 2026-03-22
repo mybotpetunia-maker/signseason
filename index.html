@@ -3,345 +3,747 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Season</title>
-  <meta name="description" content="It's always somebody's season. Horoscopes, compatibility, crystals, and the cosmic content your group chat needs.">
+  <title>Sign Season — It's Always Somebody's Season</title>
+  <meta name="description" content="Horoscopes, compatibility, crystals, and the cosmic content your group chat needs. It's always somebody's season.">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <meta name="theme-color" content="#0D0D1A">
+  <meta name="theme-color" content="#110B20">
   <meta property="og:title" content="Sign Season">
-  <meta property="og:description" content="It's always somebody's season. Horoscopes, compatibility, crystals, and cosmic content you'll screenshot.">
+  <meta property="og:description" content="Horoscopes, compatibility, crystals, and cosmic content you'll screenshot.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://signseason.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    :root{
-      --night:#0D0D1A;--night-up:#111128;--night-card:#0C0C1E;
-      --violet:#7B68EE;--gold:#E8C547;--pink:#E88DB5;
-      --moon:#F0EEFF;--muted:#7A7A9E;--dim:#44445E;
-      --serif:'Playfair Display',Georgia,serif;
-      --sans:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
-      --mono:'Space Mono','Courier New',monospace;
-    }
-    body{
-      background:var(--night);color:var(--moon);
-      font-family:var(--sans);-webkit-font-smoothing:antialiased;
-      overflow-x:hidden;font-size:16px;line-height:1.6;
-    }
-    ::selection{background:rgba(123,104,238,.3)}
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-    /* ── stars ── */
-    .sky{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-    .sky i{position:absolute;border-radius:50%;background:#fff}
-    .sky .s1{width:1px;height:1px;opacity:.35;animation:twinkle 4s ease-in-out infinite}
-    .sky .s2{width:1.5px;height:1.5px;opacity:.2;animation:twinkle 6s ease-in-out infinite 1s}
-    .sky .s3{width:2px;height:2px;opacity:.15;background:var(--gold);animation:twinkle 5s ease-in-out infinite 2s}
-    @keyframes twinkle{0%,100%{opacity:.15}50%{opacity:.6}}
+    :root {
+      /* Cosmos — deep aubergine-violet surface */
+      --cosmos: #110B20;
+      --cosmos-mid: #1A1232;
+      --cosmos-lift: #231A40;
+      --cosmos-edge: #2E2350;
 
-    .page{position:relative;z-index:1}
+      /* Parchment — warm cream paper */
+      --parchment: #F0E8D8;
+      --parchment-dim: #D8CDBA;
+      --parchment-dark: #B8A88E;
 
-    /* ── nav ── */
-    .nav{
-      position:fixed;top:0;left:0;right:0;z-index:100;
-      padding:18px 28px;
-      background:rgba(13,13,26,.0);backdrop-filter:blur(0px);
-      -webkit-backdrop-filter:blur(0px);
-      border-bottom:1px solid transparent;
-      transition:all .5s cubic-bezier(.16,1,.3,1);
-      transform:translateY(-100%);opacity:0;
-    }
-    .nav.visible{
-      transform:translateY(0);opacity:1;
-      background:rgba(13,13,26,.88);
-      backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
-      border-bottom-color:rgba(123,104,238,.06);
-    }
-    .nav-inner{max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
-    .nav-brand{
-      font-family:var(--serif);font-size:1.1rem;font-weight:600;
-      color:var(--moon);text-decoration:none;letter-spacing:-.02em;
-    }
-    .nav-brand b{color:var(--gold);font-weight:600}
-    .nav-links{display:flex;gap:20px}
-    .nav-links a{
-      font-family:var(--mono);font-size:.6rem;font-weight:400;
-      color:var(--muted);text-decoration:none;text-transform:uppercase;
-      letter-spacing:.18em;transition:color .2s;
-    }
-    .nav-links a:hover{color:var(--moon)}
+      /* Ink — text on parchment */
+      --ink: #1A1232;
+      --ink-soft: #3D3455;
 
-    /* ── hero ── */
-    .hero{
-      min-height:100svh;display:flex;flex-direction:column;
-      justify-content:center;align-items:center;text-align:center;
-      padding:0 28px;position:relative;
-    }
-    .hero-label{
-      font-family:var(--mono);font-size:.55rem;font-weight:700;
-      text-transform:uppercase;letter-spacing:.35em;
-      color:var(--violet);margin-bottom:36px;
-      opacity:0;animation:rise .9s .3s cubic-bezier(.16,1,.3,1) forwards;
-    }
-    .hero-h1{
-      font-family:var(--serif);font-weight:800;
-      font-size:clamp(3rem,12vw,7.5rem);
-      line-height:.92;letter-spacing:-.04em;
-      margin-bottom:32px;
-      opacity:0;animation:rise .9s .5s cubic-bezier(.16,1,.3,1) forwards;
-    }
-    .hero-h1 .line{display:block}
-    .hero-h1 .gold{
-      font-style:italic;font-weight:500;color:var(--gold);
-      position:relative;
-    }
-    .hero-h1 .gold::after{
-      content:'';position:absolute;bottom:.08em;left:-.02em;right:-.02em;
-      height:1px;
-      background:linear-gradient(90deg,transparent,rgba(232,197,71,.5),transparent);
-    }
-    @keyframes shimmer{
-      0%{background-position:-200% center}
-      100%{background-position:200% center}
-    }
-    .hero-sub{
-      font-size:clamp(.9rem,2.5vw,1.15rem);
-      color:var(--muted);max-width:420px;line-height:1.75;
-      margin-bottom:48px;
-      opacity:0;animation:rise .9s .7s cubic-bezier(.16,1,.3,1) forwards;
-    }
-    .hero-form{
-      width:100%;max-width:400px;
-      opacity:0;animation:rise .9s .9s cubic-bezier(.16,1,.3,1) forwards;
-    }
-    .hero .scroll-hint{
-      position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
-      display:flex;flex-direction:column;align-items:center;gap:8px;
-      opacity:0;animation:rise .9s 1.2s cubic-bezier(.16,1,.3,1) forwards;
-    }
-    .scroll-hint span{
-      font-family:var(--mono);font-size:.5rem;text-transform:uppercase;
-      letter-spacing:.25em;color:var(--dim);
-    }
-    .scroll-hint .line{
-      width:1px;height:32px;background:linear-gradient(to bottom,var(--dim),transparent);
-      animation:pulse 2s ease-in-out infinite;
-    }
-    @keyframes pulse{0%,100%{opacity:.3}50%{opacity:.8}}
-    @keyframes rise{
-      from{opacity:0;transform:translateY(28px)}
-      to{opacity:1;transform:translateY(0)}
+      /* Lavender — text on cosmos */
+      --lavender: #D0C8E4;
+      --lavender-soft: #A89BC8;
+      --lavender-dim: #7A6E96;
+
+      /* Brass — accents */
+      --brass: #B89D4A;
+      --brass-dim: #8A7535;
+      --brass-glow: #D4B85C;
+
+      /* Type */
+      --serif: 'Cormorant Garamond', 'Garamond', serif;
+      --sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --mono: 'Space Mono', 'Courier New', monospace;
     }
 
-    /* ── form ── */
-    .form-group{display:flex;flex-direction:column;gap:10px}
-    .form-group input{
-      width:100%;padding:16px 20px;
-      background:rgba(15,15,36,.6);
-      border:1px solid rgba(123,104,238,.1);border-radius:14px;
-      color:var(--moon);font-family:var(--sans);font-size:.9rem;
-      outline:none;transition:all .3s;
+    body {
+      background: var(--cosmos);
+      color: var(--lavender);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
-    .form-group input::placeholder{color:var(--dim)}
-    .form-group input:focus{
-      border-color:rgba(123,104,238,.35);
-      box-shadow:0 0 0 4px rgba(123,104,238,.08);
-    }
-    .form-group button{
-      width:100%;padding:16px;
-      background:var(--gold);color:var(--night);border:none;border-radius:14px;
-      font-family:var(--sans);font-size:.85rem;font-weight:700;
-      letter-spacing:.04em;cursor:pointer;transition:all .3s;
-    }
-    .form-group button:hover{
-      background:#f2d45c;
-      box-shadow:0 6px 28px rgba(232,197,71,.25);
-      transform:translateY(-1px);
-    }
-    .form-group button:active{transform:translateY(0)}
-    .form-note{
-      text-align:center;margin-top:12px;
-      font-size:.65rem;color:var(--dim);letter-spacing:.02em;
-    }
-    .form-success{
-      display:none;text-align:center;padding:20px 0;
-      font-family:var(--serif);font-size:1.1rem;
-      color:var(--gold);font-style:italic;
-    }
-    .fw.done .form-group{display:none}
-    .fw.done .form-note{display:none}
-    .fw.done .form-success{display:block}
+    ::selection { background: rgba(184, 157, 74, 0.25); color: var(--parchment); }
 
-    @media(min-width:481px){
-      .form-group{flex-direction:row}
-      .form-group input{flex:1}
-      .form-group button{width:auto;padding:16px 28px;white-space:nowrap}
+    /* ─── Texture layers (fixed, behind everything) ─── */
+    .texture-base {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .texture-base::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('/assets/textures/velvet-noise.png');
+      background-repeat: repeat;
+      background-size: 400px 400px;
+      opacity: 0.5;
+    }
+    .texture-base::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 35%, rgba(35, 26, 64, 0.4) 0%, transparent 70%);
     }
 
-    /* ── divider ── */
-    .divider{
-      width:40px;height:1px;margin:0 auto;
-      background:linear-gradient(90deg,transparent,var(--violet),transparent);
-      opacity:.4;
+    .page { position: relative; z-index: 1; }
+
+    /* ─── Ornamental dividers ─── */
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 32px 0;
+    }
+    .ornament::before,
+    .ornament::after {
+      content: '';
+      width: 80px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--brass-dim), transparent);
+      opacity: 0.5;
+    }
+    .ornament-glyph {
+      font-size: 8px;
+      letter-spacing: 10px;
+      color: var(--brass-dim);
+      opacity: 0.6;
     }
 
-    /* ── sections ── */
-    .sect{padding:100px 28px}
-    .sect-inner{max-width:1080px;margin:0 auto}
-    .sect-header{text-align:center;margin-bottom:56px}
-    .sect-label{
-      font-family:var(--mono);font-size:.55rem;font-weight:700;
-      text-transform:uppercase;letter-spacing:.3em;color:var(--violet);
-      margin-bottom:14px;
+    /* ═══════════════════════════════════
+       NAV
+       ═══════════════════════════════════ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 16px 28px;
+      background: rgba(17, 11, 32, 0);
+      backdrop-filter: blur(0px);
+      -webkit-backdrop-filter: blur(0px);
+      border-bottom: 1px solid transparent;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(-100%);
+      opacity: 0;
     }
-    .sect-title{
-      font-family:var(--serif);font-size:clamp(2rem,6vw,3.2rem);
-      font-weight:700;letter-spacing:-.03em;line-height:1.08;
+    .nav.visible {
+      transform: translateY(0);
+      opacity: 1;
+      background: rgba(17, 11, 32, 0.88);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom-color: rgba(184, 157, 74, 0.06);
     }
-    .sect-sub{color:var(--muted);margin-top:12px;font-size:.9rem}
+    .nav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-brand {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--parchment);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-brand span { color: var(--brass); }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--lavender-dim);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.25s;
+    }
+    .nav-links a:hover { color: var(--parchment); }
 
-    /* ── signs ── */
-    .signs{
-      display:grid;grid-template-columns:repeat(2,1fr);
-      gap:12px;
+    /* ═══════════════════════════════════
+       HERO
+       ═══════════════════════════════════ */
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 80px 28px;
+      position: relative;
     }
-    .sign{
-      position:relative;
-      background:var(--night-card);
-      border:1px solid rgba(123,104,238,.06);
-      border-radius:18px;
-      padding:28px 12px 22px;text-align:center;
-      text-decoration:none;color:var(--moon);
-      display:flex;flex-direction:column;align-items:center;gap:8px;
-      transition:all .35s cubic-bezier(.16,1,.3,1);
-      overflow:hidden;
+    /* Vignette */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 20%, rgba(17, 11, 32, 0.5) 100%);
+      pointer-events: none;
     }
-    .sign::before{
-      content:'';position:absolute;inset:-1px;border-radius:18px;
-      background:conic-gradient(from var(--angle,0deg),transparent 40%,rgba(123,104,238,.2) 50%,transparent 60%);
-      opacity:0;transition:opacity .4s;z-index:0;
-      animation:rotate 8s linear infinite;
-    }
-    @property --angle{syntax:'<angle>';initial-value:0deg;inherits:false}
-    @keyframes rotate{to{--angle:360deg}}
-    .sign::after{
-      content:'';position:absolute;inset:1px;border-radius:17px;
-      background:var(--night-card);z-index:0;
-    }
-    .sign>*{position:relative;z-index:1}
-    .sign:hover::before,.sign:active::before{opacity:1}
-    .sign:hover,.sign:active{
-      transform:translateY(-3px) scale(1.01);
-      box-shadow:0 12px 40px rgba(123,104,238,.1);
-    }
-    .sign.now{border-color:rgba(232,197,71,.2)}
-    .sign.now::after{background:linear-gradient(160deg,var(--night-card) 60%,rgba(232,197,71,.03))}
-    .sign-now-tag{
-      display:none;position:absolute;top:10px;right:10px;z-index:2;
-      font-family:var(--mono);font-size:.45rem;font-weight:700;
-      text-transform:uppercase;letter-spacing:.15em;
-      background:rgba(232,197,71,.12);color:var(--gold);
-      padding:3px 8px;border-radius:8px;
-    }
-    .sign.now .sign-now-tag{display:block}
-    .sign-glyph{font-size:2.2rem;line-height:1}
-    .sign-name{font-family:var(--serif);font-size:1rem;font-weight:600}
-    .sign-date{font-family:var(--mono);font-size:.55rem;color:var(--muted);letter-spacing:.04em}
+    .hero > * { position: relative; z-index: 1; }
 
-    @media(min-width:481px){.signs{grid-template-columns:repeat(3,1fr);gap:14px}}
-    @media(min-width:769px){.signs{grid-template-columns:repeat(4,1fr);gap:16px}.sign{padding:32px 16px 26px}}
-    @media(min-width:1024px){.signs{grid-template-columns:repeat(6,1fr)}}
+    .hero-overline {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--brass);
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: rise 0.9s 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      font-weight: 300;
+      line-height: 0.95;
+      color: var(--parchment);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      opacity: 0;
+      animation: rise 0.9s 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .hero-title em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--brass-glow);
+    }
+    .hero-sub {
+      font-family: var(--serif);
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--lavender-dim);
+      max-width: 440px;
+      margin-bottom: 48px;
+      letter-spacing: 0.01em;
+      opacity: 0;
+      animation: rise 0.9s 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
 
-    /* ── explore ── */
-    .explore{display:grid;grid-template-columns:1fr;gap:16px}
-    .ex-card{
-      background:var(--night-card);
-      border:1px solid rgba(123,104,238,.06);
-      border-radius:22px;padding:36px 28px;
-      position:relative;overflow:hidden;
-      transition:all .35s cubic-bezier(.16,1,.3,1);
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    .ex-card::before{
-      content:'';position:absolute;top:-40px;right:-40px;
-      width:180px;height:180px;border-radius:50%;
-      filter:blur(70px);opacity:0;transition:opacity .5s;
-      pointer-events:none;
-    }
-    .ex-card:nth-child(1)::before{background:rgba(123,104,238,.12)}
-    .ex-card:nth-child(2)::before{background:rgba(232,141,181,.1)}
-    .ex-card:nth-child(3)::before{background:rgba(232,197,71,.08)}
-    .ex-card:hover::before{opacity:1}
-    .ex-card:hover{
-      border-color:rgba(123,104,238,.15);
-      transform:translateY(-2px);
-    }
-    .ex-tag{
-      font-family:var(--mono);font-size:.55rem;font-weight:700;
-      text-transform:uppercase;letter-spacing:.2em;
-      margin-bottom:16px;
-    }
-    .ex-card:nth-child(1) .ex-tag{color:var(--violet)}
-    .ex-card:nth-child(2) .ex-tag{color:var(--pink)}
-    .ex-card:nth-child(3) .ex-tag{color:var(--gold)}
-    .ex-card h3{
-      font-family:var(--serif);font-size:1.4rem;font-weight:600;
-      line-height:1.2;margin-bottom:12px;letter-spacing:-.01em;
-    }
-    .ex-card p{color:var(--muted);font-size:.88rem;line-height:1.7}
 
-    @media(min-width:769px){.explore{grid-template-columns:repeat(3,1fr);gap:20px}}
+    /* ─── Email capture ─── */
+    .email-block {
+      width: 100%;
+      max-width: 440px;
+      opacity: 0;
+      animation: rise 0.9s 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .email-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .email-input {
+      width: 100%;
+      padding: 16px 20px;
+      background: var(--parchment);
+      background-image: url('/assets/textures/paper-grain.png');
+      background-size: 400px 400px;
+      color: var(--ink);
+      border: 1px solid rgba(184, 157, 74, 0.2);
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      outline: none;
+      transition: all 0.3s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.15);
+    }
+    .email-input::placeholder { color: var(--parchment-dark); }
+    .email-input:focus {
+      border-color: var(--brass);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.15), 0 0 0 3px rgba(184, 157, 74, 0.12);
+    }
+    .email-btn {
+      width: 100%;
+      padding: 16px;
+      background: var(--brass);
+      color: var(--cosmos);
+      border: none;
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .email-btn:hover {
+      background: var(--brass-glow);
+      box-shadow: 0 4px 20px rgba(184, 157, 74, 0.2);
+      transform: translateY(-1px);
+    }
+    .email-note {
+      text-align: center;
+      margin-top: 12px;
+      font-size: 0.7rem;
+      color: var(--lavender-dim);
+      letter-spacing: 0.02em;
+    }
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 20px 0;
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--brass-glow);
+    }
+    .fw.done .email-row { display: none; }
+    .fw.done .email-note { display: none; }
+    .fw.done .form-success { display: block; }
 
-    /* ── bottom cta ── */
-    .cta-sect{
-      text-align:center;padding:100px 28px 120px;
+    @media (min-width: 481px) {
+      .email-row { flex-direction: row; gap: 0; }
+      .email-input {
+        border-radius: 4px 0 0 4px;
+        border-right: none;
+      }
+      .email-btn {
+        width: auto;
+        padding: 16px 28px;
+        border-radius: 0 4px 4px 0;
+        white-space: nowrap;
+      }
     }
-    .cta-sect h2{
-      font-family:var(--serif);font-size:clamp(2rem,6vw,3rem);
-      font-weight:700;letter-spacing:-.02em;margin-bottom:14px;
-    }
-    .cta-sect .cta-sub{
-      color:var(--muted);margin-bottom:40px;font-size:.9rem;
-      max-width:420px;margin-left:auto;margin-right:auto;line-height:1.7;
-    }
-    .cta-sect .hero-form{margin:0 auto;animation:none;opacity:1}
 
-    /* ── footer ── */
-    footer{
-      text-align:center;padding:28px;
-      border-top:1px solid rgba(123,104,238,.04);
+    /* Scroll hint */
+    .scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: rise 0.9s 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
-    .foot-links{display:flex;justify-content:center;gap:28px;margin-bottom:14px}
-    .foot-links a{
-      font-family:var(--mono);font-size:.55rem;font-weight:400;
-      color:var(--dim);text-decoration:none;text-transform:uppercase;
-      letter-spacing:.18em;transition:color .2s;
+    .scroll-hint span {
+      font-family: var(--mono);
+      font-size: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--lavender-dim);
+      opacity: 0.5;
     }
-    .foot-links a:hover{color:var(--violet)}
-    .foot-copy{font-size:.6rem;color:#333348;letter-spacing:.02em}
+    .scroll-hint .scroll-line {
+      width: 1px;
+      height: 28px;
+      background: linear-gradient(to bottom, var(--lavender-dim), transparent);
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%, 100% { opacity: 0.2; } 50% { opacity: 0.7; } }
 
-    /* sections just visible, no animation risk */
+    /* ═══════════════════════════════════
+       SECTIONS — shared
+       ═══════════════════════════════════ */
+    .sect {
+      padding: 100px 28px;
+    }
+    .sect-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .sect-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .sect-overline {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--brass);
+      margin-bottom: 14px;
+    }
+    .sect-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 400;
+      color: var(--parchment);
+      line-height: 1.1;
+    }
+    .sect-sub {
+      font-size: 0.9rem;
+      color: var(--lavender-dim);
+      margin-top: 10px;
+    }
 
-    /* fix muted text contrast for mobile */
-    @media(max-width:480px){
-      .sect-sub,.ex-card p,.form-note,.hero-sub{color:#9999B8}
-      .form-note{font-size:.72rem}
-      .hero-label,.sect-label{font-size:.6rem}
-      .foot-links a{color:#7777A0}
-      .foot-copy{color:#555570}
-      .form-group input{border-color:rgba(123,104,238,.2)}
+    /* ═══════════════════════════════════
+       ZODIAC GRID — parchment cards
+       ═══════════════════════════════════ */
+    .zodiac-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    @media (min-width: 481px) { .zodiac-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; } }
+    @media (min-width: 769px) { .zodiac-grid { grid-template-columns: repeat(4, 1fr); gap: 18px; } }
+    @media (min-width: 1024px) { .zodiac-grid { grid-template-columns: repeat(6, 1fr); } }
+
+    .zodiac-card {
+      background: var(--parchment);
+      background-image: url('/assets/textures/paper-grain.png');
+      background-size: 400px 400px;
+      border-radius: 6px;
+      padding: 28px 14px 22px;
+      text-align: center;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow:
+        0 1px 2px rgba(0,0,0,0.12),
+        0 4px 12px rgba(0,0,0,0.10),
+        0 12px 36px rgba(0,0,0,0.08);
+    }
+    /* Subtle inner border */
+    .zodiac-card::before {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      border-radius: 4px;
+      border: 1px solid rgba(184, 157, 74, 0.08);
+      pointer-events: none;
+    }
+    /* Outer gilded edge */
+    .zodiac-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 6px;
+      border: 1px solid rgba(184, 157, 74, 0.12);
+      pointer-events: none;
+    }
+    .zodiac-card:hover {
+      transform: translateY(-4px) rotate(-0.5deg);
+      box-shadow:
+        0 2px 4px rgba(0,0,0,0.12),
+        0 8px 24px rgba(0,0,0,0.12),
+        0 20px 48px rgba(0,0,0,0.10);
+    }
+    .zodiac-card:hover::after {
+      border-color: rgba(184, 157, 74, 0.25);
+    }
+
+    /* Current season highlight */
+    .zodiac-card.now {
+      box-shadow:
+        0 1px 2px rgba(0,0,0,0.12),
+        0 4px 12px rgba(0,0,0,0.10),
+        0 12px 36px rgba(0,0,0,0.08),
+        0 0 0 2px var(--brass);
+    }
+    .zodiac-card.now .zc-now {
+      display: block;
+    }
+
+    .zc-now {
+      display: none;
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      font-family: var(--mono);
+      font-size: 0.45rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      background: rgba(184, 157, 74, 0.15);
+      color: var(--brass-dim);
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+
+    .zc-glyph {
+      font-size: 2rem;
+      color: var(--ink);
+      opacity: 0.6;
+      line-height: 1;
+    }
+    .zc-name {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .zc-dates {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      color: var(--parchment-dark);
+      letter-spacing: 0.04em;
+    }
+
+    /* ═══════════════════════════════════
+       EXPLORE SECTION — darker surface
+       ═══════════════════════════════════ */
+    .sect-dark {
+      background: var(--cosmos-mid);
+      position: relative;
+      border-top: 1px solid rgba(46, 35, 80, 0.4);
+      border-bottom: 1px solid rgba(46, 35, 80, 0.4);
+    }
+    .sect-dark::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('/assets/textures/noise-grain.png');
+      background-size: 400px 400px;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+    .sect-dark > * { position: relative; z-index: 1; }
+
+    .explore-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 769px) { .explore-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
+
+    .explore-card {
+      background: rgba(35, 26, 64, 0.5);
+      border: 1px solid rgba(46, 35, 80, 0.5);
+      border-radius: 6px;
+      padding: 36px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.35s ease;
+      backdrop-filter: blur(4px);
+    }
+    .explore-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(184, 157, 74, 0.15), transparent);
+    }
+    .explore-card:hover {
+      border-color: rgba(184, 157, 74, 0.15);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+    }
+    .ec-tag {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--brass);
+      margin-bottom: 16px;
+    }
+    .ec-title {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--parchment);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+    .ec-body {
+      font-size: 0.88rem;
+      color: var(--lavender-soft);
+      line-height: 1.65;
+    }
+
+    /* ═══════════════════════════════════
+       BOTTOM CTA — parchment card on velvet
+       ═══════════════════════════════════ */
+    .cta-sect {
+      padding: 120px 28px;
+      display: flex;
+      justify-content: center;
+    }
+    .cta-card {
+      background: var(--parchment);
+      background-image: url('/assets/textures/paper-grain.png');
+      background-size: 400px 400px;
+      border-radius: 6px;
+      padding: 56px 40px;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      transform: rotate(-1deg);
+      box-shadow:
+        0 2px 4px rgba(0,0,0,0.12),
+        0 6px 16px rgba(0,0,0,0.12),
+        0 16px 48px rgba(0,0,0,0.12),
+        0 32px 80px rgba(0,0,0,0.10);
+    }
+    .cta-card::before {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border-radius: 4px;
+      border: 1px solid rgba(184, 157, 74, 0.08);
+      pointer-events: none;
+    }
+    .cta-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 6px;
+      border: 1px solid rgba(184, 157, 74, 0.12);
+      pointer-events: none;
+    }
+    .cta-overline {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--brass-dim);
+      margin-bottom: 20px;
+    }
+    .cta-title {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .cta-sub {
+      font-size: 0.88rem;
+      color: #6B5F50;
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+    .cta-email-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .cta-email-input {
+      width: 100%;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.5);
+      color: var(--ink);
+      border: 1px solid rgba(184, 157, 74, 0.2);
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      outline: none;
+      transition: all 0.3s;
+    }
+    .cta-email-input::placeholder { color: var(--parchment-dark); }
+    .cta-email-input:focus {
+      border-color: var(--brass);
+      box-shadow: 0 0 0 3px rgba(184, 157, 74, 0.1);
+    }
+    .cta-email-btn {
+      width: 100%;
+      padding: 14px;
+      background: var(--ink);
+      color: var(--parchment);
+      border: none;
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .cta-email-btn:hover {
+      background: var(--cosmos-lift);
+    }
+    .cta-form-success {
+      display: none;
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--brass-dim);
+    }
+    .fw.done .cta-email-row { display: none; }
+    .fw.done .cta-form-success { display: block; }
+
+    @media (min-width: 481px) {
+      .cta-email-row { flex-direction: row; gap: 0; }
+      .cta-email-input { border-radius: 4px 0 0 4px; border-right: none; }
+      .cta-email-btn { width: auto; padding: 14px 24px; border-radius: 0 4px 4px 0; white-space: nowrap; }
+    }
+
+    /* ═══════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════ */
+    footer {
+      text-align: center;
+      padding: 40px 28px;
+      border-top: 1px solid rgba(46, 35, 80, 0.3);
+    }
+    .foot-brand {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--lavender-dim);
+      margin-bottom: 14px;
+    }
+    .foot-brand span { color: var(--brass-dim); }
+    .foot-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 14px;
+    }
+    .foot-links a {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 500;
+      color: var(--lavender-dim);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      transition: color 0.25s;
+    }
+    .foot-links a:hover { color: var(--brass); }
+    .foot-copy {
+      font-size: 0.6rem;
+      color: var(--cosmos-edge);
+    }
+
+    /* ─── Mobile fixes ─── */
+    @media (max-width: 480px) {
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 0.6rem; letter-spacing: 0.06em; }
+      .zodiac-card { padding: 22px 10px 18px; }
+      .zc-glyph { font-size: 1.6rem; }
+      .zc-name { font-size: 0.9rem; }
+      .cta-card { padding: 40px 24px; transform: rotate(0deg); }
     }
   </style>
 </head>
 <body>
 
-<div class="sky" id="sky" aria-hidden="true"></div>
+<!-- Texture layer -->
+<div class="texture-base" aria-hidden="true"></div>
 
 <div class="page">
 
+  <!-- NAV -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
-      <a href="/" class="nav-brand">sign season <b>✦</b></a>
+      <a href="/" class="nav-brand">sign season <span>✦</span></a>
       <div class="nav-links">
         <a href="#signs">Signs</a>
         <a href="#explore">Explore</a>
@@ -350,167 +752,174 @@
     </div>
   </nav>
 
+  <!-- HERO -->
   <section class="hero">
-    <div class="hero-label">✨ your daily cosmic update</div>
-    <h1 class="hero-h1">
-      <span class="line">It's always</span>
-      <span class="line">somebody's</span>
-      <span class="line"><span class="gold">season.</span></span>
+    <div class="hero-overline">Your Daily Cosmic Update</div>
+    <h1 class="hero-title">
+      It's always<br>
+      somebody's<br>
+      <em>season.</em>
     </h1>
-    <p class="hero-sub">The horoscopes, compatibility deep-dives, and crystal recs your group chat has been missing.</p>
-    <div class="hero-form">
+    <p class="hero-sub">The stars have notes, and they're not holding back.</p>
+    <div class="email-block">
       <div class="fw" id="fw1">
-        <form class="form-group" id="f1">
-          <input type="email" placeholder="your@email.com" required autocomplete="email">
-          <button type="submit">Get Your Horoscope</button>
-        </form>
-        <p class="form-note">Free weekly horoscope. No spam. Just the stars.</p>
+        <div class="email-row">
+          <input type="email" class="email-input" placeholder="your@email.com" required autocomplete="email" id="email1">
+          <button type="button" class="email-btn" onclick="submitForm('fw1','email1')">Get Your Horoscope</button>
+        </div>
+        <p class="email-note">Free weekly horoscope. No spam. Just the stars.</p>
         <div class="form-success">✨ You're in. Check your inbox.</div>
       </div>
     </div>
     <div class="scroll-hint">
       <span>Scroll</span>
-      <div class="line"></div>
+      <div class="scroll-line"></div>
     </div>
   </section>
 
-  <div class="divider"></div>
+  <div class="ornament"><span class="ornament-glyph">✦ ✦ ✦</span></div>
 
+  <!-- ZODIAC GRID -->
   <section class="sect" id="signs">
     <div class="sect-inner">
-      <div class="sect-header rv">
-        <div class="sect-label">The Zodiac</div>
+      <div class="sect-header">
+        <div class="sect-overline">The Zodiac</div>
         <h2 class="sect-title">Choose your sign.</h2>
         <p class="sect-sub">Or don't. We already know which one you clicked first.</p>
       </div>
-      <div class="signs rv rv-d1" id="signs-grid">
-        <a href="/signs/aries" class="sign" data-sign="aries">
-          <span class="sign-now-tag">now</span>
-          <span class="sign-glyph">♈</span>
-          <span class="sign-name">Aries</span>
-          <span class="sign-date">Mar 21 – Apr 19</span>
+      <div class="zodiac-grid" id="zodiac-grid">
+        <a href="/signs/aries" class="zodiac-card" data-sign="aries">
+          <span class="zc-now">now</span>
+          <span class="zc-glyph">♈</span>
+          <span class="zc-name">Aries</span>
+          <span class="zc-dates">Mar 21 – Apr 19</span>
         </a>
-        <a href="/signs/taurus" class="sign" data-sign="taurus">
-          <span class="sign-now-tag">now</span>
-          <span class="sign-glyph">♉</span>
-          <span class="sign-name">Taurus</span>
-          <span class="sign-date">Apr 20 – May 20</span>
+        <a href="/signs/taurus" class="zodiac-card" data-sign="taurus">
+          <span class="zc-now">now</span>
+          <span class="zc-glyph">♉</span>
+          <span class="zc-name">Taurus</span>
+          <span class="zc-dates">Apr 20 – May 20</span>
         </a>
-        <a href="/signs/gemini" class="sign" data-sign="gemini">
-          <span class="sign-now-tag">now</span>
-          <span class="sign-glyph">♊</span>
-          <span class="sign-name">Gemini</span>
-          <span class="sign-date">May 21 – Jun 20</span>
+        <a href="/signs/gemini" class="zodiac-card" data-sign="gemini">
+          <span class="zc-now">now</span>
+          <span class="zc-glyph">♊</span>
+          <span class="zc-name">Gemini</span>
+          <span class="zc-dates">May 21 – Jun 20</span>
         </a>
-        <a href="/signs/cancer" class="sign" data-sign="cancer">
-          <span class="sign-now-tag">now</span>
-          <span class="sign-glyph">♋</span>
-          <span class="sign-name">Cancer</span>
-          <span class="sign-date">Jun 21 – Jul 22</span>
+        <a href="/signs/cancer" class="zodiac-card" data-sign="cancer">
+          <span class="zc-now">now</span>
+          <span class="zc-glyph">♋</span>
+          <span class="zc-name">Cancer</span>
+          <span class="zc-dates">Jun 21 – Jul 22</span>
         </a>
-        <a href="/signs/leo" class="sign" data-sign="leo">
-          <span class="sign-now-tag">now</span>
-          <span class="sign-glyph">♌</span>
-          <span class="sign-name">Leo</span>
-          <span class="sign-date">Jul 23 – Aug 22</span>
+        <a href="/signs/leo" class="zodiac-card" data-sign="leo">
+          <span class="zc-now">now</span>
+          <span class="zc-glyph">♌</span>
+          <span class="zc-name">Leo</span>
+          <span class="zc-dates">Jul 23 – Aug 22</span>
         </a>
-        <a href="/signs/virgo" class="sign" data-sign="virgo">
-          <span class="sign-now-tag">now</span>
-          <span class="sign-glyph">♍</span>
-          <span class="sign-name">Virgo</span>
-          <span class="sign-date">Aug 23 – Sep 22</span>
+        <a href="/signs/virgo" class="zodiac-card" data-sign="virgo">
+          <span class="zc-now">now</span>
+          <span class="zc-glyph">♍</span>
+          <span class="zc-name">Virgo</span>
+          <span class="zc-dates">Aug 23 – Sep 22</span>
         </a>
-        <a href="/signs/libra" class="sign" data-sign="libra">
-          <span class="sign-now-tag">now</span>
-          <span class="sign-glyph">♎</span>
-          <span class="sign-name">Libra</span>
-          <span class="sign-date">Sep 23 – Oct 22</span>
+        <a href="/signs/libra" class="zodiac-card" data-sign="libra">
+          <span class="zc-now">now</span>
+          <span class="zc-glyph">♎</span>
+          <span class="zc-name">Libra</span>
+          <span class="zc-dates">Sep 23 – Oct 22</span>
         </a>
-        <a href="/signs/scorpio" class="sign" data-sign="scorpio">
-          <span class="sign-now-tag">now</span>
-          <span class="sign-glyph">♏</span>
-          <span class="sign-name">Scorpio</span>
-          <span class="sign-date">Oct 23 – Nov 21</span>
+        <a href="/signs/scorpio" class="zodiac-card" data-sign="scorpio">
+          <span class="zc-now">now</span>
+          <span class="zc-glyph">♏</span>
+          <span class="zc-name">Scorpio</span>
+          <span class="zc-dates">Oct 23 – Nov 21</span>
         </a>
-        <a href="/signs/sagittarius" class="sign" data-sign="sagittarius">
-          <span class="sign-now-tag">now</span>
-          <span class="sign-glyph">♐</span>
-          <span class="sign-name">Sagittarius</span>
-          <span class="sign-date">Nov 22 – Dec 21</span>
+        <a href="/signs/sagittarius" class="zodiac-card" data-sign="sagittarius">
+          <span class="zc-now">now</span>
+          <span class="zc-glyph">♐</span>
+          <span class="zc-name">Sagittarius</span>
+          <span class="zc-dates">Nov 22 – Dec 21</span>
         </a>
-        <a href="/signs/capricorn" class="sign" data-sign="capricorn">
-          <span class="sign-now-tag">now</span>
-          <span class="sign-glyph">♑</span>
-          <span class="sign-name">Capricorn</span>
-          <span class="sign-date">Dec 22 – Jan 19</span>
+        <a href="/signs/capricorn" class="zodiac-card" data-sign="capricorn">
+          <span class="zc-now">now</span>
+          <span class="zc-glyph">♑</span>
+          <span class="zc-name">Capricorn</span>
+          <span class="zc-dates">Dec 22 – Jan 19</span>
         </a>
-        <a href="/signs/aquarius" class="sign" data-sign="aquarius">
-          <span class="sign-now-tag">now</span>
-          <span class="sign-glyph">♒</span>
-          <span class="sign-name">Aquarius</span>
-          <span class="sign-date">Jan 20 – Feb 18</span>
+        <a href="/signs/aquarius" class="zodiac-card" data-sign="aquarius">
+          <span class="zc-now">now</span>
+          <span class="zc-glyph">♒</span>
+          <span class="zc-name">Aquarius</span>
+          <span class="zc-dates">Jan 20 – Feb 18</span>
         </a>
-        <a href="/signs/pisces" class="sign" data-sign="pisces">
-          <span class="sign-now-tag">now</span>
-          <span class="sign-glyph">♓</span>
-          <span class="sign-name">Pisces</span>
-          <span class="sign-date">Feb 19 – Mar 20</span>
+        <a href="/signs/pisces" class="zodiac-card" data-sign="pisces">
+          <span class="zc-now">now</span>
+          <span class="zc-glyph">♓</span>
+          <span class="zc-name">Pisces</span>
+          <span class="zc-dates">Feb 19 – Mar 20</span>
         </a>
       </div>
     </div>
   </section>
 
-  <div class="divider"></div>
+  <div class="ornament"><span class="ornament-glyph">✦ ✦ ✦</span></div>
 
-  <section class="sect" id="explore">
-    <div class="sect-inner">
-      <div class="sect-header rv">
-        <div class="sect-label">Go Deeper</div>
-        <h2 class="sect-title">The stuff you actually<br>want to read about.</h2>
+  <!-- EXPLORE -->
+  <div class="sect-dark" id="explore">
+    <section class="sect">
+      <div class="sect-inner">
+        <div class="sect-header">
+          <div class="sect-overline">Go Deeper</div>
+          <h2 class="sect-title">The stuff you actually<br>want to read about.</h2>
+        </div>
+        <div class="explore-grid">
+          <div class="explore-card">
+            <div class="ec-tag">Compatibility</div>
+            <h3 class="ec-title">Who should you actually date?</h3>
+            <p class="ec-body">Sun sign chemistry is just the start. Moon signs, Venus placements, and why that Gemini keeps texting you back at 2am.</p>
+          </div>
+          <div class="explore-card">
+            <div class="ec-tag">Crystals + Rituals</div>
+            <h3 class="ec-title">Stones that match your chart.</h3>
+            <p class="ec-body">Not generic crystal content. The specific stones that align with your placements, and what to actually do with them.</p>
+          </div>
+          <div class="explore-card">
+            <div class="ec-tag">Weekly Horoscope</div>
+            <h3 class="ec-title">Your week, cosmically speaking.</h3>
+            <p class="ec-body">Skip the vague today-is-a-good-day-for-love energy. Specific, occasionally uncomfortable, and weirdly accurate.</p>
+          </div>
+        </div>
       </div>
-      <div class="explore">
-        <div class="ex-card rv rv-d1">
-          <div class="ex-tag">Compatibility</div>
-          <h3>Who should you actually date?</h3>
-          <p>Sun sign chemistry is just the start. Moon signs, Venus placements, and why that Gemini keeps texting you back at 2am.</p>
-        </div>
-        <div class="ex-card rv rv-d2">
-          <div class="ex-tag">Crystals + Rituals</div>
-          <h3>Stones that match your chart.</h3>
-          <p>Not generic crystal content. The specific stones that align with your placements, and what to actually do with them.</p>
-        </div>
-        <div class="ex-card rv rv-d3">
-          <div class="ex-tag">Weekly Horoscope</div>
-          <h3>Your week, cosmically speaking.</h3>
-          <p>Skip the vague today-is-a-good-day-for-love energy. Specific, occasionally uncomfortable, and weirdly accurate.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
+  </div>
 
-  <div class="divider"></div>
+  <div class="ornament"><span class="ornament-glyph">✦ ✦ ✦</span></div>
 
+  <!-- BOTTOM CTA — Parchment card on velvet -->
   <section class="cta-sect" id="subscribe">
-    <div class="rv">
-      <h2>The stars have notes.</h2>
-      <p class="cta-sub">Weekly horoscope, crystal recs, and the cosmic updates your group chat needs. Free forever.</p>
-      <div class="hero-form" style="opacity:1;animation:none">
-        <div class="fw" id="fw2">
-          <form class="form-group" id="f2">
-            <input type="email" placeholder="your@email.com" required autocomplete="email">
-            <button type="submit">Subscribe Free</button>
-          </form>
-          <div class="form-success">✨ Welcome to the season.</div>
+    <div class="cta-card">
+      <div class="cta-overline">Weekly Horoscope</div>
+      <h2 class="cta-title">The stars have notes.</h2>
+      <p class="cta-sub">Crystal recs, compatibility deep-dives, and the cosmic updates your group chat needs. Free forever.</p>
+      <div class="fw" id="fw2">
+        <div class="cta-email-row">
+          <input type="email" class="cta-email-input" placeholder="your@email.com" required autocomplete="email" id="email2">
+          <button type="button" class="cta-email-btn" onclick="submitForm('fw2','email2')">Subscribe Free</button>
         </div>
+        <div class="cta-form-success">✨ Welcome to the season.</div>
       </div>
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
+    <div class="foot-brand">sign season <span>✦</span></div>
     <div class="foot-links">
-      <a href="https://tiktok.com/@signseason" target="_blank" rel="noopener">TikTok</a>
-      <a href="https://instagram.com/signseason" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://pinterest.com/signseason" target="_blank" rel="noopener">Pinterest</a>
+      <a href="https://tiktok.com/@sign_season" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://instagram.com/signseasonco" target="_blank" rel="noopener">Instagram</a>
+      <a href="#" target="_blank" rel="noopener">Pinterest</a>
     </div>
     <p class="foot-copy">&copy; 2026 Sign Season</p>
   </footer>
@@ -518,62 +927,42 @@
 </div>
 
 <script>
-// ── star field ──
-(function(){
-  const sky=document.getElementById('sky');
-  const count=window.innerWidth<600?60:120;
-  for(let i=0;i<count;i++){
-    const s=document.createElement('i');
-    const r=Math.random();
-    s.className=r<.5?'s1':r<.85?'s2':'s3';
-    s.style.left=Math.random()*100+'%';
-    s.style.top=Math.random()*100+'%';
-    s.style.animationDelay=Math.random()*6+'s';
-    sky.appendChild(s);
-  }
-})();
-
-// ── nav reveal on scroll ──
-const nav=document.getElementById('nav');
-let lastY=0;
-const heroH=window.innerHeight;
-window.addEventListener('scroll',()=>{
-  const y=window.scrollY;
-  if(y>heroH*.6)nav.classList.add('visible');
+// Nav reveal on scroll
+const nav = document.getElementById('nav');
+const heroH = window.innerHeight;
+window.addEventListener('scroll', () => {
+  if (window.scrollY > heroH * 0.5) nav.classList.add('visible');
   else nav.classList.remove('visible');
-  lastY=y;
-},{passive:true});
+}, { passive: true });
 
-// scroll animations removed — content always visible
-
-// ── current sign ──
-const signDates=[
+// Current sign
+const signDates = [
   ['aries',[3,21],[4,19]],['taurus',[4,20],[5,20]],['gemini',[5,21],[6,20]],
   ['cancer',[6,21],[7,22]],['leo',[7,23],[8,22]],['virgo',[8,23],[9,22]],
   ['libra',[9,23],[10,22]],['scorpio',[10,23],[11,21]],['sagittarius',[11,22],[12,21]],
   ['capricorn',[12,22],[1,19]],['aquarius',[1,20],[2,18]],['pisces',[2,19],[3,20]]
 ];
-const now=new Date(),mo=now.getMonth()+1,dy=now.getDate();
-signDates.forEach(([name,s,e])=>{
-  let hit=name==='capricorn'
-    ?(mo===12&&dy>=22)||(mo===1&&dy<=19)
-    :(mo===s[0]&&dy>=s[1])||(mo===e[0]&&dy<=e[1]);
-  if(hit){
-    const el=document.querySelector(`[data-sign="${name}"]`);
-    if(el)el.classList.add('now');
+const now = new Date(), mo = now.getMonth() + 1, dy = now.getDate();
+signDates.forEach(([name, s, e]) => {
+  let hit = name === 'capricorn'
+    ? (mo === 12 && dy >= 22) || (mo === 1 && dy <= 19)
+    : (mo === s[0] && dy >= s[1]) || (mo === e[0] && dy <= e[1]);
+  if (hit) {
+    const el = document.querySelector(`[data-sign="${name}"]`);
+    if (el) el.classList.add('now');
   }
 });
 
-// ── forms ──
-document.querySelectorAll('.form-group').forEach(f=>{
-  f.addEventListener('submit',e=>{
-    e.preventDefault();
-    const em=f.querySelector('input').value;if(!em)return;
-    const d=JSON.parse(localStorage.getItem('ss_emails')||'[]');
-    d.push({email:em,t:Date.now()});localStorage.setItem('ss_emails',JSON.stringify(d));
-    f.closest('.fw').classList.add('done');
-  });
-});
+// Form submission
+function submitForm(fwId, inputId) {
+  const input = document.getElementById(inputId);
+  const email = input.value;
+  if (!email || !input.checkValidity()) { input.reportValidity(); return; }
+  const stored = JSON.parse(localStorage.getItem('ss_emails') || '[]');
+  stored.push({ email, t: Date.now() });
+  localStorage.setItem('ss_emails', JSON.stringify(stored));
+  document.getElementById(fwId).classList.add('done');
+}
 </script>
 </body>
 </html>

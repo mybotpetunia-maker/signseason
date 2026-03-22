@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Season — Design Preview V2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="text/css">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  /* ─── Palette ─── */
+  :root {
+    --cosmos: #110B20;
+    --cosmos-mid: #1A1232;
+    --cosmos-lift: #231A40;
+    --cosmos-edge: #2E2350;
+    --parchment: #F0E8D8;
+    --parchment-dim: #D8CDBA;
+    --parchment-dark: #B8A88E;
+    --ink: #1A1232;
+    --lavender: #C0B4DC;
+    --lavender-soft: #A89BC8;
+    --lavender-dim: #7A6E96;
+    --brass: #B89D4A;
+    --brass-dim: #8A7535;
+    --brass-glow: #D4B85C;
+  }
+
+  /* ─── Noise texture (inline SVG) ─── */
+  body {
+    background: var(--cosmos);
+    color: var(--lavender);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(35, 26, 64, 0.5) 0%, transparent 70%);
+  }
+
+  .page { position: relative; z-index: 1; }
+
+  /* ─── Serif options ─── */
+  .font-cormorant { font-family: 'Cormorant Garamond', 'Garamond', serif; }
+  .font-playfair { font-family: 'Playfair Display', Georgia, serif; }
+
+  /* ─── Ornamental dividers ─── */
+  .ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 48px 0;
+    color: var(--brass-dim);
+    opacity: 0.6;
+  }
+  .ornament::before,
+  .ornament::after {
+    content: '';
+    flex: 1;
+    max-width: 120px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--brass-dim), transparent);
+  }
+  .ornament-star {
+    font-size: 10px;
+    letter-spacing: 8px;
+  }
+
+  /* ═══════════════════════════════════════════
+     SECTION 1: HERO
+     ═══════════════════════════════════════════ */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 32px;
+    position: relative;
+  }
+  /* Subtle vignette */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 30%, rgba(17, 11, 32, 0.6) 100%);
+    pointer-events: none;
+  }
+  .hero > * { position: relative; z-index: 1; }
+
+  .hero-overline {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--brass);
+    margin-bottom: 40px;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    font-weight: 300;
+    line-height: 0.95;
+    color: var(--parchment);
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+  .hero-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--brass-glow);
+  }
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--lavender-dim);
+    margin-bottom: 48px;
+    letter-spacing: 0.02em;
+  }
+
+  /* Email capture — cream, impossible to miss */
+  .email-block {
+    width: 100%;
+    max-width: 440px;
+  }
+  .email-row {
+    display: flex;
+    gap: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow:
+      0 2px 8px rgba(0,0,0,0.3),
+      0 8px 32px rgba(0,0,0,0.2),
+      inset 0 1px 0 rgba(240, 232, 216, 0.1);
+  }
+  .email-input {
+    flex: 1;
+    padding: 14px 18px;
+    background: var(--parchment);
+    color: var(--ink);
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+  }
+  .email-input::placeholder { color: var(--parchment-dark); }
+  .email-input:focus { background: #F5EDD8; }
+  .email-btn {
+    padding: 14px 24px;
+    background: var(--brass);
+    color: var(--cosmos);
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.3s;
+  }
+  .email-btn:hover { background: var(--brass-glow); }
+  .email-note {
+    font-size: 0.7rem;
+    color: var(--lavender-dim);
+    margin-top: 12px;
+    letter-spacing: 0.02em;
+  }
+
+  /* ═══════════════════════════════════════════
+     SECTION 2: ZODIAC GRID
+     ═══════════════════════════════════════════ */
+  .section {
+    padding: 96px 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+  .section-overline {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--brass);
+    margin-bottom: 16px;
+  }
+  .section-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 400;
+    color: var(--parchment);
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+  .section-sub {
+    font-size: 0.9rem;
+    color: var(--lavender-dim);
+  }
+
+  /* ─── Zodiac Cards: Parchment style ─── */
+  .zodiac-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 768px) { .zodiac-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .zodiac-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
+
+  .zodiac-card {
+    background: var(--parchment);
+    border-radius: 6px;
+    padding: 32px 20px 24px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+    /* Paper texture via stacked shadows */
+    box-shadow:
+      0 1px 3px rgba(0,0,0,0.15),
+      0 4px 12px rgba(0,0,0,0.12),
+      0 12px 36px rgba(0,0,0,0.1);
+    /* Subtle paper grain */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)' opacity='0.025'/%3E%3C/svg%3E"),
+      linear-gradient(170deg, #F5EDD8 0%, var(--parchment) 40%, #E8DCCA 100%);
+  }
+  .zodiac-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 6px;
+    border: 1px solid rgba(184, 157, 74, 0.15);
+    pointer-events: none;
+  }
+  .zodiac-card:hover {
+    transform: translateY(-4px) rotate(-0.5deg);
+    box-shadow:
+      0 2px 6px rgba(0,0,0,0.15),
+      0 8px 24px rgba(0,0,0,0.15),
+      0 20px 48px rgba(0,0,0,0.12);
+  }
+
+  .zc-glyph {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 12px;
+    color: var(--ink);
+    opacity: 0.7;
+  }
+  .zc-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+  }
+  .zc-dates {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--parchment-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 12px;
+  }
+  .zc-desc {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    color: #6B5F50;
+    line-height: 1.5;
+  }
+
+  /* Highlight current sign */
+  .zodiac-card.current {
+    box-shadow:
+      0 1px 3px rgba(0,0,0,0.15),
+      0 4px 12px rgba(0,0,0,0.12),
+      0 12px 36px rgba(0,0,0,0.1),
+      0 0 0 2px var(--brass);
+  }
+  .zodiac-card.current .zc-name { color: var(--brass-dim); }
+
+  /* ═══════════════════════════════════════════
+     SECTION 3: EXPLORE (on darker surface)
+     ═══════════════════════════════════════════ */
+  .section-dark {
+    background: var(--cosmos-mid);
+    position: relative;
+    border-top: 1px solid rgba(46, 35, 80, 0.5);
+    border-bottom: 1px solid rgba(46, 35, 80, 0.5);
+  }
+  .section-dark::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n2)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    position: relative;
+  }
+  @media (max-width: 768px) { .explore-grid { grid-template-columns: 1fr; gap: 16px; } }
+
+  .explore-card {
+    background: rgba(35, 26, 64, 0.6);
+    border: 1px solid rgba(46, 35, 80, 0.6);
+    border-radius: 6px;
+    padding: 36px 28px;
+    position: relative;
+    transition: all 0.35s ease;
+    backdrop-filter: blur(4px);
+  }
+  .explore-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(184, 157, 74, 0.2), transparent);
+  }
+  .explore-card:hover {
+    border-color: rgba(184, 157, 74, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+  }
+  .ec-tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--brass);
+    margin-bottom: 16px;
+  }
+  .ec-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--parchment);
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+  .ec-body {
+    font-size: 0.85rem;
+    color: var(--lavender-soft);
+    line-height: 1.65;
+  }
+
+  /* ═══════════════════════════════════════════
+     SECTION 4: BOTTOM CTA — "Parchment card on velvet"
+     ═══════════════════════════════════════════ */
+  .cta-section {
+    padding: 120px 32px;
+    display: flex;
+    justify-content: center;
+  }
+  .cta-card {
+    background: var(--parchment);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='p2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p2)' opacity='0.02'/%3E%3C/svg%3E"),
+      linear-gradient(170deg, #F5EDD8 0%, var(--parchment) 50%, #E8DCCA 100%);
+    border-radius: 6px;
+    padding: 64px 48px;
+    max-width: 560px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    transform: rotate(-1deg);
+    box-shadow:
+      0 2px 6px rgba(0,0,0,0.15),
+      0 8px 24px rgba(0,0,0,0.15),
+      0 24px 64px rgba(0,0,0,0.15),
+      0 48px 96px rgba(0,0,0,0.1);
+  }
+  .cta-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 6px;
+    border: 1px solid rgba(184, 157, 74, 0.12);
+    pointer-events: none;
+  }
+  .cta-overline {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--brass-dim);
+    margin-bottom: 20px;
+  }
+  .cta-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .cta-body {
+    font-size: 0.9rem;
+    color: #6B5F50;
+    line-height: 1.65;
+    margin-bottom: 32px;
+  }
+  .cta-email-row {
+    display: flex;
+    gap: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid rgba(184, 157, 74, 0.25);
+  }
+  .cta-email-input {
+    flex: 1;
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.6);
+    color: var(--ink);
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    outline: none;
+  }
+  .cta-email-input::placeholder { color: var(--parchment-dark); }
+  .cta-email-btn {
+    padding: 14px 20px;
+    background: var(--ink);
+    color: var(--parchment);
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.3s;
+  }
+  .cta-email-btn:hover { background: #2E2350; }
+
+  /* ═══════════════════════════════════════════
+     FONT COMPARISON SECTION
+     ═══════════════════════════════════════════ */
+  .font-compare {
+    padding: 96px 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .font-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 48px;
+  }
+  @media (max-width: 700px) { .font-pair { grid-template-columns: 1fr; } }
+
+  .font-specimen {
+    position: relative;
+    background: var(--parchment);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='p3'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p3)' opacity='0.02'/%3E%3C/svg%3E"),
+      linear-gradient(170deg, #F5EDD8 0%, var(--parchment) 50%, #E8DCCA 100%);
+    border-radius: 6px;
+    padding: 48px 36px;
+    box-shadow:
+      0 2px 6px rgba(0,0,0,0.12),
+      0 8px 24px rgba(0,0,0,0.12),
+      0 16px 48px rgba(0,0,0,0.1);
+  }
+  .font-specimen::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 6px;
+    border: 1px solid rgba(184, 157, 74, 0.12);
+    pointer-events: none;
+  }
+  .fs-badge {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.55rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 4px 10px;
+    border-radius: 3px;
+    margin-bottom: 24px;
+  }
+  .fs-badge-rec {
+    background: var(--brass);
+    color: var(--cosmos);
+  }
+  .fs-badge-current {
+    background: #DDD5C8;
+    color: #8A7E6E;
+  }
+  .fs-hero {
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .fs-heading {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .fs-italic {
+    font-size: 1.15rem;
+    font-style: italic;
+    font-weight: 400;
+    color: #6B5F50;
+    line-height: 1.4;
+    margin-bottom: 16px;
+  }
+  .fs-body {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--parchment-dark);
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+  }
+  .fs-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--brass);
+    opacity: 0.3;
+    margin: 20px 0;
+  }
+
+  /* ═══════════════════════════════════════════
+     NAV MOCK
+     ═══════════════════════════════════════════ */
+  .nav-demo {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 28px;
+    background: rgba(26, 18, 50, 0.7);
+    border: 1px solid rgba(46, 35, 80, 0.4);
+    border-radius: 6px;
+    backdrop-filter: blur(12px);
+  }
+  .nav-wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--parchment);
+    letter-spacing: 0.02em;
+  }
+  .nav-wordmark span { color: var(--brass); }
+  .nav-menu {
+    display: flex;
+    gap: 24px;
+  }
+  .nav-menu a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--lavender-dim);
+    text-decoration: none;
+    transition: color 0.25s;
+  }
+  .nav-menu a:hover { color: var(--parchment); }
+
+  /* ═══════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════ */
+  footer {
+    text-align: center;
+    padding: 48px 32px;
+    border-top: 1px solid rgba(46, 35, 80, 0.3);
+  }
+  .foot-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--lavender-dim);
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
+  }
+  .foot-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 16px;
+  }
+  .foot-links a {
+    font-size: 0.65rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--lavender-dim);
+    text-decoration: none;
+    transition: color 0.25s;
+  }
+  .foot-links a:hover { color: var(--brass); }
+  .foot-copy {
+    font-size: 0.6rem;
+    color: var(--cosmos-edge);
+    letter-spacing: 0.03em;
+  }
+
+  /* ═══════════════════════════════════════════
+     COLOR PALETTE REFERENCE (compact)
+     ═══════════════════════════════════════════ */
+  .palette-strip {
+    display: flex;
+    gap: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 32px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  }
+  .palette-chip {
+    flex: 1;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 8px;
+  }
+  .palette-chip span {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.55rem;
+    padding: 2px 6px;
+    border-radius: 2px;
+    background: rgba(0,0,0,0.25);
+    color: white;
+  }
+  .palette-chip.light span {
+    background: rgba(0,0,0,0.08);
+    color: var(--ink);
+  }
+
+  /* ─── Label tag ─── */
+  .preview-tag {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    z-index: 100;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 6px 12px;
+    background: var(--cosmos-lift);
+    border: 1px solid var(--cosmos-edge);
+    border-radius: 4px;
+    color: var(--lavender-dim);
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ════════ NAV ════════ -->
+  <div style="padding: 32px 0 0;">
+    <div class="nav-demo">
+      <div class="nav-bar">
+        <div class="nav-wordmark">sign season <span>✦</span></div>
+        <div class="nav-menu">
+          <a href="#">Signs</a>
+          <a href="#">Horoscope</a>
+          <a href="#">Compatibility</a>
+          <a href="#">Crystals</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ HERO ════════ -->
+  <section class="hero">
+    <div class="hero-overline">Your Daily Cosmic Update</div>
+    <h1 class="hero-title font-cormorant">
+      It's always<br>somebody's<br><em>season.</em>
+    </h1>
+    <p class="hero-sub font-cormorant">The stars have notes, and they're not holding back.</p>
+    <div class="email-block">
+      <div class="email-row">
+        <input type="email" class="email-input" placeholder="your@email.com">
+        <button class="email-btn">Get Your Horoscope</button>
+      </div>
+      <p class="email-note">Free weekly horoscope. No spam. Just the stars.</p>
+    </div>
+  </section>
+
+  <div class="ornament"><span class="ornament-star">✦ ✦ ✦</span></div>
+
+  <!-- ════════ ZODIAC GRID ════════ -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-overline">The Zodiac</div>
+      <h2 class="section-heading font-cormorant">Choose your sign.</h2>
+      <p class="section-sub">Or don't. We already know which one you clicked first.</p>
+    </div>
+
+    <div class="zodiac-grid">
+      <div class="zodiac-card current">
+        <span class="zc-glyph">♈</span>
+        <div class="zc-name">Aries</div>
+        <div class="zc-dates">Mar 21 — Apr 19</div>
+        <div class="zc-desc">The one who starts everything and finishes... selectively.</div>
+      </div>
+      <div class="zodiac-card">
+        <span class="zc-glyph">♉</span>
+        <div class="zc-name">Taurus</div>
+        <div class="zc-dates">Apr 20 — May 20</div>
+        <div class="zc-desc">Will not be rushed. About anything. Ever.</div>
+      </div>
+      <div class="zodiac-card">
+        <span class="zc-glyph">♊</span>
+        <div class="zc-name">Gemini</div>
+        <div class="zc-dates">May 21 — Jun 20</div>
+        <div class="zc-desc">Two personalities, both of them interesting.</div>
+      </div>
+      <div class="zodiac-card">
+        <span class="zc-glyph">♋</span>
+        <div class="zc-name">Cancer</div>
+        <div class="zc-dates">Jun 21 — Jul 22</div>
+        <div class="zc-desc">Feels everything. Remembers everything.</div>
+      </div>
+      <div class="zodiac-card">
+        <span class="zc-glyph">♌</span>
+        <div class="zc-name">Leo</div>
+        <div class="zc-dates">Jul 23 — Aug 22</div>
+        <div class="zc-desc">Main character energy isn't a phase.</div>
+      </div>
+      <div class="zodiac-card">
+        <span class="zc-glyph">♍</span>
+        <div class="zc-name">Virgo</div>
+        <div class="zc-dates">Aug 23 — Sep 22</div>
+        <div class="zc-desc">Already reorganized your life. You're welcome.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ornament"><span class="ornament-star">✦ ✦ ✦</span></div>
+
+  <!-- ════════ EXPLORE ════════ -->
+  <div class="section-dark">
+    <section class="section">
+      <div class="section-header">
+        <div class="section-overline">Go Deeper</div>
+        <h2 class="section-heading font-cormorant">The stuff you actually<br>want to read about.</h2>
+      </div>
+
+      <div class="explore-grid">
+        <div class="explore-card">
+          <div class="ec-tag">Compatibility</div>
+          <div class="ec-title font-cormorant">Who should you actually date?</div>
+          <p class="ec-body">Sun sign chemistry is just the start. Moon signs, Venus placements, and why that Gemini keeps texting back at 2am.</p>
+        </div>
+        <div class="explore-card">
+          <div class="ec-tag">Crystals + Rituals</div>
+          <div class="ec-title font-cormorant">Stones that match your chart.</div>
+          <p class="ec-body">Not generic crystal content. The specific stones that align with your placements, and what to actually do with them.</p>
+        </div>
+        <div class="explore-card">
+          <div class="ec-tag">Weekly Horoscope</div>
+          <div class="ec-title font-cormorant">Your week, cosmically speaking.</div>
+          <p class="ec-body">Skip the vague today-is-a-good-day-for-love energy. Specific, occasionally uncomfortable, and weirdly accurate.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ════════ BOTTOM CTA — Card on velvet ════════ -->
+  <section class="cta-section">
+    <div class="cta-card">
+      <div class="cta-overline">Weekly Horoscope</div>
+      <h2 class="cta-heading font-cormorant">The stars have notes.</h2>
+      <p class="cta-body">Crystal recs, compatibility deep-dives, and the cosmic updates your group chat needs. Free forever.</p>
+      <div class="cta-email-row">
+        <input type="email" class="cta-email-input" placeholder="your@email.com">
+        <button class="cta-email-btn">Subscribe</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="ornament"><span class="ornament-star">✦ ✦ ✦</span></div>
+
+  <!-- ════════ FONT COMPARISON ════════ -->
+  <section class="font-compare">
+    <div class="section-header">
+      <div class="section-overline">Typography</div>
+      <h2 class="section-heading font-cormorant">Display Font Options</h2>
+      <p class="section-sub">Both are free, open-source Google Fonts. Shown on parchment.</p>
+    </div>
+
+    <div class="font-pair">
+      <div class="font-specimen">
+        <span class="fs-badge fs-badge-rec">Recommended</span>
+        <div class="fs-hero font-cormorant">Sign Season</div>
+        <div class="fs-heading font-cormorant">It's Always Somebody's Season</div>
+        <div class="fs-divider"></div>
+        <div class="fs-italic font-cormorant">"The stars have notes, and they're not holding back."</div>
+        <div class="fs-body font-cormorant" style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em;">
+          Cormorant Garamond — Google Fonts, Open Source
+        </div>
+      </div>
+      <div class="font-specimen">
+        <span class="fs-badge fs-badge-current">Current</span>
+        <div class="fs-hero font-playfair">Sign Season</div>
+        <div class="fs-heading font-playfair">It's Always Somebody's Season</div>
+        <div class="fs-divider"></div>
+        <div class="fs-italic font-playfair">"The stars have notes, and they're not holding back."</div>
+        <div class="fs-body font-playfair" style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em;">
+          Playfair Display — Google Fonts, Open Source
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ornament"><span class="ornament-star">✦ ✦ ✦</span></div>
+
+  <!-- ════════ PALETTE STRIP ════════ -->
+  <section class="section" style="padding-top: 48px;">
+    <div class="section-header">
+      <div class="section-overline">Palette</div>
+      <h2 class="section-heading font-cormorant">The full color system</h2>
+    </div>
+    <div class="palette-strip">
+      <div class="palette-chip" style="background: #110B20;"><span>#110B20</span></div>
+      <div class="palette-chip" style="background: #1A1232;"><span>#1A1232</span></div>
+      <div class="palette-chip" style="background: #231A40;"><span>#231A40</span></div>
+      <div class="palette-chip" style="background: #2E2350;"><span>#2E2350</span></div>
+      <div class="palette-chip" style="background: #7A6E96;"><span>#7A6E96</span></div>
+      <div class="palette-chip" style="background: #A89BC8;"><span>#A89BC8</span></div>
+      <div class="palette-chip" style="background: #C0B4DC;"><span>#C0B4DC</span></div>
+      <div class="palette-chip" style="background: #8A7535;"><span>#8A7535</span></div>
+      <div class="palette-chip" style="background: #B89D4A;"><span>#B89D4A</span></div>
+      <div class="palette-chip" style="background: #D4B85C;"><span>#D4B85C</span></div>
+      <div class="palette-chip light" style="background: #D8CDBA;"><span>#D8CDBA</span></div>
+      <div class="palette-chip light" style="background: #F0E8D8;"><span>#F0E8D8</span></div>
+    </div>
+  </section>
+
+  <!-- ════════ FOOTER ════════ -->
+  <footer>
+    <div class="foot-brand font-cormorant">sign season ✦</div>
+    <div class="foot-links">
+      <a href="#">TikTok</a>
+      <a href="#">Instagram</a>
+      <a href="#">Pinterest</a>
+    </div>
+    <p class="foot-copy">&copy; 2026 Sign Season. It's always somebody's season.</p>
+  </footer>
+
+</div>
+
+<div class="preview-tag">Design Preview V2 — March 2026</div>
+
+</body>
+</html>
