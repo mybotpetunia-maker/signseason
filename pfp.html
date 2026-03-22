@@ -8,54 +8,48 @@ body{
   display:flex;align-items:center;justify-content:center;
   position:relative;overflow:hidden;
 }
-svg{width:720px;height:720px}
+svg{width:880px;height:880px}
 </style>
 </head>
 <body>
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-  <!-- outer glow -->
   <defs>
-    <radialGradient id="bg-glow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#7B68EE" stop-opacity=".08"/>
-      <stop offset="100%" stop-color="#0D0D1A" stop-opacity="0"/>
-    </radialGradient>
-    <filter id="gold-glow">
-      <feGaussianBlur stdDeviation="2" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    <linearGradient id="moon-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5F0FF"/>
+      <stop offset="40%" stop-color="#E8E0FF"/>
+      <stop offset="100%" stop-color="#C8BFEE"/>
+    </linearGradient>
+    <filter id="glow-lg">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="moon-shadow">
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#7B68EE" flood-opacity=".15"/>
     </filter>
   </defs>
-  <circle cx="100" cy="100" r="99" fill="url(#bg-glow)"/>
 
-  <!-- crescent moon -->
-  <g transform="translate(100,100)">
-    <!-- moon body -->
-    <circle cx="0" cy="0" r="52" fill="#F0EEFF" opacity=".95"/>
-    <!-- moon shadow (creates crescent) -->
-    <circle cx="22" cy="-14" r="44" fill="#0D0D1A"/>
+  <!-- crescent moon, large and bold -->
+  <g filter="url(#moon-shadow)" transform="translate(88,92)">
+    <circle cx="0" cy="0" r="68" fill="url(#moon-grad)"/>
+    <circle cx="30" cy="-18" r="56" fill="#0D0D1A"/>
   </g>
 
-  <!-- orbital ring -->
-  <ellipse cx="100" cy="100" rx="72" ry="72" fill="none" stroke="#7B68EE" stroke-width=".5" opacity=".25"/>
-
-  <!-- three stars along the orbit -->
-  <g filter="url(#gold-glow)">
-    <!-- large star top right -->
-    <g transform="translate(155,48)">
-      <line x1="0" y1="-8" x2="0" y2="8" stroke="#E8C547" stroke-width="1.5" stroke-linecap="round"/>
-      <line x1="-8" y1="0" x2="8" y2="0" stroke="#E8C547" stroke-width="1.5" stroke-linecap="round"/>
-      <line x1="-5" y1="-5" x2="5" y2="5" stroke="#E8C547" stroke-width="1" stroke-linecap="round"/>
-      <line x1="5" y1="-5" x2="-5" y2="5" stroke="#E8C547" stroke-width="1" stroke-linecap="round"/>
-    </g>
-    <!-- small star bottom left -->
-    <g transform="translate(38,148)">
-      <line x1="0" y1="-5" x2="0" y2="5" stroke="#E8C547" stroke-width="1.2" stroke-linecap="round"/>
-      <line x1="-5" y1="0" x2="5" y2="0" stroke="#E8C547" stroke-width="1.2" stroke-linecap="round"/>
-    </g>
-    <!-- tiny star left -->
-    <g transform="translate(30,72)">
-      <circle cx="0" cy="0" r="1.5" fill="#E8C547"/>
-    </g>
+  <!-- single bold 4-point star, top right -->
+  <g filter="url(#glow-lg)" transform="translate(156,42)">
+    <line x1="0" y1="-14" x2="0" y2="14" stroke="#E8C547" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="-14" y1="0" x2="14" y2="0" stroke="#E8C547" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="-9" y1="-9" x2="9" y2="9" stroke="#E8C547" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="9" y1="-9" x2="-9" y2="9" stroke="#E8C547" stroke-width="1.5" stroke-linecap="round"/>
   </g>
+
+  <!-- small accent star -->
+  <g filter="url(#glow-lg)" transform="translate(148,82)">
+    <line x1="0" y1="-5" x2="0" y2="5" stroke="#E8C547" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="-5" y1="0" x2="5" y2="0" stroke="#E8C547" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- tiny dot star -->
+  <circle cx="170" cy="62" r="2" fill="#E8C547" opacity=".7"/>
 </svg>
 </body>
 </html>
