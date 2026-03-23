@@ -578,7 +578,6 @@
 </head>
 <body>
 
-<canvas id="stars" aria-hidden="true"></canvas>
 <div class="texture" aria-hidden="true"></div>
 
 <div class="page">
@@ -815,51 +814,7 @@ function fallbackSave(email) {
   localStorage.setItem('ss_emails', JSON.stringify(s));
 }
 
-// Star field
-(function() {
-  const canvas = document.getElementById('stars');
-  const ctx = canvas.getContext('2d');
-  let w, h, stars = [];
-  const COUNT = 80;
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  function resize() {
-    w = canvas.width = window.innerWidth;
-    h = canvas.height = window.innerHeight;
-  }
-
-  function init() {
-    resize();
-    stars = [];
-    for (let i = 0; i < COUNT; i++) {
-      stars.push({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        r: Math.random() * 1.2 + 0.3,
-        base: Math.random() * 0.4 + 0.1,
-        phase: Math.random() * Math.PI * 2,
-        speed: Math.random() * 0.003 + 0.001
-      });
-    }
-  }
-
-  function draw(t) {
-    ctx.clearRect(0, 0, w, h);
-    for (const s of stars) {
-      const flicker = prefersReduced ? s.base : s.base + Math.sin(t * s.speed + s.phase) * 0.15;
-      const alpha = Math.max(0.05, Math.min(0.55, flicker));
-      ctx.beginPath();
-      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(201, 173, 111, ${alpha})`;
-      ctx.fill();
-    }
-    requestAnimationFrame(draw);
-  }
-
-  init();
-  window.addEventListener('resize', () => { resize(); init(); });
-  requestAnimationFrame(draw);
-})();
 </script>
+<script src="/js/stars.js"></script>
 </body>
 </html>
