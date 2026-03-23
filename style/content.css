@@ -355,6 +355,7 @@ blockquote {
   color: var(--gold);
   opacity: 0.7;
   margin-bottom: 12px;
+  font-family: 'Segoe UI Symbol', 'Apple Symbols', sans-serif;
 }
 .sign-header .sign-tagline {
   font-family: var(--serif);
