@@ -93,13 +93,13 @@
       padding: 48px 24px 0;
       text-align: center;
     }
-    .sign-glyph {
-      font-size: 3.5rem;
-      color: var(--gold);
-      opacity: 0.5;
-      line-height: 1;
-      margin-bottom: 20px;
-      font-family: 'Segoe UI Symbol', 'Apple Symbols', sans-serif;
+    .sign-illustration {
+      width: 180px;
+      height: 180px;
+      object-fit: contain;
+      margin-bottom: 24px;
+      border-radius: 50%;
+      opacity: 0.85;
     }
     .sign-name {
       font-family: var(--display);
@@ -364,6 +364,14 @@
       transition: border-color 0.3s;
     }
     .crystal-card:hover { border-color: rgba(201,173,111,0.18); }
+    .crystal-img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 2px;
+      margin-bottom: 14px;
+      opacity: 0.9;
+    }
     .crystal-name {
       font-family: var(--serif);
       font-size: 1.1rem;
@@ -461,7 +469,7 @@
 
     /* ─── Mobile ─── */
     @media (max-width: 480px) {
-      .sign-glyph { font-size: 2.5rem; }
+      .sign-illustration { width: 140px; height: 140px; }
       .sign-name { font-size: 2.5rem; }
       .facts-grid { grid-template-columns: repeat(2, 1fr); }
       .compat-signs { min-width: 90px; font-size: 0.88rem; }
@@ -482,7 +490,7 @@
 
   <!-- Hero -->
   <header class="sign-hero">
-    <div class="sign-glyph">&#9800;&#xFE0E;</div>
+    <img src="/assets/illustrations/signs/aries-ram.png" alt="Aries ram engraving" class="sign-illustration">
     <h1 class="sign-name">Aries</h1>
     <p class="sign-tagline">First. Loudest. Already halfway out the door.</p>
   </header>
@@ -652,28 +660,32 @@
 
       <div class="crystal-grid">
         <div class="crystal-card">
+          <img src="/assets/crystals/carnelian.png" alt="Carnelian crystal" class="crystal-img">
           <div class="crystal-name">Carnelian</div>
           <div class="crystal-vibe">Courage &bull; Motivation &bull; Fire</div>
           <p class="crystal-desc">The Aries crystal. Bold, fiery, motivating. Amplifies courage and keeps momentum going without tipping into recklessness.</p>
-          <a href="/crystals/best-crystals-for-aries" class="crystal-link">Learn more &rarr;</a>
+          <a href="/crystals/best-crystals-for-aries" class="crystal-link">Shop Carnelian &rarr;</a>
         </div>
         <div class="crystal-card">
+          <img src="/assets/crystals/red-jasper.png" alt="Red Jasper crystal" class="crystal-img">
           <div class="crystal-name">Red Jasper</div>
           <div class="crystal-vibe">Grounding &bull; Endurance &bull; Focus</div>
           <p class="crystal-desc">Grounds all that Mars energy. Helps Aries stay in their body, finish what they started, and not torch everything in frustration.</p>
-          <a href="/crystals/best-crystals-for-aries" class="crystal-link">Learn more &rarr;</a>
+          <a href="/crystals/best-crystals-for-aries" class="crystal-link">Shop Red Jasper &rarr;</a>
         </div>
         <div class="crystal-card">
+          <img src="/assets/crystals/bloodstone.png" alt="Bloodstone crystal" class="crystal-img">
           <div class="crystal-name">Bloodstone</div>
           <div class="crystal-vibe">Vitality &bull; Endurance &bull; Renewal</div>
           <p class="crystal-desc">A traditional Aries stone. Builds endurance and vitality. For the Aries who runs at 100% until they crash and needs to rebuild.</p>
-          <a href="/crystals/best-crystals-for-aries" class="crystal-link">Learn more &rarr;</a>
+          <a href="/crystals/best-crystals-for-aries" class="crystal-link">Shop Bloodstone &rarr;</a>
         </div>
         <div class="crystal-card">
+          <img src="/assets/crystals/amethyst.png" alt="Amethyst crystal" class="crystal-img">
           <div class="crystal-name">Amethyst</div>
           <div class="crystal-vibe">Calm &bull; Patience &bull; Balance</div>
           <p class="crystal-desc">Counterintuitively perfect. Cools the fire just enough. Supports patience without dulling the spark that makes Aries, Aries.</p>
-          <a href="/crystals/best-crystals-for-aries" class="crystal-link">Learn more &rarr;</a>
+          <a href="/crystals/best-crystals-for-aries" class="crystal-link">Shop Amethyst &rarr;</a>
         </div>
       </div>
     </div>

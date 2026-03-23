@@ -5,63 +5,82 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy | Sign Season</title>
+  <meta name="theme-color" content="#2A1F33">
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fondamento:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --void: #1E1528;
+      --plum: #2A1F33;
+      --plum-mid: #352840;
+      --gold-dim: #B09A6E;
+      --gold: #C9AD6F;
+      --gold-light: #D4BC7C;
+      --gold-pale: #E2D4A7;
+      --display: 'Fondamento', cursive;
+      --serif: 'EB Garamond', 'Garamond', 'Georgia', serif;
+      --sans: 'DM Sans', -apple-system, sans-serif;
+    }
     body {
-      background: #110B20;
-      color: #D0C8E4;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 16px;
+      background: var(--plum);
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 17px;
       line-height: 1.8;
       -webkit-font-smoothing: antialiased;
     }
+    ::selection { background: rgba(201,173,111,0.25); color: var(--gold-pale); }
     .container {
       max-width: 680px;
       margin: 0 auto;
-      padding: 80px 28px;
+      padding: 60px 24px 80px;
     }
-    h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.5rem;
-      font-weight: 400;
-      color: #F0E8D8;
-      margin-bottom: 8px;
-    }
-    .updated {
-      font-size: 0.8rem;
-      color: #7A6E96;
-      margin-bottom: 48px;
-    }
-    h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-weight: 500;
-      color: #F0E8D8;
-      margin-top: 40px;
-      margin-bottom: 12px;
-    }
-    p, li { margin-bottom: 12px; }
-    ul { padding-left: 20px; }
-    a { color: #B89D4A; text-decoration: none; }
-    a:hover { color: #D4B85C; }
     .back {
       display: inline-block;
       margin-bottom: 32px;
-      font-size: 0.8rem;
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #7A6E96;
+      letter-spacing: 0.12em;
+      color: var(--gold-dim);
+      text-decoration: none;
+      transition: color 0.3s;
     }
-    .back:hover { color: #B89D4A; }
+    .back:hover { color: var(--gold-light); }
+    h1 {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+    .updated {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      color: var(--gold-dim);
+      margin-bottom: 48px;
+    }
+    h2 {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--gold-light);
+      margin-top: 40px;
+      margin-bottom: 12px;
+    }
+    p, li { margin-bottom: 12px; color: var(--gold); }
+    ul { padding-left: 20px; }
+    a { color: var(--gold-light); text-decoration: none; border-bottom: 1px solid rgba(201,173,111,0.2); transition: all 0.3s; }
+    a:hover { color: var(--gold-pale); border-bottom-color: var(--gold-pale); }
   </style>
 </head>
 <body>
   <div class="container">
-    <a href="/" class="back">&larr; Back to Sign Season</a>
+    <a href="/" class="back" style="border-bottom:none">&larr; Back to Sign Season</a>
     <h1>Privacy Policy</h1>
     <p class="updated">Last updated: March 22, 2026</p>
 
