@@ -13,38 +13,39 @@
   <meta property="og:url" content="https://signseason.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fondamento:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
 
     :root {
-      /* Cosmos — deep aubergine-violet surface */
+      /* Cosmos */
       --cosmos: #110B20;
       --cosmos-mid: #1A1232;
       --cosmos-lift: #231A40;
       --cosmos-edge: #2E2350;
 
-      /* Parchment — warm cream paper */
+      /* Parchment */
       --parchment: #F0E8D8;
       --parchment-dim: #D8CDBA;
       --parchment-dark: #B8A88E;
 
-      /* Ink — text on parchment */
+      /* Ink */
       --ink: #1A1232;
       --ink-soft: #3D3455;
 
-      /* Lavender — text on cosmos */
-      --lavender: #D0C8E4;
+      /* Lavender */
+      --lavender: #C0B4DC;
       --lavender-soft: #A89BC8;
       --lavender-dim: #7A6E96;
 
-      /* Brass — accents */
+      /* Brass */
       --brass: #B89D4A;
       --brass-dim: #8A7535;
       --brass-glow: #D4B85C;
 
       /* Type */
+      --display: 'Fondamento', cursive;
       --serif: 'Cormorant Garamond', 'Garamond', serif;
       --sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --mono: 'Space Mono', 'Courier New', monospace;
@@ -59,9 +60,9 @@
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
-    ::selection { background: rgba(184, 157, 74, 0.25); color: var(--parchment); }
+    ::selection { background: rgba(184, 157, 74, 0.3); color: var(--parchment); }
 
-    /* ─── Texture layers (fixed, behind everything) ─── */
+    /* ─── Texture layers ─── */
     .texture-base {
       position: fixed;
       inset: 0;
@@ -75,13 +76,17 @@
       background-image: url('/assets/textures/velvet-noise.png');
       background-repeat: repeat;
       background-size: 400px 400px;
-      opacity: 0.5;
+      opacity: 0.45;
+      mix-blend-mode: overlay;
     }
     .texture-base::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 70% 50% at 50% 35%, rgba(35, 26, 64, 0.4) 0%, transparent 70%);
+      background:
+        radial-gradient(ellipse 60% 40% at 50% 30%, rgba(46, 35, 80, 0.3) 0%, transparent 65%),
+        radial-gradient(ellipse 80% 50% at 20% 80%, rgba(26, 18, 50, 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse 50% 60% at 85% 20%, rgba(35, 26, 64, 0.25) 0%, transparent 50%);
     }
 
     .page { position: relative; z-index: 1; }
@@ -91,22 +96,22 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 20px;
-      padding: 32px 0;
+      gap: 16px;
+      padding: 24px 0;
     }
     .ornament::before,
     .ornament::after {
       content: '';
-      width: 80px;
+      width: 100px;
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--brass-dim), transparent);
-      opacity: 0.5;
+      opacity: 0.35;
     }
-    .ornament-glyph {
-      font-size: 8px;
-      letter-spacing: 10px;
+    .ornament-star {
+      font-size: 14px;
       color: var(--brass-dim);
-      opacity: 0.6;
+      opacity: 0.5;
+      letter-spacing: 0;
     }
 
     /* ═══════════════════════════════════
@@ -116,21 +121,21 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      padding: 16px 28px;
+      padding: 14px 28px;
       background: rgba(17, 11, 32, 0);
       backdrop-filter: blur(0px);
       -webkit-backdrop-filter: blur(0px);
       border-bottom: 1px solid transparent;
-      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
       transform: translateY(-100%);
       opacity: 0;
     }
     .nav.visible {
       transform: translateY(0);
       opacity: 1;
-      background: rgba(17, 11, 32, 0.88);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
+      background: rgba(17, 11, 32, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border-bottom-color: rgba(184, 157, 74, 0.06);
     }
     .nav-inner {
@@ -141,24 +146,24 @@
       align-items: center;
     }
     .nav-brand {
-      font-family: var(--serif);
-      font-size: 1.2rem;
-      font-weight: 600;
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 1.15rem;
+      font-weight: 400;
       color: var(--parchment);
       text-decoration: none;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.01em;
     }
-    .nav-brand span { color: var(--brass); }
-    .nav-links { display: flex; gap: 24px; }
+    .nav-links { display: flex; gap: 28px; }
     .nav-links a {
       font-family: var(--sans);
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       font-weight: 500;
       color: var(--lavender-dim);
       text-decoration: none;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      transition: color 0.25s;
+      letter-spacing: 0.12em;
+      transition: color 0.3s;
     }
     .nav-links a:hover { color: var(--parchment); }
 
@@ -172,70 +177,69 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 80px 28px;
+      padding: 80px 28px 120px;
       position: relative;
     }
-    /* Vignette */
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at center, transparent 20%, rgba(17, 11, 32, 0.5) 100%);
+      background: radial-gradient(ellipse 70% 55% at 50% 45%, transparent 0%, rgba(17, 11, 32, 0.6) 100%);
       pointer-events: none;
     }
     .hero > * { position: relative; z-index: 1; }
 
-    .hero-overline {
+    .hero-label {
       font-family: var(--sans);
-      font-size: 0.65rem;
+      font-size: 0.6rem;
       font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 0.25em;
+      letter-spacing: 0.3em;
       color: var(--brass);
-      margin-bottom: 40px;
+      margin-bottom: 48px;
       opacity: 0;
-      animation: rise 0.9s 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: rise 1s 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
     .hero-title {
-      font-family: var(--serif);
-      font-size: clamp(3.5rem, 10vw, 7rem);
-      font-weight: 300;
-      line-height: 0.95;
-      color: var(--parchment);
-      letter-spacing: -0.02em;
-      margin-bottom: 16px;
-      opacity: 0;
-      animation: rise 0.9s 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-    .hero-title em {
+      font-family: var(--display);
       font-style: italic;
+      font-size: clamp(3.2rem, 9vw, 6.5rem);
       font-weight: 400;
+      line-height: 1.05;
+      color: var(--parchment);
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: rise 1s 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .hero-title .accent {
       color: var(--brass-glow);
     }
     .hero-sub {
       font-family: var(--serif);
-      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
       font-weight: 400;
       font-style: italic;
       color: var(--lavender-dim);
-      max-width: 440px;
-      margin-bottom: 48px;
-      letter-spacing: 0.01em;
+      max-width: 400px;
+      margin-bottom: 52px;
+      letter-spacing: 0.015em;
+      line-height: 1.6;
       opacity: 0;
-      animation: rise 0.9s 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: rise 1s 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
     @keyframes rise {
-      from { opacity: 0; transform: translateY(24px); }
+      from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ─── Email capture ─── */
+    /* ─── Email capture (hero) ─── */
     .email-block {
       width: 100%;
-      max-width: 440px;
+      max-width: 420px;
       opacity: 0;
-      animation: rise 0.9s 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: rise 1s 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
     .email-row {
       display: flex;
@@ -244,51 +248,51 @@
     }
     .email-input {
       width: 100%;
-      padding: 16px 20px;
+      padding: 15px 18px;
       background: var(--parchment);
       background-image: url('/assets/textures/paper-grain.png');
       background-size: 400px 400px;
       color: var(--ink);
-      border: 1px solid rgba(184, 157, 74, 0.2);
-      border-radius: 4px;
+      border: 1px solid rgba(184, 157, 74, 0.15);
+      border-radius: 3px;
       font-family: var(--sans);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       outline: none;
       transition: all 0.3s;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.15);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15), 0 8px 24px rgba(0,0,0,0.12);
     }
     .email-input::placeholder { color: var(--parchment-dark); }
     .email-input:focus {
       border-color: var(--brass);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.15), 0 0 0 3px rgba(184, 157, 74, 0.12);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15), 0 8px 24px rgba(0,0,0,0.12), 0 0 0 3px rgba(184, 157, 74, 0.1);
     }
     .email-btn {
       width: 100%;
-      padding: 16px;
+      padding: 15px;
       background: var(--brass);
       color: var(--cosmos);
       border: none;
-      border-radius: 4px;
+      border-radius: 3px;
       font-family: var(--sans);
-      font-size: 0.8rem;
+      font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       cursor: pointer;
       transition: all 0.3s;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
     }
     .email-btn:hover {
       background: var(--brass-glow);
-      box-shadow: 0 4px 20px rgba(184, 157, 74, 0.2);
+      box-shadow: 0 4px 16px rgba(184, 157, 74, 0.18);
       transform: translateY(-1px);
     }
     .email-note {
       text-align: center;
-      margin-top: 12px;
-      font-size: 0.7rem;
+      margin-top: 14px;
+      font-size: 0.65rem;
       color: var(--lavender-dim);
-      letter-spacing: 0.02em;
+      letter-spacing: 0.03em;
     }
     .form-success {
       display: none;
@@ -305,49 +309,41 @@
 
     @media (min-width: 481px) {
       .email-row { flex-direction: row; gap: 0; }
-      .email-input {
-        border-radius: 4px 0 0 4px;
-        border-right: none;
-      }
-      .email-btn {
-        width: auto;
-        padding: 16px 28px;
-        border-radius: 0 4px 4px 0;
-        white-space: nowrap;
-      }
+      .email-input { border-radius: 3px 0 0 3px; border-right: none; }
+      .email-btn { width: auto; padding: 15px 28px; border-radius: 0 3px 3px 0; white-space: nowrap; }
     }
 
-    /* Scroll hint */
-    .scroll-hint {
+    /* Scroll cue */
+    .scroll-cue {
       position: absolute;
-      bottom: 32px;
+      bottom: 40px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       opacity: 0;
-      animation: rise 0.9s 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: rise 1s 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
-    .scroll-hint span {
+    .scroll-cue span {
       font-family: var(--mono);
       font-size: 0.5rem;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.25em;
       color: var(--lavender-dim);
-      opacity: 0.5;
+      opacity: 0.4;
     }
-    .scroll-hint .scroll-line {
+    .scroll-cue .line {
       width: 1px;
-      height: 28px;
+      height: 32px;
       background: linear-gradient(to bottom, var(--lavender-dim), transparent);
-      animation: pulse 2.5s ease-in-out infinite;
+      animation: breathe 3s ease-in-out infinite;
     }
-    @keyframes pulse { 0%, 100% { opacity: 0.2; } 50% { opacity: 0.7; } }
+    @keyframes breathe { 0%, 100% { opacity: 0.15; } 50% { opacity: 0.55; } }
 
     /* ═══════════════════════════════════
-       SECTIONS — shared
+       SECTIONS
        ═══════════════════════════════════ */
     .sect {
       padding: 100px 28px;
@@ -358,32 +354,34 @@
     }
     .sect-header {
       text-align: center;
-      margin-bottom: 56px;
+      margin-bottom: 60px;
     }
-    .sect-overline {
+    .sect-label {
       font-family: var(--sans);
-      font-size: 0.6rem;
+      font-size: 0.58rem;
       font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.22em;
       color: var(--brass);
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
     .sect-title {
       font-family: var(--serif);
-      font-size: clamp(2rem, 6vw, 3rem);
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
       font-weight: 400;
       color: var(--parchment);
-      line-height: 1.1;
+      line-height: 1.15;
     }
     .sect-sub {
-      font-size: 0.9rem;
+      font-family: var(--serif);
+      font-size: 0.95rem;
+      font-style: italic;
       color: var(--lavender-dim);
-      margin-top: 10px;
+      margin-top: 12px;
     }
 
     /* ═══════════════════════════════════
-       ZODIAC GRID — parchment cards
+       ZODIAC GRID
        ═══════════════════════════════════ */
     .zodiac-grid {
       display: grid;
@@ -398,7 +396,7 @@
       background: var(--parchment);
       background-image: url('/assets/textures/paper-grain.png');
       background-size: 400px 400px;
-      border-radius: 6px;
+      border-radius: 4px;
       padding: 28px 14px 22px;
       text-align: center;
       text-decoration: none;
@@ -408,78 +406,76 @@
       gap: 6px;
       position: relative;
       cursor: pointer;
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       box-shadow:
-        0 1px 2px rgba(0,0,0,0.12),
-        0 4px 12px rgba(0,0,0,0.10),
-        0 12px 36px rgba(0,0,0,0.08);
+        0 1px 2px rgba(0,0,0,0.1),
+        0 4px 12px rgba(0,0,0,0.08),
+        0 12px 32px rgba(0,0,0,0.06);
     }
-    /* Subtle inner border */
+    /* Inner border: hairline brass */
     .zodiac-card::before {
       content: '';
       position: absolute;
-      inset: 3px;
-      border-radius: 4px;
-      border: 1px solid rgba(184, 157, 74, 0.08);
+      inset: 4px;
+      border-radius: 3px;
+      border: 1px solid rgba(184, 157, 74, 0.06);
       pointer-events: none;
+      transition: border-color 0.4s;
     }
-    /* Outer gilded edge */
+    /* Outer edge */
     .zodiac-card::after {
       content: '';
       position: absolute;
       inset: 0;
-      border-radius: 6px;
-      border: 1px solid rgba(184, 157, 74, 0.12);
+      border-radius: 4px;
+      border: 1px solid rgba(184, 157, 74, 0.1);
       pointer-events: none;
+      transition: border-color 0.4s;
     }
     .zodiac-card:hover {
-      transform: translateY(-4px) rotate(-0.5deg);
+      transform: translateY(-3px);
       box-shadow:
-        0 2px 4px rgba(0,0,0,0.12),
-        0 8px 24px rgba(0,0,0,0.12),
-        0 20px 48px rgba(0,0,0,0.10);
+        0 2px 4px rgba(0,0,0,0.1),
+        0 8px 20px rgba(0,0,0,0.1),
+        0 20px 48px rgba(0,0,0,0.08);
     }
-    .zodiac-card:hover::after {
-      border-color: rgba(184, 157, 74, 0.25);
-    }
+    .zodiac-card:hover::after { border-color: rgba(184, 157, 74, 0.22); }
+    .zodiac-card:hover::before { border-color: rgba(184, 157, 74, 0.1); }
 
-    /* Current season highlight */
+    /* Current sign */
     .zodiac-card.now {
       box-shadow:
-        0 1px 2px rgba(0,0,0,0.12),
-        0 4px 12px rgba(0,0,0,0.10),
-        0 12px 36px rgba(0,0,0,0.08),
+        0 1px 2px rgba(0,0,0,0.1),
+        0 4px 12px rgba(0,0,0,0.08),
+        0 12px 32px rgba(0,0,0,0.06),
         0 0 0 2px var(--brass);
     }
-    .zodiac-card.now .zc-now {
-      display: block;
-    }
+    .zodiac-card.now .zc-badge { display: block; }
 
-    .zc-now {
+    .zc-badge {
       display: none;
       position: absolute;
-      top: 8px;
-      right: 8px;
+      top: 7px; right: 7px;
       font-family: var(--mono);
-      font-size: 0.45rem;
+      font-size: 0.42rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      background: rgba(184, 157, 74, 0.15);
+      letter-spacing: 0.1em;
+      background: rgba(184, 157, 74, 0.12);
       color: var(--brass-dim);
-      padding: 2px 7px;
-      border-radius: 3px;
+      padding: 2px 6px;
+      border-radius: 2px;
     }
 
     .zc-glyph {
-      font-size: 2rem;
+      font-size: 1.8rem;
       color: var(--ink);
-      opacity: 0.6;
+      opacity: 0.55;
       line-height: 1;
     }
     .zc-name {
       font-family: var(--serif);
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 600;
       color: var(--ink);
       text-transform: uppercase;
@@ -487,30 +483,30 @@
     }
     .zc-dates {
       font-family: var(--mono);
-      font-size: 0.55rem;
+      font-size: 0.52rem;
       color: var(--parchment-dark);
       letter-spacing: 0.04em;
     }
 
     /* ═══════════════════════════════════
-       EXPLORE SECTION — darker surface
+       EXPLORE — raised dark surface
        ═══════════════════════════════════ */
-    .sect-dark {
+    .sect-raised {
       background: var(--cosmos-mid);
       position: relative;
-      border-top: 1px solid rgba(46, 35, 80, 0.4);
-      border-bottom: 1px solid rgba(46, 35, 80, 0.4);
+      border-top: 1px solid rgba(46, 35, 80, 0.35);
+      border-bottom: 1px solid rgba(46, 35, 80, 0.35);
     }
-    .sect-dark::before {
+    .sect-raised::before {
       content: '';
       position: absolute;
       inset: 0;
       background-image: url('/assets/textures/noise-grain.png');
       background-size: 400px 400px;
-      opacity: 0.3;
+      opacity: 0.25;
       pointer-events: none;
     }
-    .sect-dark > * { position: relative; z-index: 1; }
+    .sect-raised > * { position: relative; z-index: 1; }
 
     .explore-grid {
       display: grid;
@@ -520,39 +516,38 @@
     @media (min-width: 769px) { .explore-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
 
     .explore-card {
-      background: rgba(35, 26, 64, 0.5);
-      border: 1px solid rgba(46, 35, 80, 0.5);
-      border-radius: 6px;
+      background: rgba(35, 26, 64, 0.4);
+      border: 1px solid rgba(46, 35, 80, 0.45);
+      border-radius: 4px;
       padding: 36px 28px;
       position: relative;
       overflow: hidden;
-      transition: all 0.35s ease;
-      backdrop-filter: blur(4px);
+      transition: all 0.4s ease;
     }
     .explore-card::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
+      top: 0; left: 10%; right: 10%;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(184, 157, 74, 0.15), transparent);
+      background: linear-gradient(90deg, transparent, rgba(184, 157, 74, 0.12), transparent);
     }
     .explore-card:hover {
-      border-color: rgba(184, 157, 74, 0.15);
+      border-color: rgba(184, 157, 74, 0.12);
       transform: translateY(-2px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
     }
     .ec-tag {
       font-family: var(--sans);
-      font-size: 0.6rem;
+      font-size: 0.58rem;
       font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.16em;
       color: var(--brass);
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
     .ec-title {
       font-family: var(--serif);
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       font-weight: 500;
       color: var(--parchment);
       line-height: 1.25;
@@ -561,11 +556,11 @@
     .ec-body {
       font-size: 0.88rem;
       color: var(--lavender-soft);
-      line-height: 1.65;
+      line-height: 1.7;
     }
 
     /* ═══════════════════════════════════
-       BOTTOM CTA — parchment card on velvet
+       BOTTOM CTA — parchment card
        ═══════════════════════════════════ */
     .cta-sect {
       padding: 120px 28px;
@@ -576,56 +571,57 @@
       background: var(--parchment);
       background-image: url('/assets/textures/paper-grain.png');
       background-size: 400px 400px;
-      border-radius: 6px;
-      padding: 56px 40px;
-      max-width: 520px;
+      border-radius: 4px;
+      padding: 56px 44px;
+      max-width: 500px;
       width: 100%;
       text-align: center;
       position: relative;
-      transform: rotate(-1deg);
+      transform: rotate(-0.8deg);
       box-shadow:
-        0 2px 4px rgba(0,0,0,0.12),
-        0 6px 16px rgba(0,0,0,0.12),
-        0 16px 48px rgba(0,0,0,0.12),
-        0 32px 80px rgba(0,0,0,0.10);
+        0 2px 4px rgba(0,0,0,0.1),
+        0 6px 16px rgba(0,0,0,0.1),
+        0 16px 44px rgba(0,0,0,0.1),
+        0 28px 72px rgba(0,0,0,0.08);
     }
     .cta-card::before {
       content: '';
       position: absolute;
-      inset: 4px;
-      border-radius: 4px;
-      border: 1px solid rgba(184, 157, 74, 0.08);
+      inset: 5px;
+      border-radius: 3px;
+      border: 1px solid rgba(184, 157, 74, 0.06);
       pointer-events: none;
     }
     .cta-card::after {
       content: '';
       position: absolute;
       inset: 0;
-      border-radius: 6px;
-      border: 1px solid rgba(184, 157, 74, 0.12);
+      border-radius: 4px;
+      border: 1px solid rgba(184, 157, 74, 0.1);
       pointer-events: none;
     }
-    .cta-overline {
+    .cta-label {
       font-family: var(--sans);
-      font-size: 0.6rem;
+      font-size: 0.58rem;
       font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.22em;
       color: var(--brass-dim);
       margin-bottom: 20px;
     }
     .cta-title {
-      font-family: var(--serif);
+      font-family: var(--display);
+      font-style: italic;
       font-size: 2.2rem;
       font-weight: 400;
       color: var(--ink);
-      line-height: 1.1;
+      line-height: 1.15;
       margin-bottom: 14px;
     }
-    .cta-sub {
+    .cta-body {
       font-size: 0.88rem;
       color: #6B5F50;
-      line-height: 1.65;
+      line-height: 1.7;
       margin-bottom: 28px;
     }
     .cta-email-row {
@@ -636,10 +632,10 @@
     .cta-email-input {
       width: 100%;
       padding: 14px 16px;
-      background: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.45);
       color: var(--ink);
-      border: 1px solid rgba(184, 157, 74, 0.2);
-      border-radius: 4px;
+      border: 1px solid rgba(184, 157, 74, 0.18);
+      border-radius: 3px;
       font-family: var(--sans);
       font-size: 0.85rem;
       outline: none;
@@ -648,7 +644,7 @@
     .cta-email-input::placeholder { color: var(--parchment-dark); }
     .cta-email-input:focus {
       border-color: var(--brass);
-      box-shadow: 0 0 0 3px rgba(184, 157, 74, 0.1);
+      box-shadow: 0 0 0 3px rgba(184, 157, 74, 0.08);
     }
     .cta-email-btn {
       width: 100%;
@@ -656,32 +652,31 @@
       background: var(--ink);
       color: var(--parchment);
       border: none;
-      border-radius: 4px;
+      border-radius: 3px;
       font-family: var(--sans);
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       cursor: pointer;
       transition: all 0.3s;
     }
-    .cta-email-btn:hover {
-      background: var(--cosmos-lift);
-    }
+    .cta-email-btn:hover { background: var(--cosmos-lift); }
     .cta-form-success {
       display: none;
       font-family: var(--serif);
       font-size: 1.1rem;
       font-style: italic;
       color: var(--brass-dim);
+      padding: 8px 0;
     }
     .fw.done .cta-email-row { display: none; }
     .fw.done .cta-form-success { display: block; }
 
     @media (min-width: 481px) {
       .cta-email-row { flex-direction: row; gap: 0; }
-      .cta-email-input { border-radius: 4px 0 0 4px; border-right: none; }
-      .cta-email-btn { width: auto; padding: 14px 24px; border-radius: 0 4px 4px 0; white-space: nowrap; }
+      .cta-email-input { border-radius: 3px 0 0 3px; border-right: none; }
+      .cta-email-btn { width: auto; padding: 14px 24px; border-radius: 0 3px 3px 0; white-space: nowrap; }
     }
 
     /* ═══════════════════════════════════
@@ -689,53 +684,54 @@
        ═══════════════════════════════════ */
     footer {
       text-align: center;
-      padding: 40px 28px;
-      border-top: 1px solid rgba(46, 35, 80, 0.3);
+      padding: 48px 28px;
+      border-top: 1px solid rgba(46, 35, 80, 0.25);
     }
     .foot-brand {
-      font-family: var(--serif);
+      font-family: var(--display);
+      font-style: italic;
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: 400;
       color: var(--lavender-dim);
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
-    .foot-brand span { color: var(--brass-dim); }
     .foot-links {
       display: flex;
       justify-content: center;
-      gap: 24px;
-      margin-bottom: 14px;
+      gap: 28px;
+      margin-bottom: 16px;
     }
     .foot-links a {
       font-family: var(--sans);
-      font-size: 0.6rem;
+      font-size: 0.58rem;
       font-weight: 500;
       color: var(--lavender-dim);
       text-decoration: none;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      transition: color 0.25s;
+      transition: color 0.3s;
     }
     .foot-links a:hover { color: var(--brass); }
     .foot-copy {
-      font-size: 0.6rem;
+      font-size: 0.58rem;
       color: var(--cosmos-edge);
     }
+    .foot-copy a { color: inherit; text-decoration: none; }
 
-    /* ─── Mobile fixes ─── */
+    /* ─── Mobile ─── */
     @media (max-width: 480px) {
       .nav-links { gap: 16px; }
-      .nav-links a { font-size: 0.6rem; letter-spacing: 0.06em; }
+      .nav-links a { font-size: 0.58rem; letter-spacing: 0.08em; }
       .zodiac-card { padding: 22px 10px 18px; }
-      .zc-glyph { font-size: 1.6rem; }
-      .zc-name { font-size: 0.9rem; }
+      .zc-glyph { font-size: 1.5rem; }
+      .zc-name { font-size: 0.88rem; }
       .cta-card { padding: 40px 24px; transform: rotate(0deg); }
+      .cta-title { font-size: 1.8rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- Texture layer -->
 <div class="texture-base" aria-hidden="true"></div>
 
 <div class="page">
@@ -743,7 +739,7 @@
   <!-- NAV -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
-      <a href="/" class="nav-brand">sign season <span>✦</span></a>
+      <a href="/" class="nav-brand">Sign Season</a>
       <div class="nav-links">
         <a href="#signs">Signs</a>
         <a href="#explore">Explore</a>
@@ -754,11 +750,9 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-overline">Your Daily Cosmic Update</div>
+    <p class="hero-label">Horoscopes, Crystals &amp; Cosmic Content</p>
     <h1 class="hero-title">
-      It's always<br>
-      somebody's<br>
-      <em>season.</em>
+      It's always<br>somebody's <span class="accent">season.</span>
     </h1>
     <p class="hero-sub">The stars have notes, and they're not holding back.</p>
     <div class="email-block">
@@ -767,126 +761,126 @@
           <input type="email" class="email-input" placeholder="your@email.com" required autocomplete="email" id="email1">
           <button type="button" class="email-btn" onclick="submitForm('fw1','email1')">Get Your Horoscope</button>
         </div>
-        <p class="email-note">Free weekly horoscope. No spam. Just the stars.</p>
-        <div class="form-success">✨ You're in. Check your inbox.</div>
+        <p class="email-note">Free weekly horoscope. No spam, no Mercury retrograde excuses.</p>
+        <div class="form-success">You're in. Check your inbox.</div>
       </div>
     </div>
-    <div class="scroll-hint">
+    <div class="scroll-cue">
       <span>Scroll</span>
-      <div class="scroll-line"></div>
+      <div class="line"></div>
     </div>
   </section>
 
-  <div class="ornament"><span class="ornament-glyph">✦ ✦ ✦</span></div>
+  <div class="ornament"><span class="ornament-star">&#10038;</span></div>
 
   <!-- ZODIAC GRID -->
   <section class="sect" id="signs">
     <div class="sect-inner">
       <div class="sect-header">
-        <div class="sect-overline">The Zodiac</div>
+        <p class="sect-label">The Zodiac</p>
         <h2 class="sect-title">Choose your sign.</h2>
         <p class="sect-sub">Or don't. We already know which one you clicked first.</p>
       </div>
       <div class="zodiac-grid" id="zodiac-grid">
         <a href="/signs/aries" class="zodiac-card" data-sign="aries">
-          <span class="zc-now">now</span>
-          <span class="zc-glyph">♈</span>
+          <span class="zc-badge">now</span>
+          <span class="zc-glyph">&#9800;</span>
           <span class="zc-name">Aries</span>
-          <span class="zc-dates">Mar 21 – Apr 19</span>
+          <span class="zc-dates">Mar 21 &#8211; Apr 19</span>
         </a>
         <a href="/signs/taurus" class="zodiac-card" data-sign="taurus">
-          <span class="zc-now">now</span>
-          <span class="zc-glyph">♉</span>
+          <span class="zc-badge">now</span>
+          <span class="zc-glyph">&#9801;</span>
           <span class="zc-name">Taurus</span>
-          <span class="zc-dates">Apr 20 – May 20</span>
+          <span class="zc-dates">Apr 20 &#8211; May 20</span>
         </a>
         <a href="/signs/gemini" class="zodiac-card" data-sign="gemini">
-          <span class="zc-now">now</span>
-          <span class="zc-glyph">♊</span>
+          <span class="zc-badge">now</span>
+          <span class="zc-glyph">&#9802;</span>
           <span class="zc-name">Gemini</span>
-          <span class="zc-dates">May 21 – Jun 20</span>
+          <span class="zc-dates">May 21 &#8211; Jun 20</span>
         </a>
         <a href="/signs/cancer" class="zodiac-card" data-sign="cancer">
-          <span class="zc-now">now</span>
-          <span class="zc-glyph">♋</span>
+          <span class="zc-badge">now</span>
+          <span class="zc-glyph">&#9803;</span>
           <span class="zc-name">Cancer</span>
-          <span class="zc-dates">Jun 21 – Jul 22</span>
+          <span class="zc-dates">Jun 21 &#8211; Jul 22</span>
         </a>
         <a href="/signs/leo" class="zodiac-card" data-sign="leo">
-          <span class="zc-now">now</span>
-          <span class="zc-glyph">♌</span>
+          <span class="zc-badge">now</span>
+          <span class="zc-glyph">&#9804;</span>
           <span class="zc-name">Leo</span>
-          <span class="zc-dates">Jul 23 – Aug 22</span>
+          <span class="zc-dates">Jul 23 &#8211; Aug 22</span>
         </a>
         <a href="/signs/virgo" class="zodiac-card" data-sign="virgo">
-          <span class="zc-now">now</span>
-          <span class="zc-glyph">♍</span>
+          <span class="zc-badge">now</span>
+          <span class="zc-glyph">&#9805;</span>
           <span class="zc-name">Virgo</span>
-          <span class="zc-dates">Aug 23 – Sep 22</span>
+          <span class="zc-dates">Aug 23 &#8211; Sep 22</span>
         </a>
         <a href="/signs/libra" class="zodiac-card" data-sign="libra">
-          <span class="zc-now">now</span>
-          <span class="zc-glyph">♎</span>
+          <span class="zc-badge">now</span>
+          <span class="zc-glyph">&#9806;</span>
           <span class="zc-name">Libra</span>
-          <span class="zc-dates">Sep 23 – Oct 22</span>
+          <span class="zc-dates">Sep 23 &#8211; Oct 22</span>
         </a>
         <a href="/signs/scorpio" class="zodiac-card" data-sign="scorpio">
-          <span class="zc-now">now</span>
-          <span class="zc-glyph">♏</span>
+          <span class="zc-badge">now</span>
+          <span class="zc-glyph">&#9807;</span>
           <span class="zc-name">Scorpio</span>
-          <span class="zc-dates">Oct 23 – Nov 21</span>
+          <span class="zc-dates">Oct 23 &#8211; Nov 21</span>
         </a>
         <a href="/signs/sagittarius" class="zodiac-card" data-sign="sagittarius">
-          <span class="zc-now">now</span>
-          <span class="zc-glyph">♐</span>
+          <span class="zc-badge">now</span>
+          <span class="zc-glyph">&#9808;</span>
           <span class="zc-name">Sagittarius</span>
-          <span class="zc-dates">Nov 22 – Dec 21</span>
+          <span class="zc-dates">Nov 22 &#8211; Dec 21</span>
         </a>
         <a href="/signs/capricorn" class="zodiac-card" data-sign="capricorn">
-          <span class="zc-now">now</span>
-          <span class="zc-glyph">♑</span>
+          <span class="zc-badge">now</span>
+          <span class="zc-glyph">&#9809;</span>
           <span class="zc-name">Capricorn</span>
-          <span class="zc-dates">Dec 22 – Jan 19</span>
+          <span class="zc-dates">Dec 22 &#8211; Jan 19</span>
         </a>
         <a href="/signs/aquarius" class="zodiac-card" data-sign="aquarius">
-          <span class="zc-now">now</span>
-          <span class="zc-glyph">♒</span>
+          <span class="zc-badge">now</span>
+          <span class="zc-glyph">&#9810;</span>
           <span class="zc-name">Aquarius</span>
-          <span class="zc-dates">Jan 20 – Feb 18</span>
+          <span class="zc-dates">Jan 20 &#8211; Feb 18</span>
         </a>
         <a href="/signs/pisces" class="zodiac-card" data-sign="pisces">
-          <span class="zc-now">now</span>
-          <span class="zc-glyph">♓</span>
+          <span class="zc-badge">now</span>
+          <span class="zc-glyph">&#9811;</span>
           <span class="zc-name">Pisces</span>
-          <span class="zc-dates">Feb 19 – Mar 20</span>
+          <span class="zc-dates">Feb 19 &#8211; Mar 20</span>
         </a>
       </div>
     </div>
   </section>
 
-  <div class="ornament"><span class="ornament-glyph">✦ ✦ ✦</span></div>
+  <div class="ornament"><span class="ornament-star">&#10038;</span></div>
 
   <!-- EXPLORE -->
-  <div class="sect-dark" id="explore">
+  <div class="sect-raised" id="explore">
     <section class="sect">
       <div class="sect-inner">
         <div class="sect-header">
-          <div class="sect-overline">Go Deeper</div>
+          <p class="sect-label">Go Deeper</p>
           <h2 class="sect-title">The stuff you actually<br>want to read about.</h2>
         </div>
         <div class="explore-grid">
           <div class="explore-card">
-            <div class="ec-tag">Compatibility</div>
+            <p class="ec-tag">Compatibility</p>
             <h3 class="ec-title">Who should you actually date?</h3>
             <p class="ec-body">Sun sign chemistry is just the start. Moon signs, Venus placements, and why that Gemini keeps texting you back at 2am.</p>
           </div>
           <div class="explore-card">
-            <div class="ec-tag">Crystals + Rituals</div>
+            <p class="ec-tag">Crystals &amp; Rituals</p>
             <h3 class="ec-title">Stones that match your chart.</h3>
             <p class="ec-body">Not generic crystal content. The specific stones that align with your placements, and what to actually do with them.</p>
           </div>
           <div class="explore-card">
-            <div class="ec-tag">Weekly Horoscope</div>
+            <p class="ec-tag">Weekly Horoscope</p>
             <h3 class="ec-title">Your week, cosmically speaking.</h3>
             <p class="ec-body">Skip the vague today-is-a-good-day-for-love energy. Specific, occasionally uncomfortable, and weirdly accurate.</p>
           </div>
@@ -895,47 +889,46 @@
     </section>
   </div>
 
-  <div class="ornament"><span class="ornament-glyph">✦ ✦ ✦</span></div>
+  <div class="ornament"><span class="ornament-star">&#10038;</span></div>
 
-  <!-- BOTTOM CTA — Parchment card on velvet -->
+  <!-- BOTTOM CTA -->
   <section class="cta-sect" id="subscribe">
     <div class="cta-card">
-      <div class="cta-overline">Weekly Horoscope</div>
+      <p class="cta-label">Weekly Horoscope</p>
       <h2 class="cta-title">The stars have notes.</h2>
-      <p class="cta-sub">Crystal recs, compatibility deep-dives, and the cosmic updates your group chat needs. Free forever.</p>
+      <p class="cta-body">Crystal recs, compatibility deep-dives, and the cosmic updates your group chat needs. Free forever.</p>
       <div class="fw" id="fw2">
         <div class="cta-email-row">
           <input type="email" class="cta-email-input" placeholder="your@email.com" required autocomplete="email" id="email2">
           <button type="button" class="cta-email-btn" onclick="submitForm('fw2','email2')">Subscribe Free</button>
         </div>
-        <div class="cta-form-success">✨ Welcome to the season.</div>
+        <div class="cta-form-success">Welcome to the season.</div>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <div class="foot-brand">sign season <span>✦</span></div>
+    <div class="foot-brand">Sign Season</div>
     <div class="foot-links">
       <a href="https://tiktok.com/@sign_season" target="_blank" rel="noopener">TikTok</a>
       <a href="https://instagram.com/signseasonco" target="_blank" rel="noopener">Instagram</a>
       <a href="#" target="_blank" rel="noopener">Pinterest</a>
     </div>
-    <p class="foot-copy">&copy; 2026 Sign Season &middot; <a href="/privacy" style="color: inherit; text-decoration: none;">Privacy</a></p>
+    <p class="foot-copy">&copy; 2026 Sign Season &middot; <a href="/privacy">Privacy</a></p>
   </footer>
 
 </div>
 
 <script>
-// Nav reveal on scroll
+// Nav reveal
 const nav = document.getElementById('nav');
 const heroH = window.innerHeight;
 window.addEventListener('scroll', () => {
-  if (window.scrollY > heroH * 0.5) nav.classList.add('visible');
-  else nav.classList.remove('visible');
+  nav.classList.toggle('visible', window.scrollY > heroH * 0.5);
 }, { passive: true });
 
-// Current sign
+// Current sign highlight
 const signDates = [
   ['aries',[3,21],[4,19]],['taurus',[4,20],[5,20]],['gemini',[5,21],[6,20]],
   ['cancer',[6,21],[7,22]],['leo',[7,23],[8,22]],['virgo',[8,23],[9,22]],
@@ -959,9 +952,8 @@ async function submitForm(fwId, inputId) {
   const email = input.value;
   if (!email || !input.checkValidity()) { input.reportValidity(); return; }
 
-  // Disable button while submitting
   const btn = input.parentElement.querySelector('button');
-  const originalText = btn.textContent;
+  const orig = btn.textContent;
   btn.textContent = '...';
   btn.disabled = true;
 
@@ -971,23 +963,22 @@ async function submitForm(fwId, inputId) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email }),
     });
-
     if (res.ok) {
       document.getElementById(fwId).classList.add('done');
     } else {
-      // Fallback: still show success (save locally, don't block the user)
-      const stored = JSON.parse(localStorage.getItem('ss_emails') || '[]');
-      stored.push({ email, t: Date.now() });
-      localStorage.setItem('ss_emails', JSON.stringify(stored));
+      fallbackSave(email);
       document.getElementById(fwId).classList.add('done');
     }
-  } catch (err) {
-    // Network error fallback
-    const stored = JSON.parse(localStorage.getItem('ss_emails') || '[]');
-    stored.push({ email, t: Date.now() });
-    localStorage.setItem('ss_emails', JSON.stringify(stored));
+  } catch {
+    fallbackSave(email);
     document.getElementById(fwId).classList.add('done');
   }
+}
+
+function fallbackSave(email) {
+  const stored = JSON.parse(localStorage.getItem('ss_emails') || '[]');
+  stored.push({ email, t: Date.now() });
+  localStorage.setItem('ss_emails', JSON.stringify(stored));
 }
 </script>
 </body>
