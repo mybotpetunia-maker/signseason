@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Zodiac Signs: Personality, Compatibility, Crystals | Sign Season</title>
+  <meta name="description" content="Explore all 12 zodiac signs. Personality deep-dives, compatibility breakdowns, crystal guides, and horoscopes that don't insult your intelligence.">
+  <meta name="theme-color" content="#2A1F33">
+  <meta property="og:title" content="All 12 Zodiac Signs | Sign Season">
+  <meta property="og:description" content="Personality, compatibility, crystals, and cosmic content for every sign.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://signseason.com/signs/">
+  <link rel="canonical" href="https://signseason.com/signs/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fondamento:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "All Zodiac Signs",
+    "description": "Explore all 12 zodiac signs with personality deep-dives, compatibility, and crystal guides.",
+    "url": "https://signseason.com/signs/",
+    "publisher": { "@type": "Organization", "name": "Sign Season", "url": "https://signseason.com" }
+  }
+  </script>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --void: #1E1528;
+      --plum: #2A1F33;
+      --plum-mid: #352840;
+      --plum-lift: #3D2E4A;
+      --gold-dim: #B09A6E;
+      --gold: #C9AD6F;
+      --gold-light: #D4BC7C;
+      --gold-pale: #E2D4A7;
+      --display: 'Fondamento', cursive;
+      --serif: 'EB Garamond', 'Garamond', 'Georgia', serif;
+      --sans: 'DM Sans', -apple-system, sans-serif;
+      --mono: 'Space Mono', monospace;
+    }
+
+    body {
+      background: var(--plum);
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    body > *:not(canvas) { position: relative; z-index: 1; }
+    ::selection { background: rgba(201,173,111,0.25); color: var(--gold-pale); }
+
+    /* Nav */
+    .nav {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--sans);
+      font-size: 0.6rem;
+    }
+    .nav a { color: var(--gold-dim); text-decoration: none; transition: color 0.3s; }
+    .nav a:first-child { font-family: var(--display); font-style: italic; font-size: 1rem; color: var(--gold); }
+    .nav a:hover { color: var(--gold-light); }
+    .nav .sep { color: var(--gold-dim); opacity: 0.25; }
+    .nav span:last-child { color: var(--gold-dim); }
+
+    /* Hero */
+    .hero {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 60px 24px 40px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      color: var(--gold-pale);
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--gold-dim);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .div {
+      text-align: center;
+      padding: 24px 0;
+      color: var(--gold-dim);
+      opacity: 0.3;
+      font-size: 6px;
+      letter-spacing: 16px;
+    }
+
+    /* Sign grid */
+    .grid {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    @media (min-width: 600px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 900px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+
+    .sign-card {
+      background: var(--plum-mid);
+      border: 1px solid rgba(201,173,111,0.1);
+      border-radius: 2px;
+      padding: 28px 20px 24px;
+      text-align: center;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.35s ease;
+      overflow: hidden;
+      position: relative;
+    }
+    .sign-card:hover {
+      border-color: rgba(201,173,111,0.25);
+      background: var(--plum-lift);
+      transform: translateY(-2px);
+    }
+    .sign-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 50%;
+      opacity: 0.85;
+      transition: opacity 0.3s;
+    }
+    .sign-card:hover img { opacity: 1; }
+    .sign-card .name {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--gold-light);
+    }
+    .sign-card .dates {
+      font-family: var(--mono);
+      font-size: 0.5rem;
+      color: var(--gold-dim);
+    }
+    .sign-card .tagline {
+      font-family: var(--serif);
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--gold-dim);
+      line-height: 1.5;
+    }
+    .sign-card .links {
+      display: flex;
+      gap: 12px;
+      margin-top: 4px;
+    }
+    .sign-card .links a {
+      font-family: var(--sans);
+      font-size: 0.5rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold-dim);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(201,173,111,0.15);
+      padding-bottom: 1px;
+      transition: all 0.3s;
+    }
+    .sign-card .links a:hover { color: var(--gold-light); border-bottom-color: var(--gold-light); }
+
+    /* Footer */
+    .foot {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 32px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(201,173,111,0.06);
+    }
+    .foot a {
+      font-family: var(--sans);
+      font-size: 0.58rem;
+      color: var(--gold-dim);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.3s;
+    }
+    .foot a:hover { color: var(--gold-light); }
+
+    @media (max-width: 480px) {
+      .sign-card img { width: 70px; height: 70px; }
+      .sign-card .tagline { font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="/">Sign Season</a>
+    <span class="sep">/</span>
+    <span>All Signs</span>
+  </nav>
+
+  <header class="hero">
+    <h1>The Zodiac</h1>
+    <p>Twelve signs. Twelve ways to be impossible. Pick yours.</p>
+  </header>
+
+  <div class="div">&#10038;&ensp;&#10038;&ensp;&#10038;</div>
+
+  <div class="grid">
+
+    <a href="/signs/aries" class="sign-card">
+      <img src="/assets/illustrations/signs/aries-ram.png" alt="Aries">
+      <div class="name">Aries</div>
+      <div class="dates">Mar 21 &#8211; Apr 19</div>
+      <div class="tagline">First. Loudest. Already halfway out the door.</div>
+      <div class="links">
+        <a href="/crystals/best-crystals-for-aries">Crystals</a>
+        <a href="/compatibility/aries-leo">Compatibility</a>
+      </div>
+    </a>
+
+    <a href="/signs/taurus" class="sign-card">
+      <img src="/assets/illustrations/signs/taurus.png" alt="Taurus">
+      <div class="name">Taurus</div>
+      <div class="dates">Apr 20 &#8211; May 20</div>
+      <div class="tagline">Unbothered. Well-fed. Not moving.</div>
+      <div class="links">
+        <a href="/crystals/best-crystals-for-taurus">Crystals</a>
+        <a href="/compatibility/taurus-virgo">Compatibility</a>
+      </div>
+    </a>
+
+    <a href="/signs/gemini" class="sign-card">
+      <img src="/assets/illustrations/signs/gemini.png" alt="Gemini">
+      <div class="name">Gemini</div>
+      <div class="dates">May 21 &#8211; Jun 20</div>
+      <div class="tagline">Two people. One body. Zero filter.</div>
+      <div class="links">
+        <a href="/crystals/best-crystals-for-gemini">Crystals</a>
+        <a href="/compatibility/gemini-libra">Compatibility</a>
+      </div>
+    </a>
+
+    <a href="/signs/cancer" class="sign-card">
+      <img src="/assets/illustrations/signs/cancer.png" alt="Cancer">
+      <div class="name">Cancer</div>
+      <div class="dates">Jun 21 &#8211; Jul 22</div>
+      <div class="tagline">Feels everything. Remembers all of it.</div>
+      <div class="links">
+        <a href="/crystals/best-crystals-for-cancer">Crystals</a>
+        <a href="/compatibility/cancer-scorpio">Compatibility</a>
+      </div>
+    </a>
+
+    <a href="/signs/leo" class="sign-card">
+      <img src="/assets/illustrations/signs/leo.png" alt="Leo">
+      <div class="name">Leo</div>
+      <div class="dates">Jul 23 &#8211; Aug 22</div>
+      <div class="tagline">Main character energy isn't a choice. It's a diagnosis.</div>
+      <div class="links">
+        <a href="/crystals/best-crystals-for-leo">Crystals</a>
+        <a href="/compatibility/aries-leo">Compatibility</a>
+      </div>
+    </a>
+
+    <a href="/signs/virgo" class="sign-card">
+      <img src="/assets/illustrations/signs/virgo.png" alt="Virgo">
+      <div class="name">Virgo</div>
+      <div class="dates">Aug 23 &#8211; Sep 22</div>
+      <div class="tagline">Already noticed three things wrong with this page.</div>
+      <div class="links">
+        <a href="/crystals/best-crystals-for-virgo">Crystals</a>
+        <a href="/compatibility/taurus-virgo">Compatibility</a>
+      </div>
+    </a>
+
+    <a href="/signs/libra" class="sign-card">
+      <img src="/assets/illustrations/signs/libra.png" alt="Libra">
+      <div class="name">Libra</div>
+      <div class="dates">Sep 23 &#8211; Oct 22</div>
+      <div class="tagline">Can't decide if they love you or the idea of you.</div>
+      <div class="links">
+        <a href="/crystals/best-crystals-for-libra">Crystals</a>
+        <a href="/compatibility/gemini-libra">Compatibility</a>
+      </div>
+    </a>
+
+    <a href="/signs/scorpio" class="sign-card">
+      <img src="/assets/illustrations/signs/scorpio.png" alt="Scorpio">
+      <div class="name">Scorpio</div>
+      <div class="dates">Oct 23 &#8211; Nov 21</div>
+      <div class="tagline">Knows your secrets. All of them. Already.</div>
+      <div class="links">
+        <a href="/crystals/best-crystals-for-scorpio">Crystals</a>
+        <a href="/compatibility/cancer-scorpio">Compatibility</a>
+      </div>
+    </a>
+
+    <a href="/signs/sagittarius" class="sign-card">
+      <img src="/assets/illustrations/signs/sagittarius.png" alt="Sagittarius">
+      <div class="name">Sagittarius</div>
+      <div class="dates">Nov 22 &#8211; Dec 21</div>
+      <div class="tagline">Already booked a flight. Hasn't told anyone yet.</div>
+      <div class="links">
+        <a href="/crystals/best-crystals-for-sagittarius">Crystals</a>
+        <a href="/compatibility/leo-sagittarius">Compatibility</a>
+      </div>
+    </a>
+
+    <a href="/signs/capricorn" class="sign-card">
+      <img src="/assets/illustrations/signs/capricorn.png" alt="Capricorn">
+      <div class="name">Capricorn</div>
+      <div class="dates">Dec 22 &#8211; Jan 19</div>
+      <div class="tagline">Has a five-year plan for their five-year plan.</div>
+      <div class="links">
+        <a href="/crystals/best-crystals-for-capricorn">Crystals</a>
+        <a href="/compatibility/virgo-capricorn">Compatibility</a>
+      </div>
+    </a>
+
+    <a href="/signs/aquarius" class="sign-card">
+      <img src="/assets/illustrations/signs/aquarius.png" alt="Aquarius">
+      <div class="name">Aquarius</div>
+      <div class="dates">Jan 20 &#8211; Feb 18</div>
+      <div class="tagline">Emotionally available for humanity. Not for you specifically.</div>
+      <div class="links">
+        <a href="/crystals/best-crystals-for-aquarius">Crystals</a>
+        <a href="/compatibility/libra-aquarius">Compatibility</a>
+      </div>
+    </a>
+
+    <a href="/signs/pisces" class="sign-card">
+      <img src="/assets/illustrations/signs/pisces.png" alt="Pisces">
+      <div class="name">Pisces</div>
+      <div class="dates">Feb 19 &#8211; Mar 20</div>
+      <div class="tagline">Living in a reality they invented. It's nicer there.</div>
+      <div class="links">
+        <a href="/crystals/best-crystals-for-pisces">Crystals</a>
+        <a href="/compatibility/scorpio-pisces">Compatibility</a>
+      </div>
+    </a>
+
+  </div>
+
+  <footer class="foot">
+    <a href="/">Sign Season</a> &ensp;&middot;&ensp; <a href="/privacy">Privacy</a>
+  </footer>
+
+<script src="/js/stars.js"></script>
+</body>
+</html>
