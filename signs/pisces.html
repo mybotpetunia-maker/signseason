@@ -5,8 +5,9 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pisces Zodiac Sign: Personality, Traits, Compatibility | Sign Season</title>
-  <meta name="description" content="Pisces feels the whole world and somehow still shows up for you. Personality, love, career, crystals, and compatibility for the Fish.">
-  <meta property="og:title" content="Pisces Zodiac Sign: Personality, Traits, Compatibility | Sign Season">
+  <meta name="description" content="Pisces feels the whole world and somehow still shows up for you.">
+  <meta name="theme-color" content="#2A1F33">
+  <meta property="og:title" content="Pisces: Personality, Traits, Compatibility | Sign Season">
   <meta property="og:description" content="Pisces feels the whole world and somehow still shows up for you.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://signseason.com/signs/pisces">
@@ -14,8 +15,7 @@
   <link rel="canonical" href="https://signseason.com/signs/pisces">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&family=Space+Mono:wght@400;700family=Fondamento:ital@0;1family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&family=Space+Mono:wght@400;700family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&family=Space+Mono:wght@400;700family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style/content.css">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fondamento:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -30,44 +30,585 @@
     }
   }
   </script>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --void: #1E1528;
+      --plum: #2A1F33;
+      --plum-mid: #352840;
+      --plum-lift: #3D2E4A;
+      --gold-dim: #B09A6E;
+      --gold: #C9AD6F;
+      --gold-light: #D4BC7C;
+      --gold-pale: #E2D4A7;
+      --display: 'Fondamento', cursive;
+      --serif: 'EB Garamond', 'Garamond', 'Georgia', serif;
+      --sans: 'DM Sans', -apple-system, sans-serif;
+      --mono: 'Space Mono', monospace;
+    }
+
+    body {
+      background: var(--plum);
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    body > *:not(canvas) { position: relative; z-index: 1; }
+    ::selection { background: rgba(201,173,111,0.25); color: var(--gold-pale); }
+
+    /* ─── Nav ─── */
+    .nav {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--sans);
+      font-size: 0.6rem;
+    }
+    .nav a {
+      color: var(--gold-dim);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .nav a:first-child {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--gold);
+    }
+    .nav a:hover { color: var(--gold-light); }
+    .nav .sep { color: var(--gold-dim); opacity: 0.25; }
+    .nav span:last-child { color: var(--gold-dim); }
+
+    /* ─── Hero header ─── */
+    .sign-hero {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 48px 24px 0;
+      text-align: center;
+    }
+    .sign-illustration {
+      width: 220px;
+      height: 220px;
+      object-fit: contain;
+      margin-bottom: 28px;
+      border-radius: 50%;
+    }
+    .sign-name {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: clamp(3rem, 8vw, 4.5rem);
+      color: var(--gold-pale);
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+    .sign-tagline {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--gold-dim);
+      margin-bottom: 40px;
+    }
+
+    /* ─── Quick facts ─── */
+    .facts {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: rgba(201,173,111,0.06);
+      border: 1px solid rgba(201,173,111,0.08);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    @media (min-width: 481px) { .facts-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 769px) { .facts-grid { grid-template-columns: repeat(6, 1fr); } }
+    .fact {
+      background: var(--plum-mid);
+      padding: 16px;
+      text-align: center;
+    }
+    .fact-label {
+      font-family: var(--sans);
+      font-size: 0.5rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold-dim);
+      margin-bottom: 4px;
+    }
+    .fact-val {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--gold-light);
+    }
+
+    /* ─── Article body ─── */
+    article {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section { padding: 48px 0 0; }
+    .section h2 {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-bottom: 18px;
+      line-height: 1.2;
+    }
+    .section h3 {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--gold-dim);
+      margin-top: 28px;
+      margin-bottom: 14px;
+    }
+    .section p {
+      margin-bottom: 16px;
+      line-height: 1.85;
+    }
+    .section ul {
+      list-style: none;
+      padding: 0;
+    }
+    .section li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(201,173,111,0.05);
+      line-height: 1.7;
+    }
+    .section li strong {
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    /* ─── Highlight box ─── */
+    .highlight-box {
+      background: linear-gradient(135deg, var(--plum-mid), var(--plum-lift));
+      border: 1px solid rgba(201,173,111,0.12);
+      border-radius: 2px;
+      padding: 28px 24px;
+      margin: 32px 0;
+    }
+    .highlight-box .hb-label {
+      font-family: var(--sans);
+      font-size: 0.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .highlight-box p {
+      font-size: 1.05rem;
+      color: var(--gold-light);
+      margin-bottom: 0;
+      line-height: 1.7;
+    }
+
+    /* ─── Stat row ─── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(201,173,111,0.06);
+      border: 1px solid rgba(201,173,111,0.08);
+      border-radius: 2px;
+      overflow: hidden;
+      margin: 32px 0;
+    }
+    .stat {
+      background: var(--plum-mid);
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 1.8rem;
+      color: var(--gold-light);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-desc {
+      font-family: var(--sans);
+      font-size: 0.5rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gold-dim);
+    }
+    @media (max-width: 480px) { .stat-row { grid-template-columns: 1fr; } }
+
+    /* ─── Pull quote ─── */
+    .pull-quote {
+      border-left: 2px solid var(--gold-dim);
+      padding: 4px 0 4px 24px;
+      margin: 36px 0;
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--gold-light);
+      line-height: 1.6;
+    }
+
+    /* ─── Divider ─── */
+    .div {
+      text-align: center;
+      padding: 32px 0;
+      color: var(--gold-dim);
+      opacity: 0.3;
+      font-size: 6px;
+      letter-spacing: 16px;
+    }
+
+    /* ─── Mid-content email capture ─── */
+    .mid-cta {
+      background: var(--plum-mid);
+      border: 1px solid rgba(201,173,111,0.1);
+      border-radius: 2px;
+      padding: 32px 28px;
+      margin: 48px 0;
+      text-align: center;
+    }
+    .mid-cta p {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--gold-dim);
+      margin-bottom: 16px;
+    }
+    .mid-cta-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-width: 380px;
+      margin: 0 auto;
+    }
+    .mid-cta-input {
+      width: 100%;
+      padding: 12px 14px;
+      background: var(--plum-lift);
+      color: var(--gold-pale);
+      border: 1px solid var(--gold-dim);
+      border-radius: 2px;
+      font-family: var(--serif);
+      font-size: 0.92rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .mid-cta-input::placeholder { color: var(--gold-dim); }
+    .mid-cta-input:focus { border-color: var(--gold); }
+    .mid-cta-btn {
+      padding: 12px;
+      background: var(--gold);
+      color: var(--void);
+      border: none;
+      border-radius: 2px;
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .mid-cta-btn:hover { background: var(--gold-light); }
+    .mid-cta-success {
+      display: none;
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--gold-light);
+      padding: 8px 0;
+    }
+    .fw.done .mid-cta-row { display: none; }
+    .fw.done p { display: none; }
+    .fw.done .mid-cta-success { display: block; }
+
+    @media (min-width: 481px) {
+      .mid-cta-row { flex-direction: row; gap: 0; }
+      .mid-cta-input { border-radius: 2px 0 0 2px; border-right: none; }
+      .mid-cta-btn { width: auto; padding: 12px 20px; border-radius: 0 2px 2px 0; white-space: nowrap; }
+    }
+
+    /* ─── Compatibility scores ─── */
+    .compat-section { padding-top: 48px; }
+    .compat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 20px;
+    }
+    .compat-header h2 { margin-bottom: 0; }
+    .compat-header a {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      color: var(--gold-dim);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.3s;
+    }
+    .compat-header a:hover { color: var(--gold-light); }
+
+    .compat-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(201,173,111,0.05);
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+    .compat-card:hover { opacity: 0.8; }
+    .compat-signs {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--gold-light);
+      min-width: 120px;
+    }
+    .compat-bar-wrap {
+      flex: 1;
+      height: 6px;
+      background: rgba(201,173,111,0.08);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .compat-bar {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 3px;
+      transition: width 0.6s ease;
+    }
+    .compat-pct {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--gold-dim);
+      min-width: 32px;
+      text-align: right;
+    }
+
+    /* ─── Crystal cards ─── */
+    .crystal-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    @media (min-width: 481px) { .crystal-grid { grid-template-columns: 1fr 1fr; } }
+
+    .crystal-card {
+      background: var(--plum-mid);
+      border: 1px solid rgba(201,173,111,0.08);
+      border-radius: 2px;
+      padding: 24px 20px;
+      transition: border-color 0.3s;
+    }
+    .crystal-card:hover { border-color: rgba(201,173,111,0.18); }
+    .crystal-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 2px;
+      margin-bottom: 14px;
+      background: var(--plum-lift);
+      filter: brightness(1.15) saturate(1.1);
+    }
+    .crystal-name {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+    }
+    .crystal-vibe {
+      font-family: var(--sans);
+      font-size: 0.55rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gold-dim);
+      margin-bottom: 10px;
+    }
+    .crystal-desc {
+      font-size: 0.92rem;
+      color: var(--gold);
+      line-height: 1.65;
+      margin-bottom: 12px;
+    }
+    .crystal-link {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold-light);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(201,173,111,0.2);
+      padding-bottom: 1px;
+      transition: all 0.3s;
+    }
+    .crystal-link:hover { color: var(--gold-pale); border-bottom-color: var(--gold-pale); }
+
+    /* ─── Closing section ─── */
+    .closing {
+      padding: 48px 0 0;
+    }
+    .closing h2 {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 1.6rem;
+      color: var(--gold-light);
+      margin-bottom: 16px;
+    }
+    .closing p {
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+
+    /* ─── Bottom CTA ─── */
+    .bottom-cta {
+      border: 1px solid rgba(201,173,111,0.1);
+      border-radius: 2px;
+      padding: 40px 28px;
+      margin: 56px 0 0;
+      text-align: center;
+    }
+    .bottom-cta .cta-title {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+    .bottom-cta .cta-sub {
+      font-family: var(--serif);
+      font-size: 0.92rem;
+      font-style: italic;
+      color: var(--gold-dim);
+      margin-bottom: 20px;
+    }
+
+    /* ─── Footer ─── */
+    .foot {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(201,173,111,0.06);
+    }
+    .foot a {
+      font-family: var(--sans);
+      font-size: 0.58rem;
+      color: var(--gold-dim);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.3s;
+    }
+    .foot a:hover { color: var(--gold-light); }
+
+    /* ─── Mobile ─── */
+    @media (max-width: 480px) {
+      .sign-illustration { width: 140px; height: 140px; }
+      .sign-name { font-size: 2.5rem; }
+      .compat-signs { min-width: 90px; font-size: 0.88rem; }
+      .crystal-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-  <nav class="site-nav">
+
+  <!-- Nav -->
+  <nav class="nav">
     <a href="/">Sign Season</a>
     <span class="sep">/</span>
-    <a href="/signs/">All Signs</a>
+    <a href="#signs">Signs</a>
     <span class="sep">/</span>
     <span>Pisces</span>
   </nav>
 
+  <!-- Hero -->
+  <header class="sign-hero">
+    <img src="/assets/illustrations/signs/pisces.png" alt="Pisces fish illustration" class="sign-illustration">
+    <h1 class="sign-name">Pisces</h1>
+    <p class="sign-tagline">The last sign. Carries a piece of all the others.</p>
+  </header>
+
+  <!-- Quick facts -->
+  <div class="facts">
+    <div class="facts-grid">
+      <div class="fact">
+        <div class="fact-label">Dates</div>
+        <div class="fact-val">Feb 19 &#8211; Mar 20</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">Element</div>
+        <div class="fact-val">Water</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">Modality</div>
+        <div class="fact-val">Mutable</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">Rulers</div>
+        <div class="fact-val">Neptune &amp; Jupiter</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">Symbol</div>
+        <div class="fact-val">The Fish</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">Colors</div>
+        <div class="fact-val">Sea Green, Lavender</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="div">&#10038;&ensp;&#10038;&ensp;&#10038;</div>
+
+  <!-- Article -->
   <article>
-    <header class="sign-header">
-      <p class="sign-symbol">&#9811;&#xFE0E;</p>
-      <h1>Pisces</h1>
-      <p class="sign-tagline">The last sign. Carries a piece of all the others.</p>
-    </header>
 
-    <section class="quick-facts">
-      <h2 class="sr-only">Quick Facts</h2>
-      <table>
-        <tr><th>Symbol</th><td>The Fish &#9811;&#xFE0E;</td></tr>
-        <tr><th>Dates</th><td>February 19 &ndash; March 20</td></tr>
-        <tr><th>Element</th><td>Water</td></tr>
-        <tr><th>Modality</th><td>Mutable</td></tr>
-        <tr><th>Ruling Planets</th><td>Neptune &amp; Jupiter</td></tr>
-        <tr><th>Lucky Numbers</th><td>3, 7, 12, 16</td></tr>
-        <tr><th>Lucky Colors</th><td>Sea Green, Lavender, Soft White</td></tr>
-      </table>
-    </section>
-
-    <section>
+    <!-- Who is Pisces -->
+    <div class="section">
       <h2>Who Is Pisces, Actually?</h2>
       <p>Pisces is the final sign of the zodiac and there's a reason it's placed at the end. In the old symbolic language of astrology, Pisces has walked through all twelve signs. They carry all the experiences, all the lessons, all the emotional residue of the full cycle. This is why they seem to understand everyone. This is why they can hold space for almost any kind of pain or joy without judgment. They've seen it all. Not literally. But somewhere in the Piscean psyche, everything resonates.</p>
-      <p>Neptune and Jupiter co-rule them. Neptune is the planet of dreams, illusions, spiritual dissolution, art, and the deep ocean of the collective unconscious. Jupiter brings expansion and the desire to understand meaning. Put these together and you get someone who lives partially in a world that exists just slightly sideways from consensus reality. They feel things other people miss. They sense the undercurrents. Their intuition is not guesswork; it's perception at a frequency most people can't access.</p>
-      <p>Mutable water is the most fluid energy in the zodiac. They adapt. They absorb. They take the shape of whatever container they're in. This is a gift when the container is good. It's a real risk when the container is not. Pisces has to learn, again and again, to swim in their own direction. To maintain a sense of self that doesn't dissolve entirely into whoever they're with, whatever they're feeling, whatever the room needs. When they figure out how to keep one foot in the dream world and one foot on the ground, they become something genuinely extraordinary.</p>
-    </section>
 
-    <section>
+      <div class="highlight-box">
+        <div class="hb-label">Ruled by Neptune &amp; Jupiter</div>
+        <p>Neptune is the planet of dreams, illusions, spiritual dissolution, art, and the deep ocean of the collective unconscious. Jupiter brings expansion and the desire to understand meaning. Put these together and you get someone who lives partially in a world that exists just slightly sideways from consensus reality.</p>
+      </div>
+
+      <p>Mutable water is the most fluid energy in the zodiac. They adapt. They absorb. They take the shape of whatever container they're in. This is a gift when the container is good. It's a real risk when the container is not. Pisces has to learn, again and again, to swim in their own direction. To maintain a sense of self that doesn't dissolve entirely into whoever they're with, whatever they're feeling, whatever the room needs.</p>
+
+      <div class="pull-quote">They feel things other people miss. They sense the undercurrents. Their intuition is not guesswork; it's perception at a frequency most people can't access.</div>
+
+      <p>When they figure out how to keep one foot in the dream world and one foot on the ground, they become something genuinely extraordinary.</p>
+    </div>
+
+    <!-- Traits -->
+    <div class="section">
       <h2>Key Traits</h2>
 
       <h3>Strengths</h3>
@@ -87,64 +628,221 @@
         <li><strong>Playing the martyr.</strong> Their compassion can tip into self-sacrifice and then into resentment. They do too much, give too much, and then feel unseen for all of it.</li>
         <li><strong>The victim narrative.</strong> At their lowest, Pisces can feel like things happen to them rather than because of them. This is the shadow side of all that receptivity.</li>
       </ul>
-    </section>
+    </div>
 
-    <section>
+    <!-- Quick stats -->
+    <div class="stat-row">
+      <div class="stat">
+        <div class="stat-num">12th</div>
+        <div class="stat-desc">Sign of the zodiac</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Neptune</div>
+        <div class="stat-desc">Ruling planet</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Water</div>
+        <div class="stat-desc">Mutable element</div>
+      </div>
+    </div>
+
+    <div class="div">&#10038;&ensp;&#10038;&ensp;&#10038;</div>
+
+    <!-- Mid-content email capture -->
+    <div class="mid-cta">
+      <div class="fw" id="fw1">
+        <p>Get your personalized Pisces horoscope every week.</p>
+        <div class="mid-cta-row">
+          <input type="email" class="mid-cta-input" placeholder="your@email.com" required autocomplete="email" id="email1">
+          <button type="button" class="mid-cta-btn" onclick="submitForm('fw1','email1')">Get My Horoscope</button>
+        </div>
+        <div class="mid-cta-success">You're in. The stars will be in touch.</div>
+      </div>
+    </div>
+
+    <!-- Love -->
+    <div class="section">
       <h2>Love &amp; Relationships</h2>
-      <p>Pisces loves completely and sometimes unwisely. They lead with their heart. They fall for potential, for what someone could be, for the person they see underneath the person everyone else sees. This is beautiful. It's also the setup for getting hurt by people who weren't actually who Pisces thought they were. The imagination is generous. Reality sometimes isn't. The growth work for Pisces in love is learning to love the person who's actually here, not the best version of who they could theoretically become.</p>
-      <p>The best matches for Pisces tend to be Scorpio and Cancer, the other water signs who can swim in emotional depth without panicking. Taurus is a grounding match: steady, physical, patient enough to give Pisces the security they need to fully open up. The harder pairings are usually Gemini and Sagittarius, where Pisces's emotional needs can get swept past in the rush of mental activity and adventure. Virgo is the opposite sign: precise to Pisces's fluid, grounded to Pisces's dreamy, and there's both challenge and extraordinary complementarity there.</p>
-      <p>Pisces in love is devoted, romantic, and deeply attentive to the soul of their partner. They want to merge. To be completely known and to completely know someone else. This is both their greatest desire and their greatest risk. The partner who can hold them with both love and healthy boundaries is the one who sets Pisces free in the best possible way.</p>
-    </section>
+      <p>Pisces loves completely and sometimes unwisely. They lead with their heart. They fall for potential, for what someone could be, for the person they see underneath the person everyone else sees. This is beautiful. It's also the setup for getting hurt by people who weren't actually who Pisces thought they were. The imagination is generous. Reality sometimes isn't.</p>
+      <p>The growth work for Pisces in love is learning to love the person who's actually here, not the best version of who they could theoretically become. The best matches for Pisces tend to be Scorpio and Cancer, the other water signs who can swim in emotional depth without panicking. Taurus is a grounding match: steady, physical, patient enough to give Pisces the security they need to fully open up. The harder pairings are usually Gemini and Sagittarius, where Pisces's emotional needs can get swept past in the rush of mental activity and adventure.</p>
 
-    <section>
+      <div class="pull-quote">Pisces in love is devoted, romantic, and deeply attentive to the soul of their partner. They want to merge. To be completely known and to completely know someone else. This is both their greatest desire and their greatest risk.</div>
+
+      <p>The partner who can hold them with both love and healthy boundaries is the one who sets Pisces free in the best possible way.</p>
+    </div>
+
+    <!-- Compatibility with visual bars -->
+    <div class="compat-section">
+      <div class="compat-header">
+        <h2>Compatibility</h2>
+        <a href="/compatibility/pisces-scorpio">See all pairings &rarr;</a>
+      </div>
+
+      <a href="/compatibility/pisces-scorpio" class="compat-card">
+        <span class="compat-signs">Pisces + Scorpio</span>
+        <div class="compat-bar-wrap"><div class="compat-bar" style="width:96%"></div></div>
+        <span class="compat-pct">96%</span>
+      </a>
+      <a href="/compatibility/pisces-cancer" class="compat-card">
+        <span class="compat-signs">Pisces + Cancer</span>
+        <div class="compat-bar-wrap"><div class="compat-bar" style="width:94%"></div></div>
+        <span class="compat-pct">94%</span>
+      </a>
+      <a href="/compatibility/pisces-taurus" class="compat-card">
+        <span class="compat-signs">Pisces + Taurus</span>
+        <div class="compat-bar-wrap"><div class="compat-bar" style="width:90%"></div></div>
+        <span class="compat-pct">90%</span>
+      </a>
+      <a href="/compatibility/pisces-virgo" class="compat-card">
+        <span class="compat-signs">Pisces + Virgo</span>
+        <div class="compat-bar-wrap"><div class="compat-bar" style="width:85%"></div></div>
+        <span class="compat-pct">85%</span>
+      </a>
+      <a href="/compatibility/pisces-capricorn" class="compat-card">
+        <span class="compat-signs">Pisces + Capricorn</span>
+        <div class="compat-bar-wrap"><div class="compat-bar" style="width:78%"></div></div>
+        <span class="compat-pct">78%</span>
+      </a>
+      <a href="/compatibility/pisces-sagittarius" class="compat-card">
+        <span class="compat-signs">Pisces + Sagittarius</span>
+        <div class="compat-bar-wrap"><div class="compat-bar" style="width:52%"></div></div>
+        <span class="compat-pct">52%</span>
+      </a>
+      <a href="/compatibility/pisces-gemini" class="compat-card">
+        <span class="compat-signs">Pisces + Gemini</span>
+        <div class="compat-bar-wrap"><div class="compat-bar" style="width:42%"></div></div>
+        <span class="compat-pct">42%</span>
+      </a>
+      <a href="/compatibility/pisces-aquarius" class="compat-card">
+        <span class="compat-signs">Pisces + Aquarius</span>
+        <div class="compat-bar-wrap"><div class="compat-bar" style="width:40%"></div></div>
+        <span class="compat-pct">40%</span>
+      </a>
+    </div>
+
+    <div class="div">&#10038;&ensp;&#10038;&ensp;&#10038;</div>
+
+    <!-- Career -->
+    <div class="section">
       <h2>Career &amp; Money</h2>
       <p>Pisces is drawn to creative and healing work: music, art, writing, film, dance, therapy, social work, medicine, the spiritual arts. They're excellent anywhere their empathy and intuition are assets. They need work that feels meaningful. Soulless work hollows them out fast. They'll tolerate it for a while, then they'll start to disappear: late, distracted, technically present but spiritually somewhere else entirely.</p>
-      <p>Money is an area where Pisces often needs support or structure they don't naturally create. They're generous to a fault, not always tracking where things are going, susceptible to impulse spending on things that felt important in the moment. Pairing with a financial system they trust, or a person who handles the logistics, can make all the difference. The creative income is there. The management of it needs attention.</p>
-    </section>
 
-    <section>
+      <div class="highlight-box">
+        <div class="hb-label">The Pisces work style</div>
+        <p>They need work that feels meaningful. Soulless work hollows them out fast. The creative income is there. The management of it needs attention.</p>
+      </div>
+
+      <p>Money is an area where Pisces often needs support or structure they don't naturally create. They're generous to a fault, not always tracking where things are going, susceptible to impulse spending on things that felt important in the moment. Pairing with a financial system they trust, or a person who handles the logistics, can make all the difference.</p>
+    </div>
+
+    <div class="div">&#10038;&ensp;&#10038;&ensp;&#10038;</div>
+
+    <!-- Friendship -->
+    <div class="section">
       <h2>Friendship</h2>
       <p>Pisces is the friend who actually listens. Not waiting for their turn to talk. Not already formulating the advice. Actually in it with you, feeling the thing with you, sitting in the uncertainty instead of rushing to fix it. When you're going through something real, Pisces is one of the best people to have in your corner. They won't judge the messy part. They've felt messy things. They understand.</p>
-      <p>What they need from friends is consistency and the occasional check-in of "how are you, actually." Pisces gives so much that they sometimes forget they're allowed to have needs. Friends who notice, who ask, who make sure the Pisces in the group is being cared for and not just caring for everyone else: those are the friends who really see them. They'll remember it forever.</p>
-    </section>
 
-    <section>
+      <div class="pull-quote">Friends who notice, who ask, who make sure the Pisces in the group is being cared for and not just caring for everyone else: those are the friends who really see them. They'll remember it forever.</div>
+
+      <p>What they need from friends is consistency and the occasional check-in of "how are you, actually." Pisces gives so much that they sometimes forget they're allowed to have needs.</p>
+    </div>
+
+    <div class="div">&#10038;&ensp;&#10038;&ensp;&#10038;</div>
+
+    <!-- Crystals as cards -->
+    <div class="section">
       <h2>Crystals for Pisces</h2>
-      <ul class="crystal-list">
-        <li><strong>Amethyst:</strong> The Pisces stone. Spiritual protection, emotional clarity, connection to intuition. Helps them access the dream-state wisely rather than getting lost in it.</li>
-        <li><strong>Aquamarine:</strong> Water energy, emotional clarity, soothing. Helps Pisces move through their feelings instead of being submerged by them. The current, not the drowning.</li>
-        <li><strong>Black Tourmaline:</strong> The boundary stone. Essential for Pisces. Protects their energy from absorption. Helps them leave a space without carrying everyone else's emotions home with them.</li>
-        <li><strong>Labradorite:</strong> Magic and mystery but with a protective shield. Perfect for the Pisces who is deeply intuitive and needs both access and protection. Enhances what they have, guards against what drains them.</li>
-        <li><strong>Clear Quartz:</strong> Amplifies intention and brings clarity. Helps Pisces get out of the fog and into focus. Excellent for creative work when they need to translate the internal into something external and real.</li>
-      </ul>
-    </section>
+      <p>The stones that actually work with Pisces energy, not generic crystal content.</p>
 
-    <section>
+      <div class="crystal-grid">
+        <div class="crystal-card">
+          <img src="/assets/crystals/amethyst.png" alt="Amethyst crystal" class="crystal-img">
+          <div class="crystal-name">Amethyst</div>
+          <div class="crystal-vibe">Spirit &bull; Intuition &bull; Protection</div>
+          <p class="crystal-desc">The Pisces stone. Spiritual protection, emotional clarity, connection to intuition. Helps them access the dream-state wisely rather than getting lost in it.</p>
+          <a href="/crystals/best-crystals-for-pisces" class="crystal-link">Shop Amethyst &rarr;</a>
+        </div>
+        <div class="crystal-card">
+          <img src="/assets/crystals/aquamarine.png" alt="Aquamarine crystal" class="crystal-img">
+          <div class="crystal-name">Aquamarine</div>
+          <div class="crystal-vibe">Clarity &bull; Flow &bull; Calm</div>
+          <p class="crystal-desc">Water energy, emotional clarity, soothing. Helps Pisces move through their feelings instead of being submerged by them. The current, not the drowning.</p>
+          <a href="/crystals/best-crystals-for-pisces" class="crystal-link">Shop Aquamarine &rarr;</a>
+        </div>
+        <div class="crystal-card">
+          <img src="/assets/crystals/black-tourmaline.png" alt="Black Tourmaline crystal" class="crystal-img">
+          <div class="crystal-name">Black Tourmaline</div>
+          <div class="crystal-vibe">Boundaries &bull; Protection &bull; Grounding</div>
+          <p class="crystal-desc">The boundary stone. Essential for Pisces. Protects their energy from absorption. Helps them leave a space without carrying everyone else's emotions home with them.</p>
+          <a href="/crystals/best-crystals-for-pisces" class="crystal-link">Shop Black Tourmaline &rarr;</a>
+        </div>
+        <div class="crystal-card">
+          <img src="/assets/crystals/labradorite.png" alt="Labradorite crystal" class="crystal-img">
+          <div class="crystal-name">Labradorite</div>
+          <div class="crystal-vibe">Magic &bull; Shield &bull; Intuition</div>
+          <p class="crystal-desc">Magic and mystery but with a protective shield. Perfect for the Pisces who is deeply intuitive and needs both access and protection. Enhances what they have, guards against what drains them.</p>
+          <a href="/crystals/best-crystals-for-pisces" class="crystal-link">Shop Labradorite &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="div">&#10038;&ensp;&#10038;&ensp;&#10038;</div>
+
+    <!-- Closing -->
+    <div class="closing">
       <h2>The Pisces You Know</h2>
-      <p>They cried at the movie and they're not even a little embarrassed about it. Their apartment has things from everywhere: a fabric from a trip, a plant someone gave them, a piece of art that means something privately and that they'll explain if you ask and the explanation will surprise you. They had a dream last week that they're still thinking about. They remembered something you said in passing three years ago and it's been informing how they treat you ever since. When you're at your lowest, they show up and they don't try to fix it, they just sit with you in it, and somehow that's the thing that actually helps. They feel everything. Every single thing. And they're still here, still open, still showing up. That takes more courage than it looks like from the outside.</p>
-    </section>
+      <p>They cried at the movie and they're not even a little embarrassed about it. Their apartment has things from everywhere: a fabric from a trip, a plant someone gave them, a piece of art that means something privately and that they'll explain if you ask and the explanation will surprise you.</p>
+      <p>They had a dream last week that they're still thinking about. They remembered something you said in passing three years ago and it's been informing how they treat you ever since. When you're at your lowest, they show up and they don't try to fix it, they just sit with you in it, and somehow that's the thing that actually helps.</p>
+      <p>They feel everything. Every single thing. And they're still here, still open, still showing up. That takes more courage than it looks like from the outside.</p>
+    </div>
 
-    <section class="compatibility-links">
-      <h2>Pisces Compatibility</h2>
-      <ul>
-        <li><a href="/compatibility/pisces-aries">Pisces + Aries</a></li>
-        <li><a href="/compatibility/pisces-taurus">Pisces + Taurus</a></li>
-        <li><a href="/compatibility/pisces-gemini">Pisces + Gemini</a></li>
-        <li><a href="/compatibility/pisces-cancer">Pisces + Cancer</a></li>
-        <li><a href="/compatibility/pisces-leo">Pisces + Leo</a></li>
-        <li><a href="/compatibility/pisces-virgo">Pisces + Virgo</a></li>
-        <li><a href="/compatibility/pisces-libra">Pisces + Libra</a></li>
-        <li><a href="/compatibility/pisces-scorpio">Pisces + Scorpio</a></li>
-        <li><a href="/compatibility/pisces-sagittarius">Pisces + Sagittarius</a></li>
-        <li><a href="/compatibility/pisces-capricorn">Pisces + Capricorn</a></li>
-        <li><a href="/compatibility/pisces-aquarius">Pisces + Aquarius</a></li>
-      </ul>
-    </section>
+    <!-- Bottom CTA -->
+    <div class="bottom-cta">
+      <div class="fw" id="fw2">
+        <div class="cta-title">Your Pisces season forecast, weekly.</div>
+        <div class="cta-sub">Crystal recs, compatibility updates, and the cosmic notes your group chat needs.</div>
+        <div class="mid-cta-row">
+          <input type="email" class="mid-cta-input" placeholder="your@email.com" required autocomplete="email" id="email2">
+          <button type="button" class="mid-cta-btn" onclick="submitForm('fw2','email2')">Subscribe Free</button>
+        </div>
+        <div class="mid-cta-success">Welcome to the season.</div>
+      </div>
+    </div>
+
   </article>
 
-  <footer class="site-footer">
-    <p><a href="/signs/">All Zodiac Signs</a> &middot; <a href="/">Sign Season Home</a></p>
+  <!-- Footer -->
+  <footer class="foot">
+    <a href="/signs/">All Signs</a> &ensp;&middot;&ensp; <a href="/">Sign Season</a> &ensp;&middot;&ensp; <a href="/privacy">Privacy</a>
   </footer>
+
 <script src="/js/stars.js"></script>
+<script>
+async function submitForm(fwId, inputId) {
+  const input = document.getElementById(inputId);
+  const email = input.value;
+  if (!email || !input.checkValidity()) { input.reportValidity(); return; }
+  const btn = input.parentElement.querySelector('button');
+  btn.textContent = '...';
+  btn.disabled = true;
+  try {
+    const res = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    });
+    document.getElementById(fwId).classList.add('done');
+    if (!res.ok) fallbackSave(email);
+  } catch {
+    fallbackSave(email);
+    document.getElementById(fwId).classList.add('done');
+  }
+}
+function fallbackSave(email) {
+  const s = JSON.parse(localStorage.getItem('ss_emails') || '[]');
+  s.push({ email, t: Date.now() });
+  localStorage.setItem('ss_emails', JSON.stringify(s));
+}
+</script>
 </body>
 </html>

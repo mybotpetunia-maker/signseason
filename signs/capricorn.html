@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Capricorn Zodiac Sign: Personality, Traits, Compatibility | Sign Season</title>
   <meta name="description" content="Capricorn had a five-year plan at age twelve. They're on track. Personality, love, career, crystals, and compatibility for the Sea-Goat.">
-  <meta property="og:title" content="Capricorn Zodiac Sign: Personality, Traits, Compatibility | Sign Season">
+  <meta name="theme-color" content="#2A1F33">
+  <meta property="og:title" content="Capricorn: Personality, Traits, Compatibility | Sign Season">
   <meta property="og:description" content="Capricorn had a five-year plan at age twelve. They're on track.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://signseason.com/signs/capricorn">
@@ -14,8 +15,7 @@
   <link rel="canonical" href="https://signseason.com/signs/capricorn">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&family=Space+Mono:wght@400;700family=Fondamento:ital@0;1family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&family=Space+Mono:wght@400;700family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&family=Space+Mono:wght@400;700family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style/content.css">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fondamento:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -30,44 +30,585 @@
     }
   }
   </script>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --void: #1E1528;
+      --plum: #2A1F33;
+      --plum-mid: #352840;
+      --plum-lift: #3D2E4A;
+      --gold-dim: #B09A6E;
+      --gold: #C9AD6F;
+      --gold-light: #D4BC7C;
+      --gold-pale: #E2D4A7;
+      --display: 'Fondamento', cursive;
+      --serif: 'EB Garamond', 'Garamond', 'Georgia', serif;
+      --sans: 'DM Sans', -apple-system, sans-serif;
+      --mono: 'Space Mono', monospace;
+    }
+
+    body {
+      background: var(--plum);
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    body > *:not(canvas) { position: relative; z-index: 1; }
+    ::selection { background: rgba(201,173,111,0.25); color: var(--gold-pale); }
+
+    /* ─── Nav ─── */
+    .nav {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--sans);
+      font-size: 0.6rem;
+    }
+    .nav a {
+      color: var(--gold-dim);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .nav a:first-child {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--gold);
+    }
+    .nav a:hover { color: var(--gold-light); }
+    .nav .sep { color: var(--gold-dim); opacity: 0.25; }
+    .nav span:last-child { color: var(--gold-dim); }
+
+    /* ─── Hero header ─── */
+    .sign-hero {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 48px 24px 0;
+      text-align: center;
+    }
+    .sign-illustration {
+      width: 220px;
+      height: 220px;
+      object-fit: contain;
+      margin-bottom: 28px;
+      border-radius: 50%;
+    }
+    .sign-name {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: clamp(3rem, 8vw, 4.5rem);
+      color: var(--gold-pale);
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+    .sign-tagline {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--gold-dim);
+      margin-bottom: 40px;
+    }
+
+    /* ─── Quick facts ─── */
+    .facts {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: rgba(201,173,111,0.06);
+      border: 1px solid rgba(201,173,111,0.08);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    @media (min-width: 481px) { .facts-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 769px) { .facts-grid { grid-template-columns: repeat(6, 1fr); } }
+    .fact {
+      background: var(--plum-mid);
+      padding: 16px;
+      text-align: center;
+    }
+    .fact-label {
+      font-family: var(--sans);
+      font-size: 0.5rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold-dim);
+      margin-bottom: 4px;
+    }
+    .fact-val {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--gold-light);
+    }
+
+    /* ─── Article body ─── */
+    article {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section { padding: 48px 0 0; }
+    .section h2 {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-bottom: 18px;
+      line-height: 1.2;
+    }
+    .section h3 {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--gold-dim);
+      margin-top: 28px;
+      margin-bottom: 14px;
+    }
+    .section p {
+      margin-bottom: 16px;
+      line-height: 1.85;
+    }
+    .section ul {
+      list-style: none;
+      padding: 0;
+    }
+    .section li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(201,173,111,0.05);
+      line-height: 1.7;
+    }
+    .section li strong {
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    /* ─── Highlight box ─── */
+    .highlight-box {
+      background: linear-gradient(135deg, var(--plum-mid), var(--plum-lift));
+      border: 1px solid rgba(201,173,111,0.12);
+      border-radius: 2px;
+      padding: 28px 24px;
+      margin: 32px 0;
+    }
+    .highlight-box .hb-label {
+      font-family: var(--sans);
+      font-size: 0.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .highlight-box p {
+      font-size: 1.05rem;
+      color: var(--gold-light);
+      margin-bottom: 0;
+      line-height: 1.7;
+    }
+
+    /* ─── Stat row ─── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(201,173,111,0.06);
+      border: 1px solid rgba(201,173,111,0.08);
+      border-radius: 2px;
+      overflow: hidden;
+      margin: 32px 0;
+    }
+    .stat {
+      background: var(--plum-mid);
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 1.8rem;
+      color: var(--gold-light);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-desc {
+      font-family: var(--sans);
+      font-size: 0.5rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gold-dim);
+    }
+    @media (max-width: 480px) { .stat-row { grid-template-columns: 1fr; } }
+
+    /* ─── Pull quote ─── */
+    .pull-quote {
+      border-left: 2px solid var(--gold-dim);
+      padding: 4px 0 4px 24px;
+      margin: 36px 0;
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--gold-light);
+      line-height: 1.6;
+    }
+
+    /* ─── Divider ─── */
+    .div {
+      text-align: center;
+      padding: 32px 0;
+      color: var(--gold-dim);
+      opacity: 0.3;
+      font-size: 6px;
+      letter-spacing: 16px;
+    }
+
+    /* ─── Mid-content email capture ─── */
+    .mid-cta {
+      background: var(--plum-mid);
+      border: 1px solid rgba(201,173,111,0.1);
+      border-radius: 2px;
+      padding: 32px 28px;
+      margin: 48px 0;
+      text-align: center;
+    }
+    .mid-cta p {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--gold-dim);
+      margin-bottom: 16px;
+    }
+    .mid-cta-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-width: 380px;
+      margin: 0 auto;
+    }
+    .mid-cta-input {
+      width: 100%;
+      padding: 12px 14px;
+      background: var(--plum-lift);
+      color: var(--gold-pale);
+      border: 1px solid var(--gold-dim);
+      border-radius: 2px;
+      font-family: var(--serif);
+      font-size: 0.92rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .mid-cta-input::placeholder { color: var(--gold-dim); }
+    .mid-cta-input:focus { border-color: var(--gold); }
+    .mid-cta-btn {
+      padding: 12px;
+      background: var(--gold);
+      color: var(--void);
+      border: none;
+      border-radius: 2px;
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .mid-cta-btn:hover { background: var(--gold-light); }
+    .mid-cta-success {
+      display: none;
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--gold-light);
+      padding: 8px 0;
+    }
+    .fw.done .mid-cta-row { display: none; }
+    .fw.done p { display: none; }
+    .fw.done .mid-cta-success { display: block; }
+
+    @media (min-width: 481px) {
+      .mid-cta-row { flex-direction: row; gap: 0; }
+      .mid-cta-input { border-radius: 2px 0 0 2px; border-right: none; }
+      .mid-cta-btn { width: auto; padding: 12px 20px; border-radius: 0 2px 2px 0; white-space: nowrap; }
+    }
+
+    /* ─── Compatibility scores ─── */
+    .compat-section { padding-top: 48px; }
+    .compat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 20px;
+    }
+    .compat-header h2 { margin-bottom: 0; }
+    .compat-header a {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      color: var(--gold-dim);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.3s;
+    }
+    .compat-header a:hover { color: var(--gold-light); }
+
+    .compat-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(201,173,111,0.05);
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+    .compat-card:hover { opacity: 0.8; }
+    .compat-signs {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--gold-light);
+      min-width: 120px;
+    }
+    .compat-bar-wrap {
+      flex: 1;
+      height: 6px;
+      background: rgba(201,173,111,0.08);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .compat-bar {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 3px;
+      transition: width 0.6s ease;
+    }
+    .compat-pct {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--gold-dim);
+      min-width: 32px;
+      text-align: right;
+    }
+
+    /* ─── Crystal cards ─── */
+    .crystal-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    @media (min-width: 481px) { .crystal-grid { grid-template-columns: 1fr 1fr; } }
+
+    .crystal-card {
+      background: var(--plum-mid);
+      border: 1px solid rgba(201,173,111,0.08);
+      border-radius: 2px;
+      padding: 24px 20px;
+      transition: border-color 0.3s;
+    }
+    .crystal-card:hover { border-color: rgba(201,173,111,0.18); }
+    .crystal-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 2px;
+      margin-bottom: 14px;
+      background: var(--plum-lift);
+      filter: brightness(1.15) saturate(1.1);
+    }
+    .crystal-name {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+    }
+    .crystal-vibe {
+      font-family: var(--sans);
+      font-size: 0.55rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gold-dim);
+      margin-bottom: 10px;
+    }
+    .crystal-desc {
+      font-size: 0.92rem;
+      color: var(--gold);
+      line-height: 1.65;
+      margin-bottom: 12px;
+    }
+    .crystal-link {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold-light);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(201,173,111,0.2);
+      padding-bottom: 1px;
+      transition: all 0.3s;
+    }
+    .crystal-link:hover { color: var(--gold-pale); border-bottom-color: var(--gold-pale); }
+
+    /* ─── Closing section ─── */
+    .closing {
+      padding: 48px 0 0;
+    }
+    .closing h2 {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 1.6rem;
+      color: var(--gold-light);
+      margin-bottom: 16px;
+    }
+    .closing p {
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+
+    /* ─── Bottom CTA ─── */
+    .bottom-cta {
+      border: 1px solid rgba(201,173,111,0.1);
+      border-radius: 2px;
+      padding: 40px 28px;
+      margin: 56px 0 0;
+      text-align: center;
+    }
+    .bottom-cta .cta-title {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+    .bottom-cta .cta-sub {
+      font-family: var(--serif);
+      font-size: 0.92rem;
+      font-style: italic;
+      color: var(--gold-dim);
+      margin-bottom: 20px;
+    }
+
+    /* ─── Footer ─── */
+    .foot {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(201,173,111,0.06);
+    }
+    .foot a {
+      font-family: var(--sans);
+      font-size: 0.58rem;
+      color: var(--gold-dim);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.3s;
+    }
+    .foot a:hover { color: var(--gold-light); }
+
+    /* ─── Mobile ─── */
+    @media (max-width: 480px) {
+      .sign-illustration { width: 140px; height: 140px; }
+      .sign-name { font-size: 2.5rem; }
+      .compat-signs { min-width: 90px; font-size: 0.88rem; }
+      .crystal-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-  <nav class="site-nav">
+
+  <!-- Nav -->
+  <nav class="nav">
     <a href="/">Sign Season</a>
     <span class="sep">/</span>
-    <a href="/signs/">All Signs</a>
+    <a href="#signs">Signs</a>
     <span class="sep">/</span>
     <span>Capricorn</span>
   </nav>
 
+  <!-- Hero -->
+  <header class="sign-hero">
+    <img src="/assets/illustrations/signs/capricorn.png" alt="Capricorn sea-goat engraving" class="sign-illustration">
+    <h1 class="sign-name">Capricorn</h1>
+    <p class="sign-tagline">Already at the top. Already planning the next summit.</p>
+  </header>
+
+  <!-- Quick facts -->
+  <div class="facts">
+    <div class="facts-grid">
+      <div class="fact">
+        <div class="fact-label">Dates</div>
+        <div class="fact-val">Dec 22 &#8211; Jan 19</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">Element</div>
+        <div class="fact-val">Earth</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">Modality</div>
+        <div class="fact-val">Cardinal</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">Ruler</div>
+        <div class="fact-val">Saturn</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">Symbol</div>
+        <div class="fact-val">The Sea-Goat</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">Colors</div>
+        <div class="fact-val">Charcoal, Forest Brown</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="div">&#10038;&ensp;&#10038;&ensp;&#10038;</div>
+
+  <!-- Article -->
   <article>
-    <header class="sign-header">
-      <p class="sign-symbol">&#9809;&#xFE0E;</p>
-      <h1>Capricorn</h1>
-      <p class="sign-tagline">Already at the top. Already planning the next summit.</p>
-    </header>
 
-    <section class="quick-facts">
-      <h2 class="sr-only">Quick Facts</h2>
-      <table>
-        <tr><th>Symbol</th><td>The Sea-Goat &#9809;&#xFE0E;</td></tr>
-        <tr><th>Dates</th><td>December 22 &ndash; January 19</td></tr>
-        <tr><th>Element</th><td>Earth</td></tr>
-        <tr><th>Modality</th><td>Cardinal</td></tr>
-        <tr><th>Ruling Planet</th><td>Saturn</td></tr>
-        <tr><th>Lucky Numbers</th><td>4, 8, 13, 22</td></tr>
-        <tr><th>Lucky Colors</th><td>Charcoal, Forest Brown, Deep Navy</td></tr>
-      </table>
-    </section>
-
-    <section>
+    <!-- Who is Capricorn -->
+    <div class="section">
       <h2>Who Is Capricorn, Actually?</h2>
       <p>Capricorn is ruled by Saturn, the planet of discipline, structure, time, and mastery. This is not a soft planet. Saturn demands. It tests. It rewards only after you've earned it. Capricorn knows this in their bones. They were born understanding that nothing worth having comes without work, and they don't resent that. They've organized their entire worldview around it. They plan. They execute. They measure progress. They improve. The mountain is the point, not a burden.</p>
-      <p>Cardinal earth is ambitious in the most grounded possible way. Cardinal means they initiate. Earth means they build real things. Unlike the fire cardinal signs who initiate through inspiration, Capricorn initiates through strategy. They see the goal, they map the path, they start walking. They don't need to feel ready. They need a clear direction and reasonable confidence that the work will pay off. Then they go.</p>
-      <p>The Sea-Goat is one of the more interesting symbols in the zodiac: half goat climbing the mountain, half fish navigating the deep. This duality is real. Capricorn has enormous depths that most people never see because the professional exterior is so consistently composed. There's a rich inner life under all that ambition. There's humor, vulnerability, desire, feeling. They don't advertise it. But it's there, and the people who get close enough to find it are always surprised by what they find.</p>
-    </section>
 
-    <section>
+      <div class="highlight-box">
+        <div class="hb-label">Ruled by Saturn</div>
+        <p>Saturn demands. It tests. It rewards only after you've earned it. Capricorn knows this in their bones. They were born understanding that nothing worth having comes without work, and they don't resent that.</p>
+      </div>
+
+      <p>Cardinal earth is ambitious in the most grounded possible way. Cardinal means they initiate. Earth means they build real things. Unlike the fire cardinal signs who initiate through inspiration, Capricorn initiates through strategy. They see the goal, they map the path, they start walking. They don't need to feel ready. They need a clear direction and reasonable confidence that the work will pay off. Then they go.</p>
+
+      <div class="pull-quote">The Sea-Goat is one of the more interesting symbols in the zodiac: half goat climbing the mountain, half fish navigating the deep. Capricorn has enormous depths that most people never see because the professional exterior is so consistently composed.</div>
+
+      <p>There's a rich inner life under all that ambition. There's humor, vulnerability, desire, feeling. They don't advertise it. But it's there, and the people who get close enough to find it are always surprised by what they find.</p>
+    </div>
+
+    <!-- Traits -->
+    <div class="section">
       <h2>Key Traits</h2>
 
       <h3>Strengths</h3>
@@ -87,64 +628,221 @@
         <li><strong>Status can become a trap.</strong> The drive for achievement is good. When it becomes about external validation rather than genuine purpose, Capricorn can end up successful and empty.</li>
         <li><strong>Hard on people who don't work as hard.</strong> They've sacrificed a lot for their standards. When others don't match that, the judgment is quiet but present.</li>
       </ul>
-    </section>
+    </div>
 
-    <section>
+    <!-- Quick stats -->
+    <div class="stat-row">
+      <div class="stat">
+        <div class="stat-num">10th</div>
+        <div class="stat-desc">Sign of the zodiac</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Saturn</div>
+        <div class="stat-desc">Ruling planet</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Earth</div>
+        <div class="stat-desc">Cardinal element</div>
+      </div>
+    </div>
+
+    <div class="div">&#10038;&ensp;&#10038;&ensp;&#10038;</div>
+
+    <!-- Mid-content email capture -->
+    <div class="mid-cta">
+      <div class="fw" id="fw1">
+        <p>Get your personalized Capricorn horoscope every week.</p>
+        <div class="mid-cta-row">
+          <input type="email" class="mid-cta-input" placeholder="your@email.com" required autocomplete="email" id="email1">
+          <button type="button" class="mid-cta-btn" onclick="submitForm('fw1','email1')">Get My Horoscope</button>
+        </div>
+        <div class="mid-cta-success">You're in. The stars will be in touch.</div>
+      </div>
+    </div>
+
+    <!-- Love -->
+    <div class="section">
       <h2>Love &amp; Relationships</h2>
       <p>Capricorn takes their time in love. Not because they're not interested. Because they're discerning. They want to know if this person has what it takes for the long haul. Are they responsible? Do they have goals? Do they show up when it matters? This is not clinical calculation. This is care. Capricorn doesn't want to build a life with someone and then find out it's built on sand.</p>
       <p>The best matches for Capricorn tend to be Taurus and Virgo, the other earth signs who value stability and show love through consistency and action. Scorpio is an excellent match: both are serious, both value depth, both understand that commitment is a real thing. The harder pairings are usually Aries and Libra, where pacing and priorities don't line up. And Cancer, the opposite sign: the emotional demands and need for constant reassurance can feel overwhelming to Capricorn's reserved nature.</p>
-      <p>What Capricorn offers in a relationship is steadiness and dedication. They're the partner who has the emergency fund. Who remembers the anniversary. Who shows up when life is actually hard because that's when it counts. They need a partner who can appreciate that love is expressed through competence and reliability, not just affection. And they need permission, occasionally, to be soft. They need a safe enough space to be the Sea-Goat, not just the mountain climber.</p>
-    </section>
 
-    <section>
+      <div class="pull-quote">What Capricorn offers in a relationship is steadiness and dedication. They're the partner who has the emergency fund. Who remembers the anniversary. Who shows up when life is actually hard because that's when it counts.</div>
+
+      <p>They need a partner who can appreciate that love is expressed through competence and reliability, not just affection. And they need permission, occasionally, to be soft. They need a safe enough space to be the Sea-Goat, not just the mountain climber.</p>
+    </div>
+
+    <!-- Compatibility with visual bars -->
+    <div class="compat-section">
+      <div class="compat-header">
+        <h2>Compatibility</h2>
+        <a href="/compatibility/capricorn-taurus">See all pairings &rarr;</a>
+      </div>
+
+      <a href="/compatibility/capricorn-taurus" class="compat-card">
+        <span class="compat-signs">Capricorn + Taurus</span>
+        <div class="compat-bar-wrap"><div class="compat-bar" style="width:95%"></div></div>
+        <span class="compat-pct">95%</span>
+      </a>
+      <a href="/compatibility/capricorn-virgo" class="compat-card">
+        <span class="compat-signs">Capricorn + Virgo</span>
+        <div class="compat-bar-wrap"><div class="compat-bar" style="width:93%"></div></div>
+        <span class="compat-pct">93%</span>
+      </a>
+      <a href="/compatibility/capricorn-scorpio" class="compat-card">
+        <span class="compat-signs">Capricorn + Scorpio</span>
+        <div class="compat-bar-wrap"><div class="compat-bar" style="width:90%"></div></div>
+        <span class="compat-pct">90%</span>
+      </a>
+      <a href="/compatibility/capricorn-pisces" class="compat-card">
+        <span class="compat-signs">Capricorn + Pisces</span>
+        <div class="compat-bar-wrap"><div class="compat-bar" style="width:85%"></div></div>
+        <span class="compat-pct">85%</span>
+      </a>
+      <a href="/compatibility/capricorn-cancer" class="compat-card">
+        <span class="compat-signs">Capricorn + Cancer</span>
+        <div class="compat-bar-wrap"><div class="compat-bar" style="width:78%"></div></div>
+        <span class="compat-pct">78%</span>
+      </a>
+      <a href="/compatibility/capricorn-aries" class="compat-card">
+        <span class="compat-signs">Capricorn + Aries</span>
+        <div class="compat-bar-wrap"><div class="compat-bar" style="width:48%"></div></div>
+        <span class="compat-pct">48%</span>
+      </a>
+      <a href="/compatibility/capricorn-libra" class="compat-card">
+        <span class="compat-signs">Capricorn + Libra</span>
+        <div class="compat-bar-wrap"><div class="compat-bar" style="width:42%"></div></div>
+        <span class="compat-pct">42%</span>
+      </a>
+      <a href="/compatibility/capricorn-sagittarius" class="compat-card">
+        <span class="compat-signs">Capricorn + Sagittarius</span>
+        <div class="compat-bar-wrap"><div class="compat-bar" style="width:40%"></div></div>
+        <span class="compat-pct">40%</span>
+      </a>
+    </div>
+
+    <div class="div">&#10038;&ensp;&#10038;&ensp;&#10038;</div>
+
+    <!-- Career -->
+    <div class="section">
       <h2>Career &amp; Money</h2>
       <p>Capricorn is the sign of career. Finance, law, government, corporate leadership, architecture, real estate, any field that rewards mastery, experience, and strategic thinking. They respect institutions. They're willing to climb. And they're usually at the top eventually because they outlast almost everyone through sheer commitment to improvement and discipline. They're excellent managers because they set clear expectations and actually meet their own.</p>
-      <p>Money is a marker of achievement and a source of security. Both things are true. Capricorn saves. They invest. They plan for the future in concrete ways that many signs find tedious and Capricorn finds comforting. They're not flashy with it, but they have it. The nice watch is understated. The apartment is impeccably maintained. The portfolio is quietly very healthy. This is the long game, and they're playing it.</p>
-    </section>
 
-    <section>
+      <div class="highlight-box">
+        <div class="hb-label">The Capricorn work style</div>
+        <p>Money is a marker of achievement and a source of security. Both things are true. Capricorn saves. They invest. They plan for the future in concrete ways that many signs find tedious and Capricorn finds comforting.</p>
+      </div>
+
+      <p>They're not flashy with it, but they have it. The nice watch is understated. The apartment is impeccably maintained. The portfolio is quietly very healthy. This is the long game, and they're playing it.</p>
+    </div>
+
+    <div class="div">&#10038;&ensp;&#10038;&ensp;&#10038;</div>
+
+    <!-- Friendship -->
+    <div class="section">
       <h2>Friendship</h2>
       <p>Capricorn friends are the ones who actually follow through. Who show up to help you move. Who remember the thing you mentioned in passing and reference it months later because they were actually paying attention. They're not demonstrative. They're not the one with the big emotional declarations of friendship. They're the one who does the thing. Who quietly handles the problem. Who was already working on it while you were still stressed about it.</p>
-      <p>Getting past Capricorn's professional surface takes time. They're not suspicious of people the way Scorpio is. They're just reserved. They take the social performance seriously. When they drop it with you, you're in. And being in the Capricorn inner circle is the company of someone who will never embarrass you, never let you down, and never stop having interesting things to say. They get funnier as they get older. And more relaxed. And somehow better at all of it.</p>
-    </section>
 
-    <section>
+      <div class="pull-quote">Being in the Capricorn inner circle is the company of someone who will never embarrass you, never let you down, and never stop having interesting things to say. They get funnier as they get older. And more relaxed. And somehow better at all of it.</div>
+
+      <p>Getting past Capricorn's professional surface takes time. They're not suspicious of people the way Scorpio is. They're just reserved. They take the social performance seriously. When they drop it with you, you're in.</p>
+    </div>
+
+    <div class="div">&#10038;&ensp;&#10038;&ensp;&#10038;</div>
+
+    <!-- Crystals as cards -->
+    <div class="section">
       <h2>Crystals for Capricorn</h2>
-      <ul class="crystal-list">
-        <li><strong>Black Tourmaline:</strong> Grounding and protective. Helps Capricorn maintain their energetic boundaries when they're carrying too much responsibility for others. The Saturn energy stays focused.</li>
-        <li><strong>Garnet:</strong> The classic Capricorn stone. Vitality, ambition, commitment. Keeps the fire burning on the long climb. Sustains them when the summit is still far away.</li>
-        <li><strong>Smoky Quartz:</strong> Transmutes heavy energy into clarity. Capricorn carries a lot. This stone helps them process the weight without letting it become their identity.</li>
-        <li><strong>Malachite:</strong> Supports transformation and the willingness to let old structures go when they're no longer serving growth. Capricorn builds good systems; malachite helps them rebuild better ones.</li>
-        <li><strong>Peridot:</strong> Opens the heart and invites warmth. Balances Capricorn's serious energy with joy and lightness. Reminds them that success includes pleasure, not just achievement.</li>
-      </ul>
-    </section>
+      <p>The stones that actually work with Capricorn energy, not generic crystal content.</p>
 
-    <section>
+      <div class="crystal-grid">
+        <div class="crystal-card">
+          <img src="/assets/crystals/black-tourmaline.png" alt="Black Tourmaline crystal" class="crystal-img">
+          <div class="crystal-name">Black Tourmaline</div>
+          <div class="crystal-vibe">Grounding &bull; Protection &bull; Focus</div>
+          <p class="crystal-desc">Grounding and protective. Helps Capricorn maintain their energetic boundaries when they're carrying too much responsibility for others. The Saturn energy stays focused.</p>
+          <a href="/crystals/best-crystals-for-capricorn" class="crystal-link">Shop Black Tourmaline &rarr;</a>
+        </div>
+        <div class="crystal-card">
+          <img src="/assets/crystals/garnet.png" alt="Garnet crystal" class="crystal-img">
+          <div class="crystal-name">Garnet</div>
+          <div class="crystal-vibe">Ambition &bull; Vitality &bull; Commitment</div>
+          <p class="crystal-desc">The classic Capricorn stone. Vitality, ambition, commitment. Keeps the fire burning on the long climb. Sustains them when the summit is still far away.</p>
+          <a href="/crystals/best-crystals-for-capricorn" class="crystal-link">Shop Garnet &rarr;</a>
+        </div>
+        <div class="crystal-card">
+          <img src="/assets/crystals/smoky-quartz.png" alt="Smoky Quartz crystal" class="crystal-img">
+          <div class="crystal-name">Smoky Quartz</div>
+          <div class="crystal-vibe">Clarity &bull; Release &bull; Grounding</div>
+          <p class="crystal-desc">Transmutes heavy energy into clarity. Capricorn carries a lot. This stone helps them process the weight without letting it become their identity.</p>
+          <a href="/crystals/best-crystals-for-capricorn" class="crystal-link">Shop Smoky Quartz &rarr;</a>
+        </div>
+        <div class="crystal-card">
+          <img src="/assets/crystals/malachite.png" alt="Malachite crystal" class="crystal-img">
+          <div class="crystal-name">Malachite</div>
+          <div class="crystal-vibe">Transformation &bull; Growth &bull; Renewal</div>
+          <p class="crystal-desc">Supports transformation and the willingness to let old structures go when they're no longer serving growth. Capricorn builds good systems; malachite helps them rebuild better ones.</p>
+          <a href="/crystals/best-crystals-for-capricorn" class="crystal-link">Shop Malachite &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="div">&#10038;&ensp;&#10038;&ensp;&#10038;</div>
+
+    <!-- Closing -->
+    <div class="closing">
       <h2>The Capricorn You Know</h2>
-      <p>They were working on a holiday and they weren't even stressed about it. That's just when they got the best work done. They have an opinion on your career trajectory that they haven't shared because you didn't ask, but if you did ask, it would be the most useful feedback you've ever gotten. Their apartment is sparse and expensive. Every object was chosen. Nothing is decorative without function. They're the person in the meeting who waited for the chaos to settle, said one sentence, and that was the thing everyone remembered. When you needed them, they came. No fanfare. Just there, doing the practical thing, handling it. They never asked for thanks. They don't need it. They already know they came through.</p>
-    </section>
+      <p>They were working on a holiday and they weren't even stressed about it. That's just when they got the best work done. They have an opinion on your career trajectory that they haven't shared because you didn't ask, but if you did ask, it would be the most useful feedback you've ever gotten.</p>
+      <p>Their apartment is sparse and expensive. Every object was chosen. Nothing is decorative without function. They're the person in the meeting who waited for the chaos to settle, said one sentence, and that was the thing everyone remembered.</p>
+      <p>When you needed them, they came. No fanfare. Just there, doing the practical thing, handling it. They never asked for thanks. They don't need it. They already know they came through.</p>
+    </div>
 
-    <section class="compatibility-links">
-      <h2>Capricorn Compatibility</h2>
-      <ul>
-        <li><a href="/compatibility/capricorn-aries">Capricorn + Aries</a></li>
-        <li><a href="/compatibility/capricorn-taurus">Capricorn + Taurus</a></li>
-        <li><a href="/compatibility/capricorn-gemini">Capricorn + Gemini</a></li>
-        <li><a href="/compatibility/capricorn-cancer">Capricorn + Cancer</a></li>
-        <li><a href="/compatibility/capricorn-leo">Capricorn + Leo</a></li>
-        <li><a href="/compatibility/capricorn-virgo">Capricorn + Virgo</a></li>
-        <li><a href="/compatibility/capricorn-libra">Capricorn + Libra</a></li>
-        <li><a href="/compatibility/capricorn-scorpio">Capricorn + Scorpio</a></li>
-        <li><a href="/compatibility/capricorn-sagittarius">Capricorn + Sagittarius</a></li>
-        <li><a href="/compatibility/capricorn-aquarius">Capricorn + Aquarius</a></li>
-        <li><a href="/compatibility/capricorn-pisces">Capricorn + Pisces</a></li>
-      </ul>
-    </section>
+    <!-- Bottom CTA -->
+    <div class="bottom-cta">
+      <div class="fw" id="fw2">
+        <div class="cta-title">Your Capricorn season forecast, weekly.</div>
+        <div class="cta-sub">Crystal recs, compatibility updates, and the cosmic notes your group chat needs.</div>
+        <div class="mid-cta-row">
+          <input type="email" class="mid-cta-input" placeholder="your@email.com" required autocomplete="email" id="email2">
+          <button type="button" class="mid-cta-btn" onclick="submitForm('fw2','email2')">Subscribe Free</button>
+        </div>
+        <div class="mid-cta-success">Welcome to the season.</div>
+      </div>
+    </div>
+
   </article>
 
-  <footer class="site-footer">
-    <p><a href="/signs/">All Zodiac Signs</a> &middot; <a href="/">Sign Season Home</a></p>
+  <!-- Footer -->
+  <footer class="foot">
+    <a href="/signs/">All Signs</a> &ensp;&middot;&ensp; <a href="/">Sign Season</a> &ensp;&middot;&ensp; <a href="/privacy">Privacy</a>
   </footer>
+
 <script src="/js/stars.js"></script>
+<script>
+async function submitForm(fwId, inputId) {
+  const input = document.getElementById(inputId);
+  const email = input.value;
+  if (!email || !input.checkValidity()) { input.reportValidity(); return; }
+  const btn = input.parentElement.querySelector('button');
+  btn.textContent = '...';
+  btn.disabled = true;
+  try {
+    const res = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    });
+    document.getElementById(fwId).classList.add('done');
+    if (!res.ok) fallbackSave(email);
+  } catch {
+    fallbackSave(email);
+    document.getElementById(fwId).classList.add('done');
+  }
+}
+function fallbackSave(email) {
+  const s = JSON.parse(localStorage.getItem('ss_emails') || '[]');
+  s.push({ email, t: Date.now() });
+  localStorage.setItem('ss_emails', JSON.stringify(s));
+}
+</script>
 </body>
 </html>

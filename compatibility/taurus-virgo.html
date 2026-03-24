@@ -14,8 +14,7 @@
   <link rel="canonical" href="https://signseason.com/compatibility/taurus-virgo">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style/content.css">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fondamento:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -31,131 +30,263 @@
     "mainEntityOfPage": "https://signseason.com/compatibility/taurus-virgo"
   }
   </script>
+  <style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+:root {
+  --void:#1E1528; --plum:#2A1F33; --plum-mid:#352840; --plum-lift:#3D2E4A;
+  --gold-dim:#B09A6E; --gold:#C9AD6F; --gold-light:#D4BC7C; --gold-pale:#E2D4A7;
+  --display:'Fondamento',cursive; --serif:'EB Garamond','Garamond','Georgia',serif;
+  --sans:'DM Sans',-apple-system,sans-serif; --mono:'Space Mono',monospace;
+}
+body { background:var(--plum); color:var(--gold); font-family:var(--serif); font-size:17px; line-height:1.8; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+body>*:not(canvas){position:relative;z-index:1}
+::selection{background:rgba(201,173,111,0.25);color:var(--gold-pale)}
+
+.nav{max-width:680px;margin:0 auto;padding:20px 24px;display:flex;align-items:center;gap:8px;font-family:var(--sans);font-size:0.6rem}
+.nav a{color:var(--gold-dim);text-decoration:none;transition:color 0.3s}
+.nav a:first-child{font-family:var(--display);font-style:italic;font-size:1rem;color:var(--gold)}
+.nav a:hover{color:var(--gold-light)}
+.nav .sep{color:var(--gold-dim);opacity:0.25}
+.nav span:last-child{color:var(--gold-dim)}
+
+.compat-hero{max-width:680px;margin:0 auto;padding:48px 24px 0;text-align:center}
+.compat-signs-display{font-family:var(--display);font-style:italic;font-size:clamp(2.2rem,6vw,3.5rem);color:var(--gold-pale);font-weight:400;margin-bottom:8px}
+.compat-plus{color:var(--gold-dim);margin:0 12px;font-size:0.7em}
+.compat-tagline{font-family:var(--serif);font-size:1.15rem;font-style:italic;color:var(--gold-dim);margin-bottom:40px}
+
+.overall-score{max-width:680px;margin:0 auto;padding:0 24px}
+.overall-score-box{background:var(--plum-mid);border:1px solid rgba(201,173,111,0.08);border-radius:2px;padding:28px 24px;text-align:center}
+.overall-label{font-family:var(--sans);font-size:0.5rem;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:var(--gold-dim);margin-bottom:8px}
+.overall-num{font-family:var(--display);font-style:italic;font-size:3rem;color:var(--gold-pale);line-height:1;margin-bottom:12px}
+.overall-bar-wrap{height:8px;background:rgba(201,173,111,0.08);border-radius:4px;overflow:hidden;max-width:300px;margin:0 auto}
+.overall-bar{height:100%;background:var(--gold);border-radius:4px}
+
+article{max-width:680px;margin:0 auto;padding:0 24px}
+.section{padding:48px 0 0}
+.section h2{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--gold-light);margin-bottom:18px;line-height:1.2}
+.section h3{font-family:var(--sans);font-size:0.6rem;font-weight:600;text-transform:uppercase;letter-spacing:0.18em;color:var(--gold-dim);margin-top:28px;margin-bottom:14px}
+.section p{margin-bottom:16px;line-height:1.85}
+
+.score-row{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.score-label{font-family:var(--sans);font-size:0.6rem;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold-dim);min-width:110px}
+.score-bar-wrap{flex:1;height:6px;background:rgba(201,173,111,0.08);border-radius:3px;overflow:hidden}
+.score-bar{height:100%;background:var(--gold);border-radius:3px}
+.score-pct{font-family:var(--mono);font-size:0.65rem;color:var(--gold-dim);min-width:32px;text-align:right}
+
+.pull-quote{border-left:2px solid var(--gold-dim);padding:4px 0 4px 24px;margin:36px 0;font-family:var(--serif);font-size:1.25rem;font-style:italic;color:var(--gold-light);line-height:1.6}
+
+.highlight-box{background:linear-gradient(135deg,var(--plum-mid),var(--plum-lift));border:1px solid rgba(201,173,111,0.12);border-radius:2px;padding:28px 24px;margin:32px 0}
+.highlight-box .hb-label{font-family:var(--sans);font-size:0.5rem;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:var(--gold);margin-bottom:12px}
+.highlight-box p{font-size:1.05rem;color:var(--gold-light);margin-bottom:0;line-height:1.7}
+
+.div{text-align:center;padding:32px 0;color:var(--gold-dim);opacity:0.3;font-size:6px;letter-spacing:16px}
+
+.mid-cta{background:var(--plum-mid);border:1px solid rgba(201,173,111,0.1);border-radius:2px;padding:32px 28px;margin:48px 0;text-align:center}
+.mid-cta p{font-family:var(--serif);font-size:1.05rem;font-style:italic;color:var(--gold-dim);margin-bottom:16px}
+.mid-cta-row{display:flex;flex-direction:column;gap:8px;max-width:380px;margin:0 auto}
+.mid-cta-input{width:100%;padding:12px 14px;background:var(--plum-lift);color:var(--gold-pale);border:1px solid var(--gold-dim);border-radius:2px;font-family:var(--serif);font-size:0.92rem;outline:none;transition:border-color 0.3s}
+.mid-cta-input::placeholder{color:var(--gold-dim)}
+.mid-cta-input:focus{border-color:var(--gold)}
+.mid-cta-btn{padding:12px;background:var(--gold);color:var(--void);border:none;border-radius:2px;font-family:var(--sans);font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;cursor:pointer;transition:background 0.3s}
+.mid-cta-btn:hover{background:var(--gold-light)}
+.mid-cta-success{display:none;font-family:var(--serif);font-size:1rem;font-style:italic;color:var(--gold-light);padding:8px 0}
+.fw.done .mid-cta-row{display:none}
+.fw.done p{display:none}
+.fw.done .mid-cta-success{display:block}
+@media(min-width:481px){
+  .mid-cta-row{flex-direction:row;gap:0}
+  .mid-cta-input{border-radius:2px 0 0 2px;border-right:none}
+  .mid-cta-btn{width:auto;padding:12px 20px;border-radius:0 2px 2px 0;white-space:nowrap}
+}
+
+.bottom-cta{border:1px solid rgba(201,173,111,0.1);border-radius:2px;padding:40px 28px;margin:56px 0 0;text-align:center}
+.bottom-cta .cta-title{font-family:var(--serif);font-size:1.4rem;font-weight:500;color:var(--gold-light);margin-bottom:8px}
+.bottom-cta .cta-sub{font-family:var(--serif);font-size:0.92rem;font-style:italic;color:var(--gold-dim);margin-bottom:20px}
+
+.foot{max-width:680px;margin:0 auto;padding:32px 24px;text-align:center;border-top:1px solid rgba(201,173,111,0.06)}
+.foot a{font-family:var(--sans);font-size:0.58rem;color:var(--gold-dim);text-decoration:none;text-transform:uppercase;letter-spacing:0.1em;transition:color 0.3s}
+.foot a:hover{color:var(--gold-light)}
+
+@media(max-width:480px){
+  .compat-signs-display{font-size:2rem}
+  .score-label{min-width:80px;font-size:0.5rem}
+}
+  </style>
 </head>
 <body>
-  <nav class="breadcrumb">
-    <a href="/">Sign Season</a> &rsaquo; <a href="/compatibility/">Compatibility</a> &rsaquo; Taurus + Virgo
-  </nav>
+
+  <div class="nav">
+    <a href="/">Sign Season</a>
+    <span class="sep">/</span>
+    <a href="/compatibility/">Compatibility</a>
+    <span class="sep">/</span>
+    <span>Taurus + Virgo</span>
+  </div>
+
+  <div class="compat-hero">
+    <div class="compat-signs-display">Taurus <span class="compat-plus">&amp;</span> Virgo</div>
+    <p class="compat-tagline">Two earth signs who would rather be right than exciting.</p>
+  </div>
+
+  <div class="overall-score">
+    <div class="overall-score-box">
+      <div class="overall-label">Overall Compatibility</div>
+      <div class="overall-num">88%</div>
+      <div class="overall-bar-wrap"><div class="overall-bar" style="width:88%"></div></div>
+    </div>
+  </div>
+
+  <div class="div">&#10038; &#10038; &#10038;</div>
 
   <article>
-    <header>
-      <div class="signs-header">
-        <span class="sign-badge">Taurus</span>
-        <span class="plus">+</span>
-        <span class="sign-badge">Virgo</span>
+
+    <div class="section">
+      <h2>Compatibility Breakdown</h2>
+      <h3>Category Scores</h3>
+      <div class="score-row">
+        <span class="score-label">Love</span>
+        <div class="score-bar-wrap"><div class="score-bar" style="width:89%"></div></div>
+        <span class="score-pct">89%</span>
       </div>
-      <h1>Taurus and Virgo Compatibility</h1>
-      <p class="subtitle">Love, Sex, Friendship</p>
-    </header>
-
-    <section class="score-box">
-      <h2 class="score-title">Compatibility Scores</h2>
-      <div class="scores-grid">
-        <div class="score-item">
-          <span class="score-label">Overall</span>
-          <span class="score-value">87%</span>
-        </div>
-        <div class="score-item">
-          <span class="score-label">Love</span>
-          <span class="score-value">89%</span>
-        </div>
-        <div class="score-item">
-          <span class="score-label">Sex</span>
-          <span class="score-value">82%</span>
-        </div>
-        <div class="score-item">
-          <span class="score-label">Communication</span>
-          <span class="score-value">85%</span>
-        </div>
-        <div class="score-item">
-          <span class="score-label">Trust</span>
-          <span class="score-value">91%</span>
-        </div>
+      <div class="score-row">
+        <span class="score-label">Communication</span>
+        <div class="score-bar-wrap"><div class="score-bar" style="width:85%"></div></div>
+        <span class="score-pct">85%</span>
       </div>
-    </section>
+      <div class="score-row">
+        <span class="score-label">Trust</span>
+        <div class="score-bar-wrap"><div class="score-bar" style="width:93%"></div></div>
+        <span class="score-pct">93%</span>
+      </div>
+      <div class="score-row">
+        <span class="score-label">Values</span>
+        <div class="score-bar-wrap"><div class="score-bar" style="width:91%"></div></div>
+        <span class="score-pct">91%</span>
+      </div>
+      <div class="score-row">
+        <span class="score-label">Activities</span>
+        <div class="score-bar-wrap"><div class="score-bar" style="width:78%"></div></div>
+        <span class="score-pct">78%</span>
+      </div>
+    </div>
 
-    <section>
-      <h2>Overview</h2>
-      <p>Taurus and Virgo are both earth signs, and the chemistry between them is the kind that doesn't announce itself in a grand entrance. It builds. It settles. It roots itself into something that actually lasts. These two understand each other in a way that feels almost unfair to the other signs watching from the outside.</p>
-
-      <p>Taurus is ruled by Venus, all about pleasure, beauty, and the physical world. Virgo is ruled by Mercury, sharp and analytical, always thinking, always refining. On the surface, sensual hedonist meets practical perfectionist. But earth sign solidarity runs deep. Both of them value security. Both want something real. Both have a low tolerance for chaos and an even lower tolerance for people who waste their time.</p>
-
-      <p>This is a pairing built for the long game. The early stages might not crackle with the electricity of a fire-air matchup, but that's fine. What they build instead is a foundation that doesn't crack when things get hard. They show up for each other in the specific, practical ways that matter. Taurus cooks the meal. Virgo remembers your doctor's appointment. It's quiet, and it's everything.</p>
-    </section>
-
-    <section>
+    <div class="section">
       <h2>Love &amp; Romance</h2>
-      <p>The courtship between Taurus and Virgo is slow by design. Taurus doesn't rush for anyone. Virgo is analyzing everything before committing. But that shared pace is actually one of the things that makes this work. Neither feels pressured. Neither is performing. They're just... getting to know each other properly.</p>
+      <p>The courtship between Taurus and Virgo is slow by design. Taurus doesn't rush for anyone. Virgo is analyzing everything before committing. But that shared pace is actually one of the things that makes this work. Neither feels pressured. Neither is performing. They're just getting to know each other properly.</p>
 
       <p>Taurus shows love through physical comfort and devotion. Nice dinners, physical affection, remembering your preferences, showing up consistently. Virgo shows love through acts of service and attention to detail. They notice what you need before you say it. They fix the thing you mentioned once. Both of these love languages land beautifully on the other person.</p>
 
+      <div class="pull-quote">This is a pairing built for the long game. What they build is a foundation that doesn't crack when things get hard.</div>
+
       <p>The risk is getting too comfortable too fast. Taurus can become possessive when secure. Virgo can become critical when they stop filtering their analysis. If Virgo starts picking at Taurus with small corrections and unsolicited improvements, Taurus will dig in like a bull and refuse to budge on principle. Virgo needs to pick their battles. Taurus needs to not take criticism as an attack on their identity.</p>
-    </section>
+    </div>
 
-    <section>
-      <h2>Sexual Compatibility</h2>
-      <p>Here's a secret about Virgo that doesn't get enough credit: they are not prudes. The reserved, analytical exterior hides someone who is deeply attentive and genuinely wants to get it right. Taurus is sensual and patient. Together, this is a surprisingly good match in the bedroom.</p>
-
-      <p>Taurus moves slowly and deliberately, which Virgo appreciates. There's no rushing, no performance pressure. Taurus wants pleasure to be felt, not just executed. Virgo responds to that unhurried energy with their signature attentiveness. They pay attention to what works and actually remember it for next time.</p>
-
-      <p>The potential friction is that Virgo can live in their head during intimacy, and Taurus needs their partner fully present and physical. If Virgo is mentally cataloguing a to-do list while Taurus is trying to be sensual and connected, Taurus will feel it. Virgo needs to practice actually landing in their body. Taurus is a very good teacher for that, if Virgo lets them be.</p>
-    </section>
-
-    <section>
+    <div class="section">
       <h2>Communication</h2>
       <p>These two communicate well, mostly. Taurus is direct and unhurried. Virgo is precise and thoughtful. They tend to have actual conversations, not just exchanges. They can talk for hours about something they both care about and walk away feeling genuinely heard.</p>
 
       <p>The friction comes from Virgo's critical streak and Taurus's stubbornness. Virgo will see a better way to do something and will feel compelled to say so. That's not malice. That's just Virgo. But Taurus hears it as an attack, and once a Taurus has decided to not move on something, no amount of logical argument is going to shift them. Virgo thinks they can logic their way to Taurus changing their mind. They cannot.</p>
 
-      <p>What helps: Virgo framing feedback as curiosity rather than correction. And Taurus actually sitting with what Virgo is saying before dismissing it. They're both smart enough to work this out. They just need to decide to.</p>
-    </section>
+      <div class="highlight-box">
+        <div class="hb-label">What Helps</div>
+        <p>Virgo framing feedback as curiosity rather than correction. And Taurus actually sitting with what Virgo is saying before dismissing it. They're both smart enough to work this out. They just need to decide to.</p>
+      </div>
+    </div>
 
-    <section>
+    <div class="mid-cta fw" id="fw1">
+      <p>Get compatibility insights delivered weekly.</p>
+      <div class="mid-cta-row">
+        <input class="mid-cta-input" id="em1" type="email" placeholder="your@email.com" required>
+        <button class="mid-cta-btn" onclick="submitForm('fw1','em1')">Subscribe</button>
+      </div>
+      <div class="mid-cta-success">You're in. Watch your inbox.</div>
+    </div>
+
+    <div class="section">
       <h2>Trust</h2>
       <p>This is where Taurus and Virgo genuinely excel. Both signs are loyal to a fault. Neither is particularly interested in playing games or keeping options open. When they commit, they mean it. The trust between them builds steadily and becomes one of the strongest foundations in the zodiac.</p>
 
       <p>Taurus's possessiveness can occasionally read as suspicion, but it's really just how Taurus expresses how much they care. Virgo understands this because they also love deeply and carefully. Neither of these signs is careless with someone they've chosen.</p>
 
       <p>The only trust issue to watch for is Virgo's tendency to overthink. They can spiral into anxiety about whether things are okay, and that anxiety can come out sideways as criticism or withdrawal. Taurus needs to offer explicit reassurance sometimes, not because they've done anything wrong, but because Virgo's brain needs proof. Just tell them. It takes ten seconds and it works.</p>
-    </section>
+    </div>
 
-    <section>
+    <div class="section">
+      <h2>Shared Values</h2>
+      <p>Taurus and Virgo are both earth signs, which means they share a fundamental orientation toward the real, the tangible, and the proven. They both value quality over quantity. They both prefer substance over flash. They both have a deep, almost instinctive distrust of anything that looks too good to be true, because in their experience, it usually is.</p>
+
+      <p>Where they align most powerfully is in their shared belief that effort matters. Taurus respects the slow accumulation of beautiful things. Virgo respects the careful refinement of systems and processes. Neither is interested in shortcuts, though they define the destination differently. Taurus wants comfort and pleasure. Virgo wants order and improvement. The overlap is surprisingly large: both want a life that works well and feels good.</p>
+
+      <div class="pull-quote">They both have a low tolerance for chaos and an even lower tolerance for people who waste their time. That mutual standard is its own form of intimacy.</div>
+
+      <p>The values tension comes from Taurus's hedonism bumping against Virgo's asceticism. Taurus sees a second dessert as a reward. Virgo sees it as unnecessary. Taurus wants the expensive sheets because they feel incredible. Virgo wants to research thread counts for three weeks first. These aren't dealbreakers. They're just two earth signs expressing the same values through slightly different filters.</p>
+    </div>
+
+    <div class="section">
+      <h2>Activities &amp; Lifestyle</h2>
+      <p>Here's where the score dips, and it's worth being honest about why. Taurus and Virgo are both creatures of habit who gravitate toward routine with almost gravitational force. Taurus wants to do the things they already know they enjoy. Virgo wants to do the things that are productive, efficient, or improving something. Neither is particularly spontaneous, and together, they can build a life that runs beautifully but occasionally feels like a well-organized waiting room.</p>
+
+      <p>The activities they do enjoy together tend to be quiet and grounded: cooking, gardening, hiking, antiquing, reading side by side, home improvement projects that somehow take six months and turn out immaculate. They are not the couple at the music festival. They are the couple who renovated their kitchen themselves and it looks professional.</p>
+
+      <div class="highlight-box">
+        <div class="hb-label">The Antidote</div>
+        <p>Intentional novelty. Not chaos, not recklessness, just one new thing a month that neither of them has pre-researched or optimized. A restaurant they've never tried. A weekend trip with no itinerary. Something that reminds them both that life is for living, not just for maintaining.</p>
+      </div>
+    </div>
+
+    <div class="section">
       <h2>The Verdict</h2>
       <p>This pairing is genuinely excellent and doesn't get enough credit. It's not the flashiest match. No one's writing a chaotic rom-com about these two. But Taurus and Virgo have what most couples spend years trying to build: actual compatibility that runs through the practical details of real life.</p>
 
       <p>They value the same things. They move at a similar pace. They show love in ways the other can receive. The challenges are real but workable. Virgo needs to ease up on the critique. Taurus needs to stay open instead of digging into stubbornness mode.</p>
 
       <p>Do we recommend this pairing? Absolutely. This is the couple that has a beautiful home, a thriving garden, strong finances, and still genuinely likes each other after fifteen years. Not everyone is looking for that. But for the ones who are, this is it.</p>
-    </section>
+    </div>
 
-    <section class="related-links">
-      <h2>More Taurus &amp; Virgo Compatibility</h2>
-      <div class="related-grid">
-        <div class="related-column">
-          <h3>More Taurus Pairings</h3>
-          <ul>
-            <li><a href="/compatibility/taurus-cancer">Taurus + Cancer</a></li>
-            <li><a href="/compatibility/taurus-capricorn">Taurus + Capricorn</a></li>
-            <li><a href="/compatibility/taurus-scorpio">Taurus + Scorpio</a></li>
-            <li><a href="/compatibility/taurus-pisces">Taurus + Pisces</a></li>
-          </ul>
-        </div>
-        <div class="related-column">
-          <h3>More Virgo Pairings</h3>
-          <ul>
-            <li><a href="/compatibility/virgo-capricorn">Virgo + Capricorn</a></li>
-            <li><a href="/compatibility/virgo-scorpio">Virgo + Scorpio</a></li>
-            <li><a href="/compatibility/virgo-cancer">Virgo + Cancer</a></li>
-            <li><a href="/compatibility/virgo-pisces">Virgo + Pisces</a></li>
-          </ul>
-        </div>
+    <div class="bottom-cta fw" id="fw2">
+      <div class="cta-title">Your full compatibility reading, weekly.</div>
+      <div class="cta-sub">Zodiac insights that don't waste your time.</div>
+      <div class="mid-cta-row">
+        <input class="mid-cta-input" id="em2" type="email" placeholder="your@email.com" required>
+        <button class="mid-cta-btn" onclick="submitForm('fw2','em2')">Subscribe</button>
       </div>
-    </section>
+      <div class="mid-cta-success">You're in. Watch your inbox.</div>
+    </div>
+
   </article>
 
-  <footer class="page-footer">
-    <a href="/compatibility/">All Compatibility Guides</a> &bull; <a href="/">Sign Season Home</a>
+  <footer class="foot">
+    <a href="/compatibility/">All Compatibility Guides</a>
   </footer>
+
 <script src="/js/stars.js"></script>
+<script>
+async function submitForm(fwId, inputId) {
+  const input = document.getElementById(inputId);
+  const email = input.value;
+  if (!email || !input.checkValidity()) { input.reportValidity(); return; }
+  const btn = input.parentElement.querySelector('button');
+  btn.textContent = '...';
+  btn.disabled = true;
+  try {
+    const res = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    });
+    document.getElementById(fwId).classList.add('done');
+    if (!res.ok) fallbackSave(email);
+  } catch {
+    fallbackSave(email);
+    document.getElementById(fwId).classList.add('done');
+  }
+}
+function fallbackSave(email) {
+  const s = JSON.parse(localStorage.getItem('ss_emails') || '[]');
+  s.push({ email, t: Date.now() });
+  localStorage.setItem('ss_emails', JSON.stringify(s));
+}
+</script>
 </body>
 </html>

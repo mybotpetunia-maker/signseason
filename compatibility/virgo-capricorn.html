@@ -14,8 +14,7 @@
   <link rel="canonical" href="https://signseason.com/compatibility/virgo-capricorn">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style/content.css">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fondamento:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -31,131 +30,265 @@
     "mainEntityOfPage": "https://signseason.com/compatibility/virgo-capricorn"
   }
   </script>
+  <style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+:root {
+  --void:#1E1528; --plum:#2A1F33; --plum-mid:#352840; --plum-lift:#3D2E4A;
+  --gold-dim:#B09A6E; --gold:#C9AD6F; --gold-light:#D4BC7C; --gold-pale:#E2D4A7;
+  --display:'Fondamento',cursive; --serif:'EB Garamond','Garamond','Georgia',serif;
+  --sans:'DM Sans',-apple-system,sans-serif; --mono:'Space Mono',monospace;
+}
+body { background:var(--plum); color:var(--gold); font-family:var(--serif); font-size:17px; line-height:1.8; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+body>*:not(canvas){position:relative;z-index:1}
+::selection{background:rgba(201,173,111,0.25);color:var(--gold-pale)}
+
+.nav{max-width:680px;margin:0 auto;padding:20px 24px;display:flex;align-items:center;gap:8px;font-family:var(--sans);font-size:0.6rem}
+.nav a{color:var(--gold-dim);text-decoration:none;transition:color 0.3s}
+.nav a:first-child{font-family:var(--display);font-style:italic;font-size:1rem;color:var(--gold)}
+.nav a:hover{color:var(--gold-light)}
+.nav .sep{color:var(--gold-dim);opacity:0.25}
+.nav span:last-child{color:var(--gold-dim)}
+
+.compat-hero{max-width:680px;margin:0 auto;padding:48px 24px 0;text-align:center}
+.compat-signs-display{font-family:var(--display);font-style:italic;font-size:clamp(2.2rem,6vw,3.5rem);color:var(--gold-pale);font-weight:400;margin-bottom:8px}
+.compat-plus{color:var(--gold-dim);margin:0 12px;font-size:0.7em}
+.compat-tagline{font-family:var(--serif);font-size:1.15rem;font-style:italic;color:var(--gold-dim);margin-bottom:40px}
+
+.overall-score{max-width:680px;margin:0 auto;padding:0 24px}
+.overall-score-box{background:var(--plum-mid);border:1px solid rgba(201,173,111,0.08);border-radius:2px;padding:28px 24px;text-align:center}
+.overall-label{font-family:var(--sans);font-size:0.5rem;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:var(--gold-dim);margin-bottom:8px}
+.overall-num{font-family:var(--display);font-style:italic;font-size:3rem;color:var(--gold-pale);line-height:1;margin-bottom:12px}
+.overall-bar-wrap{height:8px;background:rgba(201,173,111,0.08);border-radius:4px;overflow:hidden;max-width:300px;margin:0 auto}
+.overall-bar{height:100%;background:var(--gold);border-radius:4px}
+
+article{max-width:680px;margin:0 auto;padding:0 24px}
+.section{padding:48px 0 0}
+.section h2{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--gold-light);margin-bottom:18px;line-height:1.2}
+.section h3{font-family:var(--sans);font-size:0.6rem;font-weight:600;text-transform:uppercase;letter-spacing:0.18em;color:var(--gold-dim);margin-top:28px;margin-bottom:14px}
+.section p{margin-bottom:16px;line-height:1.85}
+
+.score-row{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.score-label{font-family:var(--sans);font-size:0.6rem;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold-dim);min-width:110px}
+.score-bar-wrap{flex:1;height:6px;background:rgba(201,173,111,0.08);border-radius:3px;overflow:hidden}
+.score-bar{height:100%;background:var(--gold);border-radius:3px}
+.score-pct{font-family:var(--mono);font-size:0.65rem;color:var(--gold-dim);min-width:32px;text-align:right}
+
+.pull-quote{border-left:2px solid var(--gold-dim);padding:4px 0 4px 24px;margin:36px 0;font-family:var(--serif);font-size:1.25rem;font-style:italic;color:var(--gold-light);line-height:1.6}
+
+.highlight-box{background:linear-gradient(135deg,var(--plum-mid),var(--plum-lift));border:1px solid rgba(201,173,111,0.12);border-radius:2px;padding:28px 24px;margin:32px 0}
+.highlight-box .hb-label{font-family:var(--sans);font-size:0.5rem;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:var(--gold);margin-bottom:12px}
+.highlight-box p{font-size:1.05rem;color:var(--gold-light);margin-bottom:0;line-height:1.7}
+
+.div{text-align:center;padding:32px 0;color:var(--gold-dim);opacity:0.3;font-size:6px;letter-spacing:16px}
+
+.mid-cta{background:var(--plum-mid);border:1px solid rgba(201,173,111,0.1);border-radius:2px;padding:32px 28px;margin:48px 0;text-align:center}
+.mid-cta p{font-family:var(--serif);font-size:1.05rem;font-style:italic;color:var(--gold-dim);margin-bottom:16px}
+.mid-cta-row{display:flex;flex-direction:column;gap:8px;max-width:380px;margin:0 auto}
+.mid-cta-input{width:100%;padding:12px 14px;background:var(--plum-lift);color:var(--gold-pale);border:1px solid var(--gold-dim);border-radius:2px;font-family:var(--serif);font-size:0.92rem;outline:none;transition:border-color 0.3s}
+.mid-cta-input::placeholder{color:var(--gold-dim)}
+.mid-cta-input:focus{border-color:var(--gold)}
+.mid-cta-btn{padding:12px;background:var(--gold);color:var(--void);border:none;border-radius:2px;font-family:var(--sans);font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;cursor:pointer;transition:background 0.3s}
+.mid-cta-btn:hover{background:var(--gold-light)}
+.mid-cta-success{display:none;font-family:var(--serif);font-size:1rem;font-style:italic;color:var(--gold-light);padding:8px 0}
+.fw.done .mid-cta-row{display:none}
+.fw.done p{display:none}
+.fw.done .mid-cta-success{display:block}
+@media(min-width:481px){
+  .mid-cta-row{flex-direction:row;gap:0}
+  .mid-cta-input{border-radius:2px 0 0 2px;border-right:none}
+  .mid-cta-btn{width:auto;padding:12px 20px;border-radius:0 2px 2px 0;white-space:nowrap}
+}
+
+.bottom-cta{border:1px solid rgba(201,173,111,0.1);border-radius:2px;padding:40px 28px;margin:56px 0 0;text-align:center}
+.bottom-cta .cta-title{font-family:var(--serif);font-size:1.4rem;font-weight:500;color:var(--gold-light);margin-bottom:8px}
+.bottom-cta .cta-sub{font-family:var(--serif);font-size:0.92rem;font-style:italic;color:var(--gold-dim);margin-bottom:20px}
+
+.foot{max-width:680px;margin:0 auto;padding:32px 24px;text-align:center;border-top:1px solid rgba(201,173,111,0.06)}
+.foot a{font-family:var(--sans);font-size:0.58rem;color:var(--gold-dim);text-decoration:none;text-transform:uppercase;letter-spacing:0.1em;transition:color 0.3s}
+.foot a:hover{color:var(--gold-light)}
+
+@media(max-width:480px){
+  .compat-signs-display{font-size:2rem}
+  .score-label{min-width:80px;font-size:0.5rem}
+}
+  </style>
 </head>
 <body>
-  <nav class="breadcrumb">
-    <a href="/">Sign Season</a> &rsaquo; <a href="/compatibility/">Compatibility</a> &rsaquo; Virgo + Capricorn
-  </nav>
+
+  <div class="nav">
+    <a href="/">Sign Season</a>
+    <span class="sep">/</span>
+    <a href="/compatibility/">Compatibility</a>
+    <span class="sep">/</span>
+    <span>Virgo + Capricorn</span>
+  </div>
+
+  <div class="compat-hero">
+    <div class="compat-signs-display">Virgo <span class="compat-plus">&amp;</span> Capricorn</div>
+    <p class="compat-tagline">The power couple nobody saw coming because they were too busy working.</p>
+  </div>
+
+  <div class="overall-score">
+    <div class="overall-score-box">
+      <div class="overall-label">Overall Compatibility</div>
+      <div class="overall-num">92%</div>
+      <div class="overall-bar-wrap"><div class="overall-bar" style="width:92%"></div></div>
+    </div>
+  </div>
+
+  <div class="div">&#10038; &#10038; &#10038;</div>
 
   <article>
-    <header>
-      <div class="signs-header">
-        <span class="sign-badge">Virgo</span>
-        <span class="plus">+</span>
-        <span class="sign-badge">Capricorn</span>
+
+    <div class="section">
+      <h2>Compatibility Breakdown</h2>
+      <h3>Category Scores</h3>
+      <div class="score-row">
+        <span class="score-label">Love</span>
+        <div class="score-bar-wrap"><div class="score-bar" style="width:90%"></div></div>
+        <span class="score-pct">90%</span>
       </div>
-      <h1>Virgo and Capricorn Compatibility</h1>
-      <p class="subtitle">Love, Sex, Friendship</p>
-    </header>
-
-    <section class="score-box">
-      <h2 class="score-title">Compatibility Scores</h2>
-      <div class="scores-grid">
-        <div class="score-item">
-          <span class="score-label">Overall</span>
-          <span class="score-value">88%</span>
-        </div>
-        <div class="score-item">
-          <span class="score-label">Love</span>
-          <span class="score-value">87%</span>
-        </div>
-        <div class="score-item">
-          <span class="score-label">Sex</span>
-          <span class="score-value">81%</span>
-        </div>
-        <div class="score-item">
-          <span class="score-label">Communication</span>
-          <span class="score-value">86%</span>
-        </div>
-        <div class="score-item">
-          <span class="score-label">Trust</span>
-          <span class="score-value">93%</span>
-        </div>
+      <div class="score-row">
+        <span class="score-label">Communication</span>
+        <div class="score-bar-wrap"><div class="score-bar" style="width:89%"></div></div>
+        <span class="score-pct">89%</span>
       </div>
-    </section>
+      <div class="score-row">
+        <span class="score-label">Trust</span>
+        <div class="score-bar-wrap"><div class="score-bar" style="width:96%"></div></div>
+        <span class="score-pct">96%</span>
+      </div>
+      <div class="score-row">
+        <span class="score-label">Values</span>
+        <div class="score-bar-wrap"><div class="score-bar" style="width:94%"></div></div>
+        <span class="score-pct">94%</span>
+      </div>
+      <div class="score-row">
+        <span class="score-label">Activities</span>
+        <div class="score-bar-wrap"><div class="score-bar" style="width:88%"></div></div>
+        <span class="score-pct">88%</span>
+      </div>
+    </div>
 
-    <section>
-      <h2>Overview</h2>
-      <p>Virgo and Capricorn are both earth signs who work hard, think carefully, and have absolutely no patience for nonsense. When they meet, there's a mutual recognition that cuts through the small talk: here is someone who gets it. Not in a dramatic way. In the quiet, efficient way of two people who understand that actions matter more than declarations.</p>
-
-      <p>Virgo is ruled by Mercury, analytical and detail-obsessed, always seeking to refine and improve. Capricorn is ruled by Saturn, disciplined and ambitious, always building toward something meaningful. These are not signs that live in the present tense for kicks. They're both invested in the long game. That alignment of values is the bedrock of this pairing.</p>
-
-      <p>The vibe between them is less fireworks and more slow-burning competence. They admire each other's intelligence, work ethic, and integrity. They build shared routines and goals that mean something. It's unglamorous and exactly what both of them actually want. Not every relationship needs to be a conflagration to be worth having.</p>
-    </section>
-
-    <section>
+    <div class="section">
       <h2>Love &amp; Romance</h2>
       <p>Virgo and Capricorn don't rush into love. Virgo is analyzing. Capricorn is building a case. Neither confesses feelings dramatically or impulsively. The courtship looks more like two people slowly letting each other in, verifying trustworthiness, and gradually recognizing that they'd actually like this person around for a while.</p>
 
       <p>Once committed, both signs are fiercely devoted. Virgo shows love through acts of service and attention to detail. Capricorn shows love through stability and doing what they said they would. For both of them, reliability IS romance. Someone who remembers what you mentioned once and follows through on a promise three weeks later is the sexiest person alive.</p>
 
+      <div class="pull-quote">The vibe between them is less fireworks and more slow-burning competence. They admire each other's intelligence, work ethic, and integrity.</div>
+
       <p>The romantic challenge is that neither is great at emotional vulnerability or grand romantic gestures. They can build a life together without anyone ever saying the deeply sincere, unguarded thing. That can work for a long time. Eventually, though, both people need to know the other is in it emotionally, not just logistically. Scheduling time to be soft with each other sounds ridiculous and is also exactly what this couple needs.</p>
-    </section>
+    </div>
 
-    <section>
-      <h2>Sexual Compatibility</h2>
-      <p>Here's the secret about Virgo and Capricorn: they are both more sensual than they let on. Neither is splashy about desire, but both have a deep physical appreciation for their senses that gets expressed slowly and deliberately once the walls come down.</p>
-
-      <p>Capricorn can be surprisingly passionate behind closed doors. The control and composure they wear publicly gets released in private with the right person. Virgo, attentive and thoughtful as they are, becomes a partner who genuinely pays attention to what works and what doesn't. There's a quality to the physical connection between these two that prioritizes presence over performance.</p>
-
-      <p>What needs work: both signs can be too much in their heads and too cautious about expressing desire directly. Sex can become routine if neither pushes against their own comfort zone occasionally. The upside is they're both good communicators when they decide to be. If they can actually talk about what they want physically, the result tends to be very good. Just make that conversation happen.</p>
-    </section>
-
-    <section>
+    <div class="section">
       <h2>Communication</h2>
       <p>Virgo and Capricorn communicate with efficiency and respect. They don't waste words. They're both direct when directness is warranted. They can have a genuine disagreement and resolve it logically without it becoming a screaming match or a weeklong silent treatment. This is actually kind of rare and it's one of the best things about this pairing.</p>
 
       <p>The shared language of practicality means they rarely misunderstand each other on logistics or goals. Where communication gets harder is in the emotional register. Capricorn tends to deflect feelings with practicality. "Here's what we should do about that." Virgo tends to analyze feelings rather than express them. "I think I'm feeling anxious because of X, Y, Z factors." Both are actually avoiding the simple act of just saying how they feel.</p>
 
-      <p>When something genuinely needs to be felt and expressed rather than solved, both have to consciously downshift from problem-solving mode. It's a muscle they can build. It just takes noticing when they're using analysis as avoidance.</p>
-    </section>
+      <div class="highlight-box">
+        <div class="hb-label">The Shift</div>
+        <p>When something genuinely needs to be felt and expressed rather than solved, both have to consciously downshift from problem-solving mode. It's a muscle they can build. It just takes noticing when they're using analysis as avoidance.</p>
+      </div>
+    </div>
 
-    <section>
+    <div class="mid-cta fw" id="fw1">
+      <p>Get compatibility insights delivered weekly.</p>
+      <div class="mid-cta-row">
+        <input class="mid-cta-input" id="em1" type="email" placeholder="your@email.com" required>
+        <button class="mid-cta-btn" onclick="submitForm('fw1','em1')">Subscribe</button>
+      </div>
+      <div class="mid-cta-success">You're in. Watch your inbox.</div>
+    </div>
+
+    <div class="section">
       <h2>Trust</h2>
       <p>This is the category where Virgo and Capricorn absolutely shine. Both signs take commitment seriously. Neither is impulsive or careless with the people they've chosen. Once they've decided you're their person, they mean it. The fidelity here isn't effortful. It's just who they are.</p>
 
       <p>Virgo's occasional anxiety and overthinking can create self-doubt spirals that look like distrust from the outside. "Are they still happy? Did I say the wrong thing? Are we okay?" This isn't suspicion of Capricorn. It's Virgo's brain doing its thing. Capricorn needs to understand that and offer reassurance without treating it as a burden.</p>
 
       <p>Capricorn's emotional reserve can make Virgo feel like they're not seeing the full picture. If Capricorn never shows vulnerability, Virgo wonders what's being withheld. The fix is Capricorn letting Virgo in past the composed exterior. Not because Virgo is demanding it. Because it's how the trust deepens into something permanent.</p>
-    </section>
 
-    <section>
+      <div class="pull-quote">The fidelity here isn't effortful. It's just who they are. That kind of trust is the rarest thing in the zodiac.</div>
+    </div>
+
+    <div class="section">
+      <h2>Shared Values</h2>
+      <p>Virgo and Capricorn share a value system so aligned it's almost suspicious. Both believe that hard work is not just a means to an end but a reflection of character. Both believe that integrity matters even when nobody is watching. Both believe that the best things in life are earned, not given, and that earning them is part of what makes them worth having.</p>
+
+      <p>They both value competence. They are both quietly impressed by people who are good at what they do. They both find laziness physically uncomfortable to be around. At dinner parties, they are the two people who end up talking about their work, not because they're boring but because they both genuinely find purpose and identity in what they build. Finding someone who understands that instead of judging it is, for both of them, a revelation.</p>
+
+      <p>The values gap, if there is one, is around rest and play. Capricorn can treat relaxation like weakness. Virgo can treat imperfection like failure. Together, they can build a life that is impressively productive and quietly exhausting. The shared value they sometimes need to adopt is permission: permission to stop, to be unproductive, to enjoy something without optimizing it first.</p>
+    </div>
+
+    <div class="section">
+      <h2>Activities &amp; Lifestyle</h2>
+      <p>Virgo and Capricorn are surprisingly good activity partners because they both take their interests seriously. Neither is content to dabble. If Capricorn picks up hiking, they're researching trails and buying proper boots. If Virgo starts cooking, they're reading technique books and sourcing ingredients with intention. They respect each other's commitment to doing things well, and that mutual respect translates into genuinely enjoyable shared activities.</p>
+
+      <p>They work well together on projects. Renovating a house, building a business, planning a trip with military precision, these are things that would stress most couples but energize this one. They divide labor efficiently, trust each other's competence, and actually enjoy the process of making something work.</p>
+
+      <div class="highlight-box">
+        <div class="hb-label">The Balance</div>
+        <p>Not every activity needs to be productive. This couple benefits enormously from doing things that serve no purpose at all: a walk with no destination, a movie with no redeeming educational value, a meal that's just fun and not photographable. Joy doesn't require a return on investment.</p>
+      </div>
+
+      <p>The lifestyle they build together tends to be impressive from the outside: well-organized, financially sound, aesthetically considered. What they need to make sure is that it's also warm from the inside. Efficiency is a tool, not a love language. Sometimes the best activity is the unplanned one.</p>
+    </div>
+
+    <div class="section">
       <h2>The Verdict</h2>
       <p>Virgo and Capricorn are one of the most quietly excellent pairings in the zodiac. This is the couple with the shared financial goals, the functioning household, the mutual respect, and the deep private warmth they don't need to perform for anyone else.</p>
 
       <p>The growth edges are real: more emotional openness, more deliberate romance, more willingness to be soft with each other. But the foundation is genuinely rock solid. These two can build an entire life together that's both functional and deeply satisfying, which is harder to achieve than most people admit.</p>
 
       <p>Do we recommend it? Yes. This is one of the best long-term matches in astrology. Not the flashiest, not the most dramatic, and the best. For people who want something real that actually holds up over time, Virgo and Capricorn is it.</p>
-    </section>
+    </div>
 
-    <section class="related-links">
-      <h2>More Virgo &amp; Capricorn Compatibility</h2>
-      <div class="related-grid">
-        <div class="related-column">
-          <h3>More Virgo Pairings</h3>
-          <ul>
-            <li><a href="/compatibility/taurus-virgo">Taurus + Virgo</a></li>
-            <li><a href="/compatibility/virgo-scorpio">Virgo + Scorpio</a></li>
-            <li><a href="/compatibility/virgo-cancer">Virgo + Cancer</a></li>
-            <li><a href="/compatibility/virgo-pisces">Virgo + Pisces</a></li>
-          </ul>
-        </div>
-        <div class="related-column">
-          <h3>More Capricorn Pairings</h3>
-          <ul>
-            <li><a href="/compatibility/capricorn-taurus">Capricorn + Taurus</a></li>
-            <li><a href="/compatibility/scorpio-capricorn">Scorpio + Capricorn</a></li>
-            <li><a href="/compatibility/capricorn-pisces">Capricorn + Pisces</a></li>
-            <li><a href="/compatibility/capricorn-cancer">Capricorn + Cancer</a></li>
-          </ul>
-        </div>
+    <div class="bottom-cta fw" id="fw2">
+      <div class="cta-title">Your full compatibility reading, weekly.</div>
+      <div class="cta-sub">Zodiac insights that don't waste your time.</div>
+      <div class="mid-cta-row">
+        <input class="mid-cta-input" id="em2" type="email" placeholder="your@email.com" required>
+        <button class="mid-cta-btn" onclick="submitForm('fw2','em2')">Subscribe</button>
       </div>
-    </section>
+      <div class="mid-cta-success">You're in. Watch your inbox.</div>
+    </div>
+
   </article>
 
-  <footer class="page-footer">
-    <a href="/compatibility/">All Compatibility Guides</a> &bull; <a href="/">Sign Season Home</a>
+  <footer class="foot">
+    <a href="/compatibility/">All Compatibility Guides</a>
   </footer>
+
 <script src="/js/stars.js"></script>
+<script>
+async function submitForm(fwId, inputId) {
+  const input = document.getElementById(inputId);
+  const email = input.value;
+  if (!email || !input.checkValidity()) { input.reportValidity(); return; }
+  const btn = input.parentElement.querySelector('button');
+  btn.textContent = '...';
+  btn.disabled = true;
+  try {
+    const res = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    });
+    document.getElementById(fwId).classList.add('done');
+    if (!res.ok) fallbackSave(email);
+  } catch {
+    fallbackSave(email);
+    document.getElementById(fwId).classList.add('done');
+  }
+}
+function fallbackSave(email) {
+  const s = JSON.parse(localStorage.getItem('ss_emails') || '[]');
+  s.push({ email, t: Date.now() });
+  localStorage.setItem('ss_emails', JSON.stringify(s));
+}
+</script>
 </body>
 </html>

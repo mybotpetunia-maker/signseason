@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aquarius Zodiac Sign: Personality, Traits, Compatibility | Sign Season</title>
   <meta name="description" content="Aquarius is ten years ahead and slightly annoyed that everyone else isn't there yet. Personality, love, career, crystals, and compatibility for the Water Bearer.">
-  <meta property="og:title" content="Aquarius Zodiac Sign: Personality, Traits, Compatibility | Sign Season">
+  <meta name="theme-color" content="#2A1F33">
+  <meta property="og:title" content="Aquarius: Personality, Traits, Compatibility | Sign Season">
   <meta property="og:description" content="Aquarius is ten years ahead and slightly annoyed that everyone else isn't there yet.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://signseason.com/signs/aquarius">
@@ -14,8 +15,7 @@
   <link rel="canonical" href="https://signseason.com/signs/aquarius">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&family=Space+Mono:wght@400;700family=Fondamento:ital@0;1family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&family=Space+Mono:wght@400;700family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&family=Space+Mono:wght@400;700family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style/content.css">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fondamento:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -30,44 +30,585 @@
     }
   }
   </script>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --void: #1E1528;
+      --plum: #2A1F33;
+      --plum-mid: #352840;
+      --plum-lift: #3D2E4A;
+      --gold-dim: #B09A6E;
+      --gold: #C9AD6F;
+      --gold-light: #D4BC7C;
+      --gold-pale: #E2D4A7;
+      --display: 'Fondamento', cursive;
+      --serif: 'EB Garamond', 'Garamond', 'Georgia', serif;
+      --sans: 'DM Sans', -apple-system, sans-serif;
+      --mono: 'Space Mono', monospace;
+    }
+
+    body {
+      background: var(--plum);
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    body > *:not(canvas) { position: relative; z-index: 1; }
+    ::selection { background: rgba(201,173,111,0.25); color: var(--gold-pale); }
+
+    /* ─── Nav ─── */
+    .nav {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--sans);
+      font-size: 0.6rem;
+    }
+    .nav a {
+      color: var(--gold-dim);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .nav a:first-child {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--gold);
+    }
+    .nav a:hover { color: var(--gold-light); }
+    .nav .sep { color: var(--gold-dim); opacity: 0.25; }
+    .nav span:last-child { color: var(--gold-dim); }
+
+    /* ─── Hero header ─── */
+    .sign-hero {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 48px 24px 0;
+      text-align: center;
+    }
+    .sign-illustration {
+      width: 220px;
+      height: 220px;
+      object-fit: contain;
+      margin-bottom: 28px;
+      border-radius: 50%;
+    }
+    .sign-name {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: clamp(3rem, 8vw, 4.5rem);
+      color: var(--gold-pale);
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+    .sign-tagline {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--gold-dim);
+      margin-bottom: 40px;
+    }
+
+    /* ─── Quick facts ─── */
+    .facts {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: rgba(201,173,111,0.06);
+      border: 1px solid rgba(201,173,111,0.08);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    @media (min-width: 481px) { .facts-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 769px) { .facts-grid { grid-template-columns: repeat(6, 1fr); } }
+    .fact {
+      background: var(--plum-mid);
+      padding: 16px;
+      text-align: center;
+    }
+    .fact-label {
+      font-family: var(--sans);
+      font-size: 0.5rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold-dim);
+      margin-bottom: 4px;
+    }
+    .fact-val {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--gold-light);
+    }
+
+    /* ─── Article body ─── */
+    article {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section { padding: 48px 0 0; }
+    .section h2 {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-bottom: 18px;
+      line-height: 1.2;
+    }
+    .section h3 {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--gold-dim);
+      margin-top: 28px;
+      margin-bottom: 14px;
+    }
+    .section p {
+      margin-bottom: 16px;
+      line-height: 1.85;
+    }
+    .section ul {
+      list-style: none;
+      padding: 0;
+    }
+    .section li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(201,173,111,0.05);
+      line-height: 1.7;
+    }
+    .section li strong {
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    /* ─── Highlight box ─── */
+    .highlight-box {
+      background: linear-gradient(135deg, var(--plum-mid), var(--plum-lift));
+      border: 1px solid rgba(201,173,111,0.12);
+      border-radius: 2px;
+      padding: 28px 24px;
+      margin: 32px 0;
+    }
+    .highlight-box .hb-label {
+      font-family: var(--sans);
+      font-size: 0.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .highlight-box p {
+      font-size: 1.05rem;
+      color: var(--gold-light);
+      margin-bottom: 0;
+      line-height: 1.7;
+    }
+
+    /* ─── Stat row ─── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(201,173,111,0.06);
+      border: 1px solid rgba(201,173,111,0.08);
+      border-radius: 2px;
+      overflow: hidden;
+      margin: 32px 0;
+    }
+    .stat {
+      background: var(--plum-mid);
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 1.8rem;
+      color: var(--gold-light);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-desc {
+      font-family: var(--sans);
+      font-size: 0.5rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gold-dim);
+    }
+    @media (max-width: 480px) { .stat-row { grid-template-columns: 1fr; } }
+
+    /* ─── Pull quote ─── */
+    .pull-quote {
+      border-left: 2px solid var(--gold-dim);
+      padding: 4px 0 4px 24px;
+      margin: 36px 0;
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--gold-light);
+      line-height: 1.6;
+    }
+
+    /* ─── Divider ─── */
+    .div {
+      text-align: center;
+      padding: 32px 0;
+      color: var(--gold-dim);
+      opacity: 0.3;
+      font-size: 6px;
+      letter-spacing: 16px;
+    }
+
+    /* ─── Mid-content email capture ─── */
+    .mid-cta {
+      background: var(--plum-mid);
+      border: 1px solid rgba(201,173,111,0.1);
+      border-radius: 2px;
+      padding: 32px 28px;
+      margin: 48px 0;
+      text-align: center;
+    }
+    .mid-cta p {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--gold-dim);
+      margin-bottom: 16px;
+    }
+    .mid-cta-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-width: 380px;
+      margin: 0 auto;
+    }
+    .mid-cta-input {
+      width: 100%;
+      padding: 12px 14px;
+      background: var(--plum-lift);
+      color: var(--gold-pale);
+      border: 1px solid var(--gold-dim);
+      border-radius: 2px;
+      font-family: var(--serif);
+      font-size: 0.92rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .mid-cta-input::placeholder { color: var(--gold-dim); }
+    .mid-cta-input:focus { border-color: var(--gold); }
+    .mid-cta-btn {
+      padding: 12px;
+      background: var(--gold);
+      color: var(--void);
+      border: none;
+      border-radius: 2px;
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .mid-cta-btn:hover { background: var(--gold-light); }
+    .mid-cta-success {
+      display: none;
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--gold-light);
+      padding: 8px 0;
+    }
+    .fw.done .mid-cta-row { display: none; }
+    .fw.done p { display: none; }
+    .fw.done .mid-cta-success { display: block; }
+
+    @media (min-width: 481px) {
+      .mid-cta-row { flex-direction: row; gap: 0; }
+      .mid-cta-input { border-radius: 2px 0 0 2px; border-right: none; }
+      .mid-cta-btn { width: auto; padding: 12px 20px; border-radius: 0 2px 2px 0; white-space: nowrap; }
+    }
+
+    /* ─── Compatibility scores ─── */
+    .compat-section { padding-top: 48px; }
+    .compat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 20px;
+    }
+    .compat-header h2 { margin-bottom: 0; }
+    .compat-header a {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      color: var(--gold-dim);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.3s;
+    }
+    .compat-header a:hover { color: var(--gold-light); }
+
+    .compat-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(201,173,111,0.05);
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+    .compat-card:hover { opacity: 0.8; }
+    .compat-signs {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--gold-light);
+      min-width: 120px;
+    }
+    .compat-bar-wrap {
+      flex: 1;
+      height: 6px;
+      background: rgba(201,173,111,0.08);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .compat-bar {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 3px;
+      transition: width 0.6s ease;
+    }
+    .compat-pct {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--gold-dim);
+      min-width: 32px;
+      text-align: right;
+    }
+
+    /* ─── Crystal cards ─── */
+    .crystal-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    @media (min-width: 481px) { .crystal-grid { grid-template-columns: 1fr 1fr; } }
+
+    .crystal-card {
+      background: var(--plum-mid);
+      border: 1px solid rgba(201,173,111,0.08);
+      border-radius: 2px;
+      padding: 24px 20px;
+      transition: border-color 0.3s;
+    }
+    .crystal-card:hover { border-color: rgba(201,173,111,0.18); }
+    .crystal-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 2px;
+      margin-bottom: 14px;
+      background: var(--plum-lift);
+      filter: brightness(1.15) saturate(1.1);
+    }
+    .crystal-name {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+    }
+    .crystal-vibe {
+      font-family: var(--sans);
+      font-size: 0.55rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gold-dim);
+      margin-bottom: 10px;
+    }
+    .crystal-desc {
+      font-size: 0.92rem;
+      color: var(--gold);
+      line-height: 1.65;
+      margin-bottom: 12px;
+    }
+    .crystal-link {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold-light);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(201,173,111,0.2);
+      padding-bottom: 1px;
+      transition: all 0.3s;
+    }
+    .crystal-link:hover { color: var(--gold-pale); border-bottom-color: var(--gold-pale); }
+
+    /* ─── Closing section ─── */
+    .closing {
+      padding: 48px 0 0;
+    }
+    .closing h2 {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 1.6rem;
+      color: var(--gold-light);
+      margin-bottom: 16px;
+    }
+    .closing p {
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+
+    /* ─── Bottom CTA ─── */
+    .bottom-cta {
+      border: 1px solid rgba(201,173,111,0.1);
+      border-radius: 2px;
+      padding: 40px 28px;
+      margin: 56px 0 0;
+      text-align: center;
+    }
+    .bottom-cta .cta-title {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+    .bottom-cta .cta-sub {
+      font-family: var(--serif);
+      font-size: 0.92rem;
+      font-style: italic;
+      color: var(--gold-dim);
+      margin-bottom: 20px;
+    }
+
+    /* ─── Footer ─── */
+    .foot {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(201,173,111,0.06);
+    }
+    .foot a {
+      font-family: var(--sans);
+      font-size: 0.58rem;
+      color: var(--gold-dim);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.3s;
+    }
+    .foot a:hover { color: var(--gold-light); }
+
+    /* ─── Mobile ─── */
+    @media (max-width: 480px) {
+      .sign-illustration { width: 140px; height: 140px; }
+      .sign-name { font-size: 2.5rem; }
+      .compat-signs { min-width: 90px; font-size: 0.88rem; }
+      .crystal-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-  <nav class="site-nav">
+
+  <!-- Nav -->
+  <nav class="nav">
     <a href="/">Sign Season</a>
     <span class="sep">/</span>
-    <a href="/signs/">All Signs</a>
+    <a href="#signs">Signs</a>
     <span class="sep">/</span>
     <span>Aquarius</span>
   </nav>
 
+  <!-- Hero -->
+  <header class="sign-hero">
+    <img src="/assets/illustrations/signs/aquarius.png" alt="Aquarius water bearer engraving" class="sign-illustration">
+    <h1 class="sign-name">Aquarius</h1>
+    <p class="sign-tagline">The future is obvious to them. Infuriatingly, they're right.</p>
+  </header>
+
+  <!-- Quick facts -->
+  <div class="facts">
+    <div class="facts-grid">
+      <div class="fact">
+        <div class="fact-label">Dates</div>
+        <div class="fact-val">Jan 20 &#8211; Feb 18</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">Element</div>
+        <div class="fact-val">Air</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">Modality</div>
+        <div class="fact-val">Fixed</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">Rulers</div>
+        <div class="fact-val">Uranus &amp; Saturn</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">Symbol</div>
+        <div class="fact-val">The Water Bearer</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">Colors</div>
+        <div class="fact-val">Electric Blue, Silver</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="div">&#10038;&ensp;&#10038;&ensp;&#10038;</div>
+
+  <!-- Article -->
   <article>
-    <header class="sign-header">
-      <p class="sign-symbol">&#9810;&#xFE0E;</p>
-      <h1>Aquarius</h1>
-      <p class="sign-tagline">The future is obvious to them. Infuriatingly, they're right.</p>
-    </header>
 
-    <section class="quick-facts">
-      <h2 class="sr-only">Quick Facts</h2>
-      <table>
-        <tr><th>Symbol</th><td>The Water Bearer &#9810;&#xFE0E;</td></tr>
-        <tr><th>Dates</th><td>January 20 &ndash; February 18</td></tr>
-        <tr><th>Element</th><td>Air</td></tr>
-        <tr><th>Modality</th><td>Fixed</td></tr>
-        <tr><th>Ruling Planets</th><td>Uranus &amp; Saturn</td></tr>
-        <tr><th>Lucky Numbers</th><td>4, 7, 11, 22</td></tr>
-        <tr><th>Lucky Colors</th><td>Electric Blue, Silver, Neon</td></tr>
-      </table>
-    </section>
-
-    <section>
+    <!-- Who is Aquarius -->
+    <div class="section">
       <h2>Who Is Aquarius, Actually?</h2>
       <p>Aquarius is ruled by Uranus, the planet of innovation, revolution, and sudden change, with a co-ruler in Saturn, the planet of structure and discipline. This combination is exactly as interesting as it sounds. Uranus gives them the vision: the radical idea, the pattern no one else can see, the stubborn belief that things don't have to be the way they are. Saturn gives them the ability to actually pursue it with consistency and rigor. Aquarius isn't just a dreamer. They're a builder of new systems.</p>
-      <p>Fixed air is a fascinating contradiction. Fixed means they hold their position, they commit, they don't scatter. Air means they live in the realm of ideas, communication, and abstraction. So you get someone who holds a position with absolute conviction and will debate it with you for hours, with evidence, with counterarguments to your counterarguments, with the kind of intellectual tenacity that's either exhilarating or exhausting depending on the day. Usually both.</p>
-      <p>Here's the thing about Aquarius that trips people up: they care deeply about humanity as a concept and find individual humans baffling. They'll pour themselves into a cause, a community, a movement. One-on-one intimacy requires more active effort. It's not coldness. It's that their natural scale is collective. They see systems, patterns, groups. The individual is a node in the network. Getting Aquarius to zoom in on just you, just the two of you, is a real thing and it means something when they do it.</p>
-    </section>
 
-    <section>
+      <div class="highlight-box">
+        <div class="hb-label">Ruled by Uranus &amp; Saturn</div>
+        <p>Uranus brings the lightning&mdash;the sudden insight, the revolutionary impulse, the refusal to accept things as they are. Saturn brings the scaffolding to build something real from that vision. Together they make Aquarius the sign that doesn't just imagine a better future. They engineer it.</p>
+      </div>
+
+      <p>Fixed air is a fascinating contradiction. Fixed means they hold their position, they commit, they don't scatter. Air means they live in the realm of ideas, communication, and abstraction. So you get someone who holds a position with absolute conviction and will debate it with you for hours, with evidence, with counterarguments to your counterarguments, with the kind of intellectual tenacity that's either exhilarating or exhausting depending on the day. Usually both.</p>
+
+      <div class="pull-quote">They care deeply about humanity as a concept and find individual humans baffling. Getting Aquarius to zoom in on just you, just the two of you, is a real thing and it means something when they do it.</div>
+
+      <p>Here's the thing about Aquarius that trips people up: they care deeply about humanity as a concept and find individual humans baffling. They'll pour themselves into a cause, a community, a movement. One-on-one intimacy requires more active effort. It's not coldness. It's that their natural scale is collective. Getting Aquarius to zoom in on just you, just the two of you, is a real thing and it means something when they do it.</p>
+    </div>
+
+    <!-- Traits -->
+    <div class="section">
       <h2>Key Traits</h2>
 
       <h3>Strengths</h3>
@@ -87,64 +628,223 @@
         <li><strong>Intimacy requires work they don't always want to do.</strong> Getting close, staying close, showing up for the messy emotional stuff: this is growth work for Aquarius.</li>
         <li><strong>Fixed in their opinions in ways that can stall.</strong> They're right until proven very, very wrong, and the proving takes a lot of evidence and a good argument.</li>
       </ul>
-    </section>
+    </div>
 
-    <section>
+    <!-- Quick stats -->
+    <div class="stat-row">
+      <div class="stat">
+        <div class="stat-num">11th</div>
+        <div class="stat-desc">Sign of the zodiac</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Uranus</div>
+        <div class="stat-desc">Ruling planet</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Air</div>
+        <div class="stat-desc">Fixed element</div>
+      </div>
+    </div>
+
+    <div class="div">&#10038;&ensp;&#10038;&ensp;&#10038;</div>
+
+    <!-- Mid-content email capture -->
+    <div class="mid-cta">
+      <div class="fw" id="fw1">
+        <p>Get your personalized Aquarius horoscope every week.</p>
+        <div class="mid-cta-row">
+          <input type="email" class="mid-cta-input" placeholder="your@email.com" required autocomplete="email" id="email1">
+          <button type="button" class="mid-cta-btn" onclick="submitForm('fw1','email1')">Get My Horoscope</button>
+        </div>
+        <div class="mid-cta-success">You're in. The stars will be in touch.</div>
+      </div>
+    </div>
+
+    <!-- Love -->
+    <div class="section">
       <h2>Love &amp; Relationships</h2>
       <p>Aquarius needs a partner who is first and foremost a friend. They fall for people they can talk to. People who have their own interesting life, their own opinions, their own work that matters. Someone who doesn't need Aquarius to be everything to them and who gives them the space to be themselves without drama. Clingy or dependent doesn't work. Jealous especially doesn't work. They need a partner who trusts them and who they can trust in return, without surveillance.</p>
       <p>The best matches for Aquarius tend to be Gemini and Libra, the other air signs who understand intellectual connection as the foundation of intimacy. Sagittarius works well: freedom-loving, philosophically inclined, doesn't need Aquarius to perform emotion. The harder pairings are usually Taurus and Scorpio, where the fixed energy collides and the need for security and depth can feel like control to Aquarius's freedom-antenna. Leo is the opposite sign: the ego versus the collective, the personal versus the universal, and somehow there's real heat there.</p>
-      <p>Aquarius in love is loyal, surprising, and surprisingly thoughtful once they're in. They remember the conversation you had about your dream. They send the article. They show up in ways you didn't expect because they've been paying more attention than they appeared to. The key is patience at the start. Let them get comfortable. Don't push them toward vulnerability. Just be interesting. They'll come.</p>
-    </section>
 
-    <section>
+      <div class="pull-quote">Aquarius in love is loyal, surprising, and surprisingly thoughtful once they're in. They remember the conversation you had about your dream. They send the article. They show up in ways you didn't expect because they've been paying more attention than they appeared to.</div>
+
+      <p>The key is patience at the start. Let them get comfortable. Don't push them toward vulnerability. Just be interesting. They'll come.</p>
+    </div>
+
+    <!-- Compatibility with visual bars -->
+    <div class="compat-section">
+      <div class="compat-header">
+        <h2>Compatibility</h2>
+        <a href="/compatibility/aquarius-gemini">See all pairings &rarr;</a>
+      </div>
+
+      <a href="/compatibility/aquarius-gemini" class="compat-card">
+        <span class="compat-signs">Aquarius + Gemini</span>
+        <div class="compat-bar-wrap"><div class="compat-bar" style="width:95%"></div></div>
+        <span class="compat-pct">95%</span>
+      </a>
+      <a href="/compatibility/aquarius-libra" class="compat-card">
+        <span class="compat-signs">Aquarius + Libra</span>
+        <div class="compat-bar-wrap"><div class="compat-bar" style="width:93%"></div></div>
+        <span class="compat-pct">93%</span>
+      </a>
+      <a href="/compatibility/aquarius-sagittarius" class="compat-card">
+        <span class="compat-signs">Aquarius + Sagittarius</span>
+        <div class="compat-bar-wrap"><div class="compat-bar" style="width:88%"></div></div>
+        <span class="compat-pct">88%</span>
+      </a>
+      <a href="/compatibility/aquarius-aries" class="compat-card">
+        <span class="compat-signs">Aquarius + Aries</span>
+        <div class="compat-bar-wrap"><div class="compat-bar" style="width:82%"></div></div>
+        <span class="compat-pct">82%</span>
+      </a>
+      <a href="/compatibility/aquarius-leo" class="compat-card">
+        <span class="compat-signs">Aquarius + Leo</span>
+        <div class="compat-bar-wrap"><div class="compat-bar" style="width:75%"></div></div>
+        <span class="compat-pct">75%</span>
+      </a>
+      <a href="/compatibility/aquarius-taurus" class="compat-card">
+        <span class="compat-signs">Aquarius + Taurus</span>
+        <div class="compat-bar-wrap"><div class="compat-bar" style="width:48%"></div></div>
+        <span class="compat-pct">48%</span>
+      </a>
+      <a href="/compatibility/aquarius-scorpio" class="compat-card">
+        <span class="compat-signs">Aquarius + Scorpio</span>
+        <div class="compat-bar-wrap"><div class="compat-bar" style="width:42%"></div></div>
+        <span class="compat-pct">42%</span>
+      </a>
+      <a href="/compatibility/aquarius-cancer" class="compat-card">
+        <span class="compat-signs">Aquarius + Cancer</span>
+        <div class="compat-bar-wrap"><div class="compat-bar" style="width:38%"></div></div>
+        <span class="compat-pct">38%</span>
+      </a>
+    </div>
+
+    <div class="div">&#10038;&ensp;&#10038;&ensp;&#10038;</div>
+
+    <!-- Career -->
+    <div class="section">
       <h2>Career &amp; Money</h2>
       <p>Aquarius is built for work that matters: technology, social activism, research, science, innovation, humanitarian work, anything that's building the world they can already see coming. They're excellent in fields that are changing fast. They thrive where convention is being questioned. They wilt in rigid, hierarchical environments that value the way things have always been done over the way things should be done.</p>
-      <p>Money is a means to impact and freedom. They're not materialistic in the Taurus or Leo sense, but they're also not ascetic. They want enough to not think about it, and they want to do work that feels meaningful. They're often ahead of economic trends because they're ahead of cultural trends. The Aquarius who builds something in a space they saw coming five years early? That's a real thing and it happens with some regularity.</p>
-    </section>
 
-    <section>
+      <div class="highlight-box">
+        <div class="hb-label">The Aquarius work style</div>
+        <p>They're often ahead of economic trends because they're ahead of cultural trends. The Aquarius who builds something in a space they saw coming five years early? That's a real thing and it happens with some regularity.</p>
+      </div>
+
+      <p>Money is a means to impact and freedom. They're not materialistic in the Taurus or Leo sense, but they're also not ascetic. They want enough to not think about it, and they want to do work that feels meaningful.</p>
+    </div>
+
+    <div class="div">&#10038;&ensp;&#10038;&ensp;&#10038;</div>
+
+    <!-- Friendship -->
+    <div class="section">
       <h2>Friendship</h2>
       <p>Aquarius has a wide orbit of people they know and a much smaller circle of people they actually let in. They're friendly with everyone in a warm-but-slightly-distant way. The real friends are the ones who get the full Aquarius: the depth, the weirdness, the theories, the unexpected warmth. Those friendships are different from anything else. They're stimulating. They're real. They challenge you to think bigger.</p>
-      <p>They're not the friend who checks in constantly or needs a lot of maintenance. They're the friend who sends a voice memo at 11pm about a thought they had that changed how they see something, and it changes how you see it too. When you need help, they approach it practically and creatively. They will not sit with you in the feeling. They will help you find a way through it. Know the difference going in, and you'll love them for exactly what they are.</p>
-    </section>
 
-    <section>
+      <div class="pull-quote">They're the friend who sends a voice memo at 11pm about a thought they had that changed how they see something, and it changes how you see it too.</div>
+
+      <p>They're not the friend who checks in constantly or needs a lot of maintenance. When you need help, they approach it practically and creatively. They will not sit with you in the feeling. They will help you find a way through it. Know the difference going in, and you'll love them for exactly what they are.</p>
+    </div>
+
+    <div class="div">&#10038;&ensp;&#10038;&ensp;&#10038;</div>
+
+    <!-- Crystals as cards -->
+    <div class="section">
       <h2>Crystals for Aquarius</h2>
-      <ul class="crystal-list">
-        <li><strong>Aquamarine:</strong> Clarity and communication. Helps Aquarius translate their visionary thinking into language other people can actually understand and be moved by.</li>
-        <li><strong>Labradorite:</strong> Transformation and magic. Speaks to Uranian energy. Helps Aquarius access their intuitive knowing alongside their intellectual knowing.</li>
-        <li><strong>Amethyst:</strong> Spiritual insight and mental clarity. Elevates Aquarius's natural capacity to think beyond consensus reality into something genuinely useful and grounded.</li>
-        <li><strong>Garnet:</strong> Grounds the fixed air energy. Helps Aquarius stay connected to the physical world and the individual people in it, not just the systems and movements.</li>
-        <li><strong>Angelite:</strong> Opens the upper chakras and supports communication of higher truths. Helps Aquarius find the compassionate language for the ideas they know are right but that others need time to reach.</li>
-      </ul>
-    </section>
+      <p>The stones that actually work with Aquarius energy, not generic crystal content.</p>
 
-    <section>
+      <div class="crystal-grid">
+        <div class="crystal-card">
+          <img src="/assets/crystals/aquamarine.png" alt="Aquamarine crystal" class="crystal-img">
+          <div class="crystal-name">Aquamarine</div>
+          <div class="crystal-vibe">Clarity &bull; Communication &bull; Vision</div>
+          <p class="crystal-desc">Clarity and communication. Helps Aquarius translate their visionary thinking into language other people can actually understand and be moved by.</p>
+          <a href="/crystals/best-crystals-for-aquarius" class="crystal-link">Shop Aquamarine &rarr;</a>
+        </div>
+        <div class="crystal-card">
+          <img src="/assets/crystals/labradorite.png" alt="Labradorite crystal" class="crystal-img">
+          <div class="crystal-name">Labradorite</div>
+          <div class="crystal-vibe">Transformation &bull; Intuition &bull; Magic</div>
+          <p class="crystal-desc">Transformation and magic. Speaks to Uranian energy. Helps Aquarius access their intuitive knowing alongside their intellectual knowing.</p>
+          <a href="/crystals/best-crystals-for-aquarius" class="crystal-link">Shop Labradorite &rarr;</a>
+        </div>
+        <div class="crystal-card">
+          <img src="/assets/crystals/amethyst.png" alt="Amethyst crystal" class="crystal-img">
+          <div class="crystal-name">Amethyst</div>
+          <div class="crystal-vibe">Insight &bull; Clarity &bull; Spirit</div>
+          <p class="crystal-desc">Spiritual insight and mental clarity. Elevates Aquarius's natural capacity to think beyond consensus reality into something genuinely useful and grounded.</p>
+          <a href="/crystals/best-crystals-for-aquarius" class="crystal-link">Shop Amethyst &rarr;</a>
+        </div>
+        <div class="crystal-card">
+          <img src="/assets/crystals/garnet.png" alt="Garnet crystal" class="crystal-img">
+          <div class="crystal-name">Garnet</div>
+          <div class="crystal-vibe">Grounding &bull; Connection &bull; Warmth</div>
+          <p class="crystal-desc">Grounds the fixed air energy. Helps Aquarius stay connected to the physical world and the individual people in it, not just the systems and movements.</p>
+          <a href="/crystals/best-crystals-for-aquarius" class="crystal-link">Shop Garnet &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="div">&#10038;&ensp;&#10038;&ensp;&#10038;</div>
+
+    <!-- Closing -->
+    <div class="closing">
       <h2>The Aquarius You Know</h2>
-      <p>They were right about the thing, and they knew they were right while everyone else was still arguing against it, and they didn't say "I told you so" but the look they gave you contained the full information. Their style is specific and impossible to replicate because it comes from an internal logic no one else has access to. They have strong opinions about the wrong way to organize society and they've written a lot of private documents about it. They met your friend and within ten minutes had connected them to someone who changed their career, just because the network makes sense to them and they enjoy watching the pieces fit. They care about you. They just show it in structural ways. The gift that solved the actual problem. The introduction that opened the door. That's Aquarius love. Useful, considered, and very real.</p>
-    </section>
+      <p>They were right about the thing, and they knew they were right while everyone else was still arguing against it, and they didn't say "I told you so" but the look they gave you contained the full information. Their style is specific and impossible to replicate because it comes from an internal logic no one else has access to.</p>
+      <p>They have strong opinions about the wrong way to organize society and they've written a lot of private documents about it. They met your friend and within ten minutes had connected them to someone who changed their career, just because the network makes sense to them and they enjoy watching the pieces fit.</p>
+      <div class="pull-quote">They care about you. They just show it in structural ways. The gift that solved the actual problem. The introduction that opened the door. That's Aquarius love.</div>
 
-    <section class="compatibility-links">
-      <h2>Aquarius Compatibility</h2>
-      <ul>
-        <li><a href="/compatibility/aquarius-aries">Aquarius + Aries</a></li>
-        <li><a href="/compatibility/aquarius-taurus">Aquarius + Taurus</a></li>
-        <li><a href="/compatibility/aquarius-gemini">Aquarius + Gemini</a></li>
-        <li><a href="/compatibility/aquarius-cancer">Aquarius + Cancer</a></li>
-        <li><a href="/compatibility/aquarius-leo">Aquarius + Leo</a></li>
-        <li><a href="/compatibility/aquarius-virgo">Aquarius + Virgo</a></li>
-        <li><a href="/compatibility/aquarius-libra">Aquarius + Libra</a></li>
-        <li><a href="/compatibility/aquarius-scorpio">Aquarius + Scorpio</a></li>
-        <li><a href="/compatibility/aquarius-sagittarius">Aquarius + Sagittarius</a></li>
-        <li><a href="/compatibility/aquarius-capricorn">Aquarius + Capricorn</a></li>
-        <li><a href="/compatibility/aquarius-pisces">Aquarius + Pisces</a></li>
-      </ul>
-    </section>
+      <p>They care about you. They just show it in structural ways. The gift that solved the actual problem. The introduction that opened the door. That's Aquarius love. Useful, considered, and very real.</p>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="bottom-cta">
+      <div class="fw" id="fw2">
+        <div class="cta-title">Your Aquarius season forecast, weekly.</div>
+        <div class="cta-sub">Crystal recs, compatibility updates, and the cosmic notes your group chat needs.</div>
+        <div class="mid-cta-row">
+          <input type="email" class="mid-cta-input" placeholder="your@email.com" required autocomplete="email" id="email2">
+          <button type="button" class="mid-cta-btn" onclick="submitForm('fw2','email2')">Subscribe Free</button>
+        </div>
+        <div class="mid-cta-success">Welcome to the season.</div>
+      </div>
+    </div>
+
   </article>
 
-  <footer class="site-footer">
-    <p><a href="/signs/">All Zodiac Signs</a> &middot; <a href="/">Sign Season Home</a></p>
+  <!-- Footer -->
+  <footer class="foot">
+    <a href="/signs/">All Signs</a> &ensp;&middot;&ensp; <a href="/">Sign Season</a> &ensp;&middot;&ensp; <a href="/privacy">Privacy</a>
   </footer>
+
 <script src="/js/stars.js"></script>
+<script>
+async function submitForm(fwId, inputId) {
+  const input = document.getElementById(inputId);
+  const email = input.value;
+  if (!email || !input.checkValidity()) { input.reportValidity(); return; }
+  const btn = input.parentElement.querySelector('button');
+  btn.textContent = '...';
+  btn.disabled = true;
+  try {
+    const res = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    });
+    document.getElementById(fwId).classList.add('done');
+    if (!res.ok) fallbackSave(email);
+  } catch {
+    fallbackSave(email);
+    document.getElementById(fwId).classList.add('done');
+  }
+}
+function fallbackSave(email) {
+  const s = JSON.parse(localStorage.getItem('ss_emails') || '[]');
+  s.push({ email, t: Date.now() });
+  localStorage.setItem('ss_emails', JSON.stringify(s));
+}
+</script>
 </body>
 </html>

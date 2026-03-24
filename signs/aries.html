@@ -125,13 +125,15 @@
     }
     .facts-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 1px;
       background: rgba(201,173,111,0.06);
       border: 1px solid rgba(201,173,111,0.08);
       border-radius: 2px;
       overflow: hidden;
     }
+    @media (min-width: 481px) { .facts-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 769px) { .facts-grid { grid-template-columns: repeat(6, 1fr); } }
     .fact {
       background: var(--plum-mid);
       padding: 16px;
@@ -196,6 +198,64 @@
       color: var(--gold-light);
       font-weight: 600;
     }
+
+    /* ─── Highlight box ─── */
+    .highlight-box {
+      background: linear-gradient(135deg, var(--plum-mid), var(--plum-lift));
+      border: 1px solid rgba(201,173,111,0.12);
+      border-radius: 2px;
+      padding: 28px 24px;
+      margin: 32px 0;
+    }
+    .highlight-box .hb-label {
+      font-family: var(--sans);
+      font-size: 0.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .highlight-box p {
+      font-size: 1.05rem;
+      color: var(--gold-light);
+      margin-bottom: 0;
+      line-height: 1.7;
+    }
+
+    /* ─── Stat row ─── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(201,173,111,0.06);
+      border: 1px solid rgba(201,173,111,0.08);
+      border-radius: 2px;
+      overflow: hidden;
+      margin: 32px 0;
+    }
+    .stat {
+      background: var(--plum-mid);
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 1.8rem;
+      color: var(--gold-light);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-desc {
+      font-family: var(--sans);
+      font-size: 0.5rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gold-dim);
+    }
+    @media (max-width: 480px) { .stat-row { grid-template-columns: 1fr; } }
 
     /* ─── Pull quote ─── */
     .pull-quote {
@@ -472,7 +532,6 @@
     @media (max-width: 480px) {
       .sign-illustration { width: 140px; height: 140px; }
       .sign-name { font-size: 2.5rem; }
-      .facts-grid { grid-template-columns: repeat(2, 1fr); }
       .compat-signs { min-width: 90px; font-size: 0.88rem; }
       .crystal-grid { grid-template-columns: 1fr; }
     }
@@ -534,7 +593,13 @@
     <!-- Who is Aries -->
     <div class="section">
       <h2>Who Is Aries, Actually?</h2>
-      <p>Aries is the first sign of the zodiac, and they know it. This isn't a sign that eases into things. They show up already in motion, with a plan half-formed in their head and full confidence that it's the best plan anyone has ever had. Mars rules them, which means everything is a little bit of a war and they're kind of okay with that.</p>
+      <p>Aries is the first sign of the zodiac, and they know it. This isn't a sign that eases into things. They show up already in motion, with a plan half-formed in their head and full confidence that it's the best plan anyone has ever had.</p>
+
+      <div class="highlight-box">
+        <div class="hb-label">Ruled by Mars</div>
+        <p>Everything is a little bit of a war and they're kind of okay with that. Mars gives Aries their drive, their temper, their courage, and their inability to sit still when something needs doing.</p>
+      </div>
+
       <p>Cardinal fire is a wild combination. Cardinal means they initiate. They are the people who say "okay, let's go" before the group has even finished discussing where they're going. Fire means they run hot, feel deeply, and burn through situations at a pace that can exhaust the people around them.</p>
 
       <div class="pull-quote">What people miss about Aries is the heart. Everyone talks about the temper, the impatience, the ego. But Aries is one of the most genuinely enthusiastic signs in the zodiac. They make people feel like things are possible.</div>
@@ -564,6 +629,24 @@
         <li><strong>Accepting help feels like losing.</strong> Independence is a core value that sometimes becomes a wall.</li>
       </ul>
     </div>
+
+    <!-- Quick stats -->
+    <div class="stat-row">
+      <div class="stat">
+        <div class="stat-num">1st</div>
+        <div class="stat-desc">Sign of the zodiac</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Mars</div>
+        <div class="stat-desc">Ruling planet</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Fire</div>
+        <div class="stat-desc">Cardinal element</div>
+      </div>
+    </div>
+
+    <div class="div">&#10038;&ensp;&#10038;&ensp;&#10038;</div>
 
     <!-- Mid-content email capture -->
     <div class="mid-cta">
@@ -640,9 +723,17 @@
     <!-- Career -->
     <div class="section">
       <h2>Career &amp; Money</h2>
-      <p>Aries was born to lead, and they usually end up doing it one way or another. They're drawn to careers with momentum: entrepreneurship, athletics, emergency services, sales, activism, anything where they can see direct results of their effort. They don't do well sitting still, answering to bureaucracy, or waiting for approval. Give them a goal and get out of the way.</p>
+      <p>Aries was born to lead, and they usually end up doing it one way or another. They're drawn to careers with momentum: entrepreneurship, athletics, emergency services, sales, activism, anything where they can see direct results of their effort.</p>
+
+      <div class="highlight-box">
+        <div class="hb-label">The Aries work style</div>
+        <p>They don't do well sitting still, answering to bureaucracy, or waiting for approval. Give them a goal and get out of the way. Direct results or nothing.</p>
+      </div>
+
       <p>Money for Aries is a tool, not a scorecard. They spend freely, sometimes recklessly, and the concept of a savings account requires active effort. They do best with automatic transfers and physical separation from their own money. Not because they can't earn it (they're excellent earners) but because discipline isn't the move they make by default.</p>
     </div>
+
+    <div class="div">&#10038;&ensp;&#10038;&ensp;&#10038;</div>
 
     <!-- Friendship -->
     <div class="section">

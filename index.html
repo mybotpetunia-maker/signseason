@@ -347,7 +347,31 @@
       position: relative;
       cursor: pointer;
       transition: all 0.35s ease;
+      overflow: hidden;
     }
+    .zodiac-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.06;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+    .zodiac-card:hover::before { opacity: 0.12; }
+    .zodiac-card[data-sign="aries"]::before { background-image: url('/assets/illustrations/signs/aries-ram.png'); }
+    .zodiac-card[data-sign="taurus"]::before { background-image: url('/assets/illustrations/signs/taurus.png'); }
+    .zodiac-card[data-sign="gemini"]::before { background-image: url('/assets/illustrations/signs/gemini.png'); }
+    .zodiac-card[data-sign="cancer"]::before { background-image: url('/assets/illustrations/signs/cancer.png'); }
+    .zodiac-card[data-sign="leo"]::before { background-image: url('/assets/illustrations/signs/leo.png'); }
+    .zodiac-card[data-sign="virgo"]::before { background-image: url('/assets/illustrations/signs/virgo.png'); }
+    .zodiac-card[data-sign="libra"]::before { background-image: url('/assets/illustrations/signs/libra.png'); }
+    .zodiac-card[data-sign="scorpio"]::before { background-image: url('/assets/illustrations/signs/scorpio.png'); }
+    .zodiac-card[data-sign="sagittarius"]::before { background-image: url('/assets/illustrations/signs/sagittarius.png'); }
+    .zodiac-card[data-sign="capricorn"]::before { background-image: url('/assets/illustrations/signs/capricorn.png'); }
+    .zodiac-card[data-sign="aquarius"]::before { background-image: url('/assets/illustrations/signs/aquarius.png'); }
+    .zodiac-card[data-sign="pisces"]::before { background-image: url('/assets/illustrations/signs/pisces.png'); }
     .zodiac-card:hover {
       border-color: rgba(201, 173, 111, 0.25);
       background: var(--plum-lift);
