@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Disallow: /assets/
+Disallow: /api/
 Disallow: /style/
 
 Sitemap: https://signseason.com/sitemap.xml
