@@ -65,7 +65,7 @@
       align-items: center;
       gap: 8px;
       font-family: var(--sans);
-      font-size: 0.6rem;
+      font-size: 0.75rem;
     }
     .nav a { color: var(--gold-dim); text-decoration: none; transition: color 0.3s; }
     .nav a:first-child { font-family: var(--display); font-style: italic; font-size: 1rem; color: var(--gold); }
@@ -152,10 +152,12 @@
       font-size: 1.15rem;
       font-weight: 600;
       color: var(--gold-light);
+      text-decoration: none;
     }
+    .sign-card .name:hover { color: var(--gold-pale); }
     .sign-card .dates {
       font-family: var(--mono);
-      font-size: 0.5rem;
+      font-size: 0.65rem;
       color: var(--gold-dim);
     }
     .sign-card .tagline {
@@ -172,7 +174,7 @@
     }
     .sign-card .links a {
       font-family: var(--sans);
-      font-size: 0.5rem;
+      font-size: 0.65rem;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.1em;
@@ -194,7 +196,7 @@
     }
     .foot a {
       font-family: var(--sans);
-      font-size: 0.58rem;
+      font-size: 0.7rem;
       color: var(--gold-dim);
       text-decoration: none;
       text-transform: uppercase;
@@ -215,6 +217,10 @@
     <a href="/">Sign Season</a>
     <span class="sep">/</span>
     <span>All Signs</span>
+    <span class="sep">/</span>
+    <a href="/compatibility">Compatibility</a>
+    <span class="sep">/</span>
+    <a href="/crystals">Crystals</a>
   </nav>
 
   <header class="hero">
@@ -226,142 +232,144 @@
 
   <div class="grid">
 
-    <a href="/signs/aries" class="sign-card">
-      <img src="/assets/illustrations/signs/aries-ram.png" alt="Aries">
-      <div class="name">Aries</div>
+    <div class="sign-card">
+      <a href="/signs/aries"><img src="/assets/illustrations/signs/aries-ram.png" alt="Aries"></a>
+      <a href="/signs/aries" class="name">Aries</a>
       <div class="dates">Mar 21 &#8211; Apr 19</div>
       <div class="tagline">First. Loudest. Already halfway out the door.</div>
       <div class="links">
         <a href="/crystals/best-crystals-for-aries">Crystals</a>
-        <a href="/compatibility/aries-leo">Compatibility</a>
+        <a href="/compatibility">Compatibility</a>
       </div>
-    </a>
+    </div>
 
-    <a href="/signs/taurus" class="sign-card">
-      <img src="/assets/illustrations/signs/taurus.png" alt="Taurus">
-      <div class="name">Taurus</div>
+    <div class="sign-card">
+      <a href="/signs/taurus"><img src="/assets/illustrations/signs/taurus.png" alt="Taurus"></a>
+      <a href="/signs/taurus" class="name">Taurus</a>
       <div class="dates">Apr 20 &#8211; May 20</div>
       <div class="tagline">Unbothered. Well-fed. Not moving.</div>
       <div class="links">
         <a href="/crystals/best-crystals-for-taurus">Crystals</a>
-        <a href="/compatibility/taurus-virgo">Compatibility</a>
+        <a href="/compatibility">Compatibility</a>
       </div>
-    </a>
+    </div>
 
-    <a href="/signs/gemini" class="sign-card">
-      <img src="/assets/illustrations/signs/gemini.png" alt="Gemini">
-      <div class="name">Gemini</div>
+    <div class="sign-card">
+      <a href="/signs/gemini"><img src="/assets/illustrations/signs/gemini.png" alt="Gemini"></a>
+      <a href="/signs/gemini" class="name">Gemini</a>
       <div class="dates">May 21 &#8211; Jun 20</div>
       <div class="tagline">Two people. One body. Zero filter.</div>
       <div class="links">
         <a href="/crystals/best-crystals-for-gemini">Crystals</a>
-        <a href="/compatibility/gemini-libra">Compatibility</a>
+        <a href="/compatibility">Compatibility</a>
       </div>
-    </a>
+    </div>
 
-    <a href="/signs/cancer" class="sign-card">
-      <img src="/assets/illustrations/signs/cancer.png" alt="Cancer">
-      <div class="name">Cancer</div>
+    <div class="sign-card">
+      <a href="/signs/cancer"><img src="/assets/illustrations/signs/cancer.png" alt="Cancer"></a>
+      <a href="/signs/cancer" class="name">Cancer</a>
       <div class="dates">Jun 21 &#8211; Jul 22</div>
       <div class="tagline">Feels everything. Remembers all of it.</div>
       <div class="links">
         <a href="/crystals/best-crystals-for-cancer">Crystals</a>
-        <a href="/compatibility/cancer-scorpio">Compatibility</a>
+        <a href="/compatibility">Compatibility</a>
       </div>
-    </a>
+    </div>
 
-    <a href="/signs/leo" class="sign-card">
-      <img src="/assets/illustrations/signs/leo.png" alt="Leo">
-      <div class="name">Leo</div>
+    <div class="sign-card">
+      <a href="/signs/leo"><img src="/assets/illustrations/signs/leo.png" alt="Leo"></a>
+      <a href="/signs/leo" class="name">Leo</a>
       <div class="dates">Jul 23 &#8211; Aug 22</div>
       <div class="tagline">Main character energy isn't a choice. It's a diagnosis.</div>
       <div class="links">
         <a href="/crystals/best-crystals-for-leo">Crystals</a>
-        <a href="/compatibility/aries-leo">Compatibility</a>
+        <a href="/compatibility">Compatibility</a>
       </div>
-    </a>
+    </div>
 
-    <a href="/signs/virgo" class="sign-card">
-      <img src="/assets/illustrations/signs/virgo.png" alt="Virgo">
-      <div class="name">Virgo</div>
+    <div class="sign-card">
+      <a href="/signs/virgo"><img src="/assets/illustrations/signs/virgo.png" alt="Virgo"></a>
+      <a href="/signs/virgo" class="name">Virgo</a>
       <div class="dates">Aug 23 &#8211; Sep 22</div>
       <div class="tagline">Already noticed three things wrong with this page.</div>
       <div class="links">
         <a href="/crystals/best-crystals-for-virgo">Crystals</a>
-        <a href="/compatibility/taurus-virgo">Compatibility</a>
+        <a href="/compatibility">Compatibility</a>
       </div>
-    </a>
+    </div>
 
-    <a href="/signs/libra" class="sign-card">
-      <img src="/assets/illustrations/signs/libra.png" alt="Libra">
-      <div class="name">Libra</div>
+    <div class="sign-card">
+      <a href="/signs/libra"><img src="/assets/illustrations/signs/libra.png" alt="Libra"></a>
+      <a href="/signs/libra" class="name">Libra</a>
       <div class="dates">Sep 23 &#8211; Oct 22</div>
       <div class="tagline">Can't decide if they love you or the idea of you.</div>
       <div class="links">
         <a href="/crystals/best-crystals-for-libra">Crystals</a>
-        <a href="/compatibility/gemini-libra">Compatibility</a>
+        <a href="/compatibility">Compatibility</a>
       </div>
-    </a>
+    </div>
 
-    <a href="/signs/scorpio" class="sign-card">
-      <img src="/assets/illustrations/signs/scorpio.png" alt="Scorpio">
-      <div class="name">Scorpio</div>
+    <div class="sign-card">
+      <a href="/signs/scorpio"><img src="/assets/illustrations/signs/scorpio.png" alt="Scorpio"></a>
+      <a href="/signs/scorpio" class="name">Scorpio</a>
       <div class="dates">Oct 23 &#8211; Nov 21</div>
       <div class="tagline">Knows your secrets. All of them. Already.</div>
       <div class="links">
         <a href="/crystals/best-crystals-for-scorpio">Crystals</a>
-        <a href="/compatibility/cancer-scorpio">Compatibility</a>
+        <a href="/compatibility">Compatibility</a>
       </div>
-    </a>
+    </div>
 
-    <a href="/signs/sagittarius" class="sign-card">
-      <img src="/assets/illustrations/signs/sagittarius.png" alt="Sagittarius">
-      <div class="name">Sagittarius</div>
+    <div class="sign-card">
+      <a href="/signs/sagittarius"><img src="/assets/illustrations/signs/sagittarius.png" alt="Sagittarius"></a>
+      <a href="/signs/sagittarius" class="name">Sagittarius</a>
       <div class="dates">Nov 22 &#8211; Dec 21</div>
       <div class="tagline">Already booked a flight. Hasn't told anyone yet.</div>
       <div class="links">
         <a href="/crystals/best-crystals-for-sagittarius">Crystals</a>
-        <a href="/compatibility/leo-sagittarius">Compatibility</a>
+        <a href="/compatibility">Compatibility</a>
       </div>
-    </a>
+    </div>
 
-    <a href="/signs/capricorn" class="sign-card">
-      <img src="/assets/illustrations/signs/capricorn.png" alt="Capricorn">
-      <div class="name">Capricorn</div>
+    <div class="sign-card">
+      <a href="/signs/capricorn"><img src="/assets/illustrations/signs/capricorn.png" alt="Capricorn"></a>
+      <a href="/signs/capricorn" class="name">Capricorn</a>
       <div class="dates">Dec 22 &#8211; Jan 19</div>
       <div class="tagline">Has a five-year plan for their five-year plan.</div>
       <div class="links">
         <a href="/crystals/best-crystals-for-capricorn">Crystals</a>
-        <a href="/compatibility/virgo-capricorn">Compatibility</a>
+        <a href="/compatibility">Compatibility</a>
       </div>
-    </a>
+    </div>
 
-    <a href="/signs/aquarius" class="sign-card">
-      <img src="/assets/illustrations/signs/aquarius.png" alt="Aquarius">
-      <div class="name">Aquarius</div>
+    <div class="sign-card">
+      <a href="/signs/aquarius"><img src="/assets/illustrations/signs/aquarius.png" alt="Aquarius"></a>
+      <a href="/signs/aquarius" class="name">Aquarius</a>
       <div class="dates">Jan 20 &#8211; Feb 18</div>
       <div class="tagline">Emotionally available for humanity. Not for you specifically.</div>
       <div class="links">
         <a href="/crystals/best-crystals-for-aquarius">Crystals</a>
-        <a href="/compatibility/libra-aquarius">Compatibility</a>
+        <a href="/compatibility">Compatibility</a>
       </div>
-    </a>
+    </div>
 
-    <a href="/signs/pisces" class="sign-card">
-      <img src="/assets/illustrations/signs/pisces.png" alt="Pisces">
-      <div class="name">Pisces</div>
+    <div class="sign-card">
+      <a href="/signs/pisces"><img src="/assets/illustrations/signs/pisces.png" alt="Pisces"></a>
+      <a href="/signs/pisces" class="name">Pisces</a>
       <div class="dates">Feb 19 &#8211; Mar 20</div>
       <div class="tagline">Living in a reality they invented. It's nicer there.</div>
       <div class="links">
         <a href="/crystals/best-crystals-for-pisces">Crystals</a>
-        <a href="/compatibility/scorpio-pisces">Compatibility</a>
+        <a href="/compatibility">Compatibility</a>
       </div>
-    </a>
+    </div>
 
   </div>
 
   <footer class="foot">
-    <a href="/">Sign Season</a> &ensp;&middot;&ensp; <a href="/privacy">Privacy</a>
+    <a href="/">Sign Season</a> &ensp;&middot;&ensp; <a href="/compatibility">Compatibility</a> &ensp;&middot;&ensp; <a href="/crystals">Crystals</a> &ensp;&middot;&ensp; <a href="/privacy">Privacy</a>
+    <br><br>
+    <a href="#">TikTok</a> &ensp;&middot;&ensp; <a href="#">Instagram</a> &ensp;&middot;&ensp; <a href="#">Pinterest</a>
   </footer>
 
 <script src="/js/stars.js"></script>
