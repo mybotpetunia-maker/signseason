@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://signseason.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://signseason.com/privacy</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
+  <url><loc>https://signseason.com/compatibility</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
 
   <url><loc>https://signseason.com/signs/aries</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://signseason.com/signs/taurus</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
@@ -30,23 +31,81 @@
   <url><loc>https://signseason.com/crystals/best-crystals-for-pisces</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <url><loc>https://signseason.com/compatibility/aries-aries</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/aries-taurus</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/aries-gemini</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/aries-cancer</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://signseason.com/compatibility/aries-leo</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/aries-virgo</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/aries-libra</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/aries-scorpio</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://signseason.com/compatibility/aries-sagittarius</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://signseason.com/compatibility/cancer-cancer</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://signseason.com/compatibility/cancer-scorpio</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://signseason.com/compatibility/gemini-aquarius</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://signseason.com/compatibility/gemini-gemini</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://signseason.com/compatibility/gemini-libra</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://signseason.com/compatibility/leo-leo</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://signseason.com/compatibility/leo-libra</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://signseason.com/compatibility/leo-sagittarius</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://signseason.com/compatibility/libra-aquarius</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://signseason.com/compatibility/libra-libra</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://signseason.com/compatibility/scorpio-pisces</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://signseason.com/compatibility/scorpio-scorpio</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://signseason.com/compatibility/taurus-cancer</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/aries-capricorn</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/aries-aquarius</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/aries-pisces</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://signseason.com/compatibility/taurus-taurus</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/taurus-gemini</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/taurus-cancer</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/taurus-leo</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://signseason.com/compatibility/taurus-virgo</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://signseason.com/compatibility/virgo-capricorn</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/taurus-libra</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/taurus-scorpio</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/taurus-sagittarius</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/taurus-capricorn</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/taurus-aquarius</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/taurus-pisces</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/gemini-gemini</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/gemini-cancer</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/gemini-leo</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/gemini-virgo</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/gemini-libra</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/gemini-scorpio</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/gemini-sagittarius</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/gemini-capricorn</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/gemini-aquarius</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/gemini-pisces</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/cancer-cancer</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/cancer-leo</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/cancer-virgo</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/cancer-libra</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/cancer-scorpio</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/cancer-sagittarius</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/cancer-capricorn</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/cancer-aquarius</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/cancer-pisces</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/leo-leo</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/leo-virgo</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/leo-libra</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/leo-scorpio</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/leo-sagittarius</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/leo-capricorn</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/leo-aquarius</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/leo-pisces</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://signseason.com/compatibility/virgo-virgo</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/virgo-libra</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/virgo-scorpio</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/virgo-sagittarius</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/virgo-capricorn</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/virgo-aquarius</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/virgo-pisces</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/libra-libra</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/libra-scorpio</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/libra-sagittarius</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/libra-capricorn</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/libra-aquarius</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/libra-pisces</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/scorpio-scorpio</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/scorpio-sagittarius</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/scorpio-capricorn</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/scorpio-aquarius</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/scorpio-pisces</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/sagittarius-sagittarius</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/sagittarius-capricorn</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/sagittarius-aquarius</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/sagittarius-pisces</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/capricorn-capricorn</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/capricorn-aquarius</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/capricorn-pisces</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/aquarius-aquarius</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/aquarius-pisces</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signseason.com/compatibility/pisces-pisces</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
