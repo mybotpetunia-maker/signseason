@@ -2,58 +2,70 @@
 
 _If a check fails, it's not deployed. Period._
 
-## Per-Deployment QA (every git push)
+---
 
-### 1. Vercel Deploy Verification
-- [ ] `git push` succeeded (check exit code)
-- [ ] Wait 30 seconds for Vercel build
-- [ ] Confirm deployment: `curl -sL -o /dev/null -w "%{http_code}" https://signseason.com` returns 200
+## Tier 1: Infrastructure (every deploy)
 
-### 2. Changed Pages — Full Content Verification
-For EVERY page that was added or modified in this deploy:
-- [ ] `curl -sL` the production URL (not localhost, not vercel preview)
-- [ ] Grep for specific content that should be on the page (title, key heading, unique text)
-- [ ] Verify links work: pick 3 internal links from the page, curl each one
-- [ ] Check for broken images: grep for `<img` tags, curl each `src`
+### Status Codes
+- [ ] Curl EVERY URL in sitemap.xml — all must return 200
+- [ ] Count HTML files vs sitemap entries — must match
 
-### 3. Sitemap Consistency
-- [ ] Count URLs in sitemap.xml: `grep -c "<url>" sitemap.xml`
-- [ ] Count actual HTML files: `find . -name "*.html" -not -path "./node_modules/*" | wc -l`
-- [ ] These numbers should match (minus any non-HTML routes)
-- [ ] Every HTML file has a corresponding sitemap entry
-- [ ] No sitemap entries point to nonexistent pages
-
-### 4. Cross-Page Navigation
-- [ ] Homepage links to all section index pages
-- [ ] Each section index page links to all its child pages
-- [ ] Every child page has a working "back" link to its section/home
-- [ ] No dead links (run: `grep -roh 'href="[^"]*"' *.html | sort -u | head -50` and spot-check)
-
-### 5. SEO Basics
-- [ ] Every page has unique `<title>` tag
-- [ ] Every page has `<meta name="description">`
-- [ ] Every page has `<link rel="canonical">`
-- [ ] robots.txt is accessible: `curl https://signseason.com/robots.txt`
-- [ ] sitemap.xml is accessible: `curl https://signseason.com/sitemap.xml`
+### Deploy Verification
+- [ ] `git push` exit code 0
+- [ ] Wait 30s, confirm production URL returns 200
+- [ ] Grep for specific changed content on production (not just status code)
 
 ---
 
-## Weekly QA Pass (Saturday, automated via cron)
+## Tier 2: Correctness (every deploy that changes pages)
 
-### Full Site Crawl
-- [ ] Curl EVERY page in sitemap.xml, log status codes
-- [ ] Any non-200 = immediate fix
-- [ ] Check 5 random pages for correct content rendering (title, body text, links)
-- [ ] Verify all 12 sign pages load
-- [ ] Verify all 12 crystal pages load  
-- [ ] Verify all 78 compatibility pages load
-- [ ] Verify compatibility index page loads and has 78 links
-- [ ] Check Google Search Console for crawl errors (if accessible)
+### HTML Validation
+- [ ] Run `tidy -errors` or W3C validator on every changed page
+- [ ] Zero errors for: nested `<a>` tags, unclosed elements, invalid nesting
+- [ ] No `<a>` inside `<a>` — ever
+
+### Link Destination Audit
+- [ ] Every link goes to the CORRECT page, not just a valid one
+- [ ] Compatibility links point to the right section/pair
+- [ ] No duplicate links (two different signs linking to the same pair)
+- [ ] All nav links go where they say they go
+- [ ] Internal links use consistent paths (no mixing /page and /page/)
 
 ### Content Integrity
-- [ ] No placeholder text ("Lorem ipsum", "TODO", "FIXME")
-- [ ] No broken affiliate links (once affiliate accounts are set up)
-- [ ] Email capture forms submit successfully (once implemented)
+- [ ] No placeholder text (Lorem ipsum, TODO, FIXME, TBD)
+- [ ] No broken images (curl every img src)
+- [ ] No empty links (href="#" in production without a plan)
+- [ ] Every page has unique, descriptive `<title>`
+- [ ] Every page has `<meta name="description">`
+
+---
+
+## Tier 3: Human Experience (weekly + after major changes)
+
+### Cross-Page Consistency
+- [ ] All pages share the same nav structure
+- [ ] All pages share the same footer (social links, section links, privacy)
+- [ ] Font families match across all pages
+- [ ] Color scheme consistent (no one-off pages with different palettes)
+
+### Readability
+- [ ] No font sizes below 12px (0.75rem at base 16px) on any element
+- [ ] Body text at least 16px
+- [ ] Line height at least 1.4 on body text
+- [ ] Sufficient contrast (gold on dark plum — spot-check)
+
+### Navigation Completeness
+- [ ] Every section (signs, compatibility, crystals) is reachable from every other section
+- [ ] Homepage links to all section index pages
+- [ ] Each section index links to all children
+- [ ] Each child page links back to its section and to homepage
+- [ ] No dead-end pages (pages with no outbound navigation)
+
+### Mobile
+- [ ] Cards/grids collapse properly at 375px viewport
+- [ ] Text doesn't overflow or get cut off
+- [ ] Touch targets are at least 44x44px
+- [ ] No horizontal scroll
 
 ---
 
@@ -61,7 +73,16 @@ For EVERY page that was added or modified in this deploy:
 
 **Every QA report must include actual output, not assertions.**
 
-Bad: "I verified the pages are live."
-Good: "curl https://signseason.com/compatibility returned 200. grep found 78 href links to /compatibility/ pages. Spot-checked aries-taurus (200), leo-pisces (200), virgo-scorpio (200)."
+❌ Bad: "I verified the pages are live."
+✅ Good: "curl returned 200. grep found 78 links. tidy -errors reports 0 errors. Font size audit: smallest is 0.75rem (12px)."
+
+❌ Bad: "Links are correct."
+✅ Good: "All 12 compatibility links on /signs resolve to /compatibility. Verified: grep output shows href='/compatibility' x12, no other /compatibility/* paths."
 
 If I can't paste the proof, I haven't done the QA.
+
+---
+
+## Why This Exists
+
+On 2026-03-28, Tara asked me to audit signseason.com/signs "like a human." My existing QA (Tier 1 only) missed: nested `<a>` tags, wrong link destinations, unreadably small fonts, missing navigation, and a bare footer. All issues a human would catch in 5 seconds of looking at the page. "Curl returns 200" is not QA. It's a health check. This checklist exists because those are different things and I confused them.
