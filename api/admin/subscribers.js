@@ -32,7 +32,8 @@ export default async function handler(req, res) {
     }
 
     const contacts = await contactsRes.json();
-    const active = (contacts.data || []).filter((c) => !c.unsubscribed);
+    const OWNER_EMAILS = ['tara.c.fung@gmail.com'];
+    const active = (contacts.data || []).filter((c) => !c.unsubscribed && !OWNER_EMAILS.includes(c.email.toLowerCase()));
 
     return res.status(200).json({
       total: active.length,

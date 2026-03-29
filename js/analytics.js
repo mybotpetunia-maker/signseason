@@ -1,6 +1,7 @@
 // Lightweight pageview tracker — fires on every page load
 // Sends: path, referrer, timestamp, session fingerprint (no PII)
 (function() {
+  if (localStorage.getItem('ss_owner')) return;
   var data = {
     p: location.pathname,
     r: document.referrer || '(direct)',
