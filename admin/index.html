@@ -306,6 +306,7 @@ function authenticate() {
       return r.json();
     })
     .then(function(data) {
+      sessionStorage.setItem('ss_admin_key', ADMIN_KEY);
       document.getElementById('auth-gate').style.display = 'none';
       document.getElementById('dashboard').style.display = 'block';
       render(data);
@@ -317,13 +318,12 @@ document.getElementById('key-input').addEventListener('keydown', function(e) {
   if (e.key === 'Enter') authenticate();
 });
 
-// Check URL param
+// Auto-login from sessionStorage (persists within tab session)
 (function() {
-  var params = new URLSearchParams(location.search);
-  var k = params.get('key');
-  if (k) {
-    document.getElementById('key-input').value = k;
-    ADMIN_KEY = k;
+  var saved = sessionStorage.getItem('ss_admin_key');
+  if (saved) {
+    ADMIN_KEY = saved;
+    document.getElementById('key-input').value = saved;
     setTimeout(authenticate, 100);
   }
 })();
