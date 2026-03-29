@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Season — Mission Control</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --void: #0a0612;
+      --plum: #1E1528;
+      --plum-mid: #2A1F33;
+      --plum-lift: #352840;
+      --gold-dim: #B09A6E;
+      --gold: #C9AD6F;
+      --gold-light: #D4BC7C;
+      --cream: #F0E6D3;
+      --text: #c9c0d6;
+      --text-dim: #8a7f96;
+      --rose: #C27A8C;
+      --teal: #6BB5A0;
+    }
+
+    body {
+      background: var(--void);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    #auth-gate {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 80vh;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    #auth-gate h1 { font-family: 'EB Garamond', serif; color: var(--gold); font-size: 1.8rem; }
+    #auth-gate input {
+      background: var(--plum);
+      border: 1px solid var(--plum-lift);
+      color: var(--cream);
+      padding: 0.7rem 1.2rem;
+      border-radius: 6px;
+      font-size: 1rem;
+      width: 300px;
+      text-align: center;
+    }
+    #auth-gate button {
+      background: var(--gold-dim);
+      color: var(--void);
+      border: none;
+      padding: 0.6rem 2rem;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    #auth-error { color: var(--rose); display: none; font-size: 0.9rem; }
+
+    #dashboard { display: none; }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .header h1 {
+      font-family: 'EB Garamond', serif;
+      color: var(--gold);
+      font-size: 2rem;
+      font-weight: 600;
+    }
+    .header .period-info {
+      color: var(--text-dim);
+      font-size: 0.85rem;
+    }
+
+    .range-btns { display: flex; gap: 0.5rem; }
+    .range-btns button {
+      background: var(--plum);
+      color: var(--text);
+      border: 1px solid var(--plum-lift);
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+    .range-btns button.active,
+    .range-btns button:hover {
+      background: var(--gold-dim);
+      color: var(--void);
+      border-color: var(--gold-dim);
+    }
+
+    .metrics-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .metric-card {
+      background: var(--plum);
+      border: 1px solid var(--plum-lift);
+      border-radius: 10px;
+      padding: 1.2rem 1.5rem;
+    }
+    .metric-card .label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+      margin-bottom: 0.3rem;
+    }
+    .metric-card .value {
+      font-family: 'Space Mono', monospace;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--cream);
+    }
+    .metric-card canvas {
+      margin-top: 0.5rem;
+      width: 100% !important;
+      height: 40px !important;
+    }
+
+    .chart-section {
+      background: var(--plum);
+      border: 1px solid var(--plum-lift);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .chart-section h2 {
+      font-family: 'EB Garamond', serif;
+      color: var(--gold);
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+    .chart-section canvas { max-height: 300px; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+
+    .data-table {
+      background: var(--plum);
+      border: 1px solid var(--plum-lift);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .data-table h2 {
+      font-family: 'EB Garamond', serif;
+      color: var(--gold);
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+    th {
+      text-align: left;
+      color: var(--text-dim);
+      font-weight: 500;
+      padding: 0.4rem 0.5rem;
+      border-bottom: 1px solid var(--plum-lift);
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+    }
+    td {
+      padding: 0.4rem 0.5rem;
+      border-bottom: 1px solid rgba(53, 40, 64, 0.5);
+      color: var(--text);
+    }
+    td:last-child {
+      font-family: 'Space Mono', monospace;
+      text-align: right;
+      color: var(--cream);
+    }
+
+    .collapsible-toggle {
+      background: none;
+      border: 1px solid var(--plum-lift);
+      color: var(--gold-dim);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      margin-top: 1rem;
+    }
+    .collapsible-toggle:hover { border-color: var(--gold-dim); }
+    .subscriber-list { display: none; margin-top: 1rem; }
+    .subscriber-list.open { display: block; }
+
+    .loading {
+      text-align: center;
+      padding: 4rem;
+      color: var(--text-dim);
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+
+<div id="auth-gate">
+  <h1>Sign Season — Mission Control</h1>
+  <input type="password" id="key-input" placeholder="Admin key" autocomplete="off">
+  <button onclick="authenticate()">Enter</button>
+  <div id="auth-error">Invalid key.</div>
+</div>
+
+<div id="dashboard">
+  <div class="header">
+    <div>
+      <h1>Mission Control</h1>
+      <span class="period-info" id="period-info"></span>
+    </div>
+    <div class="range-btns">
+      <button onclick="loadData(7)" id="btn-7">7d</button>
+      <button onclick="loadData(30)" id="btn-30" class="active">30d</button>
+      <button onclick="loadData(90)" id="btn-90">90d</button>
+    </div>
+  </div>
+
+  <div class="metrics-row">
+    <div class="metric-card">
+      <div class="label">Total Pageviews</div>
+      <div class="value" id="m-pageviews">—</div>
+      <canvas id="spark-pv"></canvas>
+    </div>
+    <div class="metric-card">
+      <div class="label">Unique Visitors</div>
+      <div class="value" id="m-uniques">—</div>
+      <canvas id="spark-uv"></canvas>
+    </div>
+    <div class="metric-card">
+      <div class="label">Subscribers</div>
+      <div class="value" id="m-subs">—</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">Conversion Rate</div>
+      <div class="value" id="m-conv">—</div>
+    </div>
+  </div>
+
+  <div class="chart-section">
+    <h2>Traffic Over Time</h2>
+    <canvas id="traffic-chart"></canvas>
+  </div>
+
+  <div class="two-col">
+    <div class="data-table">
+      <h2>Top Pages</h2>
+      <table><thead><tr><th>Page</th><th>Views</th></tr></thead><tbody id="pages-tbody"></tbody></table>
+    </div>
+    <div class="data-table">
+      <h2>Traffic Sources</h2>
+      <table><thead><tr><th>Source</th><th>Visits</th></tr></thead><tbody id="refs-tbody"></tbody></table>
+    </div>
+  </div>
+
+  <div class="chart-section">
+    <h2>Subscriber Growth</h2>
+    <canvas id="subs-chart"></canvas>
+    <button class="collapsible-toggle" onclick="toggleSubList()">Show subscriber list</button>
+    <div class="subscriber-list" id="sub-list">
+      <table><thead><tr><th>Email</th><th>Joined</th></tr></thead><tbody id="subs-tbody"></tbody></table>
+    </div>
+  </div>
+</div>
+
+<script>
+var ADMIN_KEY = '';
+var trafficChart = null;
+var subsChart = null;
+var sparkPV = null;
+var sparkUV = null;
+
+function authenticate() {
+  ADMIN_KEY = document.getElementById('key-input').value.trim();
+  if (!ADMIN_KEY) return;
+  fetch('/api/admin/stats?key=' + encodeURIComponent(ADMIN_KEY) + '&days=30')
+    .then(function(r) {
+      if (r.status === 401) { document.getElementById('auth-error').style.display = 'block'; throw new Error('auth'); }
+      return r.json();
+    })
+    .then(function(data) {
+      document.getElementById('auth-gate').style.display = 'none';
+      document.getElementById('dashboard').style.display = 'block';
+      render(data);
+    })
+    .catch(function(e) { if (e.message !== 'auth') console.error(e); });
+}
+
+document.getElementById('key-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') authenticate();
+});
+
+// Check URL param
+(function() {
+  var params = new URLSearchParams(location.search);
+  var k = params.get('key');
+  if (k) {
+    document.getElementById('key-input').value = k;
+    ADMIN_KEY = k;
+    setTimeout(authenticate, 100);
+  }
+})();
+
+function loadData(days) {
+  document.querySelectorAll('.range-btns button').forEach(function(b) { b.classList.remove('active'); });
+  document.getElementById('btn-' + days).classList.add('active');
+  fetch('/api/admin/stats?key=' + encodeURIComponent(ADMIN_KEY) + '&days=' + days)
+    .then(function(r) { return r.json(); })
+    .then(render)
+    .catch(console.error);
+}
+
+function fmt(n) {
+  if (n >= 1000) return (n / 1000).toFixed(1) + 'k';
+  return String(n);
+}
+
+function render(data) {
+  var t = data.traffic;
+  var s = data.subscribers;
+
+  document.getElementById('period-info').textContent = data.period.from + ' to ' + data.period.to;
+  document.getElementById('m-pageviews').textContent = fmt(t.totalPageviews);
+  document.getElementById('m-uniques').textContent = fmt(t.totalUniques);
+  document.getElementById('m-subs').textContent = s.total;
+
+  var conv = t.totalUniques > 0 ? ((s.total / t.totalUniques) * 100).toFixed(1) + '%' : '—';
+  document.getElementById('m-conv').textContent = conv;
+
+  // Sparklines
+  renderSparkline('spark-pv', t.daily.map(function(d) { return d.pageviews; }), sparkPV, function(c) { sparkPV = c; });
+  renderSparkline('spark-uv', t.daily.map(function(d) { return d.uniques; }), sparkUV, function(c) { sparkUV = c; });
+
+  // Traffic chart
+  if (trafficChart) trafficChart.destroy();
+  var ctx = document.getElementById('traffic-chart').getContext('2d');
+  trafficChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: t.daily.map(function(d) { return d.date.slice(5); }),
+      datasets: [
+        {
+          label: 'Pageviews',
+          data: t.daily.map(function(d) { return d.pageviews; }),
+          backgroundColor: 'rgba(201, 173, 111, 0.4)',
+          borderColor: 'rgba(201, 173, 111, 0.8)',
+          borderWidth: 1,
+          order: 2
+        },
+        {
+          label: 'Uniques',
+          data: t.daily.map(function(d) { return d.uniques; }),
+          type: 'line',
+          borderColor: '#6BB5A0',
+          backgroundColor: 'rgba(107, 181, 160, 0.1)',
+          borderWidth: 2,
+          pointRadius: 2,
+          fill: true,
+          tension: 0.3,
+          order: 1
+        }
+      ]
+    },
+    options: chartOpts()
+  });
+
+  // Top pages
+  var pb = document.getElementById('pages-tbody');
+  pb.innerHTML = data.topPages.map(function(p) {
+    return '<tr><td>' + esc(p.path) + '</td><td>' + p.views + '</td></tr>';
+  }).join('');
+
+  // Top referrers
+  var rb = document.getElementById('refs-tbody');
+  rb.innerHTML = data.topReferrers.map(function(r) {
+    return '<tr><td>' + esc(r.source) + '</td><td>' + r.visits + '</td></tr>';
+  }).join('');
+
+  // Subscriber chart
+  if (subsChart) subsChart.destroy();
+  var sctx = document.getElementById('subs-chart').getContext('2d');
+  subsChart = new Chart(sctx, {
+    type: 'bar',
+    data: {
+      labels: s.daily.map(function(d) { return d.date.slice(5); }),
+      datasets: [{
+        label: 'Signups',
+        data: s.daily.map(function(d) { return d.signups; }),
+        backgroundColor: 'rgba(194, 122, 140, 0.5)',
+        borderColor: 'rgba(194, 122, 140, 0.9)',
+        borderWidth: 1
+      }]
+    },
+    options: chartOpts()
+  });
+
+  // Subscriber list
+  var stb = document.getElementById('subs-tbody');
+  stb.innerHTML = (s.list || []).map(function(sub) {
+    return '<tr><td>' + esc(sub.email) + '</td><td>' + (sub.joined ? sub.joined.slice(0, 10) : '—') + '</td></tr>';
+  }).join('');
+}
+
+function renderSparkline(id, values, existing, setter) {
+  if (existing) existing.destroy();
+  var ctx = document.getElementById(id).getContext('2d');
+  var c = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: values.map(function(_, i) { return i; }),
+      datasets: [{
+        data: values,
+        borderColor: 'rgba(201, 173, 111, 0.7)',
+        borderWidth: 1.5,
+        pointRadius: 0,
+        fill: true,
+        backgroundColor: 'rgba(201, 173, 111, 0.1)',
+        tension: 0.4
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: { enabled: false } },
+      scales: { x: { display: false }, y: { display: false } }
+    }
+  });
+  setter(c);
+}
+
+function chartOpts() {
+  return {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { labels: { color: '#8a7f96', font: { size: 11 } } }
+    },
+    scales: {
+      x: { ticks: { color: '#8a7f96', font: { size: 10 }, maxRotation: 45 }, grid: { color: 'rgba(53,40,64,0.4)' } },
+      y: { ticks: { color: '#8a7f96', font: { size: 10 } }, grid: { color: 'rgba(53,40,64,0.4)' }, beginAtZero: true }
+    }
+  };
+}
+
+function toggleSubList() {
+  var el = document.getElementById('sub-list');
+  var btn = el.previousElementSibling;
+  el.classList.toggle('open');
+  btn.textContent = el.classList.contains('open') ? 'Hide subscriber list' : 'Show subscriber list';
+}
+
+function esc(s) {
+  var d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+</script>
+</body>
+</html>

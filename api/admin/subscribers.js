@@ -1,5 +1,5 @@
 // Vercel Serverless Function: List subscribers (admin only)
-// GET /api/subscribers?key=ADMIN_KEY
+// GET /api/admin/subscribers?key=ADMIN_KEY
 
 export default async function handler(req, res) {
   if (req.method !== 'GET') {
