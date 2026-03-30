@@ -119,9 +119,11 @@ Same specs as TikTok.
 
 #### Emoji Rendering
 - Times New Roman does NOT support zodiac/emoji glyphs (renders as empty boxes)
-- Use **Apple Color Emoji** font (`/System/Library/Fonts/Apple Color Emoji.ttc`) for all emoji/zodiac characters
-- Render emoji at **1.5-2x** the surrounding text size for visual presence
-- Mixed rendering: split text into segments, use TNR for letters, Apple Color Emoji for symbols
+- Apple Color Emoji fails in Pillow ("invalid pixel size") — do NOT use
+- Use **Apple Symbols** font (`/System/Library/Fonts/Apple Symbols.ttf`) for zodiac glyphs — heaviest strokes, best visibility on dark backgrounds
+- Render zodiac symbols at **1.5-2x** the surrounding text size for visual presence
+- Mixed rendering: split text into segments, use TNR for letters, Apple Symbols for zodiac glyphs
+- **NEVER use modern emoji** (✨🔥💀 etc) on slides — they render as empty boxes in Pillow. Zodiac symbols (♈-♓) only.
 
 #### Hierarchy Rule
 **Headlines = Bold. Body = Italic (unbolded). Never both bold.** Size ratio: body should be ~55-60% of headline. This creates three layers of differentiation: weight + size + style. Margins must be 120px minimum (11%+ each side).
