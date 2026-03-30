@@ -56,58 +56,75 @@ The PFP: gold stipple sun engraving on deep plum. Classical celestial atlas meet
 Phone rendering context: a 1080px canvas displays at ~390px on most phones. That's a ~2.77x reduction. So 40px on canvas ≈ 14px on phone.
 
 #### TikTok (1080 x 1920, 9:16)
+**Margins: 120px (11% each side). Max text width: 840px.**
+
 | Element | Font | Size | Weight/Style | Color |
 |---------|------|------|-------------|-------|
-| Headline | Serif (TNR) | **120px** | **Bold** | Parchment |
-| Body/Subtitle | Serif (TNR) | **64px** | **Italic** (unbolded) | Gold Bright |
-| Element Label | Mono (Courier) | **36px** | Regular | Warm Gray |
-| Slide Counter | Serif | **32px** | Regular | Gold Dim |
-| URL Footer | Sans (Avenir) | **28px** | Regular | Warm Gray |
+| Headline | Serif (TNR) | **80px** | **Bold** | Parchment |
+| Body/Subtitle | Serif (TNR) | **48px** | **Italic** (unbolded) | Gold Bright (#DAC080) |
+| Zodiac Symbols | Apple Color Emoji | **56px** | — | Warm Gray |
+| Label Text | Mono (Courier) | **28px** | Regular | Warm Gray |
+| Slide Counter | Serif | **24px** | Regular | Gold Dim |
+| URL Footer | Sans (Avenir) | **22px** | Regular | Warm Gray |
 | Gap (headline→body) | — | **80px** | — | — |
-| Body line spacing | — | **1.6x** | — | — |
+| Body line spacing | — | **1.7x** | — | — |
+| Headline line spacing | — | **1.3x** | — | — |
 
-*Phone rendering: headline ~43px, body ~23px — comfortably readable.*
+*Phone rendering: headline ~29px, body ~17px.*
 
 #### Instagram Carousel (1080 x 1350, 4:5)
+**Margins: 120px (11% each side). Max text width: 840px.**
+
 | Element | Font | Size | Weight/Style | Color |
 |---------|------|------|-------------|-------|
-| Headline | Serif (TNR) | **100px** | **Bold** | Parchment |
-| Body/Subtitle | Serif (TNR) | **54px** | **Italic** (unbolded) | Gold Bright |
-| Element Label | Mono (Courier) | **30px** | Regular | Warm Gray |
-| Slide Counter | Serif | **26px** | Regular | Gold Dim |
-| URL Footer | Sans (Avenir) | **22px** | Regular | Warm Gray |
-| Gap (headline→body) | — | **65px** | — | — |
-| Body line spacing | — | **1.6x** | — | — |
+| Headline | Serif (TNR) | **72px** | **Bold** | Parchment |
+| Body/Subtitle | Serif (TNR) | **42px** | **Italic** (unbolded) | Gold Bright (#DAC080) |
+| Zodiac Symbols | Apple Color Emoji | **48px** | — | Warm Gray |
+| Label Text | Mono (Courier) | **24px** | Regular | Warm Gray |
+| Slide Counter | Serif | **22px** | Regular | Gold Dim |
+| URL Footer | Sans (Avenir) | **18px** | Regular | Warm Gray |
+| Gap (headline→body) | — | **60px** | — | — |
+| Body line spacing | — | **1.7x** | — | — |
+| Headline line spacing | — | **1.3x** | — | — |
 
-*Phone rendering: headline ~36px, body ~19px.*
+*Phone rendering: headline ~26px, body ~15px.*
 
 #### Instagram Single Post (1080 x 1080, 1:1)
+**Margins: 120px.**
+
 | Element | Font | Size | Weight/Style | Color |
 |---------|------|------|-------------|-------|
-| Headline | Serif (TNR) | **90px** | **Bold** | Parchment or Plum |
-| Body/Subtitle | Serif (TNR) | **48px** | **Italic** (unbolded) | Gold or Warm Gray |
-| Element Label | Mono (Courier) | **28px** | Regular | Warm Gray |
+| Headline | Serif (TNR) | **76px** | **Bold** | Parchment or Plum |
+| Body/Subtitle | Serif (TNR) | **44px** | **Italic** (unbolded) | Gold or Warm Gray |
+| Zodiac Symbols | Apple Color Emoji | **52px** | — | — |
 | URL Footer | Sans (Avenir) | **20px** | Regular | Warm Gray |
 
 #### Pinterest Pin (1000 x 1500, 2:3)
 Pinterest renders pins SMALL in the feed (~236px wide). All text must be oversized.
+**Margins: 70px minimum.**
 
 | Element | Font | Size | Weight/Style | Color |
 |---------|------|------|-------------|-------|
 | Title | Serif (TNR) | **90px** | **Bold** | Plum |
 | Sign Names/Labels | Serif (TNR) | **36px** | **Bold** | Plum |
-| Advice/Body | Serif (TNR) | **32px** | **Italic** | Warm Gray (darker variant) |
+| Advice/Body | Serif (TNR) | **32px** | **Italic** | Warm Gray Dark (#6C5F52) |
 | Category Label | Mono (Courier) | **28px** | Regular | Warm Gray |
 | URL Footer | Sans (Avenir) | **28px** | Regular | Plum |
-| Tagline | Serif (TNR) | **36px** | Italic | Warm Gray |
+| Subtitle | Serif (TNR) | **36px** | Italic | Warm Gray |
 
 *Pin feed rendering: title ~21px, body ~8px. Tap-to-expand roughly 2x.*
 
 #### Stories / Reels Cover (1080 x 1920, 9:16)
 Same specs as TikTok.
 
+#### Emoji Rendering
+- Times New Roman does NOT support zodiac/emoji glyphs (renders as empty boxes)
+- Use **Apple Color Emoji** font (`/System/Library/Fonts/Apple Color Emoji.ttc`) for all emoji/zodiac characters
+- Render emoji at **1.5-2x** the surrounding text size for visual presence
+- Mixed rendering: split text into segments, use TNR for letters, Apple Color Emoji for symbols
+
 #### Hierarchy Rule
-**Headlines = Bold. Body = Italic (unbolded). Never both bold.** Size ratio: body should be ~53-55% of headline. This creates three layers of differentiation: weight + size + style.
+**Headlines = Bold. Body = Italic (unbolded). Never both bold.** Size ratio: body should be ~55-60% of headline. This creates three layers of differentiation: weight + size + style. Margins must be 120px minimum (11%+ each side).
 
 ---
 
