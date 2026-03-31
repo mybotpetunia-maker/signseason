@@ -88,9 +88,102 @@
     .foot a:hover { color: var(--gold-light); }
     @media (max-width: 480px) { .sign-name { font-size: 2.2rem; } }
   </style>
+  <link rel="stylesheet" href="/css/nav.css">
 </head>
-<body>
-  <nav class="nav">
+<body class="has-site-nav">
+  <nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="/" class="site-nav-brand">Sign Season</a>
+    <ul class="site-nav-links">
+      <li>
+        <button type="button">Signs <span class="nav-arrow">&#9662;</span></button>
+        <div class="nav-dropdown">
+          <div class="nav-signs-grid">
+            <a href="/signs/aries"><span class="sign-sym">&#9800;&#xFE0E;</span> Aries</a>
+            <a href="/signs/taurus"><span class="sign-sym">&#9801;&#xFE0E;</span> Taurus</a>
+            <a href="/signs/gemini"><span class="sign-sym">&#9802;&#xFE0E;</span> Gemini</a>
+            <a href="/signs/cancer"><span class="sign-sym">&#9803;&#xFE0E;</span> Cancer</a>
+            <a href="/signs/leo"><span class="sign-sym">&#9804;&#xFE0E;</span> Leo</a>
+            <a href="/signs/virgo"><span class="sign-sym">&#9805;&#xFE0E;</span> Virgo</a>
+            <a href="/signs/libra"><span class="sign-sym">&#9806;&#xFE0E;</span> Libra</a>
+            <a href="/signs/scorpio"><span class="sign-sym">&#9807;&#xFE0E;</span> Scorpio</a>
+            <a href="/signs/sagittarius"><span class="sign-sym">&#9808;&#xFE0E;</span> Sagittarius</a>
+            <a href="/signs/capricorn"><span class="sign-sym">&#9809;&#xFE0E;</span> Capricorn</a>
+            <a href="/signs/aquarius"><span class="sign-sym">&#9810;&#xFE0E;</span> Aquarius</a>
+            <a href="/signs/pisces"><span class="sign-sym">&#9811;&#xFE0E;</span> Pisces</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <button type="button">Topics <span class="nav-arrow">&#9662;</span></button>
+        <div class="nav-dropdown">
+          <div class="nav-topics-list">
+            <a href="/signs/#in-love">Love &amp; Dating</a>
+            <a href="/signs/#moon-signs">Moon Signs</a>
+            <a href="/signs/#rising-signs">Rising Signs</a>
+            <a href="/signs/#career">Career</a>
+            <a href="/signs/#toxic-traits">Toxic Traits</a>
+            <a href="/signs/#mercury-retrograde">Mercury Retrograde</a>
+            <a href="/signs/#horoscopes-2026">Horoscopes 2026</a>
+            <a href="/signs/#zodiac-men">Zodiac Men</a>
+            <a href="/signs/#zodiac-women">Zodiac Women</a>
+            <a href="/signs/#birthstones">Birthstones</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="/compatibility">Compatibility</a></li>
+      <li><a href="/crystals">Crystals</a></li>
+      <li><a href="#subscribe">Subscribe</a></li>
+    </ul>
+    <button class="site-nav-hamburger" aria-label="Menu">&#9776;</button>
+  </div>
+</nav>
+<div class="site-nav-mobile">
+  <button class="site-nav-mobile-close" aria-label="Close menu">&times;</button>
+  <div class="mobile-nav-section">
+    <div class="mobile-nav-section-title">Signs</div>
+    <div class="mobile-nav-signs-grid">
+      <a href="/signs/aries">&#9800;&#xFE0E; Aries</a>
+      <a href="/signs/taurus">&#9801;&#xFE0E; Taurus</a>
+      <a href="/signs/gemini">&#9802;&#xFE0E; Gemini</a>
+      <a href="/signs/cancer">&#9803;&#xFE0E; Cancer</a>
+      <a href="/signs/leo">&#9804;&#xFE0E; Leo</a>
+      <a href="/signs/virgo">&#9805;&#xFE0E; Virgo</a>
+      <a href="/signs/libra">&#9806;&#xFE0E; Libra</a>
+      <a href="/signs/scorpio">&#9807;&#xFE0E; Scorpio</a>
+      <a href="/signs/sagittarius">&#9808;&#xFE0E; Sagittarius</a>
+      <a href="/signs/capricorn">&#9809;&#xFE0E; Capricorn</a>
+      <a href="/signs/aquarius">&#9810;&#xFE0E; Aquarius</a>
+      <a href="/signs/pisces">&#9811;&#xFE0E; Pisces</a>
+    </div>
+  </div>
+  <div class="mobile-nav-section">
+    <div class="mobile-nav-section-title">Topics</div>
+    <div class="mobile-nav-links">
+      <a href="/signs/#in-love">Love &amp; Dating</a>
+      <a href="/signs/#moon-signs">Moon Signs</a>
+      <a href="/signs/#rising-signs">Rising Signs</a>
+      <a href="/signs/#career">Career</a>
+      <a href="/signs/#toxic-traits">Toxic Traits</a>
+      <a href="/signs/#mercury-retrograde">Mercury Retrograde</a>
+      <a href="/signs/#horoscopes-2026">Horoscopes 2026</a>
+      <a href="/signs/#zodiac-men">Zodiac Men</a>
+      <a href="/signs/#zodiac-women">Zodiac Women</a>
+      <a href="/signs/#birthstones">Birthstones</a>
+    </div>
+  </div>
+  <div class="mobile-nav-section">
+    <div class="mobile-nav-section-title">Explore</div>
+    <div class="mobile-nav-links">
+      <a href="/compatibility">Compatibility</a>
+      <a href="/crystals">Crystals</a>
+      <a href="/signs/">All Signs</a>
+      <a href="#subscribe">Subscribe</a>
+    </div>
+  </div>
+</div>
+
+  <nav class="nav breadcrumb-nav">
     <a href="/">Sign Season</a>
     <span class="sep">/</span>
     <a href="/signs/">Signs</a>
@@ -202,6 +295,19 @@
       <p>Not intentionally, but Gemini tends to connect more easily with the child who shares their intellectual curiosity or communication style. They need to be mindful of giving equal attention to the quieter or more introverted child who shows love differently.</p>
     </div>
   </div>
+  <div class="keep-reading">
+    <p class="keep-reading-label">Keep Reading</p>
+    <h2 class="keep-reading-title">You might also like</h2>
+    <div class="keep-reading-grid">
+      <a href="/signs/gemini">Gemini Sign</a>
+      <a href="/signs/gemini-in-love">Gemini in Love</a>
+      <a href="/signs/gemini-career">Gemini Career</a>
+      <a href="/signs/gemini-man">Gemini Man</a>
+      <a href="/signs/gemini-woman">Gemini Woman</a>
+      <a href="/signs/gemini-as-a-friend">Gemini as a Friend</a>
+    </div>
+  </div>
+
   <footer class="foot">
     <a href="/signs/gemini">Gemini</a> &ensp;&middot;&ensp; <a href="/signs/gemini-in-love">Gemini in Love</a> &ensp;&middot;&ensp; <a href="/signs/gemini-career">Gemini Career</a> &ensp;&middot;&ensp; <a href="/signs/">All Signs</a> &ensp;&middot;&ensp; <a href="/">Sign Season</a> &ensp;&middot;&ensp; <a href="/privacy">Privacy</a>
   </footer>
@@ -227,5 +333,6 @@ function fallbackSave(email) {
 }
 </script>
 <script src="/js/analytics.js" defer></script>
+<script src="/js/nav.js"></script>
 </body>
 </html>

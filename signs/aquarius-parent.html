@@ -47,9 +47,102 @@
     .foot { max-width: 680px; margin: 0 auto; padding: 32px 24px; text-align: center; border-top: 1px solid rgba(201,173,111,0.06); } .foot a { font-family: var(--sans); font-size: 0.58rem; color: var(--gold-dim); text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s; } .foot a:hover { color: var(--gold-light); }
     @media (max-width: 480px) { .sign-name { font-size: 2.2rem; } }
   </style>
+  <link rel="stylesheet" href="/css/nav.css">
 </head>
-<body>
-  <nav class="nav"><a href="/">Sign Season</a><span class="sep">/</span><a href="/signs/">Signs</a><span class="sep">/</span><span>Aquarius as a Parent</span></nav>
+<body class="has-site-nav">
+  <nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="/" class="site-nav-brand">Sign Season</a>
+    <ul class="site-nav-links">
+      <li>
+        <button type="button">Signs <span class="nav-arrow">&#9662;</span></button>
+        <div class="nav-dropdown">
+          <div class="nav-signs-grid">
+            <a href="/signs/aries"><span class="sign-sym">&#9800;&#xFE0E;</span> Aries</a>
+            <a href="/signs/taurus"><span class="sign-sym">&#9801;&#xFE0E;</span> Taurus</a>
+            <a href="/signs/gemini"><span class="sign-sym">&#9802;&#xFE0E;</span> Gemini</a>
+            <a href="/signs/cancer"><span class="sign-sym">&#9803;&#xFE0E;</span> Cancer</a>
+            <a href="/signs/leo"><span class="sign-sym">&#9804;&#xFE0E;</span> Leo</a>
+            <a href="/signs/virgo"><span class="sign-sym">&#9805;&#xFE0E;</span> Virgo</a>
+            <a href="/signs/libra"><span class="sign-sym">&#9806;&#xFE0E;</span> Libra</a>
+            <a href="/signs/scorpio"><span class="sign-sym">&#9807;&#xFE0E;</span> Scorpio</a>
+            <a href="/signs/sagittarius"><span class="sign-sym">&#9808;&#xFE0E;</span> Sagittarius</a>
+            <a href="/signs/capricorn"><span class="sign-sym">&#9809;&#xFE0E;</span> Capricorn</a>
+            <a href="/signs/aquarius"><span class="sign-sym">&#9810;&#xFE0E;</span> Aquarius</a>
+            <a href="/signs/pisces"><span class="sign-sym">&#9811;&#xFE0E;</span> Pisces</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <button type="button">Topics <span class="nav-arrow">&#9662;</span></button>
+        <div class="nav-dropdown">
+          <div class="nav-topics-list">
+            <a href="/signs/#in-love">Love &amp; Dating</a>
+            <a href="/signs/#moon-signs">Moon Signs</a>
+            <a href="/signs/#rising-signs">Rising Signs</a>
+            <a href="/signs/#career">Career</a>
+            <a href="/signs/#toxic-traits">Toxic Traits</a>
+            <a href="/signs/#mercury-retrograde">Mercury Retrograde</a>
+            <a href="/signs/#horoscopes-2026">Horoscopes 2026</a>
+            <a href="/signs/#zodiac-men">Zodiac Men</a>
+            <a href="/signs/#zodiac-women">Zodiac Women</a>
+            <a href="/signs/#birthstones">Birthstones</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="/compatibility">Compatibility</a></li>
+      <li><a href="/crystals">Crystals</a></li>
+      <li><a href="#subscribe">Subscribe</a></li>
+    </ul>
+    <button class="site-nav-hamburger" aria-label="Menu">&#9776;</button>
+  </div>
+</nav>
+<div class="site-nav-mobile">
+  <button class="site-nav-mobile-close" aria-label="Close menu">&times;</button>
+  <div class="mobile-nav-section">
+    <div class="mobile-nav-section-title">Signs</div>
+    <div class="mobile-nav-signs-grid">
+      <a href="/signs/aries">&#9800;&#xFE0E; Aries</a>
+      <a href="/signs/taurus">&#9801;&#xFE0E; Taurus</a>
+      <a href="/signs/gemini">&#9802;&#xFE0E; Gemini</a>
+      <a href="/signs/cancer">&#9803;&#xFE0E; Cancer</a>
+      <a href="/signs/leo">&#9804;&#xFE0E; Leo</a>
+      <a href="/signs/virgo">&#9805;&#xFE0E; Virgo</a>
+      <a href="/signs/libra">&#9806;&#xFE0E; Libra</a>
+      <a href="/signs/scorpio">&#9807;&#xFE0E; Scorpio</a>
+      <a href="/signs/sagittarius">&#9808;&#xFE0E; Sagittarius</a>
+      <a href="/signs/capricorn">&#9809;&#xFE0E; Capricorn</a>
+      <a href="/signs/aquarius">&#9810;&#xFE0E; Aquarius</a>
+      <a href="/signs/pisces">&#9811;&#xFE0E; Pisces</a>
+    </div>
+  </div>
+  <div class="mobile-nav-section">
+    <div class="mobile-nav-section-title">Topics</div>
+    <div class="mobile-nav-links">
+      <a href="/signs/#in-love">Love &amp; Dating</a>
+      <a href="/signs/#moon-signs">Moon Signs</a>
+      <a href="/signs/#rising-signs">Rising Signs</a>
+      <a href="/signs/#career">Career</a>
+      <a href="/signs/#toxic-traits">Toxic Traits</a>
+      <a href="/signs/#mercury-retrograde">Mercury Retrograde</a>
+      <a href="/signs/#horoscopes-2026">Horoscopes 2026</a>
+      <a href="/signs/#zodiac-men">Zodiac Men</a>
+      <a href="/signs/#zodiac-women">Zodiac Women</a>
+      <a href="/signs/#birthstones">Birthstones</a>
+    </div>
+  </div>
+  <div class="mobile-nav-section">
+    <div class="mobile-nav-section-title">Explore</div>
+    <div class="mobile-nav-links">
+      <a href="/compatibility">Compatibility</a>
+      <a href="/crystals">Crystals</a>
+      <a href="/signs/">All Signs</a>
+      <a href="#subscribe">Subscribe</a>
+    </div>
+  </div>
+</div>
+
+  <nav class="nav breadcrumb-nav"><a href="/">Sign Season</a><span class="sep">/</span><a href="/signs/">Signs</a><span class="sep">/</span><span>Aquarius as a Parent</span></nav>
   <header class="sign-hero">
     <h1 class="sign-name">Aquarius as a Parent</h1>
     <p class="sign-tagline">They are raising tiny revolutionaries and they know it.</p>
@@ -142,6 +235,19 @@
     <div class="faq-item"><h3>Are Aquarius good moms and dads?</h3><p>Aquarius parents excel at fostering independence and critical thinking. They raise kids who are confident in their uniqueness and unafraid to be different. Their growth area is emotional warmth, as Aquarius can sometimes intellectualize feelings instead of simply being present with them.</p></div>
     <div class="faq-item"><h3>Are Aquarius parents emotionally distant?</h3><p>Aquarius is not emotionally distant on purpose. They process emotions through thinking rather than feeling, which can create a gap with kids who need more emotional warmth. They love deeply but express it through respect, freedom, and intellectual engagement rather than traditional affection.</p></div>
   </div>
+  <div class="keep-reading">
+    <p class="keep-reading-label">Keep Reading</p>
+    <h2 class="keep-reading-title">You might also like</h2>
+    <div class="keep-reading-grid">
+      <a href="/signs/aquarius">Aquarius Sign</a>
+      <a href="/signs/aquarius-in-love">Aquarius in Love</a>
+      <a href="/signs/aquarius-career">Aquarius Career</a>
+      <a href="/signs/aquarius-man">Aquarius Man</a>
+      <a href="/signs/aquarius-woman">Aquarius Woman</a>
+      <a href="/signs/aquarius-as-a-friend">Aquarius as a Friend</a>
+    </div>
+  </div>
+
   <footer class="foot">
     <a href="/signs/aquarius">Aquarius</a> &ensp;&middot;&ensp; <a href="/signs/aquarius-in-love">Aquarius in Love</a> &ensp;&middot;&ensp; <a href="/signs/aquarius-career">Aquarius Career</a> &ensp;&middot;&ensp; <a href="/signs/">All Signs</a> &ensp;&middot;&ensp; <a href="/">Sign Season</a> &ensp;&middot;&ensp; <a href="/privacy">Privacy</a>
   </footer>
@@ -151,5 +257,6 @@ async function submitForm(fwId, inputId) { const input = document.getElementById
 function fallbackSave(email) { const s = JSON.parse(localStorage.getItem('ss_emails') || '[]'); s.push({ email, t: Date.now() }); localStorage.setItem('ss_emails', JSON.stringify(s)); }
 </script>
 <script src="/js/analytics.js" defer></script>
+<script src="/js/nav.js"></script>
 </body>
 </html>
