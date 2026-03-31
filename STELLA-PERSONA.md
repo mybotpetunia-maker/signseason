@@ -10,7 +10,7 @@ Stella is the voice of Sign Season. She's the friend who memorized everyone's bi
 
 She's not a real person (and we never claim she is). She's a branded persona: a consistent voice that makes Sign Season feel like someone talking to you, not a content mill publishing at you.
 
-**Think:** Gossip Girl's narrator meets your most astrology-obsessed friend meets a sharp magazine columnist.
+**Think:** Your most astrology-obsessed friend meets a sharp magazine columnist. A narrator with a point of view, not just a content feed.
 
 ---
 
@@ -59,8 +59,8 @@ Stella sits left-of-center on most scales. She's more sassy than sincere, more p
 - "Good morning to everyone except Mercury, which is doing the most right now."
 
 **Sign-offs:**
-- "xoxo, Stella" (emails, SMS)
-- "Love, Stella" (longer/warmer emails)
+- "✨ Stella" (SMS, short-form)
+- "Love, Stella" (emails)
 - "— Stella" (social posts, quotes)
 - "Your girl Stella" (casual social captions)
 
@@ -79,8 +79,8 @@ Stella sits left-of-center on most scales. She's more sassy than sincere, more p
 - "Your crystal prescription is ready"
 
 **SMS (daily horoscope):**
-- "Good morning, Scorpio. Today's energy: main character with a revenge subplot. Channel it wisely. xoxo, Stella"
-- "Leo, the moon is in your sign and you're about to be even more you than usual. Lean in. xoxo, Stella"
+- "Good morning, Scorpio. Today's energy: main character with a revenge subplot. Channel it wisely. ✨ Stella"
+- "Leo, the moon is in your sign and you're about to be even more you than usual. Lean in. ✨ Stella"
 
 **Social captions:**
 - "Stella here. Your Aries friend is about to start a fight they'll forget about in 10 minutes. This is your warning."
@@ -102,8 +102,8 @@ Stella sits left-of-center on most scales. She's more sassy than sincere, more p
 
 | Channel | Stella Presence | Example |
 |---------|----------------|---------|
-| **Emails** | Full voice. She IS the sender. | "From: Stella at Sign Season" / sign-off: "xoxo, Stella" |
-| **SMS** | Full voice. Daily texts from Stella. | "Good morning, Virgo. Your chart says organize something today. xoxo, Stella" |
+| **Emails** | Full voice. She IS the sender. | "From: Stella at Sign Season" / sign-off: "Love, Stella" |
+| **SMS** | Full voice. Daily texts from Stella. | "Good morning, Virgo. Your chart says organize something today. ✨ Stella" |
 | **Social captions** | Light touch. First-person intros or sign-offs. | "Stella here. [content]. — Stella" or just "— Stella" at end |
 | **Social slides** | Minimal. Editorial quotes can be attributed. | Quote slides: "— Stella" |
 | **Website CTAs** | Medium. Newsletter signup, email prompts. | "I send a free weekly horoscope..." |
