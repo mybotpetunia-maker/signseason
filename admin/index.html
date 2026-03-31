@@ -5,7 +5,7 @@
     <meta name="p:domain_verify" content="621b0e7155899f63b4676e823d77759b"/>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Season — Mission Control</title>
+  <title>Sign Season | Mission Control</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="robots" content="noindex, nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -226,7 +226,7 @@
 <body>
 
 <div id="auth-gate">
-  <h1>Sign Season — Mission Control</h1>
+  <h1>Sign Season | Mission Control</h1>
   <input type="password" id="key-input" placeholder="Admin key" autocomplete="off">
   <button onclick="authenticate()">Enter</button>
   <div id="auth-error">Invalid key.</div>
@@ -248,21 +248,21 @@
   <div class="metrics-row">
     <div class="metric-card">
       <div class="label">Total Pageviews</div>
-      <div class="value" id="m-pageviews">—</div>
+      <div class="value" id="m-pageviews">,</div>
       <canvas id="spark-pv"></canvas>
     </div>
     <div class="metric-card">
       <div class="label">Unique Visitors</div>
-      <div class="value" id="m-uniques">—</div>
+      <div class="value" id="m-uniques">,</div>
       <canvas id="spark-uv"></canvas>
     </div>
     <div class="metric-card">
       <div class="label">Subscribers</div>
-      <div class="value" id="m-subs">—</div>
+      <div class="value" id="m-subs">,</div>
     </div>
     <div class="metric-card">
       <div class="label">Conversion Rate</div>
-      <div class="value" id="m-conv">—</div>
+      <div class="value" id="m-conv">,</div>
     </div>
   </div>
 
@@ -354,7 +354,7 @@ function render(data) {
   document.getElementById('m-uniques').textContent = fmt(t.totalUniques);
   document.getElementById('m-subs').textContent = s.total;
 
-  var conv = t.totalUniques > 0 ? ((s.total / t.totalUniques) * 100).toFixed(1) + '%' : '—';
+  var conv = t.totalUniques > 0 ? ((s.total / t.totalUniques) * 100).toFixed(1) + '%' : ',';
   document.getElementById('m-conv').textContent = conv;
 
   // Sparklines
@@ -427,7 +427,7 @@ function render(data) {
   // Subscriber list
   var stb = document.getElementById('subs-tbody');
   stb.innerHTML = (s.list || []).map(function(sub) {
-    return '<tr><td>' + esc(sub.email) + '</td><td>' + (sub.joined ? sub.joined.slice(0, 10) : '—') + '</td></tr>';
+    return '<tr><td>' + esc(sub.email) + '</td><td>' + (sub.joined ? sub.joined.slice(0, 10) : ',') + '</td></tr>';
   }).join('');
 }
 
