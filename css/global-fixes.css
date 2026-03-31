@@ -1,0 +1,247 @@
+/* Sign Season — Global UX Fixes (March 31, 2026)
+   Overrides inline styles for readability, accessibility, and mobile UX.
+   Loaded AFTER inline <style> blocks so these take precedence. */
+
+/* ============================================
+   1. TEXT CONTRAST — Critical Fix
+   Body text bumped from gold-dim (#B09A6E) to gold-pale (#E2D4A7)
+   Paragraph text gets even lighter for long-form readability
+   ============================================ */
+body {
+  color: #D4C49A !important;
+}
+
+/* Long-form content paragraphs — highest contrast */
+article p,
+.section p,
+.content p,
+main p {
+  color: #E2D4A7 !important;
+  line-height: 1.85 !important;
+}
+
+/* Pull quotes — slightly brighter */
+.pull-quote {
+  color: #EDE3C8 !important;
+}
+
+/* Highlight box text */
+.highlight-box p {
+  color: #EDE3C8 !important;
+}
+
+/* Score labels on compat pages */
+.score-label {
+  color: #D4C49A !important;
+  font-size: 0.7rem !important;
+  min-width: 90px !important;
+}
+.score-pct {
+  color: #D4C49A !important;
+  font-size: 0.75rem !important;
+}
+
+/* Hub page description text */
+.hub-section p,
+.hub-desc {
+  color: #D4C49A !important;
+}
+
+/* Taglines and subtitles */
+.compat-tagline,
+.cta-sub {
+  color: #C9AD6F !important;
+}
+
+/* ============================================
+   2. CTA BUTTONS — Solid Gold Fill
+   Outline buttons -> filled for visibility
+   ============================================ */
+.mid-cta-btn,
+.cta-btn,
+button[type="button"].mid-cta-btn {
+  background: #C9AD6F !important;
+  color: #1E1528 !important;
+  border: none !important;
+  font-weight: 700 !important;
+  padding: 14px 24px !important;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.15s !important;
+}
+.mid-cta-btn:hover,
+.cta-btn:hover {
+  background: #D4BC7C !important;
+  transform: translateY(-1px);
+}
+
+/* Email input fields — more visible */
+.mid-cta-input {
+  background: #352840 !important;
+  border: 1px solid #C9AD6F !important;
+  color: #E2D4A7 !important;
+  padding: 14px !important;
+  font-size: 1rem !important;
+}
+.mid-cta-input::placeholder {
+  color: #B09A6E !important;
+}
+.mid-cta-input:focus {
+  border-color: #D4BC7C !important;
+  outline: 2px solid rgba(201,173,111,0.3) !important;
+  outline-offset: 1px;
+}
+
+/* ============================================
+   3. STICKY HEADER (Mobile)
+   ============================================ */
+@media (max-width: 768px) {
+  .site-nav {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    background: #2A1F33 !important;
+    border-bottom: 1px solid rgba(201,173,111,0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  
+  /* Offset body content for sticky nav height */
+  body.has-site-nav {
+    scroll-padding-top: 60px;
+  }
+}
+
+/* ============================================
+   4. TOUCH TARGETS — Minimum 44px
+   ============================================ */
+
+/* Zodiac grid links */
+a[data-glyph],
+.hub-grid a,
+.nav-signs-grid a,
+.mobile-nav-signs-grid a {
+  min-height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Pill/tag buttons */
+.tag-link,
+.pill,
+.topic-pill {
+  min-height: 44px !important;
+  padding: 10px 16px !important;
+}
+
+/* Footer links */
+.foot a,
+footer a {
+  display: inline-block;
+  padding: 8px 4px !important;
+  min-height: 44px;
+  line-height: 28px;
+}
+
+/* Nav hamburger */
+.site-nav-hamburger {
+  min-width: 44px !important;
+  min-height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* ============================================
+   5. FONT SIZE FLOOR — Nothing below 0.75rem
+   ============================================ */
+
+/* Override any font-size below 12px */
+.nav .sep,
+.overall-label,
+.hb-label,
+.section h3 {
+  font-size: 0.75rem !important;
+}
+
+/* Score row labels */
+.score-row .score-label {
+  font-size: 0.75rem !important;
+}
+
+/* Breadcrumb nav */
+.breadcrumb-nav,
+.nav {
+  font-size: 0.8rem !important;
+}
+
+/* Keep display font sizes reasonable on mobile */
+@media (max-width: 480px) {
+  .section h2 {
+    font-size: 1.35rem !important;
+  }
+  
+  .compat-signs-display {
+    font-size: 2.2rem !important;
+  }
+}
+
+/* ============================================
+   6. BACK TO TOP BUTTON
+   ============================================ */
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  background: rgba(42, 31, 51, 0.9);
+  border: 1px solid rgba(201,173,111,0.2);
+  border-radius: 50%;
+  color: #C9AD6F;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s, background 0.3s;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+.back-to-top:hover {
+  background: rgba(42, 31, 51, 1);
+  border-color: rgba(201,173,111,0.4);
+}
+
+/* ============================================
+   7. SECTION DIFFERENTIATION (Homepage)
+   Alternate subtle background tints
+   ============================================ */
+.hub-section:nth-child(even) {
+  background: rgba(30, 21, 40, 0.3);
+  margin: 0 -24px;
+  padding: 48px 24px;
+  border-top: 1px solid rgba(201,173,111,0.04);
+  border-bottom: 1px solid rgba(201,173,111,0.04);
+}
+
+/* ============================================
+   8. COMPAT SCORE BARS — More Readable
+   ============================================ */
+.score-bar-wrap {
+  height: 8px !important;
+  background: rgba(201,173,111,0.12) !important;
+}
+.score-bar {
+  height: 100% !important;
+  background: linear-gradient(90deg, #B09A6E, #C9AD6F) !important;
+}
+.overall-num {
+  color: #EDE3C8 !important;
+}
