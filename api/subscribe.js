@@ -28,24 +28,52 @@ export default async function handler(req, res) {
   }
 
   try {
-    // 1. Add contact to Resend audience
-    const audienceId = process.env.RESEND_AUDIENCE_ID;
+    // 1. Add contact to Resend
+    await fetch('https://api.resend.com/contacts', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${RESEND_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email,
+        unsubscribed: false,
+      }),
+    });
 
-    if (audienceId) {
-      await fetch(`https://api.resend.com/audiences/${audienceId}/contacts`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${RESEND_KEY}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email,
-          unsubscribed: false,
-        }),
-      });
+    // 2. Fetch welcome email template from our template endpoint
+    const DRIP_SECRET = process.env.DRIP_SECRET;
+    const templateUrl = `https://signseason.com/api/drip-template?id=welcome${DRIP_SECRET ? `&key=${DRIP_SECRET}` : ''}`;
+    
+    let welcomeHtml;
+    let welcomeSubject = '✨ Welcome to Sign Season';
+    
+    try {
+      const templateResp = await fetch(templateUrl);
+      if (templateResp.ok) {
+        const template = await templateResp.json();
+        welcomeHtml = template.html;
+        welcomeSubject = template.subject;
+      }
+    } catch (e) {
+      console.error('Template fetch error (using fallback):', e);
     }
 
-    // 2. Send welcome email
+    // Fallback inline template if template endpoint fails
+    if (!welcomeHtml) {
+      welcomeHtml = `<!DOCTYPE html><html><head><meta charset="utf-8"></head>
+<body style="margin:0;padding:40px 16px;background:#1A1320;font-family:Georgia,serif;color:#D4C8B4;">
+<div style="max-width:520px;margin:0 auto;padding:48px 32px;background:#2A1F33;border:1px solid rgba(201,173,111,0.25);">
+<h1 style="color:#F0E8D8;text-align:center;font-size:28px;">Welcome to Sign Season.</h1>
+<p style="color:#B09A6E;text-align:center;font-style:italic;">It's always somebody's season. Now it's yours.</p>
+<hr style="border:none;border-top:1px solid rgba(138,125,112,0.3);margin:24px 0;">
+<p style="line-height:1.8;">You're in. Every week, we'll drop compatibility takes, crystal recs, and the kind of zodiac content your group chat has been missing.</p>
+<p style="text-align:center;padding:24px 0;"><a href="https://signseason.com/signs/" style="display:inline-block;padding:16px 32px;background:#C9AD6F;color:#1A1320;text-decoration:none;font-family:sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;border-radius:4px;">Find Your Sign</a></p>
+<p style="font-size:12px;color:#8A7D70;text-align:center;">Sign Season &middot; <a href="https://signseason.com" style="color:#C9AD6F;">signseason.com</a></p>
+</div></body></html>`;
+    }
+
+    // Send welcome email
     const welcomeRes = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -55,47 +83,8 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         from: 'Sign Season <stars@signseason.com>',
         to: [email],
-        subject: '✨ Welcome to Sign Season',
-        html: `<!DOCTYPE html>
-<html>
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="color-scheme" content="dark"><meta name="supported-color-schemes" content="dark"></head>
-<body style="margin: 0; padding: 0; background-color: #1A1320; font-family: Georgia, 'Times New Roman', serif;">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color: #1A1320;">
-    <tr><td align="center" style="padding: 40px 16px;">
-      <table role="presentation" width="520" cellpadding="0" cellspacing="0" style="max-width: 520px; width: 100%;">
-        <!-- Gold border frame -->
-        <tr><td style="border: 1px solid rgba(201,173,111,0.25); padding: 48px 32px; background-color: #2A1F33;">
-          <!-- Divider -->
-          <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding-bottom: 32px;">
-            <div style="width: 60px; height: 1px; background-color: rgba(138,125,112,0.5);"></div>
-          </td></tr></table>
-          <!-- Headline -->
-          <h1 style="font-family: Georgia, 'Times New Roman', serif; font-size: 32px; font-weight: bold; color: #F0E8D8; margin: 0 0 12px 0; text-align: center; letter-spacing: -0.02em;">Welcome to Sign Season.</h1>
-          <!-- Subtitle -->
-          <p style="font-family: Georgia, 'Times New Roman', serif; font-size: 18px; font-style: italic; color: #B09A6E; margin: 0 0 36px 0; text-align: center;">It's always somebody's season. Now it's yours.</p>
-          <!-- Divider -->
-          <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding-bottom: 32px;">
-            <div style="width: 40px; height: 1px; background-color: rgba(138,125,112,0.3);"></div>
-          </td></tr></table>
-          <!-- Body -->
-          <p style="font-family: Georgia, 'Times New Roman', serif; font-size: 16px; line-height: 1.8; color: #D4C8B4; margin: 0 0 20px 0;">You're in. Every week, you'll get your horoscope, crystal recs, compatibility takes, and the cosmic updates your group chat has been missing.</p>
-          <p style="font-family: Georgia, 'Times New Roman', serif; font-size: 16px; line-height: 1.8; color: #D4C8B4; margin: 0 0 36px 0;">Your first weekly horoscope lands soon. In the meantime, explore your sign:</p>
-          <!-- CTA Button -->
-          <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding-bottom: 40px;">
-            <a href="https://signseason.com/#signs" style="display: inline-block; padding: 16px 32px; background-color: #C9AD6F; color: #1A1320; text-decoration: none; font-family: -apple-system, Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 4px;">Find Your Sign</a>
-          </td></tr></table>
-          <!-- Divider -->
-          <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding-bottom: 16px;">
-            <div style="width: 60px; height: 1px; background-color: rgba(138,125,112,0.3);"></div>
-          </td></tr></table>
-          <!-- Footer -->
-          <p style="font-family: -apple-system, Helvetica, Arial, sans-serif; font-size: 12px; color: #8A7D70; margin: 0; text-align: center;">Sign Season &middot; <a href="https://signseason.com" style="color: #C9AD6F; text-decoration: none;">signseason.com</a></p>
-        </td></tr>
-      </table>
-    </td></tr>
-  </table>
-</body>
-</html>`,
+        subject: welcomeSubject,
+        html: welcomeHtml,
       }),
     });
 
@@ -105,7 +94,21 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: 'Failed to send welcome email' });
     }
 
-    // 3. Notify Tara via Telegram
+    // 3. Mark welcome drip as sent in Redis
+    const REDIS_URL = process.env.UPSTASH_REDIS_REST_URL;
+    const REDIS_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN;
+    if (REDIS_URL && REDIS_TOKEN) {
+      try {
+        await fetch(`${REDIS_URL}/set/${encodeURIComponent(`drip:${email}:welcome`)}/1`, {
+          method: 'POST',
+          headers: { 'Authorization': `Bearer ${REDIS_TOKEN}` },
+        });
+      } catch (e) {
+        console.error('Redis drip tracking error:', e);
+      }
+    }
+
+    // 4. Notify Tara via Telegram
     const TG_TOKEN = process.env.TG_BOT_TOKEN;
     const TG_CHAT = process.env.TG_CHAT_ID;
     if (TG_TOKEN && TG_CHAT) {
@@ -121,7 +124,6 @@ export default async function handler(req, res) {
         });
       } catch (tgErr) {
         console.error('Telegram notify error:', tgErr);
-        // Non-blocking: don't fail the signup over a notification
       }
     }
 
