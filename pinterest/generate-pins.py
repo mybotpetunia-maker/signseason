@@ -193,21 +193,21 @@ for sign_name, symbol, traits in SIGNS:
     bullet_sym_font = ImageFont.truetype(APPLE_SYMBOLS, 18)
     cta_font = ImageFont.truetype(GEORGIA, 28)
 
-    y = 380
+    y = 300
 
     # Zodiac symbol (large, centered)
-    y = centered_text(draw, y, symbol, sym_font, GOLD) + 30
+    y = centered_text(draw, y, symbol, sym_font, GOLD) + 35
 
     # Decorative line
     line_w = 200
     draw.line([(WIDTH // 2 - line_w // 2, y), (WIDTH // 2 + line_w // 2, y)], fill=GOLD, width=2)
-    y += 30
+    y += 35
 
     # Sign name headline
-    y = centered_text(draw, y, sign_name.upper(), h_font, GOLD) + 35
+    y = centered_text(draw, y, sign_name.upper(), h_font, GOLD) + 55
 
-    # Subtext
-    y = centered_text(draw, y, "Key Personality Traits", sub_font, PARCHMENT) + 45
+    # Subtext — clear gap below headline
+    y = centered_text(draw, y, "Key Personality Traits", sub_font, PARCHMENT) + 55
 
     # Traits as bullet points
     for trait in traits:
@@ -233,7 +233,7 @@ for s1_name, s1_sym, s2_name, s2_sym, score, bullets in COMPAT_PAIRS:
     img, draw = new_pin()
     draw_decorative_stars(draw)
 
-    y = 320
+    y = 250
     # Both symbols side by side
     sym_font = ImageFont.truetype(APPLE_SYMBOLS, 130)
     heart_font = ImageFont.truetype(GEORGIA_BOLD, 60)
@@ -270,10 +270,10 @@ for s1_name, s1_sym, s2_name, s2_sym, score, bullets in COMPAT_PAIRS:
 
     # Compatibility score
     score_font = ImageFont.truetype(GEORGIA_BOLD, 96)
-    y = centered_text(draw, y, f"{score}%", score_font, PARCHMENT) + 10
+    y = centered_text(draw, y, f"{score}%", score_font, PARCHMENT) + 50
 
     label_font = ImageFont.truetype(COURIER, 24)
-    y = centered_text(draw, y, "COMPATIBILITY SCORE", label_font, WARM_GRAY) + 40
+    y = centered_text(draw, y, "COMPATIBILITY SCORE", label_font, WARM_GRAY) + 55
 
     # Bullet points
     bullet_font = ImageFont.truetype(HELVETICA, 30)
@@ -315,11 +315,11 @@ for sign_name, crystals in CRYSTALS:
 
     # Sign name
     h_font = ImageFont.truetype(GEORGIA_BOLD, 64)
-    y = centered_text(draw, y, sign_name.upper(), h_font, GOLD) + 10
+    y = centered_text(draw, y, sign_name.upper(), h_font, GOLD) + 40
 
     # "Best Crystals"
     sub_font = ImageFont.truetype(GEORGIA_BOLD, 48)
-    y = centered_text(draw, y, "Best Crystals", sub_font, PARCHMENT) + 20
+    y = centered_text(draw, y, "Best Crystals", sub_font, PARCHMENT) + 25
 
     # Decorative line
     line_w = 300
