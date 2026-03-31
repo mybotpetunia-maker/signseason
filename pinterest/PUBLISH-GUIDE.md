@@ -1,249 +1,216 @@
-# Pinterest Pin Publish Guide — Sign Season
-**38 pins ready to publish. All images QA'd, no overlapping text.**
+# Pinterest Pin Publishing Guide — All 38 Pins Ready
 
-Images are in: `signseason/pinterest/pins/`
-Open Pinterest → pin-creation-tool → upload image → paste copy below → publish.
+**Images location:** `signseason/pinterest/pins/`
+**Go to:** pinterest.com/pin-creation-tool → Upload image → Paste copy → Publish
 
 ---
 
-## 🔮 SIGNS (12 pins) → Board: "Zodiac Signs"
+## ZODIAC SIGNS (12 pins) → Board: "Zodiac Signs"
+Images: `pins/signs/[sign].png`
 
-### 1. Aries
-**Image:** `signs/aries.png`
-**Title:** Aries: Key Personality Traits & Compatibility
-**Description:** Aries season hits different. Bold, impulsive, and always ready to fight for what they love. Personality breakdown, best matches, and the crystals every Aries needs. #Aries #ZodiacSigns #Astrology #AriesSeason #AstrologySigns
+### Aries
+**Title:** Aries: Key Personality Traits
+**Description:** Bold, impulsive, and always first through the door. Aries energy explained: strengths, weaknesses, love style, and what makes them impossible to ignore. #Aries #ZodiacSigns #Astrology #AriesSeason
 **Link:** https://signseason.com/signs/aries
 
-### 2. Taurus
-**Image:** `signs/taurus.png`
-**Title:** Taurus: Personality, Love & Compatibility
-**Description:** Stubborn, loyal, and obsessed with comfort. Everything you need to know about Taurus: personality, best matches, worst matches, and the crystals that keep them grounded. #Taurus #ZodiacSigns #Astrology #TaurusSeason
+### Taurus
+**Title:** Taurus: Key Personality Traits
+**Description:** Stubborn, loyal, and the zodiac's biggest comfort creature. Everything you need to know about Taurus energy. #Taurus #ZodiacSigns #Astrology #TaurusSeason
 **Link:** https://signseason.com/signs/taurus
 
-### 3. Gemini
-**Image:** `signs/gemini.png`
-**Title:** Gemini: The Full Personality Breakdown
-**Description:** Two-faced or just twice as interesting? Gemini personality traits, compatibility, communication style, and why everyone has an opinion about them. #Gemini #ZodiacSigns #Astrology #GeminiSeason
+### Gemini
+**Title:** Gemini: Key Personality Traits
+**Description:** Two personalities, one sign. Gemini decoded: the charm, the chaos, and why they're always texting three people at once. #Gemini #ZodiacSigns #Astrology #GeminiSeason
 **Link:** https://signseason.com/signs/gemini
 
-### 4. Cancer
-**Image:** `signs/cancer.png`
-**Title:** Cancer: Personality, Love & What They Need
-**Description:** Emotional, intuitive, and they remember everything you said three years ago. Cancer personality, compatibility, and why they love harder than any other sign. #Cancer #ZodiacSigns #Astrology #CancerSeason
+### Cancer
+**Title:** Cancer: Key Personality Traits
+**Description:** Emotional, protective, and secretly running everyone's life. The full Cancer personality breakdown. #Cancer #ZodiacSigns #Astrology #CancerSeason
 **Link:** https://signseason.com/signs/cancer
 
-### 5. Leo
-**Image:** `signs/leo.png`
-**Title:** Leo: The Complete Zodiac Guide
-**Description:** Main character energy is not a choice for Leo, it's a birthright. Personality traits, love compatibility, career strengths, and the crystals that match their fire. #Leo #ZodiacSigns #Astrology #LeoSeason
+### Leo
+**Title:** Leo: Key Personality Traits
+**Description:** Main character energy with a heart of gold. Leo personality, strengths, love style, and why they need an audience. #Leo #ZodiacSigns #Astrology #LeoSeason
 **Link:** https://signseason.com/signs/leo
 
-### 6. Virgo
-**Image:** `signs/virgo.png`
-**Title:** Virgo: Personality, Love & Hidden Depths
-**Description:** Detail-oriented, secretly emotional, and they already noticed the typo. Virgo personality, compatibility, love language, and why they're the most underrated sign. #Virgo #ZodiacSigns #Astrology #VirgoSeason
+### Virgo
+**Title:** Virgo: Key Personality Traits
+**Description:** Overthinks everything, fixes everyone, forgets to fix themselves. Virgo energy unpacked. #Virgo #ZodiacSigns #Astrology #VirgoSeason
 **Link:** https://signseason.com/signs/virgo
 
-### 7. Libra
-**Image:** `signs/libra.png`
-**Title:** Libra: Personality & Compatibility Guide
-**Description:** Charming, indecisive, and somehow always in a relationship. Libra personality breakdown, best matches, worst matches, and what they actually need in love. #Libra #ZodiacSigns #Astrology #LibraSeason
+### Libra
+**Title:** Libra: Key Personality Traits
+**Description:** The peacekeeper who secretly has the strongest opinions in the room. Libra personality decoded. #Libra #ZodiacSigns #Astrology #LibraSeason
 **Link:** https://signseason.com/signs/libra
 
-### 8. Scorpio
-**Image:** `signs/scorpio.png`
-**Title:** Scorpio: The Real Personality Guide
-**Description:** Intense, magnetic, and they already know your secrets. Scorpio personality, compatibility, love style, and why they're the most misunderstood sign in the zodiac. #Scorpio #ZodiacSigns #Astrology #ScorpioSeason
+### Scorpio
+**Title:** Scorpio: Key Personality Traits
+**Description:** Intense, magnetic, and they already know your secret. The real Scorpio personality breakdown. #Scorpio #ZodiacSigns #Astrology #ScorpioSeason
 **Link:** https://signseason.com/signs/scorpio
 
-### 9. Sagittarius
-**Image:** `signs/sagittarius.png`
-**Title:** Sagittarius: Personality & Love Decoded
-**Description:** Adventurous, blunt, and allergic to routine. Sagittarius personality traits, compatibility, career paths, and why they ghost when things get too serious. #Sagittarius #ZodiacSigns #Astrology #SagittariusSeason
+### Sagittarius
+**Title:** Sagittarius: Key Personality Traits
+**Description:** The optimist who tells you the truth you didn't want to hear. Sagittarius personality and why they can't sit still. #Sagittarius #ZodiacSigns #Astrology #SagSeason
 **Link:** https://signseason.com/signs/sagittarius
 
-### 10. Capricorn
-**Image:** `signs/capricorn.png`
-**Title:** Capricorn: Personality, Ambition & Love
-**Description:** The zodiac's quiet overachiever. Capricorn personality traits, compatibility, career strengths, and what happens when they finally let their guard down. #Capricorn #ZodiacSigns #Astrology #CapricornSeason
+### Capricorn
+**Title:** Capricorn: Key Personality Traits
+**Description:** Ambitious, disciplined, and judging your work ethic right now. Everything about Capricorn energy. #Capricorn #ZodiacSigns #Astrology #CapricornSeason
 **Link:** https://signseason.com/signs/capricorn
 
-### 11. Aquarius
-**Image:** `signs/aquarius.png`
-**Title:** Aquarius: Personality & Compatibility Guide
-**Description:** Weird in the best way possible. Aquarius personality, love style, compatibility, and why they need a partner who can keep up with their brain. #Aquarius #ZodiacSigns #Astrology #AquariusSeason
+### Aquarius
+**Title:** Aquarius: Key Personality Traits
+**Description:** The rebel who genuinely does not care what you think. Aquarius personality: detached, brilliant, and weird about it. #Aquarius #ZodiacSigns #Astrology #AquariusSeason
 **Link:** https://signseason.com/signs/aquarius
 
-### 12. Pisces
-**Image:** `signs/pisces.png`
-**Title:** Pisces: Personality, Love & Intuition
-**Description:** Dreamy, empathetic, and absorbing everyone else's emotions like a sponge. Pisces personality, compatibility, love language, and the crystals that protect their energy. #Pisces #ZodiacSigns #Astrology #PiscesSeason
+### Pisces
+**Title:** Pisces: Key Personality Traits
+**Description:** Feels everything, says nothing, writes poetry about it later. Pisces personality decoded. #Pisces #ZodiacSigns #Astrology #PiscesSeason
 **Link:** https://signseason.com/signs/pisces
 
 ---
 
-## 💕 COMPATIBILITY (12 pins) → Board: "Zodiac Compatibility"
+## COMPATIBILITY (12 pins) → Board: "Zodiac Compatibility"
+Images: `pins/compatibility/[pair].png`
 
-### 13. Aries & Leo
-**Image:** `compatibility/aries-leo.png`
-**Title:** Aries & Leo Compatibility: The Full Breakdown
-**Description:** Two fire signs, one explosive pairing. 88% overall compatibility. Love, trust, communication, and values ranked and explained. #AriesLeo #Compatibility #ZodiacCompatibility #Astrology
+### Aries & Leo (92%)
+**Title:** Aries & Leo Compatibility: 92%
+**Description:** Two fire signs, maximum drama, maximum passion. Full compatibility breakdown: love, trust, communication, and the real verdict. #AriesLeo #Compatibility #Astrology #ZodiacLove
 **Link:** https://signseason.com/compatibility/aries-leo
 
-### 14. Taurus & Cancer
-**Image:** `compatibility/taurus-cancer.png`
-**Title:** Taurus & Cancer: A Match Made in Comfort
-**Description:** The coziest pairing in the zodiac. Taurus and Cancer compatibility breakdown: love, trust, communication, and why this match just works. #TaurusCancer #Compatibility #ZodiacLove #Astrology
+### Taurus & Cancer (89%)
+**Title:** Taurus & Cancer Compatibility: 89%
+**Description:** The homebody dream team. Loyalty meets nurturing in one of the zodiac's most solid pairings. #TaurusCancer #Compatibility #Astrology #ZodiacLove
 **Link:** https://signseason.com/compatibility/taurus-cancer
 
-### 15. Gemini & Libra
-**Image:** `compatibility/gemini-libra.png`
-**Title:** Gemini & Libra Compatibility Ranked
-**Description:** Two air signs who never run out of things to say. Gemini and Libra compatibility: love, trust, communication, and the one thing that could break them. #GeminiLibra #Compatibility #Astrology
+### Gemini & Libra (88%)
+**Title:** Gemini & Libra Compatibility: 88%
+**Description:** Two air signs who could talk for 12 hours straight and still have more to say. Charming, social, and completely exhausting to everyone else. #GeminiLibra #Compatibility #Astrology
 **Link:** https://signseason.com/compatibility/gemini-libra
 
-### 16. Cancer & Scorpio
-**Image:** `compatibility/cancer-scorpio.png`
-**Title:** Cancer & Scorpio: Deep Water Connection
-**Description:** The most emotionally intense pairing in the zodiac. Cancer and Scorpio compatibility: love, trust, communication, and why this bond runs so deep. #CancerScorpio #Compatibility #Astrology
+### Cancer & Scorpio (94%)
+**Title:** Cancer & Scorpio Compatibility: 94%
+**Description:** The most emotionally intense pairing in the zodiac. When water meets water, it goes deep. Full breakdown inside. #CancerScorpio #Compatibility #Astrology #ZodiacLove
 **Link:** https://signseason.com/compatibility/cancer-scorpio
 
-### 17. Leo & Sagittarius
-**Image:** `compatibility/leo-sagittarius.png`
-**Title:** Leo & Sagittarius: Fire Meets Freedom
-**Description:** Two fire signs who want adventure and attention in equal measure. Leo and Sagittarius compatibility ranked: love, trust, communication, and values. #LeoSagittarius #Compatibility #Astrology
+### Leo & Sagittarius (90%)
+**Title:** Leo & Sagittarius Compatibility: 90%
+**Description:** Fire plus fire equals the kind of relationship everyone wants to be around. Adventurous, generous, and genuinely fun. #LeoSagittarius #Compatibility #Astrology
 **Link:** https://signseason.com/compatibility/leo-sagittarius
 
-### 18. Virgo & Capricorn
-**Image:** `compatibility/virgo-capricorn.png`
-**Title:** Virgo & Capricorn: The Power Couple
-**Description:** The zodiac's most quietly unstoppable pairing. Virgo and Capricorn compatibility: love, trust, goals, and why earth signs just get each other. #VirgoCapricorn #Compatibility #Astrology
+### Virgo & Capricorn (91%)
+**Title:** Virgo & Capricorn Compatibility: 91%
+**Description:** The power couple nobody saw coming. Quiet ambition, mutual respect, and they'll retire early together. #VirgoCapricorn #Compatibility #Astrology #ZodiacLove
 **Link:** https://signseason.com/compatibility/virgo-capricorn
 
-### 19. Libra & Aquarius
-**Image:** `compatibility/libra-aquarius.png`
-**Title:** Libra & Aquarius Compatibility Guide
-**Description:** Two air signs who connect on ideas before emotions. Libra and Aquarius compatibility: love, communication, trust, and intellectual chemistry. #LibraAquarius #Compatibility #Astrology
+### Libra & Aquarius (85%)
+**Title:** Libra & Aquarius Compatibility: 85%
+**Description:** Two idealists who want to save the world but can't decide on a restaurant. Intellectual, unconventional, never boring. #LibraAquarius #Compatibility #Astrology
 **Link:** https://signseason.com/compatibility/libra-aquarius
 
-### 20. Scorpio & Pisces
-**Image:** `compatibility/scorpio-pisces.png`
-**Title:** Scorpio & Pisces: The Deepest Bond
-**Description:** When two water signs collide, it's either magic or a tsunami. Scorpio and Pisces compatibility: love, trust, communication, and emotional depth. #ScorpioPisces #Compatibility #Astrology
+### Scorpio & Pisces (93%)
+**Title:** Scorpio & Pisces Compatibility: 93%
+**Description:** A psychic connection that doesn't need words. Two water signs creating something almost too intense for everyone else. #ScorpioPisces #Compatibility #Astrology
 **Link:** https://signseason.com/compatibility/scorpio-pisces
 
-### 21. Sagittarius & Aries
-**Image:** `compatibility/sagittarius-aries.png`
-**Title:** Sagittarius & Aries: Pure Fire Energy
-**Description:** Bold, competitive, and never boring. Sagittarius and Aries compatibility: love, trust, adventure, and the arguments that somehow make them stronger. #SagittariusAries #Compatibility #Astrology
+### Sagittarius & Aries (87%)
+**Title:** Sagittarius & Aries Compatibility: 87%
+**Description:** The couple that books spontaneous trips and argues about who drives. Pure fire energy, zero chill. #SagittariusAries #Compatibility #Astrology
 **Link:** https://signseason.com/compatibility/sagittarius-aries
 
-### 22. Capricorn & Taurus
-**Image:** `compatibility/capricorn-taurus.png`
-**Title:** Capricorn & Taurus: Built to Last
-**Description:** Two earth signs who build something real. Capricorn and Taurus compatibility: love, trust, values, and the slow-burn romance that actually lasts. #CapricornTaurus #Compatibility #Astrology
+### Capricorn & Taurus (90%)
+**Title:** Capricorn & Taurus Compatibility: 90%
+**Description:** Two earth signs building an empire brick by brick. Reliable, sensual, and annoyingly practical together. #CapricornTaurus #Compatibility #Astrology
 **Link:** https://signseason.com/compatibility/capricorn-taurus
 
-### 23. Aquarius & Gemini
-**Image:** `compatibility/aquarius-gemini.png`
-**Title:** Aquarius & Gemini: The Mind Meld
-**Description:** The zodiac's most intellectually stimulating match. Aquarius and Gemini compatibility: love, communication, trust, and why they never get bored. #AquariusGemini #Compatibility #Astrology
+### Aquarius & Gemini (86%)
+**Title:** Aquarius & Gemini Compatibility: 86%
+**Description:** The duo with 47 group chats and opinions about everything. Air sign chaos in the best possible way. #AquariusGemini #Compatibility #Astrology
 **Link:** https://signseason.com/compatibility/aquarius-gemini
 
-### 24. Pisces & Cancer
-**Image:** `compatibility/pisces-cancer.png`
-**Title:** Pisces & Cancer: Pure Emotional Chemistry
-**Description:** Two water signs who speak the same emotional language. Pisces and Cancer compatibility: love, trust, intuition, and the comfort of being truly understood. #PiscesCancer #Compatibility #Astrology
+### Pisces & Cancer (91%)
+**Title:** Pisces & Cancer Compatibility: 91%
+**Description:** The couple that cries during commercials together. Emotionally fluent, deeply nurturing, and they just get it. #PiscesCancer #Compatibility #Astrology
 **Link:** https://signseason.com/compatibility/pisces-cancer
 
 ---
 
-## 💎 CRYSTALS (12 pins) → Board: "Crystals and Zodiac"
+## CRYSTALS (12 pins) → Board: "Crystals and Zodiac"
+Images: `pins/crystals/[sign]-crystals.png`
 
-### 25. Aries Crystals
-**Image:** `crystals/aries-crystals.png`
-**Title:** Best Crystals for Aries Energy
-**Description:** Aries energy is fire, speed, and zero patience. These crystals match that intensity: carnelian for courage, citrine for confidence, and the stones every Aries should carry. #AriesCrystals #Crystals #Zodiac #Astrology
+### Aries Crystals
+**Title:** Best Crystals for Aries
+**Description:** Carnelian, red jasper, and the stones that match Aries fire energy. Which crystals to wear, carry, and keep close. #Aries #Crystals #ZodiacCrystals #Astrology
 **Link:** https://signseason.com/crystals/aries
 
-### 26. Taurus Crystals
-**Image:** `crystals/taurus-crystals.png`
+### Taurus Crystals
 **Title:** Best Crystals for Taurus
-**Description:** Taurus needs grounding, abundance, and something beautiful to hold. Rose quartz, emerald, and the crystals that keep Taurus energy balanced. #TaurusCrystals #Crystals #Zodiac #Astrology
+**Description:** Rose quartz, emerald, and the grounding stones Taurus needs. Your crystal guide based on your sign. #Taurus #Crystals #ZodiacCrystals #Astrology
 **Link:** https://signseason.com/crystals/taurus
 
-### 27. Gemini Crystals
-**Image:** `crystals/gemini-crystals.png`
-**Title:** Crystals Every Gemini Needs
-**Description:** Gemini's mind never stops. These crystals help: agate for balance, citrine for focus, and the stones that keep their dual energy in check. #GeminiCrystals #Crystals #Zodiac #Astrology
+### Gemini Crystals
+**Title:** Best Crystals for Gemini
+**Description:** Citrine, agate, and the crystals that keep Gemini's dual energy balanced. Sign-based crystal picks. #Gemini #Crystals #ZodiacCrystals #Astrology
 **Link:** https://signseason.com/crystals/gemini
 
-### 28. Cancer Crystals
-**Image:** `crystals/cancer-crystals.png`
-**Title:** Best Crystals for Cancer Energy
-**Description:** Cancer absorbs everything. Moonstone for intuition, selenite for protection, and the crystals that shield their sensitive energy. #CancerCrystals #Crystals #Zodiac #Astrology
+### Cancer Crystals
+**Title:** Best Crystals for Cancer
+**Description:** Moonstone, pearl, and the nurturing stones Cancer's emotional energy needs. Your zodiac crystal guide. #Cancer #Crystals #ZodiacCrystals #Astrology
 **Link:** https://signseason.com/crystals/cancer
 
-### 29. Leo Crystals
-**Image:** `crystals/leo-crystals.png`
-**Title:** Crystals That Match Leo's Fire
-**Description:** Leo energy is bold, warm, and demanding. Tiger's eye for confidence, sunstone for creativity, and the crystals that amplify Leo's natural magnetism. #LeoCrystals #Crystals #Zodiac #Astrology
+### Leo Crystals
+**Title:** Best Crystals for Leo
+**Description:** Tiger's eye, sunstone, and the bold crystals that match Leo's golden energy. Your sign's stone picks. #Leo #Crystals #ZodiacCrystals #Astrology
 **Link:** https://signseason.com/crystals/leo
 
-### 30. Virgo Crystals
-**Image:** `crystals/virgo-crystals.png`
+### Virgo Crystals
 **Title:** Best Crystals for Virgo
-**Description:** Virgo overanalyzes everything. Amazonite for calm, moss agate for grounding, and the crystals that quiet their mind without dulling their edge. #VirgoCrystals #Crystals #Zodiac #Astrology
+**Description:** Amazonite, moss agate, and the calming stones Virgo's overthinking brain needs. Crystal recs by sign. #Virgo #Crystals #ZodiacCrystals #Astrology
 **Link:** https://signseason.com/crystals/virgo
 
-### 31. Libra Crystals
-**Image:** `crystals/libra-crystals.png`
-**Title:** Crystals for Libra Balance
-**Description:** Libra craves harmony but overthinks every decision. Lepidolite for peace, lapis lazuli for truth, and the crystals that help Libra trust their own judgment. #LibraCrystals #Crystals #Zodiac #Astrology
+### Libra Crystals
+**Title:** Best Crystals for Libra
+**Description:** Lapis lazuli, rose quartz, and the balancing crystals Libra's energy craves. Sign-matched stone guide. #Libra #Crystals #ZodiacCrystals #Astrology
 **Link:** https://signseason.com/crystals/libra
 
-### 32. Scorpio Crystals
-**Image:** `crystals/scorpio-crystals.png`
-**Title:** Best Crystals for Scorpio Intensity
-**Description:** Scorpio feels everything at full volume. Obsidian for protection, labradorite for transformation, and the crystals that channel their intensity. #ScorpioCrystals #Crystals #Zodiac #Astrology
+### Scorpio Crystals
+**Title:** Best Crystals for Scorpio
+**Description:** Obsidian, malachite, and the intense crystals that match Scorpio's depth. Your zodiac crystal matches. #Scorpio #Crystals #ZodiacCrystals #Astrology
 **Link:** https://signseason.com/crystals/scorpio
 
-### 33. Sagittarius Crystals
-**Image:** `crystals/sagittarius-crystals.png`
-**Title:** Crystals for Sagittarius Adventure
-**Description:** Sagittarius is always chasing the next horizon. Turquoise for travel protection, sodalite for wisdom, and the crystals that keep their restless spirit grounded. #SagittariusCrystals #Crystals #Zodiac #Astrology
+### Sagittarius Crystals
+**Title:** Best Crystals for Sagittarius
+**Description:** Turquoise, lapis lazuli, and the adventurous stones Sagittarius needs on every journey. Crystal picks by sign. #Sagittarius #Crystals #ZodiacCrystals #Astrology
 **Link:** https://signseason.com/crystals/sagittarius
 
-### 34. Capricorn Crystals
-**Image:** `crystals/capricorn-crystals.png`
-**Title:** Best Crystals for Capricorn Ambition
-**Description:** Capricorn is the zodiac's quiet powerhouse. Garnet for drive, smoky quartz for resilience, and the crystals that fuel their climb without burning them out. #CapricornCrystals #Crystals #Zodiac #Astrology
+### Capricorn Crystals
+**Title:** Best Crystals for Capricorn
+**Description:** Garnet, onyx, and the ambitious stones Capricorn needs to stay grounded while climbing. Sign-matched crystals. #Capricorn #Crystals #ZodiacCrystals #Astrology
 **Link:** https://signseason.com/crystals/capricorn
 
-### 35. Aquarius Crystals
-**Image:** `crystals/aquarius-crystals.png`
-**Title:** Crystals for Aquarius Energy
-**Description:** Aquarius thinks different and needs crystals that match. Amethyst for intuition, fluorite for focus, and the stones that keep their visionary energy clear. #AquariusCrystals #Crystals #Zodiac #Astrology
+### Aquarius Crystals
+**Title:** Best Crystals for Aquarius
+**Description:** Amethyst, aquamarine, and the visionary crystals that match Aquarius's unconventional energy. Your stone guide. #Aquarius #Crystals #ZodiacCrystals #Astrology
 **Link:** https://signseason.com/crystals/aquarius
 
-### 36. Pisces Crystals
-**Image:** `crystals/pisces-crystals.png`
-**Title:** Best Crystals for Pisces Protection
-**Description:** Pisces absorbs everything around them. Aquamarine for emotional clarity, black tourmaline for boundaries, and the crystals that protect their sensitive soul. #PiscesCrystals #Crystals #Zodiac #Astrology
+### Pisces Crystals
+**Title:** Best Crystals for Pisces
+**Description:** Amethyst, aquamarine, and the dreamy crystals that protect Pisces's sensitive energy. Your zodiac crystal guide. #Pisces #Crystals #ZodiacCrystals #Astrology
 **Link:** https://signseason.com/crystals/pisces
 
 ---
 
-## ✨ NEW VERTICALS (2 pins) → Board: "Zodiac Signs"
+## NEW — DALL-E PINS (2 pins) → Board: "Zodiac in Love" / "Zodiac Signs"
+Images: `pins/new/`
 
-### 37. Soulmate Guide
-**Image:** `new/soulmate-pin.png`
+### Soulmate Pin → Board: "Zodiac in Love"
+**Image:** `pins/new/soulmate-pin.png`
 **Title:** Who Is Your Zodiac Soulmate?
-**Description:** Your zodiac soulmate isn't who you'd expect. The real matches that feel like destiny, the ones that don't, and how to know when you've found the one. Every sign covered. #Soulmate #ZodiacLove #Astrology #ZodiacCompatibility
+**Description:** Your zodiac soulmate isn't who you'd expect. The top matches for every sign, what makes it work, and who to avoid. Based on real astrology, not just sun signs. #Soulmate #ZodiacLove #Astrology #ZodiacCompatibility
 **Link:** https://signseason.com/signs/#soulmates
 
-### 38. Red Flags
-**Image:** `new/red-flags-pin.png`
+### Red Flags Pin → Board: "Zodiac Signs"
+**Image:** `pins/new/red-flags-pin.png`
 **Title:** Red Flags by Zodiac Sign
-**Description:** Every sign has red flags. The warning signs you should never ignore, broken down by zodiac. Some of these will feel like a personal attack. That's the point. #RedFlags #Zodiac #Astrology #ZodiacSigns
+**Description:** Every sign has red flags. The warning signs you should never ignore, what triggers their worst behavior, and when to walk away. The honest version. #RedFlags #ZodiacSigns #Astrology #Zodiac
 **Link:** https://signseason.com/signs/#red-flags
