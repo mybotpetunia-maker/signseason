@@ -278,7 +278,32 @@
   font-size: 0.95rem;
   text-align: center;
   transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
 }
+.topic-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.08;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.topic-card:hover::before { opacity: 0.15; }
+.topic-card[data-topic="all-signs"]::before { background-image: url('/assets/illustrations/topics/all-signs.png'); }
+.topic-card[data-topic="compatibility"]::before { background-image: url('/assets/illustrations/topics/compatibility.png'); }
+.topic-card[data-topic="crystals"]::before { background-image: url('/assets/illustrations/topics/crystals.png'); }
+.topic-card[data-topic="in-love"]::before { background-image: url('/assets/illustrations/topics/in-love.png'); }
+.topic-card[data-topic="moon-signs"]::before { background-image: url('/assets/illustrations/topics/moon-signs.png'); }
+.topic-card[data-topic="rising-signs"]::before { background-image: url('/assets/illustrations/topics/rising-signs.png'); }
+.topic-card[data-topic="career-money"]::before { background-image: url('/assets/illustrations/topics/career-money.png'); }
+.topic-card[data-topic="toxic-traits"]::before { background-image: url('/assets/illustrations/topics/toxic-traits.png'); }
+.topic-card[data-topic="mercury-retrograde"]::before { background-image: url('/assets/illustrations/topics/mercury-retrograde.png'); }
+.topic-card[data-topic="horoscopes-2026"]::before { background-image: url('/assets/illustrations/topics/horoscopes-2026.png'); }
+.topic-card[data-topic="zodiac-men"]::before { background-image: url('/assets/illustrations/topics/zodiac-men.png'); }
+.topic-card[data-topic="zodiac-women"]::before { background-image: url('/assets/illustrations/topics/zodiac-women.png'); }
 .topic-card:hover {
   border-color: rgba(201, 173, 111, 0.25);
   background: var(--plum-lift, #3D2E4A);

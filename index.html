@@ -438,7 +438,23 @@
       text-decoration: none;
       display: block;
       color: inherit;
+      position: relative;
+      overflow: hidden;
     }
+    .explore-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.06;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+    .explore-card:hover::before { opacity: 0.12; }
+    .explore-card[data-topic="compatibility"]::before { background-image: url('/assets/illustrations/topics/compatibility.png'); }
+    .explore-card[data-topic="crystals"]::before { background-image: url('/assets/illustrations/topics/crystals.png'); }
+    .explore-card[data-topic="horoscopes-2026"]::before { background-image: url('/assets/illustrations/topics/horoscopes-2026.png'); }
     .explore-card:hover { border-color: rgba(201, 173, 111, 0.18); }
     .ec-tag {
       font-family: var(--sans);
@@ -831,18 +847,18 @@
         <p class="sect-sub">Personality breakdowns, toxic trait callouts, and content your group chat will fight over.</p>
       </div>
       <div class="topics-grid">
-        <a href="/signs/" class="topic-card">&#9800;&#xFE0E; All Signs</a>
-        <a href="/compatibility" class="topic-card">&#x1F4AB; Compatibility</a>
-        <a href="/crystals" class="topic-card">&#x1F52E; Crystals</a>
-        <a href="/signs/#in-love" class="topic-card">In Love</a>
-        <a href="/signs/#moon-signs" class="topic-card">Moon Signs</a>
-        <a href="/signs/#rising-signs" class="topic-card">Rising Signs</a>
-        <a href="/signs/#career" class="topic-card">Career &amp; Money</a>
-        <a href="/signs/#toxic-traits" class="topic-card">Toxic Traits</a>
-        <a href="/signs/#mercury-retrograde" class="topic-card">Mercury Retrograde</a>
-        <a href="/signs/#horoscopes-2026" class="topic-card">2026 Horoscopes</a>
-        <a href="/signs/#zodiac-men" class="topic-card">Zodiac Men</a>
-        <a href="/signs/#zodiac-women" class="topic-card">Zodiac Women</a>
+        <a href="/signs/" class="topic-card" data-topic="all-signs">&#9800;&#xFE0E; All Signs</a>
+        <a href="/compatibility" class="topic-card" data-topic="compatibility">&#x1F4AB; Compatibility</a>
+        <a href="/crystals" class="topic-card" data-topic="crystals">&#x1F52E; Crystals</a>
+        <a href="/signs/#in-love" class="topic-card" data-topic="in-love">In Love</a>
+        <a href="/signs/#moon-signs" class="topic-card" data-topic="moon-signs">Moon Signs</a>
+        <a href="/signs/#rising-signs" class="topic-card" data-topic="rising-signs">Rising Signs</a>
+        <a href="/signs/#career" class="topic-card" data-topic="career-money">Career &amp; Money</a>
+        <a href="/signs/#toxic-traits" class="topic-card" data-topic="toxic-traits">Toxic Traits</a>
+        <a href="/signs/#mercury-retrograde" class="topic-card" data-topic="mercury-retrograde">Mercury Retrograde</a>
+        <a href="/signs/#horoscopes-2026" class="topic-card" data-topic="horoscopes-2026">2026 Horoscopes</a>
+        <a href="/signs/#zodiac-men" class="topic-card" data-topic="zodiac-men">Zodiac Men</a>
+        <a href="/signs/#zodiac-women" class="topic-card" data-topic="zodiac-women">Zodiac Women</a>
       </div>
     </div>
   </section>
@@ -858,17 +874,17 @@
           <h2 class="sect-title">The stuff you actually<br>want to read about.</h2>
         </div>
         <div class="explore-grid">
-          <a href="/compatibility" class="explore-card">
+          <a href="/compatibility" class="explore-card" data-topic="compatibility">
             <p class="ec-tag">Compatibility</p>
             <h3 class="ec-title">Who should you actually date?</h3>
             <p class="ec-body">Sun sign chemistry is just the start. Moon signs, Venus placements, and why that Gemini keeps texting you back at 2am.</p>
           </a>
-          <a href="/crystals" class="explore-card">
+          <a href="/crystals" class="explore-card" data-topic="crystals">
             <p class="ec-tag">Crystals &amp; Rituals</p>
             <h3 class="ec-title">Stones that match your chart.</h3>
             <p class="ec-body">Not generic crystal content. The specific stones that align with your placements, and what to actually do with them.</p>
           </a>
-          <a href="/#subscribe" class="explore-card">
+          <a href="/#subscribe" class="explore-card" data-topic="horoscopes-2026">
             <p class="ec-tag">Weekly Horoscope</p>
             <h3 class="ec-title">Your week, cosmically speaking.</h3>
             <p class="ec-body">Skip the vague today-is-a-good-day-for-love energy. Specific, occasionally uncomfortable, and weirdly accurate.</p>
