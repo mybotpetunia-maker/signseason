@@ -204,10 +204,10 @@ for sign_name, symbol, traits in SIGNS:
     y += 30
 
     # Sign name headline
-    y = centered_text(draw, y, sign_name.upper(), h_font, GOLD) + 15
+    y = centered_text(draw, y, sign_name.upper(), h_font, GOLD) + 35
 
     # Subtext
-    y = centered_text(draw, y, "Key Personality Traits", sub_font, PARCHMENT) + 40
+    y = centered_text(draw, y, "Key Personality Traits", sub_font, PARCHMENT) + 45
 
     # Traits as bullet points
     for trait in traits:
