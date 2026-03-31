@@ -180,7 +180,7 @@
   display: none;
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  z-index: 999;
+  z-index: 1001;
   background: rgba(30, 21, 40, 0.98);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -197,9 +197,15 @@
   top: 14px; right: 20px;
   background: none;
   border: none;
-  color: var(--gold-dim, #B09A6E);
-  font-size: 1.6rem;
+  color: var(--gold, #C9AD6F);
+  font-size: 1.8rem;
   cursor: pointer;
+  z-index: 1002;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .mobile-nav-section {
