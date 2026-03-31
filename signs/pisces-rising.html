@@ -37,6 +37,7 @@
     body > *:not(canvas) { position: relative; z-index: 1; } ::selection { background: rgba(201,173,111,0.25); color: var(--gold-pale); }
     .nav { max-width: 680px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; gap: 8px; font-family: var(--sans); font-size: 0.6rem; } .nav a { color: var(--gold-dim); text-decoration: none; transition: color 0.3s; } .nav a:first-child { font-family: var(--display); font-style: italic; font-size: 1rem; color: var(--gold); } .nav a:hover { color: var(--gold-light); } .nav .sep { color: var(--gold-dim); opacity: 0.25; } .nav span:last-child { color: var(--gold-dim); }
     .sign-hero { max-width: 680px; margin: 0 auto; padding: 48px 24px 0; text-align: center; } .sign-name { font-family: var(--display); font-style: italic; font-size: clamp(2.5rem, 7vw, 3.8rem); color: var(--gold-pale); font-weight: 400; margin-bottom: 12px; } .sign-tagline { font-family: var(--serif); font-size: 1.15rem; font-style: italic; color: var(--gold-dim); margin-bottom: 40px; }
+    .sign-illustration { width: 160px; height: 160px; object-fit: contain; margin: 0 auto 20px; display: block; border-radius: 50%; opacity: 0.85; }
     article { max-width: 680px; margin: 0 auto; padding: 0 24px; }
     .section { padding: 48px 0 0; } .section h2 { font-family: var(--serif); font-size: 1.5rem; font-weight: 600; color: var(--gold-light); margin-bottom: 18px; line-height: 1.2; } .section p { margin-bottom: 16px; line-height: 1.85; }
     .section ul { list-style: none; padding: 0; } .section li { padding: 10px 0; border-bottom: 1px solid rgba(201,173,111,0.05); line-height: 1.7; } .section li strong { color: var(--gold-light); font-weight: 600; }
@@ -154,7 +155,7 @@
 
   <nav class="nav breadcrumb-nav"><a href="/">Sign Season</a><span class="sep">/</span><a href="/signs/">Signs</a><span class="sep">/</span><span>Pisces Rising</span></nav>
   <header class="sign-hero">
-    <img src="/assets/illustrations/signs/pisces.png" alt="Pisces engraving" class="sign-illustration" style="width:180px;height:180px;object-fit:contain;margin:0 auto 24px;display:block;opacity:0.85;">
+    <img src="/assets/illustrations/signs/pisces.png" alt="Pisces engraving" class="sign-illustration">
     <h1 class="sign-name">Pisces Rising</h1>
     <p class="sign-tagline">Everyone sees what they want to see. You're still figuring out which version is real.</p>
   </header>
