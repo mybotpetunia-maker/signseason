@@ -46,7 +46,7 @@ export default async function handler(req, res) {
     const templateUrl = `https://signseason.com/api/drip-template?id=welcome${DRIP_SECRET ? `&key=${DRIP_SECRET}` : ''}`;
     
     let welcomeHtml;
-    let welcomeSubject = '✨ Welcome to Sign Season';
+    let welcomeSubject = 'your chart called. it has notes. ✨';
     
     try {
       const templateResp = await fetch(templateUrl);
@@ -61,16 +61,25 @@ export default async function handler(req, res) {
 
     // Fallback inline template if template endpoint fails
     if (!welcomeHtml) {
-      welcomeHtml = `<!DOCTYPE html><html><head><meta charset="utf-8"></head>
-<body style="margin:0;padding:40px 16px;background:#1A1320;font-family:Georgia,serif;color:#D4C8B4;">
-<div style="max-width:520px;margin:0 auto;padding:48px 32px;background:#2A1F33;border:1px solid rgba(201,173,111,0.25);">
-<h1 style="color:#F0E8D8;text-align:center;font-size:28px;">Welcome to Sign Season.</h1>
-<p style="color:#B09A6E;text-align:center;font-style:italic;">It's always somebody's season. Now it's yours.</p>
-<hr style="border:none;border-top:1px solid rgba(138,125,112,0.3);margin:24px 0;">
-<p style="line-height:1.8;">You're in. Every week, we'll drop compatibility takes, crystal recs, and the kind of zodiac content your group chat has been missing.</p>
-<p style="text-align:center;padding:24px 0;"><a href="https://signseason.com/signs/" style="display:inline-block;padding:16px 32px;background:#C9AD6F;color:#1A1320;text-decoration:none;font-family:sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;border-radius:4px;">Find Your Sign</a></p>
-<p style="font-size:12px;color:#8A7D70;text-align:center;">Sign Season &middot; <a href="https://signseason.com" style="color:#C9AD6F;">signseason.com</a></p>
-</div></body></html>`;
+      welcomeHtml = `<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="color-scheme" content="dark"><meta name="supported-color-schemes" content="dark"></head>
+<body style="margin:0;padding:0;background-color:#1A1320;font-family:Georgia,'Times New Roman',serif;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#1A1320;">
+<tr><td align="center" style="padding:40px 16px;">
+<table role="presentation" width="520" cellpadding="0" cellspacing="0" style="max-width:520px;width:100%;">
+<tr><td style="border:1px solid rgba(201,173,111,0.25);padding:48px 32px;background-color:#2A1F33;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding-bottom:28px;"><div style="width:60px;height:1px;background-color:rgba(138,125,112,0.5);"></div></td></tr></table>
+<h1 style="font-family:Georgia,serif;font-size:28px;font-weight:bold;color:#F0E8D8;margin:0 0 12px;text-align:center;">Hey. I'm Stella.</h1>
+<p style="font-family:Georgia,serif;font-size:17px;font-style:italic;color:#B09A6E;margin:0 0 32px;text-align:center;">Your chart called. It has notes.</p>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding-bottom:28px;"><div style="width:40px;height:1px;background-color:rgba(138,125,112,0.3);"></div></td></tr></table>
+<p style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:#D4C8B4;margin:0 0 20px;">You're in. Every week, I'll send you horoscopes that are actually worth reading, compatibility takes your group chat will fight over, and crystal recs that go deeper than "rose quartz for love."</p>
+<p style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:#D4C8B4;margin:0 0 32px;">Your first weekly horoscope lands soon. In the meantime, go find your sign. I already know which one you'll click first.</p>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding-bottom:32px;"><a href="https://signseason.com/#signs" style="display:inline-block;padding:16px 32px;background-color:#C9AD6F;color:#1A1320;text-decoration:none;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;border-radius:4px;">Find Your Sign</a></td></tr></table>
+<p style="font-family:Georgia,serif;font-size:16px;font-style:italic;color:#B09A6E;margin:0 0 32px;text-align:center;">xoxo, Stella</p>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding-bottom:16px;"><div style="width:60px;height:1px;background-color:rgba(138,125,112,0.3);"></div></td></tr></table>
+<p style="font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:12px;color:#8A7D70;margin:0;text-align:center;">Sign Season &middot; <a href="https://signseason.com" style="color:#C9AD6F;text-decoration:none;">signseason.com</a></p>
+</td></tr></table>
+</td></tr></table>
+</body></html>`;
     }
 
     // Send welcome email
@@ -81,7 +90,7 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Sign Season <stars@signseason.com>',
+        from: 'Stella from Sign Season <stars@signseason.com>',
         to: [email],
         subject: welcomeSubject,
         html: welcomeHtml,
