@@ -14,16 +14,6 @@
   padding-top: env(safe-area-inset-top, 0px);
 }
 
-/* Extend nav background color above the nav to fill any gap between browser chrome and content */
-.site-nav::before {
-  content: '';
-  position: absolute;
-  top: calc(-1 * env(safe-area-inset-top, 0px) - 50px);
-  left: 0; right: 0;
-  height: calc(env(safe-area-inset-top, 0px) + 50px);
-  background: rgba(30, 21, 40, 1);
-  z-index: -1;
-}
 
 .site-nav-inner {
   max-width: 960px;
