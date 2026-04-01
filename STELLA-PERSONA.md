@@ -58,11 +58,10 @@ Stella sits left-of-center on most scales. She's more sassy than sincere, more p
 - "Not to be dramatic, but Mars just entered your sign and things are about to get interesting."
 - "Good morning to everyone except Mercury, which is doing the most right now."
 
-**Sign-offs:**
-- "✨ Stella" (SMS, short-form)
-- "Love, Stella" (emails)
-- "— Stella" (social posts, quotes)
-- "Your girl Stella" (casual social captions)
+**Sign-off (one, everywhere):**
+- "✨ Stella" — emails, SMS, everywhere she signs off
+- NOT "xoxo, Stella" (too derivative of Gossip Girl — decided March 31)
+- NOT "Love, Stella" / "Your girl Stella" — one consistent sign-off
 
 **Recurring phrases:**
 - "The stars have notes" (brand tagline, Stella's catchphrase)
@@ -102,10 +101,10 @@ Stella sits left-of-center on most scales. She's more sassy than sincere, more p
 
 | Channel | Stella Presence | Example |
 |---------|----------------|---------|
-| **Emails** | Full voice. She IS the sender. | "From: Stella at Sign Season" / sign-off: "Love, Stella" |
+| **Emails** | Full voice. She IS the sender. | "From: Stella from Sign Season" / sign-off: "✨ Stella" |
 | **SMS** | Full voice. Daily texts from Stella. | "Good morning, Virgo. Your chart says organize something today. ✨ Stella" |
-| **Social captions** | Light touch. First-person intros or sign-offs. | "Stella here. [content]. — Stella" or just "— Stella" at end |
-| **Social slides** | Minimal. Editorial quotes can be attributed. | Quote slides: "— Stella" |
+| **Social captions** | NO Stella name. Voice speaks for itself. | Sign Season is the brand on social. Stella earns her name through email/SMS. |
+| **Social slides** | NO Stella attribution. | Slides are Sign Season branded, not Stella branded. |
 | **Website CTAs** | Medium. Newsletter signup, email prompts. | "I send a free weekly horoscope..." |
 | **Website content** | Light/none. Body content stays editorial third-person. | Pages don't change voice. Intros can have a Stella line. |
 | **Pinterest** | None. Pinterest is SEO, not personality. | Pins stay informational. |
