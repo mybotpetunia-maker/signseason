@@ -21,7 +21,7 @@ _Track what's been posted to maintain visual variety across the grid._
 |------|------|-------|-------|
 | 2026-03-31 | EI | Aries: A Field Guide | DALL-E ram engraving, alternating dark/light/engraving bgs — ASSETS DELIVERED |
 | 2026-04-01 | EQ | Aries season reflective quote | Parchment bg, editorial feel |
-| 2026-04-02 | PO | Moon photo + "your moon sign knows" | DALL-E celestial photo |
+| 2026-04-02 | PO | Moon photo + "your moon sign knows" | DALL-E celestial photo — ASSETS READY |
 | 2026-04-03 | TC | Most Toxic Zodiac Pairings | Back to text card, high engagement topic |
 
 ## Grid Rhythm (IG)

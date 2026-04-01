@@ -574,6 +574,88 @@
       .cta-email-btn { width: auto; padding: 13px 22px; border-radius: 0 2px 2px 0; white-space: nowrap; }
     }
 
+    /* ─── Sticky Scroll CTA ─── */
+    .sticky-cta {
+      position: fixed;
+      bottom: -80px;
+      left: 0;
+      right: 0;
+      z-index: 900;
+      background: var(--plum);
+      border-top: 1px solid rgba(201,173,111,0.2);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      transition: bottom 0.4s ease;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .sticky-cta.visible { bottom: 0; }
+    .sticky-cta.hiding { bottom: -80px; }
+    .sticky-cta-text {
+      font-family: var(--serif);
+      font-size: 0.88rem;
+      font-style: italic;
+      color: var(--gold-dim);
+      white-space: nowrap;
+    }
+    .sticky-cta-input {
+      padding: 10px 14px;
+      background: var(--plum-lift);
+      color: var(--gold-pale);
+      border: 1px solid var(--gold-dim);
+      border-radius: 2px;
+      font-family: var(--serif);
+      font-size: 0.85rem;
+      outline: none;
+      width: 200px;
+      max-width: 40vw;
+    }
+    .sticky-cta-input::placeholder { color: var(--gold-dim); }
+    .sticky-cta-input:focus { border-color: var(--gold); }
+    .sticky-cta-btn {
+      padding: 10px 18px;
+      background: var(--gold);
+      color: var(--void);
+      border: none;
+      border-radius: 2px;
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .sticky-cta-btn:hover { background: var(--gold-light); }
+    .sticky-cta-close {
+      background: none;
+      border: none;
+      color: var(--gold-dim);
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0 4px;
+      line-height: 1;
+    }
+    .sticky-cta-success {
+      display: none;
+      font-family: var(--serif);
+      font-size: 0.88rem;
+      font-style: italic;
+      color: var(--gold-light);
+    }
+    .sticky-cta.done .sticky-cta-text,
+    .sticky-cta.done .sticky-cta-input,
+    .sticky-cta.done .sticky-cta-btn { display: none; }
+    .sticky-cta.done .sticky-cta-success { display: inline; }
+    @media (max-width: 580px) {
+      .sticky-cta { flex-wrap: wrap; gap: 8px; padding: 10px 16px; }
+      .sticky-cta-text { width: 100%; text-align: center; font-size: 0.82rem; }
+      .sticky-cta-input { flex: 1; max-width: none; }
+    }
+
     /* ═══════════════════════════════════
        FOOTER
        ═══════════════════════════════════ */
@@ -745,10 +827,10 @@
       <div class="fw" id="fw1">
         <div class="email-row">
           <input type="email" class="email-input" placeholder="your@email.com" required autocomplete="email" id="email1">
-          <button type="button" class="email-btn" onclick="submitForm('fw1','email1')">Get Your Horoscope</button>
+          <button type="button" class="email-btn" onclick="submitForm('fw1','email1')">Send Me the Tea</button>
         </div>
-        <p class="email-note">I send a free weekly horoscope that's actually worth opening. No spam, no Mercury retrograde excuses. — Stella</p>
-        <div class="form-success">You're in. Check your inbox for an email from <strong>stars@signseason.com</strong>. Check spam if you don't see it.</div>
+        <p class="email-note">Your Aries season reading lands in your inbox in 60 seconds. Then weekly drops you'll actually want to open. — Stella</p>
+        <div class="form-success">Check your inbox (and spam, we're new here). Your reading is on the way. &#10024;&#xFE0E;</div>
       </div>
     </div>
   </section>
@@ -889,9 +971,9 @@
             <p class="ec-body">Not generic crystal content. The specific stones that align with your placements, and what to actually do with them.</p>
           </a>
           <a href="/#subscribe" class="explore-card" data-topic="horoscopes-2026">
-            <p class="ec-tag">Weekly Horoscope</p>
-            <h3 class="ec-title">Your week, cosmically speaking.</h3>
-            <p class="ec-body">Skip the vague today-is-a-good-day-for-love energy. Specific, occasionally uncomfortable, and weirdly accurate.</p>
+            <p class="ec-tag">Free Weekly Reading</p>
+            <h3 class="ec-title">Your inbox, cosmically upgraded.</h3>
+            <p class="ec-body">Horoscopes that hit different, compatibility takes worth screenshotting, and crystal recs that go deeper than the basics.</p>
           </a>
         </div>
       </div>
@@ -903,18 +985,27 @@
   <!-- BOTTOM CTA -->
   <section class="cta-sect" id="subscribe">
     <div class="cta-card">
-      <p class="cta-label">Weekly Horoscope</p>
-      <h2 class="cta-title">The stars have notes.</h2>
-      <p class="cta-body">I send horoscopes, compatibility takes, and crystal recs your group chat will fight over. Free forever. — Stella</p>
+      <p class="cta-label">Free Weekly Reading</p>
+      <h2 class="cta-title">Your chart has opinions.</h2>
+      <p class="cta-body">Every week I send horoscopes that hit different, compatibility takes your group chat will screenshot, and crystal recs that go deeper than "rose quartz for love." Join 50+ readers who actually open their horoscope emails. — Stella</p>
       <div class="fw" id="fw2">
         <div class="cta-email-row">
           <input type="email" class="cta-email-input" placeholder="your@email.com" required autocomplete="email" id="email2">
-          <button type="button" class="cta-email-btn" onclick="submitForm('fw2','email2')">Subscribe Free</button>
+          <button type="button" class="cta-email-btn" onclick="submitForm('fw2','email2')">Yes, Read Me Like a Book</button>
         </div>
-        <div class="cta-form-success">Welcome to the season. Check your inbox for an email from <strong>stars@signseason.com</strong>. Check spam if you don't see it.</div>
+        <div class="cta-form-success">You're in. Your first reading is on the way. Check spam if you don't see it in 60 seconds. &#10024;&#xFE0E;</div>
       </div>
     </div>
   </section>
+
+  <!-- STICKY SCROLL CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <span class="sticky-cta-text">Stella has notes for you.</span>
+    <input type="email" class="sticky-cta-input" placeholder="your@email.com" id="stickyEmail" autocomplete="email">
+    <button type="button" class="sticky-cta-btn" onclick="stickySubmit()">Send Me the Tea</button>
+    <button class="sticky-cta-close" onclick="dismissSticky()" aria-label="Close">&times;</button>
+    <span class="sticky-cta-success">You're in. Check your inbox. &#10024;&#xFE0E;</span>
+  </div>
 
   <!-- FOOTER -->
   <footer>
@@ -975,6 +1066,63 @@ function fallbackSave(email) {
   localStorage.setItem('ss_emails', JSON.stringify(s));
 }
 
+</script>
+<script>
+// Sticky scroll CTA
+(function() {
+  const sticky = document.getElementById('stickyCta');
+  const heroForm = document.getElementById('fw1');
+  let dismissed = sessionStorage.getItem('ss_sticky_dismissed');
+  let subscribed = false;
+
+  if (!dismissed) {
+    window.addEventListener('scroll', function() {
+      if (dismissed || subscribed) return;
+      const heroRect = heroForm.getBoundingClientRect();
+      const ctaSect = document.getElementById('subscribe');
+      const ctaRect = ctaSect ? ctaSect.getBoundingClientRect() : { top: 9999 };
+
+      // Show when hero form scrolls out of view, hide when bottom CTA is visible
+      if (heroRect.bottom < 0 && ctaRect.top > window.innerHeight) {
+        sticky.classList.add('visible');
+        sticky.classList.remove('hiding');
+      } else {
+        sticky.classList.remove('visible');
+        sticky.classList.add('hiding');
+      }
+    });
+  }
+
+  window.stickySubmit = async function() {
+    const input = document.getElementById('stickyEmail');
+    const email = input.value;
+    if (!email || !input.checkValidity()) { input.reportValidity(); return; }
+    const btn = sticky.querySelector('.sticky-cta-btn');
+    btn.textContent = '...';
+    btn.disabled = true;
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      if (!res.ok) fallbackSave(email);
+    } catch { fallbackSave(email); }
+    sticky.classList.add('done');
+    subscribed = true;
+    // Also mark hero and bottom forms as done
+    document.getElementById('fw1').classList.add('done');
+    document.getElementById('fw2').classList.add('done');
+    setTimeout(() => { sticky.classList.remove('visible'); }, 3000);
+  };
+
+  window.dismissSticky = function() {
+    dismissed = true;
+    sessionStorage.setItem('ss_sticky_dismissed', '1');
+    sticky.classList.remove('visible');
+    sticky.classList.add('hiding');
+  };
+})();
 </script>
 <script src="/js/stars.js"></script>
 <script src="/js/analytics.js" defer></script>
