@@ -9,6 +9,8 @@
    ============================================ */
 body {
   color: #D4C49A !important;
+  margin: 0 !important;
+  padding: 0;
 }
 
 /* Long-form content paragraphs — highest contrast */
