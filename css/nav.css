@@ -6,12 +6,12 @@
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
-  background: rgba(30, 21, 40, 0.92);
+  background: #2A1F33;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(201, 173, 111, 0.08);
   font-family: var(--sans, 'DM Sans', -apple-system, sans-serif);
-  padding-top: env(safe-area-inset-top, 0px);
+
 }
 
 
