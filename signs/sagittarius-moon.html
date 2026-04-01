@@ -255,7 +255,8 @@
     </div>
   </div>
 
-  <footer class="foot"><a href="/signs/sagittarius">Sagittarius</a> &ensp;&middot;&ensp; <a href="/signs/">All Signs</a> &ensp;&middot;&ensp; <a href="/">Sign Season</a> &ensp;&middot;&ensp; <a href="/privacy">Privacy</a></footer>
+  <footer class="foot"><a href="/signs/sagittarius">Sagittarius</a> &ensp;&middot;&ensp; <a href="/signs/">All Signs</a> &ensp;&middot;&ensp; <a href="/">Sign Season</a> &ensp;&middot;&ensp; <a href="/privacy">Privacy</a>  <p style="margin-top:10px;font-family:Georgia,serif;font-size:0.75rem;font-style:italic;color:rgba(201,173,111,0.35);">written by Stella</p>
+  </footer>
 <script src="/js/stars.js"></script>
 <script>
 async function submitForm(fwId, inputId) { const input = document.getElementById(inputId); const email = input.value; if (!email || !input.checkValidity()) { input.reportValidity(); return; } const btn = input.parentElement.querySelector('button'); btn.textContent = '...'; btn.disabled = true; try { const res = await fetch('/api/subscribe', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email }) }); document.getElementById(fwId).classList.add('done'); if (!res.ok) fallbackSave(email); } catch { fallbackSave(email); document.getElementById(fwId).classList.add('done'); } }
