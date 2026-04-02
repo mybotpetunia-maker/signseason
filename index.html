@@ -576,6 +576,35 @@
       .cta-email-btn { width: auto; padding: 13px 22px; border-radius: 0 2px 2px 0; white-space: nowrap; }
     }
 
+    /* ─── Accessibility ─── */
+    .skip-nav {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      background: var(--gold);
+      color: var(--void);
+      padding: 8px 16px;
+      border-radius: 0 0 4px 4px;
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-decoration: none;
+      z-index: 9999;
+      transition: top 0.2s;
+    }
+    .skip-nav:focus {
+      top: 0;
+    }
+    /* Visible focus outlines for keyboard navigation */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    .zodiac-card:focus-visible,
+    .explore-card:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+    }
+
     /* ─── Sticky Scroll CTA ─── */
     .sticky-cta {
       position: fixed;
@@ -717,10 +746,11 @@
   <link rel="stylesheet" href="/css/global-fixes.css">
 </head>
 <body class="has-site-nav">
+<a href="#main-content" class="skip-nav">Skip to content</a>
 
 <div class="texture" aria-hidden="true"></div>
 
-<nav class="site-nav">
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
   <div class="site-nav-inner">
     <a href="/" class="site-nav-brand">Sign Season</a>
     <ul class="site-nav-links">
@@ -818,6 +848,7 @@
 
 
   <!-- HERO -->
+  <main id="main-content">
   <section class="hero">
     <div class="hero-mark">
       <img src="/assets/illustrations/pfp-transparent.png" alt="Sign Season logo">
@@ -830,7 +861,7 @@
     <div class="email-block">
       <div class="fw" id="fw1">
         <div class="email-row">
-          <input type="email" class="email-input" placeholder="your@email.com" required autocomplete="email" id="email1">
+          <input type="email" class="email-input" placeholder="your@email.com" required autocomplete="email" id="email1" aria-label="Email address for weekly reading">
           <button type="button" class="email-btn" onclick="submitForm('fw1','email1')">Send Me the Tea</button>
         </div>
         <p class="email-note">Your Aries season reading lands in your inbox in 60 seconds. Then weekly drops you'll actually want to open. — Stella</p>
@@ -997,7 +1028,7 @@
       <p class="cta-body">Every week I send horoscopes that hit different, compatibility takes your group chat will screenshot, and crystal recs that go deeper than "rose quartz for love." Join 50+ readers who actually open their horoscope emails. — Stella</p>
       <div class="fw" id="fw2">
         <div class="cta-email-row">
-          <input type="email" class="cta-email-input" placeholder="your@email.com" required autocomplete="email" id="email2">
+          <input type="email" class="cta-email-input" placeholder="your@email.com" required autocomplete="email" id="email2" aria-label="Email address to subscribe">
           <button type="button" class="cta-email-btn" onclick="submitForm('fw2','email2')">Yes, Read Me Like a Book</button>
         </div>
         <div class="cta-form-success">You're in. Your first reading is on the way. Check spam if you don't see it in 60 seconds. &#10024;&#xFE0E;</div>
@@ -1005,17 +1036,18 @@
     </div>
   </section>
 
+  </main>
   <!-- STICKY SCROLL CTA -->
   <div class="sticky-cta" id="stickyCta">
     <span class="sticky-cta-text">Stella has notes for you.</span>
-    <input type="email" class="sticky-cta-input" placeholder="your@email.com" id="stickyEmail" autocomplete="email">
+    <input type="email" class="sticky-cta-input" placeholder="your@email.com" id="stickyEmail" autocomplete="email" aria-label="Email address">
     <button type="button" class="sticky-cta-btn" onclick="stickySubmit()">Send Me the Tea</button>
     <button class="sticky-cta-close" onclick="dismissSticky()" aria-label="Close">&times;</button>
     <span class="sticky-cta-success">You're in. Check your inbox. &#10024;&#xFE0E;</span>
   </div>
 
   <!-- FOOTER -->
-  <footer>
+  <footer role="contentinfo">
     <div class="foot-brand">Sign Season</div>
     <div class="foot-links">
       <a href="https://tiktok.com/@sign_season" target="_blank" rel="noopener">TikTok</a>

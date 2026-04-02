@@ -249,3 +249,29 @@ footer a {
 .overall-num {
   color: #EDE3C8 !important;
 }
+
+/* ─── Accessibility (WCAG 2.1 AA) ─── */
+.skip-nav {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  background: #C9AD6F;
+  color: #1E1528;
+  padding: 8px 16px;
+  border-radius: 0 0 4px 4px;
+  font-family: -apple-system, Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top 0.2s;
+}
+.skip-nav:focus { top: 0; }
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #C9AD6F;
+  outline-offset: 2px;
+}
