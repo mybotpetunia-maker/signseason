@@ -92,7 +92,7 @@
 
     /* ─── Breadcrumb ─── */
     .breadcrumb {
-      padding: 68px 28px 0;
+      padding: 58px 28px 0;
       max-width: 720px;
       margin: 0 auto;
     }
@@ -127,15 +127,17 @@
     /* Wheel illustration behind hero */
     .chart-hero-wheel {
       position: absolute;
-      top: -20px;
+      top: 20px;
       left: 50%;
       transform: translateX(-50%);
-      width: min(520px, 95vw);
-      height: min(520px, 95vw);
-      opacity: 0.07;
+      width: min(320px, 70vw);
+      height: min(320px, 70vw);
+      opacity: 0.04;
       pointer-events: none;
       z-index: 0;
       object-fit: contain;
+      mask-image: radial-gradient(circle, black 40%, transparent 70%);
+      -webkit-mask-image: radial-gradient(circle, black 40%, transparent 70%);
     }
     .chart-hero > *:not(.chart-hero-wheel) {
       position: relative;
@@ -768,6 +770,7 @@
       </li>
       <li><a href="/compatibility">Compatibility</a></li>
       <li><a href="/crystals">Crystals</a></li>
+      <li><a href="/chart">Birth Chart</a></li>
       <li><a href="/#subscribe">Subscribe</a></li>
     </ul>
     <button class="site-nav-hamburger" aria-label="Menu">&#9776;</button>
@@ -812,6 +815,7 @@
     <div class="mobile-nav-links">
       <a href="/compatibility">Compatibility</a>
       <a href="/crystals">Crystals</a>
+      <a href="/chart">Birth Chart</a>
       <a href="/signs/">All Signs</a>
       <a href="/#subscribe">Subscribe</a>
     </div>
