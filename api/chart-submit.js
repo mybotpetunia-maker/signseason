@@ -447,6 +447,9 @@ function buildChartEmail(name, sunSign, moonSign, risingSign, birthTime, birthCi
   <p style="font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:#6A5D60;margin:8px 0 0;text-align:center;">
     You're receiving this because you requested a birth chart reading at signseason.com.
   </p>
+  <p style="font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:#6B6058;margin:4px 0 0;text-align:center;">
+    <a href="{{{RESEND_UNSUBSCRIBE_URL}}}" style="color:#6B6058;text-decoration:underline;">Unsubscribe</a>
+  </p>
 
 </td></tr>
 </table>

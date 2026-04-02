@@ -77,6 +77,8 @@ export default async function handler(req, res) {
 <p style="font-family:Georgia,serif;font-size:16px;font-style:italic;color:#B09A6E;margin:0 0 32px;text-align:center;">&#10024; Stella</p>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding-bottom:16px;"><div style="width:60px;height:1px;background-color:rgba(138,125,112,0.3);"></div></td></tr></table>
 <p style="font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:12px;color:#8A7D70;margin:0;text-align:center;">Sign Season &middot; <a href="https://signseason.com" style="color:#C9AD6F;text-decoration:none;">signseason.com</a></p>
+<p style="font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:#6B6058;margin:8px 0 0;text-align:center;">You're receiving this because you signed up at signseason.com.</p>
+<p style="font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:#6B6058;margin:4px 0 0;text-align:center;"><a href="{{{RESEND_UNSUBSCRIBE_URL}}}" style="color:#6B6058;text-decoration:underline;">Unsubscribe</a></p>
 </td></tr></table>
 </td></tr></table>
 </body></html>`;
