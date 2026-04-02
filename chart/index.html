@@ -968,7 +968,9 @@
 
       // Success
       document.getElementById('chartForm').style.display = 'none';
-      document.getElementById('formSuccess').classList.add('visible');
+      const successEl = document.getElementById('formSuccess');
+      successEl.classList.add('visible');
+      successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
     } catch (err) {
       showError('Connection error. Check your internet and try again.');
       btn.textContent = 'Read Me';
