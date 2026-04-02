@@ -448,6 +448,9 @@ function buildChartEmail(name, sunSign, moonSign, risingSign, birthTime, birthCi
     You're receiving this because you requested a birth chart reading at signseason.com.
   </p>
   <p style="font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:#6B6058;margin:4px 0 0;text-align:center;">
+    Sign Season, 6688 Nolensville Rd, Ste 108 #2223, Brentwood, TN 37027
+  </p>
+  <p style="font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:#6B6058;margin:4px 0 0;text-align:center;">
     <a href="{{{RESEND_UNSUBSCRIBE_URL}}}" style="color:#6B6058;text-decoration:underline;">Unsubscribe</a>
   </p>
 
