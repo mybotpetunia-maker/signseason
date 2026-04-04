@@ -34,7 +34,7 @@ async function getSubscribers() {
   if (!contactsRes.ok) return { total: 0, daily: [], list: [] };
 
   var contacts = await contactsRes.json();
-  var OWNER_EMAILS = ['tara.c.fung@gmail.com'];
+  var OWNER_EMAILS = ['tara.c.fung@gmail.com', 'tara@cocreate.ink'];
   var active = (contacts.data || []).filter(function (c) {
     return !c.unsubscribed && OWNER_EMAILS.indexOf(c.email.toLowerCase()) === -1;
   });
