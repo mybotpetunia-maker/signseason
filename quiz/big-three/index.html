@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="google-site-verification" content="google53a81f31582ee8d7" />
+  <meta name="p:domain_verify" content="621b0e7155899f63b4676e823d77759b"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What's Your Big Three? Sun, Moon &amp; Rising Calculator | Sign Season</title>
+  <meta name="description" content="Find your Big Three placements: Sun sign, Moon sign, and Rising sign. Enter your birth date, time, and city for your full cosmic identity in seconds.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="theme-color" content="#2A1F33">
+  <meta property="og:title" content="What's Your Big Three? | Sign Season">
+  <meta property="og:description" content="Sun. Moon. Rising. Three placements that explain everything. Find yours now.">
+  <meta property="og:image" content="https://signseason.com/assets/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://signseason.com/quiz/big-three">
+  <link rel="canonical" href="https://signseason.com/quiz/big-three">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@signseasonco">
+  <meta name="twitter:title" content="What's Your Big Three? | Sign Season">
+  <meta name="twitter:description" content="Sun. Moon. Rising. Find your three core placements and share your cosmic DNA.">
+  <meta name="twitter:image" content="https://signseason.com/assets/og-default.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Fondamento:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/nav.css">
+  <link rel="stylesheet" href="/css/global-fixes.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Sign Season","item":"https://signseason.com/"},
+      {"@type":"ListItem","position":2,"name":"Quizzes","item":"https://signseason.com/quiz/"},
+      {"@type":"ListItem","position":3,"name":"What's Your Big Three?","item":"https://signseason.com/quiz/big-three"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the Big Three in astrology?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Your Big Three refers to your Sun sign, Moon sign, and Rising sign (also called the Ascendant). Together they form the foundation of your natal chart. The Sun sign is your core identity, the Moon sign is your emotional inner world, and the Rising sign is how you appear to others and the mask you wear in the world."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need my birth time to find my Big Three?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You need a birth time to calculate your Rising sign accurately. Without it, you can still get your Sun and Moon signs. The Rising sign changes roughly every two hours, so even an approximate birth time helps narrow it down. Your Moon sign can also shift signs within a single day, so a birth time improves accuracy there too."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do people focus on the Big Three?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Big Three give you a richer, more nuanced picture than just your Sun sign alone. Two people born on the same day can have completely different Rising signs and emotional styles based on their birth time and location. Your Big Three explains why you might not feel like a 'typical' Scorpio or why your best friend, same Sun sign and all, acts nothing like you."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is the Moon sign calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Moon sign is calculated using the actual position of the Moon in the sky at the moment of your birth. This calculator uses the Meeus astronomical algorithm with 60 periodic terms, the same method used in professional ephemeris software. The Moon moves through all 12 signs every 28 days, spending about 2.5 days in each sign."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does the Rising sign mean?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Your Rising sign, or Ascendant, is the zodiac sign that was rising on the eastern horizon at the moment you were born. It shapes your appearance, first impressions, and the automatic way you move through the world. It's the version of you that strangers see before they really know you, and it changes every two hours, making it the most time-sensitive of the Big Three."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --void: #1E1528;
+      --plum: #2A1F33;
+      --plum-mid: #352840;
+      --plum-lift: #3D2E4A;
+      --gold-dim: #B09A6E;
+      --gold: #C9AD6F;
+      --gold-light: #D4BC7C;
+      --gold-pale: #E2D4A7;
+      --parchment: #F0E8D8;
+      --display: 'Fondamento', cursive;
+      --serif: 'EB Garamond', 'Georgia', serif;
+      --sans: 'DM Sans', -apple-system, sans-serif;
+      --mono: 'Space Mono', monospace;
+    }
+
+    body {
+      margin: 0; padding: 0;
+      background: var(--plum);
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    ::selection { background: rgba(201,173,111,0.25); color: var(--gold-pale); }
+
+    .texture {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    }
+    .texture::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url('/assets/textures/velvet-noise.png');
+      background-repeat: repeat;
+      background-size: 400px;
+      opacity: 0.3;
+      mix-blend-mode: soft-light;
+    }
+
+    .page { position: relative; z-index: 1; }
+
+    .skip-nav {
+      position: absolute;
+      top: -40px; left: 0;
+      background: var(--gold);
+      color: var(--void);
+      padding: 8px 16px;
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      text-decoration: none;
+      z-index: 9999;
+      transition: top 0.2s;
+    }
+    .skip-nav:focus { top: 0; }
+
+    /* ─── HERO ─── */
+    .hero {
+      text-align: center;
+      padding: 72px 24px 48px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--sans);
+      font-size: 0.58rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--gold-dim);
+      margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: clamp(2.4rem, 8vw, 4rem);
+      color: var(--gold-light);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .hero-sub {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--gold-dim);
+      max-width: 440px;
+      margin: 0 auto 40px;
+    }
+
+    /* ─── FORM ─── */
+    .quiz-form {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .field-label {
+      font-family: var(--sans);
+      font-size: 0.55rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold-dim);
+    }
+
+    .field-hint {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      color: rgba(176,154,110,0.6);
+      margin-top: 4px;
+    }
+
+    .text-input {
+      width: 100%;
+      padding: 14px 16px;
+      background: var(--plum-mid);
+      border: 1px solid rgba(201,173,111,0.2);
+      border-radius: 2px;
+      color: var(--gold-light);
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      transition: border-color 0.2s, background-color 0.2s;
+    }
+
+    .text-input:focus {
+      outline: none;
+      border-color: rgba(201,173,111,0.5);
+      background-color: var(--plum-lift);
+    }
+
+    .text-input::placeholder {
+      color: rgba(176,154,110,0.4);
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 480px) {
+      .field-row { grid-template-columns: 1fr; }
+    }
+
+    .calculate-btn {
+      width: 100%;
+      padding: 16px 24px;
+      background: var(--gold);
+      color: var(--void);
+      border: none;
+      border-radius: 2px;
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      cursor: pointer;
+      transition: background 0.2s, opacity 0.2s;
+      margin-top: 8px;
+    }
+
+    .calculate-btn:hover { background: var(--gold-light); }
+    .calculate-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .form-error {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      color: #e07a7a;
+      margin-top: 12px;
+      display: none;
+    }
+
+    /* ─── LOADING ─── */
+    .loading-state {
+      display: none;
+      text-align: center;
+      padding: 48px 24px;
+    }
+
+    .loading-state.active { display: block; }
+
+    .loading-orbs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .loading-orb {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--gold-dim);
+      animation: orb-pulse 1.4s ease-in-out infinite;
+    }
+    .loading-orb:nth-child(2) { animation-delay: 0.2s; }
+    .loading-orb:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes orb-pulse {
+      0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+
+    .loading-text {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--gold-dim);
+    }
+
+    /* ─── RESULTS ─── */
+    .results-section {
+      display: none;
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    .results-section.active { display: block; }
+
+    .results-tagline {
+      text-align: center;
+      font-family: var(--sans);
+      font-size: 0.55rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      color: var(--gold-dim);
+      margin-bottom: 40px;
+    }
+
+    /* ─── SIGN CARDS ─── */
+    .sign-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .sign-card {
+      background: var(--plum-mid);
+      border: 1px solid rgba(201,173,111,0.18);
+      border-radius: 2px;
+      padding: 28px 28px 28px 32px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sign-card.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .sign-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--gold-dim), var(--gold));
+    }
+
+    .sign-card-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+
+    .sign-card-type {
+      font-family: var(--sans);
+      font-size: 0.52rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--gold-dim);
+    }
+
+    .sign-card-symbol {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--gold-dim);
+    }
+
+    .sign-card-name {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: clamp(1.9rem, 5vw, 2.6rem);
+      color: var(--gold-light);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .sign-card-glyph {
+      font-size: 1.4rem;
+      color: var(--gold);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .sign-card-desc {
+      font-family: var(--serif);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--parchment);
+      opacity: 0.85;
+    }
+
+    /* Rising locked */
+    .rising-locked {
+      background: var(--plum-mid);
+      border: 1px solid rgba(201,173,111,0.12);
+      border-radius: 2px;
+      padding: 28px 32px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease 0.8s, transform 0.6s ease 0.8s;
+    }
+
+    .rising-locked.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .rising-locked-icon {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 12px;
+      opacity: 0.5;
+    }
+
+    .rising-locked-text {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--gold-dim);
+      margin-bottom: 16px;
+    }
+
+    .rising-locked-action {
+      font-family: var(--sans);
+      font-size: 0.58rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--gold-dim);
+      text-decoration: none;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      transition: color 0.2s;
+    }
+    .rising-locked-action:hover { color: var(--gold); }
+
+    /* moon note */
+    .moon-note {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      color: var(--gold-dim);
+      background: rgba(201,173,111,0.07);
+      border: 1px solid rgba(201,173,111,0.12);
+      border-radius: 2px;
+      padding: 10px 14px;
+      margin-top: 10px;
+    }
+
+    /* ─── SHARE ─── */
+    .share-section {
+      margin-bottom: 40px;
+      border-top: 1px solid rgba(201,173,111,0.12);
+      padding-top: 32px;
+    }
+
+    .share-label {
+      font-family: var(--sans);
+      font-size: 0.55rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--gold-dim);
+      margin-bottom: 16px;
+    }
+
+    .share-url-box {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .share-url-input {
+      flex: 1;
+      min-width: 0;
+      padding: 11px 14px;
+      background: var(--plum-mid);
+      border: 1px solid rgba(201,173,111,0.15);
+      border-radius: 2px;
+      color: var(--gold-dim);
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .share-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 11px 20px;
+      border: 1px solid rgba(201,173,111,0.25);
+      background: var(--plum-mid);
+      color: var(--gold-dim);
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      border-radius: 2px;
+    }
+
+    .share-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold-light);
+      background: var(--plum-lift);
+    }
+
+    .share-btn.copied {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* ─── EMAIL CAPTURE ─── */
+    .email-capture {
+      background: var(--plum-mid);
+      border: 1px solid rgba(201,173,111,0.15);
+      padding: 32px;
+      margin-bottom: 32px;
+      border-radius: 2px;
+    }
+
+    .email-capture-title {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 1.4rem;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+
+    .email-capture-sub {
+      font-family: var(--serif);
+      font-size: 0.95rem;
+      color: var(--gold-dim);
+      margin-bottom: 20px;
+    }
+
+    .email-form {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .email-input {
+      flex: 1;
+      min-width: 180px;
+      padding: 13px 16px;
+      background: var(--plum);
+      border: 1px solid rgba(201,173,111,0.2);
+      border-radius: 2px;
+      color: var(--gold-light);
+      font-family: var(--serif);
+      font-size: 1rem;
+    }
+
+    .email-input::placeholder { color: rgba(176,154,110,0.4); }
+    .email-input:focus {
+      outline: none;
+      border-color: rgba(201,173,111,0.45);
+    }
+
+    .email-submit {
+      padding: 13px 24px;
+      background: var(--gold);
+      color: var(--void);
+      border: none;
+      border-radius: 2px;
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .email-submit:hover { background: var(--gold-light); }
+
+    .email-success {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--gold-dim);
+      display: none;
+    }
+
+    /* ─── CHART CTA ─── */
+    .chart-cta {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid rgba(201,173,111,0.12);
+      margin-bottom: 24px;
+    }
+
+    .chart-cta-label {
+      font-family: var(--sans);
+      font-size: 0.55rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--gold-dim);
+      margin-bottom: 12px;
+    }
+
+    .chart-cta-link {
+      display: inline-block;
+      position: relative;
+      padding: 16px 36px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      text-decoration: none;
+      overflow: hidden;
+      transition: color 0.3s;
+    }
+
+    .chart-cta-link::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .chart-cta-link:hover::before { transform: scaleX(1); }
+    .chart-cta-link:hover { color: var(--void); }
+    .chart-cta-link span { position: relative; z-index: 1; }
+
+    /* ─── RETAKE ─── */
+    .retake-link {
+      display: block;
+      text-align: center;
+      margin-top: 24px;
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--gold-dim);
+      text-decoration: none;
+      cursor: pointer;
+      background: none;
+      border: none;
+      transition: color 0.2s;
+    }
+    .retake-link:hover { color: var(--gold); }
+
+    /* ─── FOOTER ─── */
+    .page-footer {
+      text-align: center;
+      padding: 48px 24px;
+      border-top: 1px solid rgba(201,173,111,0.1);
+    }
+
+    .page-footer p {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      color: rgba(176,154,110,0.45);
+      letter-spacing: 0.04em;
+    }
+
+    .page-footer a {
+      color: rgba(201,173,111,0.55);
+      text-decoration: none;
+    }
+
+    .page-footer a:hover { color: var(--gold-dim); }
+
+    .divider {
+      text-align: center;
+      padding: 12px 0;
+      opacity: 0.35;
+      letter-spacing: 16px;
+      font-size: 6px;
+      color: var(--gold-dim);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 520px) {
+      .email-form { flex-direction: column; }
+      .share-buttons { flex-direction: column; }
+      .share-btn { justify-content: center; }
+      .email-capture { padding: 24px 20px; }
+      .sign-card { padding: 22px 20px 22px 24px; }
+    }
+  </style>
+</head>
+<body class="has-site-nav">
+<a href="#main-content" class="skip-nav">Skip to content</a>
+<div class="texture" aria-hidden="true"></div>
+
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="site-nav-inner">
+    <a href="/" class="site-nav-brand">Sign Season</a>
+    <ul class="site-nav-links">
+      <li>
+        <button type="button">Signs <span class="nav-arrow">&#9662;</span></button>
+        <div class="nav-dropdown">
+          <div class="nav-signs-grid">
+            <a href="/signs/aries"><span class="sign-sym">&#9800;&#xFE0E;</span> Aries</a>
+            <a href="/signs/taurus"><span class="sign-sym">&#9801;&#xFE0E;</span> Taurus</a>
+            <a href="/signs/gemini"><span class="sign-sym">&#9802;&#xFE0E;</span> Gemini</a>
+            <a href="/signs/cancer"><span class="sign-sym">&#9803;&#xFE0E;</span> Cancer</a>
+            <a href="/signs/leo"><span class="sign-sym">&#9804;&#xFE0E;</span> Leo</a>
+            <a href="/signs/virgo"><span class="sign-sym">&#9805;&#xFE0E;</span> Virgo</a>
+            <a href="/signs/libra"><span class="sign-sym">&#9806;&#xFE0E;</span> Libra</a>
+            <a href="/signs/scorpio"><span class="sign-sym">&#9807;&#xFE0E;</span> Scorpio</a>
+            <a href="/signs/sagittarius"><span class="sign-sym">&#9808;&#xFE0E;</span> Sagittarius</a>
+            <a href="/signs/capricorn"><span class="sign-sym">&#9809;&#xFE0E;</span> Capricorn</a>
+            <a href="/signs/aquarius"><span class="sign-sym">&#9810;&#xFE0E;</span> Aquarius</a>
+            <a href="/signs/pisces"><span class="sign-sym">&#9811;&#xFE0E;</span> Pisces</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <button type="button">Topics <span class="nav-arrow">&#9662;</span></button>
+        <div class="nav-dropdown">
+          <div class="nav-topics-list">
+            <a href="/signs/#in-love">Love &amp; Dating</a>
+            <a href="/signs/#moon-signs">Moon Signs</a>
+            <a href="/signs/#rising-signs">Rising Signs</a>
+            <a href="/signs/#career">Career</a>
+            <a href="/signs/#toxic-traits">Toxic Traits</a>
+            <a href="/signs/#mercury-retrograde">Mercury Retrograde</a>
+            <a href="/signs/#horoscopes-2026">Horoscopes 2026</a>
+            <a href="/signs/#zodiac-men">Zodiac Men</a>
+            <a href="/signs/#zodiac-women">Zodiac Women</a>
+            <a href="/signs/#birthstones">Birthstones</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="/chart">Birth Chart</a></li>
+      <li><a href="/compatibility">Compatibility</a></li>
+      <li><a href="/crystals">Crystals</a></li>
+      <li><a href="/#subscribe">Subscribe</a></li>
+    </ul>
+    <button class="site-nav-hamburger" aria-label="Menu">&#9776;</button>
+  </div>
+</nav>
+
+<div class="site-nav-mobile">
+  <button class="site-nav-mobile-close" aria-label="Close menu">&times;</button>
+  <div class="mobile-nav-section">
+    <div class="mobile-nav-section-title">Signs</div>
+    <div class="mobile-nav-signs-grid">
+      <a href="/signs/aries">&#9800;&#xFE0E; Aries</a>
+      <a href="/signs/taurus">&#9801;&#xFE0E; Taurus</a>
+      <a href="/signs/gemini">&#9802;&#xFE0E; Gemini</a>
+      <a href="/signs/cancer">&#9803;&#xFE0E; Cancer</a>
+      <a href="/signs/leo">&#9804;&#xFE0E; Leo</a>
+      <a href="/signs/virgo">&#9805;&#xFE0E; Virgo</a>
+      <a href="/signs/libra">&#9806;&#xFE0E; Libra</a>
+      <a href="/signs/scorpio">&#9807;&#xFE0E; Scorpio</a>
+      <a href="/signs/sagittarius">&#9808;&#xFE0E; Sagittarius</a>
+      <a href="/signs/capricorn">&#9809;&#xFE0E; Capricorn</a>
+      <a href="/signs/aquarius">&#9810;&#xFE0E; Aquarius</a>
+      <a href="/signs/pisces">&#9811;&#xFE0E; Pisces</a>
+    </div>
+  </div>
+  <div class="mobile-nav-section">
+    <div class="mobile-nav-section-title">Explore</div>
+    <div class="mobile-nav-links">
+      <a href="/chart">Birth Chart</a>
+      <a href="/compatibility">Compatibility</a>
+      <a href="/crystals">Crystals</a>
+      <a href="/#subscribe">Subscribe</a>
+    </div>
+  </div>
+</div>
+
+<main id="main-content">
+  <div class="page">
+
+    <!-- HERO + FORM SECTION -->
+    <section id="quiz-section" aria-label="Big Three Calculator">
+      <div class="hero">
+        <p class="hero-eyebrow">Sign Season &bull; Big Three Calculator</p>
+        <h1 class="hero-title">What's Your<br>Big Three?</h1>
+        <p class="hero-sub">Sun. Moon. Rising. The three placements that explain why you are exactly the way you are.</p>
+      </div>
+
+      <div class="quiz-form" id="form-panel">
+        <div class="field-group">
+          <label class="field-label" for="birth-date">Birth Date</label>
+          <input
+            type="date"
+            id="birth-date"
+            class="text-input"
+            min="1900-01-01"
+            max="2025-12-31"
+            required
+            aria-required="true"
+          >
+        </div>
+
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label" for="birth-time">Birth Time <span style="font-weight:300;text-transform:none;letter-spacing:0;">(optional)</span></label>
+            <input
+              type="time"
+              id="birth-time"
+              class="text-input"
+              placeholder="14:30"
+            >
+            <span class="field-hint">Needed for Rising sign</span>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="birth-city">Birth City <span style="font-weight:300;text-transform:none;letter-spacing:0;">(optional)</span></label>
+            <input
+              type="text"
+              id="birth-city"
+              class="text-input"
+              placeholder="New York"
+              autocomplete="off"
+            >
+            <span class="field-hint">Needed for Rising sign</span>
+          </div>
+        </div>
+
+        <p class="form-error" id="form-error" role="alert"></p>
+
+        <button class="calculate-btn" id="calculate-btn" type="button">
+          Reveal My Big Three
+        </button>
+      </div>
+
+      <!-- LOADING -->
+      <div class="loading-state" id="loading-state" aria-live="polite">
+        <div class="loading-orbs">
+          <div class="loading-orb"></div>
+          <div class="loading-orb"></div>
+          <div class="loading-orb"></div>
+        </div>
+        <p class="loading-text">Reading the stars...</p>
+      </div>
+    </section>
+
+    <!-- RESULTS SECTION -->
+    <section class="results-section" id="results-section" aria-label="Your Big Three Results" aria-live="polite">
+
+      <p class="results-tagline">Your cosmic DNA</p>
+
+      <div class="sign-cards" id="sign-cards">
+        <!-- Injected by JS -->
+      </div>
+
+      <!-- SHARE -->
+      <div class="share-section" id="share-section">
+        <p class="share-label">Share Your Big Three</p>
+        <div class="share-url-box">
+          <input type="text" class="share-url-input" id="share-url" readonly aria-label="Shareable link">
+        </div>
+        <div class="share-buttons">
+          <button class="share-btn" id="copy-btn" type="button" aria-label="Copy shareable link">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="4" width="8" height="8" rx="1"/><path d="M2 10V2h8"/></svg>
+            Copy Link
+          </button>
+          <a class="share-btn" id="twitter-btn" href="#" target="_blank" rel="noopener" aria-label="Share on Twitter">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.736l7.73-8.835L1.254 2.25H8.08l4.259 5.632 5.905-5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            Share on X
+          </a>
+        </div>
+      </div>
+
+      <!-- EMAIL CAPTURE -->
+      <div class="email-capture">
+        <h2 class="email-capture-title">Save your chart</h2>
+        <p class="email-capture-sub">Get weekly horoscopes written for your exact placements, not just your Sun sign.</p>
+        <div class="email-form" id="email-form">
+          <input
+            type="email"
+            class="email-input"
+            id="email-input"
+            placeholder="your@email.com"
+            autocomplete="email"
+            aria-label="Email address"
+          >
+          <button class="email-submit" id="email-submit" type="button">Subscribe</button>
+        </div>
+        <p class="email-success" id="email-success">You're in. Check your inbox.</p>
+      </div>
+
+      <!-- CHART CTA -->
+      <div class="chart-cta">
+        <p class="chart-cta-label">Want to go deeper?</p>
+        <a href="/chart" class="chart-cta-link">
+          <span>Get Your Full Birth Chart Reading</span>
+        </a>
+      </div>
+
+      <div class="divider">&bull; &bull; &bull;</div>
+
+      <button class="retake-link" id="retake-btn" type="button">Calculate again</button>
+    </section>
+
+    <footer class="page-footer">
+      <p>&copy; 2026 <a href="/">Sign Season</a> &bull; <a href="/privacy">Privacy</a></p>
+    </footer>
+  </div>
+</main>
+
+<script>
+(function() {
+  'use strict';
+
+  // ── Sign data ─────────────────────────────────────────────────────────────
+  const SIGN_GLYPHS = {
+    Aries:'♈', Taurus:'♉', Gemini:'♊', Cancer:'♋', Leo:'♌', Virgo:'♍',
+    Libra:'♎', Scorpio:'♏', Sagittarius:'♐', Capricorn:'♑', Aquarius:'♒', Pisces:'♓'
+  };
+
+  const SIGN_DESCS = {
+    sun: {
+      Aries:       "You don't wait for permission. You're the one who starts things, who charges in before anyone else has decided if they're going, and somehow it usually works out. The ram energy is real: headfirst, fearless, occasionally a little bruised.",
+      Taurus:      "You know what you like and you refuse to apologize for it. Good food, real comfort, things that last. People mistake your groundedness for stubbornness until they realize you're just the only one in the room who actually knows what they want.",
+      Gemini:      "You contain multitudes, and yes, you've heard that line before, but it fits. Your mind runs in parallel tracks at all times, which makes you the most interesting person in any room and occasionally the most exhausting one too.",
+      Cancer:      "Your feelings are enormous and your memory is longer than anyone realizes. You care deeply, you remember everything, and your mood is basically a weather system that everyone around you has learned to read.",
+      Leo:         "You were born knowing how to hold a room. That warmth is real, the generosity is real, and so is the expectation that people notice. You are not low-maintenance and you have made peace with that.",
+      Virgo:       "You see the flaw in the system before anyone else even knows there's a system. Your standards are not the problem. Everyone else's sloppiness is the problem.",
+      Libra:       "You can see every side of every argument, which makes you an excellent mediator and an absolutely terrible decision-maker. You want harmony so badly that you'll rearrange yourself to create it, which is your greatest gift and your sneakiest trap.",
+      Scorpio:     "You don't share yourself easily, but when you do, it's everything. You feel things at a depth that most people don't even have access to, which means you've known loss that cuts to the bone and loyalty that doesn't waver.",
+      Sagittarius: "You're the one who booked the flight before anyone finished asking if you wanted to go. Freedom is your baseline requirement, and anyone who tries to shrink you will find out quickly that it doesn't work.",
+      Capricorn:   "You have a plan. You probably have a backup plan for the plan. You built your work ethic early and you've carried it quietly, which means your wins look effortless to everyone but you.",
+      Aquarius:    "You were thinking about this ten years ago and now everyone's just catching up. You hold your convictions hard and your independence harder, and you'd rather be alone than be misunderstood.",
+      Pisces:      "You absorb the room. Other people's feelings become your feelings before you even clock what happened. Your imagination is enormous, your empathy is borderline psychic, and the world is consistently louder than you'd like."
+    },
+    moon: {
+      Aries:       "Your emotional responses arrive fast and loud. You process by acting, not by sitting with it. The feelings are real and intense, they just don't tend to linger once you've moved through them.",
+      Taurus:      "You need stability the way other people need oxygen. Disruption doesn't sit right, and neither does being rushed. You process slowly, you hold on long, and once you feel safe, you are absolutely unshakeable.",
+      Gemini:      "You think through your feelings rather than just feeling them. Talking helps. Writing helps. Anything that gives the emotional noise a shape you can work with. The restlessness is your version of processing.",
+      Cancer:      "Your emotional world is vast and your capacity for love is off the charts. You feel things at the source, not the surface. Home, family, and belonging are not just nice-to-haves, they're the entire foundation.",
+      Leo:         "You need to feel seen in your emotions, not just acknowledged but truly witnessed. You're generous and warm in how you love, and you genuinely require that warmth to come back. This is not neediness. It's honesty.",
+      Virgo:       "You process feelings by analyzing them until they make sense. The anxiety is real and so is the helpfulness, which is sometimes the same energy wearing different clothes. You feel better when you're useful.",
+      Libra:       "You feel most settled when things are balanced and people around you aren't in conflict. You'll absorb a lot of friction just to keep the peace, which works until it doesn't. Then it really doesn't.",
+      Scorpio:     "Your emotional life runs deep and private. You don't show people your soft spots easily because you know exactly how much damage someone can do if they get that close. The trust you give is complete and the betrayal you don't forgive.",
+      Sagittarius: "You need emotional freedom the same way you need actual freedom. Heavy, clingy feelings make you itch to leave. Your optimism is your armor and your humor is how you process things that hurt.",
+      Capricorn:   "You keep it together. Always. Sometimes a little too always. You learned early that emotions are more useful when they're managed, and you've gotten very good at managing them. The feelings are still there. They just have excellent posture.",
+      Aquarius:    "Your emotional life is a little more cerebral than most. You feel things, absolutely, but you observe them at the same time, like a naturalist watching their own reactions. You need space and you are not apologizing for it.",
+      Pisces:      "You are porous. Other people's energy becomes your energy before you even realize it's happened. You feel everything, including things that were never yours to carry. Boundaries help. Sleep helps. The ocean helps."
+    },
+    rising: {
+      Aries:       "You walk in like you've already decided to win. Your energy is immediate and a little challenging, in a way people find either exciting or slightly alarming depending on their own sign. You do not do slow starts.",
+      Taurus:      "You give off an air of complete composure, which people find either deeply reassuring or vaguely intimidating. You move at your own pace and you look good doing it. People assume you have your life together even when you don't.",
+      Gemini:      "You come across as quick, clever, and about four conversations at once. People are immediately entertained by you, and immediately unsure which version of you is the real one. Both of them are.",
+      Cancer:      "Your first impression is warm and a little watchful. People feel taken care of around you before they even know why. You read the room instantly and respond to what people need, which is a superpower dressed as shyness.",
+      Leo:         "You enter a room and the room notices. Whether you're trying to or not, you have a presence that registers. Your style tends to say something, your laugh is probably audible, and you're used to being remembered.",
+      Virgo:       "You come across as put together, precise, maybe a little reserved at first. People trust your judgment quickly. You notice things others miss, which can read as either meticulous or critical depending on what you do with it.",
+      Libra:       "You are extremely easy to be around, which is something you've carefully crafted. You're charming, balanced, aesthetically minded, and you make people feel like the most interesting person in the room. It works every time.",
+      Scorpio:     "People feel like you're reading them the second you make eye contact. You have an intensity that you may not even register as intense because it's just your baseline. Others find you magnetic, occasionally unsettling, always memorable.",
+      Sagittarius: "You come across as open, enthusiastic, and like you've probably just come back from somewhere interesting. People enjoy being around you because you make them feel like something good might be about to happen.",
+      Capricorn:   "You project reliability and a quiet authority that makes people instinctively defer to you. You may not be the loudest in the room but people notice when you speak. You read older than you are in the best way.",
+      Aquarius:    "You give off a slightly other energy, like you're tuned to a frequency that most people can't quite pick up on. It's not unfriendly, just unusual, which makes people curious about you specifically.",
+      Pisces:      "You come across as dreamy, soft, and a little hard to pin down. People sense that there's more going on under the surface than you're showing, which there is. You pick up on moods before anyone says a word."
+    }
+  };
+
+  // ── DOM refs ──────────────────────────────────────────────────────────────
+  const quizSection    = document.getElementById('quiz-section');
+  const formPanel      = document.getElementById('form-panel');
+  const loadingState   = document.getElementById('loading-state');
+  const resultsSection = document.getElementById('results-section');
+  const signCards      = document.getElementById('sign-cards');
+  const formError      = document.getElementById('form-error');
+  const calculateBtn   = document.getElementById('calculate-btn');
+  const retakeBtn      = document.getElementById('retake-btn');
+  const shareUrl       = document.getElementById('share-url');
+  const copyBtn        = document.getElementById('copy-btn');
+  const twitterBtn     = document.getElementById('twitter-btn');
+  const emailInput     = document.getElementById('email-input');
+  const emailSubmit    = document.getElementById('email-submit');
+  const emailSuccess   = document.getElementById('email-success');
+  const emailForm      = document.getElementById('email-form');
+
+  // ── State ─────────────────────────────────────────────────────────────────
+  let currentResult = null;
+
+  // ── Helpers ───────────────────────────────────────────────────────────────
+  function showError(msg) {
+    formError.textContent = msg;
+    formError.style.display = 'block';
+  }
+
+  function clearError() {
+    formError.textContent = '';
+    formError.style.display = 'none';
+  }
+
+  function buildCard(type, sign, glyph, delayMs, note) {
+    const labels = { sun: 'Sun Sign', moon: 'Moon Sign', rising: 'Rising Sign' };
+    const symbols = { sun: '☉', moon: '☽', rising: '↑' };
+    const desc = SIGN_DESCS[type][sign] || '';
+
+    const card = document.createElement('div');
+    card.className = 'sign-card';
+    card.setAttribute('role', 'article');
+    card.setAttribute('aria-label', labels[type] + ': ' + sign);
+
+    let noteHtml = '';
+    if (note) {
+      noteHtml = `<p class="moon-note">${escapeHtml(note)}</p>`;
+    }
+
+    card.innerHTML = `
+      <div class="sign-card-header">
+        <span class="sign-card-type">${labels[type]}</span>
+        <span class="sign-card-symbol">${symbols[type]}</span>
+      </div>
+      <div class="sign-card-name">${sign}</div>
+      <span class="sign-card-glyph" aria-hidden="true">${glyph}</span>
+      <p class="sign-card-desc">${escapeHtml(desc)}</p>
+      ${noteHtml}
+    `;
+
+    setTimeout(() => card.classList.add('revealed'), delayMs);
+    return card;
+  }
+
+  function buildLockedRising(hasTime, hasCity) {
+    const locked = document.createElement('div');
+    locked.className = 'rising-locked';
+
+    let msg = '';
+    if (!hasTime && !hasCity) {
+      msg = 'Add your birth time and birth city to unlock your Rising sign.';
+    } else if (!hasTime) {
+      msg = 'Add your birth time to unlock your Rising sign.';
+    } else {
+      msg = 'Add your birth city so we can find your exact coordinates.';
+    }
+
+    locked.innerHTML = `
+      <span class="rising-locked-icon" aria-hidden="true">↑</span>
+      <p class="rising-locked-text">${escapeHtml(msg)}</p>
+      <button class="rising-locked-action" id="unlock-btn" type="button">Calculate again with birth time</button>
+    `;
+
+    setTimeout(() => locked.classList.add('revealed'), 800);
+    return locked;
+  }
+
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function buildShareUrl(result) {
+    const base = 'https://signseason.com/quiz/big-three';
+    const params = new URLSearchParams();
+    params.set('sun', result.sun.toLowerCase());
+    params.set('moon', result.moon.toLowerCase());
+    if (result.rising) params.set('rising', result.rising.toLowerCase());
+    return `${base}?${params.toString()}`;
+  }
+
+  function buildTwitterText(result) {
+    let text = `My big three: ${result.sun} Sun ${result.sunGlyph} / ${result.moon} Moon ${result.moonGlyph}`;
+    if (result.rising) text += ` / ${result.rising} Rising ${result.risingGlyph}`;
+    text += `\nFind yours at signseason.com/quiz/big-three`;
+    return encodeURIComponent(text);
+  }
+
+  function showResults(result) {
+    currentResult = result;
+    signCards.innerHTML = '';
+
+    // Sun card (always)
+    signCards.appendChild(buildCard('sun', result.sun, result.sunGlyph, 100, null));
+
+    // Moon card (always)
+    signCards.appendChild(buildCard('moon', result.moon, result.moonGlyph, 400, result.moonNote || null));
+
+    // Rising or locked
+    if (result.rising) {
+      signCards.appendChild(buildCard('rising', result.rising, result.risingGlyph, 700, null));
+    } else {
+      const hasTime = !!(document.getElementById('birth-time').value);
+      const hasCity = !!(document.getElementById('birth-city').value.trim());
+      signCards.appendChild(buildLockedRising(hasTime, hasCity));
+    }
+
+    // Share URL
+    const url = buildShareUrl(result);
+    shareUrl.value = url;
+
+    // Twitter link
+    twitterBtn.href = `https://twitter.com/intent/tweet?text=${buildTwitterText(result)}`;
+
+    // Show results section
+    quizSection.style.display = 'none';
+    resultsSection.style.display = 'block';
+    setTimeout(() => resultsSection.classList.add('active'), 10);
+
+    // Unlock btn
+    const unlockBtn = document.getElementById('unlock-btn');
+    if (unlockBtn) {
+      unlockBtn.addEventListener('click', retake);
+    }
+
+    resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function renderFromParams() {
+    const params = new URLSearchParams(window.location.search);
+    const sun    = params.get('sun');
+    const moon   = params.get('moon');
+    const rising = params.get('rising');
+
+    if (!sun || !moon) return false;
+
+    const capitalize = s => s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
+    const sunSign    = capitalize(sun);
+    const moonSign   = capitalize(moon);
+    const risingSign = rising ? capitalize(rising) : null;
+
+    if (!SIGN_DESCS.sun[sunSign] || !SIGN_DESCS.moon[moonSign]) return false;
+    if (risingSign && !SIGN_DESCS.rising[risingSign]) return false;
+
+    showResults({
+      sun:        sunSign,
+      moon:       moonSign,
+      rising:     risingSign,
+      sunGlyph:   SIGN_GLYPHS[sunSign]    || '',
+      moonGlyph:  SIGN_GLYPHS[moonSign]   || '',
+      risingGlyph: risingSign ? (SIGN_GLYPHS[risingSign] || '') : null,
+      moonNote:   null,
+    });
+    return true;
+  }
+
+  async function calculate() {
+    clearError();
+
+    const date = document.getElementById('birth-date').value;
+    const time = document.getElementById('birth-time').value;
+    const city = document.getElementById('birth-city').value.trim();
+
+    if (!date) {
+      showError('Please enter your birth date.');
+      return;
+    }
+
+    calculateBtn.disabled = true;
+    formPanel.style.opacity = '0.5';
+    loadingState.classList.add('active');
+
+    try {
+      const params = new URLSearchParams({ date });
+      if (time) params.set('time', time);
+      if (city) params.set('city', city);
+
+      const resp = await fetch(`/api/big-three?${params.toString()}`);
+      if (!resp.ok) {
+        const err = await resp.json().catch(() => ({}));
+        throw new Error(err.error || 'Something went wrong. Try again.');
+      }
+
+      const result = await resp.json();
+
+      // Update URL without reload (for bookmarking)
+      const shareParams = new URLSearchParams();
+      shareParams.set('sun', result.sun.toLowerCase());
+      shareParams.set('moon', result.moon.toLowerCase());
+      if (result.rising) shareParams.set('rising', result.rising.toLowerCase());
+      window.history.replaceState({}, '', `/quiz/big-three?${shareParams.toString()}`);
+
+      showResults(result);
+    } catch (err) {
+      showError(err.message || 'Something went wrong. Try again.');
+      formPanel.style.opacity = '1';
+    } finally {
+      calculateBtn.disabled = false;
+      loadingState.classList.remove('active');
+    }
+  }
+
+  function retake() {
+    resultsSection.classList.remove('active');
+    resultsSection.style.display = 'none';
+    quizSection.style.display = '';
+    formPanel.style.opacity = '1';
+    window.history.replaceState({}, '', '/quiz/big-three');
+    quizSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // ── Copy link ─────────────────────────────────────────────────────────────
+  copyBtn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(shareUrl.value);
+      copyBtn.classList.add('copied');
+      copyBtn.textContent = 'Copied!';
+      setTimeout(() => {
+        copyBtn.classList.remove('copied');
+        copyBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="4" width="8" height="8" rx="1"/><path d="M2 10V2h8"/></svg> Copy Link`;
+      }, 2000);
+    } catch (e) {
+      shareUrl.select();
+      document.execCommand('copy');
+    }
+  });
+
+  // ── Email subscribe ───────────────────────────────────────────────────────
+  emailSubmit.addEventListener('click', async () => {
+    const email = emailInput.value.trim();
+    if (!email || !email.includes('@')) {
+      emailInput.focus();
+      return;
+    }
+
+    emailSubmit.disabled = true;
+    emailSubmit.textContent = 'Sending...';
+
+    try {
+      const resp = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'big-three-quiz' }),
+      });
+      if (resp.ok) {
+        emailForm.style.display = 'none';
+        emailSuccess.style.display = 'block';
+      } else {
+        emailSubmit.disabled = false;
+        emailSubmit.textContent = 'Try again';
+      }
+    } catch (e) {
+      emailSubmit.disabled = false;
+      emailSubmit.textContent = 'Try again';
+    }
+  });
+
+  // ── Event listeners ───────────────────────────────────────────────────────
+  calculateBtn.addEventListener('click', calculate);
+
+  document.getElementById('birth-date').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') calculate();
+  });
+  document.getElementById('birth-city').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') calculate();
+  });
+
+  retakeBtn.addEventListener('click', retake);
+
+  // ── Init: check for URL params ────────────────────────────────────────────
+  renderFromParams();
+
+  // ── Nav hamburger (same as other pages) ──────────────────────────────────
+  const hamburger = document.querySelector('.site-nav-hamburger');
+  const mobileNav = document.querySelector('.site-nav-mobile');
+  const mobileClose = document.querySelector('.site-nav-mobile-close');
+
+  if (hamburger && mobileNav) {
+    hamburger.addEventListener('click', () => {
+      mobileNav.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+    mobileClose.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  }
+
+})();
+</script>
+</body>
+</html>
