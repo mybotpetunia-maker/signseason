@@ -55,7 +55,8 @@ The PFP: gold stipple sun engraving on deep plum. Classical celestial atlas meet
 
 Phone rendering context: a 1080px canvas displays at ~390px on most phones. That's a ~2.77x reduction. So 40px on canvas ≈ 14px on phone.
 
-#### TikTok (1080 x 1920, 9:16)
+#### TikTok Photo Carousels (1080 x 1350, 4:5)
+**TikTok photo carousels crop to 3:4 or 4:5. Using 1080x1350 (same as IG) prevents clipping. 9:16 (1080x1920) is for VIDEO only.**
 **Margins: 120px (11% each side). Max text width: 840px.**
 
 | Element | Font | Size | Weight/Style | Color |
