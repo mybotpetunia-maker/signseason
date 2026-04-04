@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="google-site-verification" content="google53a81f31582ee8d7" />
+  <meta name="p:domain_verify" content="621b0e7155899f63b4676e823d77759b"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zodiac Compatibility Quiz | Sign Season</title>
+  <meta name="description" content="Find out how compatible you are with your partner or crush. Get your love score, strengths, challenges, and a shareable verdict for all 144 sign combinations.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="theme-color" content="#2A1F33">
+  <meta property="og:title" content="Zodiac Compatibility Quiz | Sign Season" id="og-title">
+  <meta property="og:description" content="How compatible are you, really? Get your full compatibility reading, love score, and a verdict worth screenshotting." id="og-desc">
+  <meta property="og:image" content="https://signseason.com/assets/og-default.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://signseason.com/quiz/compatibility/" id="og-url">
+  <link rel="canonical" href="https://signseason.com/quiz/compatibility/" id="canonical">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Fondamento:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/nav.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --void: #1E1528;
+      --plum: #2A1F33;
+      --plum-mid: #352840;
+      --plum-lift: #3D2E4A;
+      --gold-dim: #B09A6E;
+      --gold: #C9AD6F;
+      --gold-light: #D4BC7C;
+      --gold-pale: #E2D4A7;
+      --parchment: #F0E8D8;
+      --display: 'Fondamento', cursive;
+      --serif: 'EB Garamond', 'Garamond', 'Georgia', serif;
+      --sans: 'DM Sans', -apple-system, sans-serif;
+      --mono: 'Space Mono', monospace;
+    }
+
+    body {
+      margin: 0; padding: 0;
+      background: var(--plum);
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    ::selection { background: rgba(201,173,111,0.25); color: var(--gold-pale); }
+
+    .texture {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    }
+    .texture::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url('/assets/textures/velvet-noise.png');
+      background-repeat: repeat;
+      background-size: 400px;
+      opacity: 0.3;
+      mix-blend-mode: soft-light;
+    }
+
+    .page { position: relative; z-index: 1; }
+
+    .skip-nav {
+      position: absolute; top: -100px; left: 16px;
+      background: var(--gold); color: var(--plum);
+      padding: 8px 16px; border-radius: 4px;
+      font-family: var(--sans); font-size: 0.85rem;
+      transition: top 0.2s;
+      z-index: 9999;
+    }
+    .skip-nav:focus { top: 16px; }
+
+    /* ── QUIZ LAYOUT ── */
+    .quiz-hero {
+      min-height: 52vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      text-align: center;
+      padding: 120px 24px 56px;
+      position: relative;
+    }
+    .quiz-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(201,173,111,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .quiz-hero > * { position: relative; z-index: 1; }
+
+    .quiz-eyebrow {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--gold-dim);
+      margin-bottom: 20px;
+    }
+    .quiz-title {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: clamp(2.4rem, 7vw, 4.2rem);
+      line-height: 1.1;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .quiz-subtitle {
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--gold-dim);
+      font-size: clamp(1rem, 2vw, 1.1rem);
+      max-width: 440px;
+      margin: 0 auto 0;
+    }
+
+    /* ── FORM SECTION ── */
+    .quiz-form-section {
+      padding: 0 24px 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .quiz-card {
+      background: rgba(53,40,64,0.7);
+      border: 1px solid rgba(201,173,111,0.18);
+      border-radius: 16px;
+      padding: 40px 36px;
+      width: 100%;
+      max-width: 560px;
+      backdrop-filter: blur(8px);
+    }
+    .quiz-card h2 {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--gold-pale);
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold-dim);
+    }
+    .form-sep {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 1.4rem;
+      color: var(--gold-dim);
+      text-align: center;
+      padding-top: 20px;
+    }
+    .sign-select {
+      width: 100%;
+      padding: 12px 14px;
+      background: var(--plum-lift);
+      border: 1px solid rgba(201,173,111,0.25);
+      border-radius: 8px;
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 1rem;
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C9AD6F' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+      transition: border-color 0.2s;
+    }
+    .sign-select:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+    .sign-select option {
+      background: var(--plum-mid);
+      color: var(--gold);
+    }
+    .quiz-btn {
+      width: 100%;
+      padding: 15px 24px;
+      background: var(--gold);
+      color: var(--plum);
+      border: none;
+      border-radius: 8px;
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .quiz-btn:hover { background: var(--gold-light); }
+    .quiz-btn:active { transform: scale(0.99); }
+
+    @media (max-width: 480px) {
+      .quiz-card { padding: 28px 20px; }
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .form-sep { padding-top: 0; font-size: 1.1rem; }
+    }
+
+    /* ── RESULT SECTION ── */
+    #result-section {
+      display: none;
+      padding: 0 24px 80px;
+      flex-direction: column;
+      align-items: center;
+    }
+    #result-section.visible { display: flex; }
+
+    .result-card {
+      width: 100%;
+      max-width: 660px;
+      background: rgba(53,40,64,0.7);
+      border: 1px solid rgba(201,173,111,0.2);
+      border-radius: 20px;
+      padding: 48px 40px;
+      backdrop-filter: blur(8px);
+    }
+
+    .result-pair {
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .result-pair-names {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      color: var(--gold-pale);
+      line-height: 1.2;
+    }
+    .result-element-badge {
+      display: inline-block;
+      margin: 12px auto 0;
+      padding: 4px 14px;
+      border: 1px solid rgba(201,173,111,0.3);
+      border-radius: 100px;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+    }
+
+    /* Score ring */
+    .score-ring-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 36px 0 32px;
+    }
+    .score-ring {
+      width: 130px;
+      height: 130px;
+      position: relative;
+    }
+    .score-ring svg { transform: rotate(-90deg); }
+    .score-ring-bg { stroke: rgba(201,173,111,0.12); }
+    .score-ring-fill {
+      stroke: var(--gold);
+      stroke-linecap: round;
+      transition: stroke-dashoffset 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .score-ring-number {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .score-big {
+      font-family: var(--mono);
+      font-size: 2.2rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .score-label {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold-dim);
+      margin-top: 3px;
+    }
+    .score-ring-caption {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--gold-dim);
+      margin-top: 14px;
+    }
+
+    /* Sub-score bars */
+    .sub-scores {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+    .sub-score {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .sub-score-label {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--gold-dim);
+    }
+    .sub-score-track {
+      width: 100%;
+      height: 4px;
+      background: rgba(201,173,111,0.12);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+    .sub-score-fill {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 100px;
+      width: 0;
+      transition: width 1.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .sub-score-num {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--gold-pale);
+    }
+
+    /* Divider */
+    .result-divider {
+      height: 1px;
+      background: rgba(201,173,111,0.12);
+      margin: 28px 0;
+    }
+
+    /* Verdict */
+    .verdict-block {
+      background: rgba(201,173,111,0.06);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 18px 22px;
+      margin-bottom: 32px;
+    }
+    .verdict-label {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold-dim);
+      margin-bottom: 6px;
+    }
+    .verdict-text {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--gold-pale);
+      line-height: 1.6;
+    }
+
+    /* Strengths / Challenges */
+    .sc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    .sc-block h3 {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold-dim);
+      margin-bottom: 12px;
+    }
+    .sc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .sc-list li {
+      font-family: var(--serif);
+      font-size: 0.95rem;
+      color: var(--gold-pale);
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.5;
+    }
+    .sc-list li::before {
+      content: attr(data-bullet);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .sc-list.strengths li::before { content: '✦'; color: var(--gold); font-size: 0.7rem; top: 3px; }
+    .sc-list.challenges li::before { content: '◇'; color: var(--gold-dim); font-size: 0.7rem; top: 3px; }
+
+    @media (max-width: 520px) {
+      .sc-grid { grid-template-columns: 1fr; gap: 20px; }
+      .sub-scores { gap: 12px; }
+      .result-card { padding: 28px 20px; }
+    }
+
+    /* Full report CTA */
+    .full-report-link {
+      display: block;
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .full-report-link a {
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--gold-dim);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      border-bottom: 1px solid rgba(201,173,111,0.3);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .full-report-link a:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* ── SHARE SECTION ── */
+    .share-section {
+      margin-top: 0;
+    }
+    .share-heading {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--gold-dim);
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    .share-url-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .share-url-input {
+      flex: 1;
+      padding: 10px 14px;
+      background: var(--void);
+      border: 1px solid rgba(201,173,111,0.2);
+      border-radius: 8px;
+      color: var(--gold-dim);
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      cursor: text;
+    }
+    .copy-btn {
+      padding: 10px 18px;
+      background: rgba(201,173,111,0.12);
+      border: 1px solid rgba(201,173,111,0.25);
+      border-radius: 8px;
+      color: var(--gold);
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .copy-btn:hover { background: rgba(201,173,111,0.2); }
+    .copy-btn.copied { color: #7dd4b0; }
+    .share-social {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+    .share-social a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 18px;
+      border: 1px solid rgba(201,173,111,0.22);
+      border-radius: 8px;
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--gold-dim);
+      text-decoration: none;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .share-social a:hover {
+      color: var(--gold);
+      border-color: rgba(201,173,111,0.5);
+      background: rgba(201,173,111,0.06);
+    }
+
+    /* ── EMAIL CAPTURE ── */
+    .email-capture-section {
+      width: 100%;
+      max-width: 660px;
+      margin-top: 28px;
+    }
+    .email-capture-card {
+      background: rgba(53,40,64,0.6);
+      border: 1px solid rgba(201,173,111,0.15);
+      border-radius: 16px;
+      padding: 32px 36px;
+      text-align: center;
+    }
+    .email-capture-card h3 {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 1.4rem;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .email-capture-card p {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--gold-dim);
+      margin-bottom: 20px;
+    }
+    .email-capture-row {
+      display: flex;
+      gap: 8px;
+    }
+    .email-input-cap {
+      flex: 1;
+      padding: 12px 16px;
+      background: var(--plum-lift);
+      border: 1px solid rgba(201,173,111,0.25);
+      border-radius: 8px;
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 1rem;
+    }
+    .email-input-cap:focus { outline: none; border-color: var(--gold); }
+    .email-input-cap::placeholder { color: var(--gold-dim); opacity: 0.6; }
+    .email-sub-btn {
+      padding: 12px 22px;
+      background: var(--gold);
+      color: var(--plum);
+      border: none;
+      border-radius: 8px;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .email-sub-btn:hover { background: var(--gold-light); }
+    .email-success-msg {
+      display: none;
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--gold);
+      font-size: 1rem;
+    }
+    .email-capture-card.done .email-capture-row { display: none; }
+    .email-capture-card.done .email-success-msg { display: block; }
+    .email-note-small {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      color: var(--gold-dim);
+      margin-top: 10px;
+      opacity: 0.7;
+    }
+    @media (max-width: 480px) {
+      .email-capture-row { flex-direction: column; }
+      .email-capture-card { padding: 24px 20px; }
+      .share-social { flex-wrap: wrap; }
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 48px 24px 32px;
+      text-align: center;
+      border-top: 1px solid rgba(201,173,111,0.08);
+      margin-top: 40px;
+    }
+    .foot-brand {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 1.3rem;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .foot-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 16px;
+    }
+    .foot-links a {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      color: var(--gold-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .foot-links a:hover { color: var(--gold); }
+    .foot-copy {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      color: var(--gold-dim);
+      opacity: 0.6;
+    }
+    .foot-copy a { color: inherit; }
+  </style>
+</head>
+
+<body class="has-site-nav">
+<a href="#main-content" class="skip-nav">Skip to content</a>
+<div class="texture" aria-hidden="true"></div>
+
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="site-nav-inner">
+    <a href="/" class="site-nav-brand">Sign Season</a>
+    <ul class="site-nav-links">
+      <li>
+        <button type="button">Signs <span class="nav-arrow">&#9662;</span></button>
+        <div class="nav-dropdown">
+          <div class="nav-signs-grid">
+            <a href="/signs/aries"><span class="sign-sym">&#9800;&#xFE0E;</span> Aries</a>
+            <a href="/signs/taurus"><span class="sign-sym">&#9801;&#xFE0E;</span> Taurus</a>
+            <a href="/signs/gemini"><span class="sign-sym">&#9802;&#xFE0E;</span> Gemini</a>
+            <a href="/signs/cancer"><span class="sign-sym">&#9803;&#xFE0E;</span> Cancer</a>
+            <a href="/signs/leo"><span class="sign-sym">&#9804;&#xFE0E;</span> Leo</a>
+            <a href="/signs/virgo"><span class="sign-sym">&#9805;&#xFE0E;</span> Virgo</a>
+            <a href="/signs/libra"><span class="sign-sym">&#9806;&#xFE0E;</span> Libra</a>
+            <a href="/signs/scorpio"><span class="sign-sym">&#9807;&#xFE0E;</span> Scorpio</a>
+            <a href="/signs/sagittarius"><span class="sign-sym">&#9808;&#xFE0E;</span> Sagittarius</a>
+            <a href="/signs/capricorn"><span class="sign-sym">&#9809;&#xFE0E;</span> Capricorn</a>
+            <a href="/signs/aquarius"><span class="sign-sym">&#9810;&#xFE0E;</span> Aquarius</a>
+            <a href="/signs/pisces"><span class="sign-sym">&#9811;&#xFE0E;</span> Pisces</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <button type="button">Topics <span class="nav-arrow">&#9662;</span></button>
+        <div class="nav-dropdown">
+          <div class="nav-topics-list">
+            <a href="/signs/#in-love">Love &amp; Dating</a>
+            <a href="/signs/#moon-signs">Moon Signs</a>
+            <a href="/signs/#rising-signs">Rising Signs</a>
+            <a href="/signs/#career">Career</a>
+            <a href="/signs/#toxic-traits">Toxic Traits</a>
+            <a href="/signs/#mercury-retrograde">Mercury Retrograde</a>
+            <a href="/signs/#horoscopes-2026">Horoscopes 2026</a>
+            <a href="/signs/#zodiac-men">Zodiac Men</a>
+            <a href="/signs/#zodiac-women">Zodiac Women</a>
+            <a href="/signs/#birthstones">Birthstones</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="/chart">Birth Chart</a></li>
+      <li><a href="/compatibility">Compatibility</a></li>
+      <li><a href="/crystals">Crystals</a></li>
+      <li><a href="/#subscribe">Subscribe</a></li>
+    </ul>
+    <button class="site-nav-hamburger" aria-label="Menu">&#9776;</button>
+  </div>
+</nav>
+<div class="site-nav-mobile">
+  <button class="site-nav-mobile-close" aria-label="Close menu">&times;</button>
+  <div class="mobile-nav-section">
+    <div class="mobile-nav-section-title">Signs</div>
+    <div class="mobile-nav-signs-grid">
+      <a href="/signs/aries">&#9800;&#xFE0E; Aries</a>
+      <a href="/signs/taurus">&#9801;&#xFE0E; Taurus</a>
+      <a href="/signs/gemini">&#9802;&#xFE0E; Gemini</a>
+      <a href="/signs/cancer">&#9803;&#xFE0E; Cancer</a>
+      <a href="/signs/leo">&#9804;&#xFE0E; Leo</a>
+      <a href="/signs/virgo">&#9805;&#xFE0E; Virgo</a>
+      <a href="/signs/libra">&#9806;&#xFE0E; Libra</a>
+      <a href="/signs/scorpio">&#9807;&#xFE0E; Scorpio</a>
+      <a href="/signs/sagittarius">&#9808;&#xFE0E; Sagittarius</a>
+      <a href="/signs/capricorn">&#9809;&#xFE0E; Capricorn</a>
+      <a href="/signs/aquarius">&#9810;&#xFE0E; Aquarius</a>
+      <a href="/signs/pisces">&#9811;&#xFE0E; Pisces</a>
+    </div>
+  </div>
+  <div class="mobile-nav-section">
+    <div class="mobile-nav-section-title">Topics</div>
+    <div class="mobile-nav-links">
+      <a href="/signs/#in-love">Love &amp; Dating</a>
+      <a href="/signs/#moon-signs">Moon Signs</a>
+      <a href="/signs/#rising-signs">Rising Signs</a>
+      <a href="/signs/#career">Career</a>
+      <a href="/signs/#toxic-traits">Toxic Traits</a>
+      <a href="/signs/#mercury-retrograde">Mercury Retrograde</a>
+      <a href="/signs/#horoscopes-2026">Horoscopes 2026</a>
+      <a href="/signs/#zodiac-men">Zodiac Men</a>
+      <a href="/signs/#zodiac-women">Zodiac Women</a>
+      <a href="/signs/#birthstones">Birthstones</a>
+    </div>
+  </div>
+  <div class="mobile-nav-section">
+    <div class="mobile-nav-section-title">Explore</div>
+    <div class="mobile-nav-links">
+      <a href="/chart">Birth Chart</a>
+      <a href="/compatibility">Compatibility</a>
+      <a href="/crystals">Crystals</a>
+      <a href="/signs/">All Signs</a>
+      <a href="/#subscribe">Subscribe</a>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+<main id="main-content">
+
+  <!-- HERO -->
+  <section class="quiz-hero">
+    <p class="quiz-eyebrow">Sign Season Quiz</p>
+    <h1 class="quiz-title">Zodiac Compatibility</h1>
+    <p class="quiz-subtitle">Find out how the stars really feel about you two.</p>
+  </section>
+
+  <!-- FORM -->
+  <section class="quiz-form-section" id="quiz-form-section">
+    <div class="quiz-card">
+      <h2>Select your signs</h2>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="sign1">Your Sign</label>
+          <select class="sign-select" id="sign1" aria-label="Your zodiac sign">
+            <option value="">Choose...</option>
+            <option value="aries">Aries &#9800;</option>
+            <option value="taurus">Taurus &#9801;</option>
+            <option value="gemini">Gemini &#9802;</option>
+            <option value="cancer">Cancer &#9803;</option>
+            <option value="leo">Leo &#9804;</option>
+            <option value="virgo">Virgo &#9805;</option>
+            <option value="libra">Libra &#9806;</option>
+            <option value="scorpio">Scorpio &#9807;</option>
+            <option value="sagittarius">Sagittarius &#9808;</option>
+            <option value="capricorn">Capricorn &#9809;</option>
+            <option value="aquarius">Aquarius &#9810;</option>
+            <option value="pisces">Pisces &#9811;</option>
+          </select>
+        </div>
+        <div class="form-sep">&amp;</div>
+        <div class="form-group">
+          <label class="form-label" for="sign2">Their Sign</label>
+          <select class="sign-select" id="sign2" aria-label="Their zodiac sign">
+            <option value="">Choose...</option>
+            <option value="aries">Aries &#9800;</option>
+            <option value="taurus">Taurus &#9801;</option>
+            <option value="gemini">Gemini &#9802;</option>
+            <option value="cancer">Cancer &#9803;</option>
+            <option value="leo">Leo &#9804;</option>
+            <option value="virgo">Virgo &#9805;</option>
+            <option value="libra">Libra &#9806;</option>
+            <option value="scorpio">Scorpio &#9807;</option>
+            <option value="sagittarius">Sagittarius &#9808;</option>
+            <option value="capricorn">Capricorn &#9809;</option>
+            <option value="aquarius">Aquarius &#9810;</option>
+            <option value="pisces">Pisces &#9811;</option>
+          </select>
+        </div>
+      </div>
+      <button class="quiz-btn" onclick="runQuiz()">Check Compatibility</button>
+    </div>
+  </section>
+
+  <!-- RESULT -->
+  <section id="result-section" aria-live="polite">
+    <div class="result-card" id="result-card">
+
+      <div class="result-pair">
+        <div class="result-pair-names" id="result-pair-names">Scorpio &amp; Pisces</div>
+        <div class="result-element-badge" id="result-element-badge">Water + Water</div>
+      </div>
+
+      <div class="score-ring-wrap">
+        <div class="score-ring">
+          <svg width="130" height="130" viewBox="0 0 130 130">
+            <circle class="score-ring-bg" cx="65" cy="65" r="56" fill="none" stroke-width="8"/>
+            <circle class="score-ring-fill" id="ring-fill" cx="65" cy="65" r="56" fill="none" stroke-width="8"
+              stroke-dasharray="351.86" stroke-dashoffset="351.86"/>
+          </svg>
+          <div class="score-ring-number">
+            <span class="score-big" id="score-big">93</span>
+            <span class="score-label">Match</span>
+          </div>
+        </div>
+        <div class="score-ring-caption" id="score-ring-caption">Cosmic soulmates</div>
+      </div>
+
+      <div class="sub-scores">
+        <div class="sub-score">
+          <span class="sub-score-label">Love</span>
+          <div class="sub-score-track"><div class="sub-score-fill" id="bar-love"></div></div>
+          <span class="sub-score-num" id="num-love">94</span>
+        </div>
+        <div class="sub-score">
+          <span class="sub-score-label">Trust</span>
+          <div class="sub-score-track"><div class="sub-score-fill" id="bar-trust"></div></div>
+          <span class="sub-score-num" id="num-trust">90</span>
+        </div>
+        <div class="sub-score">
+          <span class="sub-score-label">Comms</span>
+          <div class="sub-score-track"><div class="sub-score-fill" id="bar-comm"></div></div>
+          <span class="sub-score-num" id="num-comm">88</span>
+        </div>
+      </div>
+
+      <div class="verdict-block">
+        <div class="verdict-label">Stella's Verdict</div>
+        <div class="verdict-text" id="verdict-text">The best love story in the zodiac. Ask anyone. They already know.</div>
+      </div>
+
+      <div class="result-divider"></div>
+
+      <div class="sc-grid">
+        <div class="sc-block">
+          <h3>Strengths</h3>
+          <ul class="sc-list strengths" id="strengths-list">
+            <li>Scorpio's depth meets Pisces's soul and they both exhale.</li>
+            <li>Intuitive, passionate, and profoundly bonded.</li>
+            <li>Real unconditional love, no conditions required.</li>
+          </ul>
+        </div>
+        <div class="sc-block">
+          <h3>Challenges</h3>
+          <ul class="sc-list challenges" id="challenges-list">
+            <li>Can drown in shared emotional intensity.</li>
+            <li>Scorpio's jealousy can overwhelm gentle Pisces.</li>
+            <li>Escapism is a shared trap they must watch for.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="result-divider"></div>
+
+      <div class="full-report-link" id="full-report-link">
+        <a href="/compatibility/scorpio-pisces" id="full-report-anchor">Read the full Scorpio &amp; Pisces compatibility report &rarr;</a>
+      </div>
+
+      <div class="share-section">
+        <p class="share-heading">Share your result</p>
+        <div class="share-url-row">
+          <input type="text" class="share-url-input" id="share-url" readonly aria-label="Shareable result URL">
+          <button class="copy-btn" id="copy-btn" onclick="copyLink()">Copy</button>
+        </div>
+        <div class="share-social">
+          <a href="#" id="share-twitter" target="_blank" rel="noopener" aria-label="Share on Twitter">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.75l7.73-8.835L2.49 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            Twitter
+          </a>
+          <a href="#" id="share-pinterest" target="_blank" rel="noopener" aria-label="Share on Pinterest">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+            Pinterest
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- EMAIL CAPTURE -->
+    <div class="email-capture-section">
+      <div class="email-capture-card" id="email-cap-card">
+        <h3>Save your full compatibility report</h3>
+        <p>Weekly cosmic readings, straight to your inbox. Curated by Stella.</p>
+        <div class="email-capture-row">
+          <input type="email" class="email-input-cap" id="cap-email" placeholder="your@email.com" autocomplete="email" aria-label="Email for compatibility report">
+          <button class="email-sub-btn" onclick="submitCapEmail()">Send It</button>
+        </div>
+        <p class="email-success-msg">You're in. Check your inbox. ✨ Stella</p>
+        <p class="email-note-small">No spam. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer role="contentinfo">
+  <div class="foot-brand">Sign Season</div>
+  <div class="foot-links">
+    <a href="https://tiktok.com/@sign_season" target="_blank" rel="noopener">TikTok</a>
+    <a href="https://instagram.com/signseasonco" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://pinterest.com/signseason" target="_blank" rel="noopener">Pinterest</a>
+  </div>
+  <p class="foot-copy">&copy; 2026 TF Ventures LLC &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a> &middot; <a href="/disclosure">Disclosure</a></p>
+  <p class="foot-copy" style="margin-top:8px;font-style:italic;color:var(--gold-dim);opacity:0.6;">written by Stella</p>
+</footer>
+</div>
+
+<script src="/js/nav.js"></script>
+<script>
+// ─────────────────────────────────────────────
+// COMPATIBILITY DATA — all 78 canonical pairs
+// Key: alphabetical order sign1-sign2
+// ─────────────────────────────────────────────
+const SIGNS = ['aries','taurus','gemini','cancer','leo','virgo','libra','scorpio','sagittarius','capricorn','aquarius','pisces'];
+
+const SIGN_SYMBOLS = {
+  aries:'♈', taurus:'♉', gemini:'♊', cancer:'♋', leo:'♌', virgo:'♍',
+  libra:'♎', scorpio:'♏', sagittarius:'♐', capricorn:'♑', aquarius:'♒', pisces:'♓'
+};
+
+const COMPAT = {
+  'aquarius-aquarius': {
+    score:82, love:80, trust:75, comm:90,
+    element:'Air + Air: brilliant, breezy, occasionally untethered',
+    strengths:['Shared values of freedom and innovation bond them deeply.','Intellectual equals who genuinely never bore each other.','A friendship baseline that outlasts every phase of the relationship.'],
+    challenges:['Emotional detachment creates a love-in-theory dynamic.','Two people who hate labels still need some.','Neither will be the one to commit first.'],
+    verdict:'Two rebels in lab coats, building a relationship on pure idealism and hoping for the best.'
+  },
+  'aquarius-aries': {
+    score:74, love:72, trust:70, comm:80,
+    element:'Air + Fire: dynamic and electric, but fire needs fuel air is not always willing to give',
+    strengths:['Both fiercely independent and unbothered by neediness.','Genuine excitement and shared enthusiasm for life.','Forward-thinking duo always plotting the next-level thing.'],
+    challenges:['Aries wants to lead. Aquarius refuses to follow.','Emotional disconnects when Aries runs hot.','Aquarius finds Aries impulsive; Aries finds Aquarius cold.'],
+    verdict:'A spark that lights up every room, until someone asks where is this going and both go quiet.'
+  },
+  'aquarius-cancer': {
+    score:48, love:50, trust:45, comm:50,
+    element:'Air + Water: worlds apart in emotional language, but occasionally poetic',
+    strengths:['Aquarius opens Cancer\'s world beyond the home.','Both genuinely care about people, just in completely different ways.','Rare chemistry when they actually connect.'],
+    challenges:['Cancer needs emotional security Aquarius does not prioritize.','Aquarius\'s detachment reads as coldness to Cancer.','Different definitions of home and loyalty.'],
+    verdict:'Cancer wants a fort. Aquarius wants a manifesto. They will admire each other from a safe distance.'
+  },
+  'aquarius-capricorn': {
+    score:55, love:52, trust:58, comm:55,
+    element:'Air + Earth: capable of real structure, built on different blueprints',
+    strengths:['Both serious about ambition and deeply respect drive.','Capable of building something real when they commit to it.','Neither needs constant validation from the other.'],
+    challenges:['Capricorn plays by rules Aquarius actively dismantles.','Aquarius finds Capricorn too traditional; Capricorn finds Aquarius erratic.','Warmth runs critically low between them.'],
+    verdict:'A reformer and a CEO walk into a bar. They argue about systems for four hours and call it foreplay.'
+  },
+  'aquarius-gemini': {
+    score:88, love:86, trust:80, comm:95,
+    element:'Air + Air: a perpetual conversation that doubles as a love story',
+    strengths:['Never a dull conversation, ever, even on year seven.','Freedom and independence feel completely natural to both.','Mental attraction that can absolutely spark into real romance.'],
+    challenges:['Emotional depth stays shallow if neither one initiates.','Both can ghost without meaning to.','Commitment requires someone to slow down first.'],
+    verdict:'The universe\'s favorite intellectual situationship, finally upgraded.'
+  },
+  'aquarius-leo': {
+    score:65, love:68, trust:62, comm:65,
+    element:'Air + Fire (opposites): polarizing but impossible to ignore',
+    strengths:['Magnetic opposition that creates genuine, undeniable heat.','Both charismatic forces who get each other\'s need for an audience.','Shared love of ideas, just about very different subjects.'],
+    challenges:['Leo wants to be the center. Aquarius puts humanity first.','Power struggles around who sets the agenda are constant.','Leo needs devotion Aquarius distributes broadly.'],
+    verdict:'The humanitarian and the king. They will transform each other, if they can stop fighting about whose vision matters more.'
+  },
+  'aquarius-libra': {
+    score:87, love:85, trust:82, comm:90,
+    element:'Air + Air: naturally harmonious, socially sparkling, emotionally still figuring it out',
+    strengths:['Two romantics who actually believe in love and big ideas.','Natural flow and effortless, easy connection.','Shared aesthetic sensibility that creates a genuinely beautiful life.'],
+    challenges:['Both avoid confrontation until it becomes a full crisis.','Decisions take forever. Truly forever.','Libra wants partnership; Aquarius sometimes wants a co-conspirator.'],
+    verdict:'A love story set in a beautiful apartment full of books and unresolved tension.'
+  },
+  'aquarius-pisces': {
+    score:60, love:62, trust:55, comm:60,
+    element:'Air + Water: dreamy but broadcasting on different frequencies',
+    strengths:['Both idealistic dreamers who believe in better worlds.','Creative synergy that genuinely produces magic together.','Compassion and vision in one very interesting pair.'],
+    challenges:['Pisces needs emotional immersion Aquarius tends to intellectualize.','Aquarius\'s logic consistently frustrates Pisces\'s intuition.','Different emotional speeds: Pisces feels first, Aquarius thinks first.'],
+    verdict:'A poet and a scientist who keep almost falling in love and writing very good art about it.'
+  },
+  'aquarius-sagittarius': {
+    score:83, love:82, trust:78, comm:88,
+    element:'Air + Fire: expansive and electric, built for the great adventure',
+    strengths:['Freedom is non-negotiable for both, and they respect that.','Philosophy, travel, and big ideas are their shared love language.','Genuine friendship underpins everything romantic between them.'],
+    challenges:['Who slows down first? Neither. Future-planning can feel like a moving target.','Both can deprioritize the relationship for their bigger mission.','Domesticity is not their strong suit and that is an understatement.'],
+    verdict:'Two visionaries who meet at every airport and never stop texting. Yes, it is a whole thing.'
+  },
+  'aquarius-scorpio': {
+    score:52, love:55, trust:52, comm:48,
+    element:'Air + Water: intellectually magnetic, emotionally mismatched',
+    strengths:['Both intensely intelligent with a penetrating worldview.','Fascinated by each other\'s mystery, at least at first.','Can produce powerful creative or intellectual work together.'],
+    challenges:['Scorpio\'s possessiveness clashes with Aquarius\'s freedom at every turn.','Scorpio reads Aquarius as cold and evasive. They are not wrong.','Control versus liberation: a recurring, exhausting theme.'],
+    verdict:'Scorpio wants the password to Aquarius\'s soul. Aquarius changed it and did not tell anyone.'
+  },
+  'aquarius-taurus': {
+    score:45, love:44, trust:50, comm:45,
+    element:'Air + Earth: the free spirit and the homebody, negotiating everything',
+    strengths:['Both fixed signs who know exactly what they want.','Taurus genuinely appreciates Aquarius\'s originality.','Can build something beautifully unconventional together if they try.'],
+    challenges:['Taurus wants stability and routine Aquarius actively avoids.','Different love languages, different planets emotionally.','Aquarius\'s unpredictability exhausts even patient Taurus.'],
+    verdict:'Taurus built a home. Aquarius is still deciding if they believe in homes.'
+  },
+  'aquarius-virgo': {
+    score:50, love:48, trust:52, comm:55,
+    element:'Air + Earth: big brains, low emotional output, occasional breakthroughs',
+    strengths:['Both analytical and intellectually sharp in complementary ways.','Can work together brilliantly on projects and ideas.','Mutual respect for each other\'s intelligence is genuine.'],
+    challenges:['Virgo\'s precision clashes with Aquarius\'s comfortable chaos.','Different definitions of responsible, both extremely firm.','Both run emotionally cool and neither fills the warmth gap.'],
+    verdict:'Two of the smartest people in the room who cannot agree on the right way to load a dishwasher or feel a feeling.'
+  },
+  'aries-aries': {
+    score:80, love:82, trust:72, comm:78,
+    element:'Fire + Fire: blazing chemistry, volcanic arguments, absolutely no chill',
+    strengths:['No one matches their combined energy and raw enthusiasm.','Passionate, spontaneous, always lit and ready for anything.','Zero games: they say what they mean and mean what they say.'],
+    challenges:['Two rams will absolutely lock horns. Often.','Ego clashes are frequent, loud, and theatrical.','Neither wants to be wrong. Ever. Not once.'],
+    verdict:'Chaotic, magnetic, and probably one restraining order away from becoming a legend.'
+  },
+  'aries-cancer': {
+    score:55, love:58, trust:52, comm:52,
+    element:'Fire + Water: passionate but uneven, needs patient, careful tending',
+    strengths:['Aries protects Cancer with genuine, fierce loyalty.','Cancer nurtures Aries back to softness when they need it.','Complementary in ways that genuinely surprise both of them.'],
+    challenges:['Aries is blunt. Cancer bruises easily. A recurring collision.','Cancer\'s emotional needs can overwhelm Aries\'s patience.','Their conflict paces are completely different planets.'],
+    verdict:'Aries charges in. Cancer retreats. They spend a lot of time finding each other, which is honestly kind of sweet.'
+  },
+  'aries-capricorn': {
+    score:57, love:56, trust:60, comm:55,
+    element:'Fire + Earth: productive tension that builds empires or meltdowns',
+    strengths:['Both ambitious and genuinely unafraid of hard work.','Aries sparks the ideas; Capricorn executes them perfectly.','Mutual, deep respect for drive and determination.'],
+    challenges:['Capricorn\'s slow, methodical pace frustrates impulsive Aries.','Capricorn\'s traditionalism chafes Aries\'s rule-breaking soul.','Power dynamics lurk just beneath every decision.'],
+    verdict:'The visionary and the architect. Great business partners. Exhausting romantic partners.'
+  },
+  'aries-gemini': {
+    score:81, love:80, trust:74, comm:88,
+    element:'Fire + Air: fast, fun, and genuinely electric together',
+    strengths:['Endless energy and play between them, every single day.','Both thrive on novelty and spontaneity above almost everything.','Conversation never, ever goes flat.'],
+    challenges:['Commitment is a foreign concept to both of them.','Neither slows down long enough to get properly serious.','Gemini\'s inconsistency frustrates even free-spirited Aries.'],
+    verdict:'A road trip with no destination that somehow becomes the best story they will ever tell.'
+  },
+  'aries-leo': {
+    score:87, love:88, trust:80, comm:85,
+    element:'Fire + Fire: radiant, theatrical, slightly unhinged in the absolute best way',
+    strengths:['Magnetic, dramatic, and deeply passionate together.','Both generous, bold, and always willing to show up big.','Mutual appreciation of each other\'s fire is real and lasting.'],
+    challenges:['Two people who both need to be the star: competition lurks.','Ego flares escalate fast when neither one backs down.','Neither apologizes first. It is a whole thing.'],
+    verdict:'The couple everyone watches walk into the room and goes oh no, lovingly.'
+  },
+  'aries-libra': {
+    score:78, love:80, trust:72, comm:78,
+    element:'Fire + Air (opposites): complementary friction that produces real sparks',
+    strengths:['Opposite attraction that genuinely, surprisingly works.','Aries\'s boldness balances Libra\'s habitual hesitation.','They teach each other things no one else ever could.'],
+    challenges:['Aries is impulsive; Libra overthinks. Clashes are inevitable.','Different conflict styles that drag without resolution.','Aries wants speed; Libra wants fairness. Constant negotiation.'],
+    verdict:'Aries says let\'s go. Libra says wait, have we considered all angles. Aries has already left. Libra follows. It works.'
+  },
+  'aries-pisces': {
+    score:60, love:62, trust:56, comm:58,
+    element:'Fire + Water: intense but mismatched, beautiful and genuinely complicated',
+    strengths:['Pisces softens Aries in surprisingly meaningful ways.','Aries gives Pisces a spine when they desperately need one.','Unexpected, genuine tenderness exists between them.'],
+    challenges:['Aries overwhelms Pisces\'s sensitivity on the regular.','Pisces\'s vagueness frustrates Aries\'s directness.','Different emotional planets: Mars versus Neptune.'],
+    verdict:'The warrior and the dreamer. They will either save each other or confuse each other for the rest of their lives.'
+  },
+  'aries-sagittarius': {
+    score:90, love:90, trust:82, comm:88,
+    element:'Fire + Fire: pure combustion, legendary adventures, no off switch',
+    strengths:['Soul-level adventure buddy who also genuinely makes you laugh.','Freedom is sacred to both, and they respect that completely.','High energy, high passion, always completely up for it.'],
+    challenges:['Two philosophers who will not stop talking long enough to build a life.','Commitment is the word neither one particularly likes.','Tempers flare when the fun inevitably runs out.'],
+    verdict:'The most fun couple in the room, possibly in the history of the zodiac.'
+  },
+  'aries-scorpio': {
+    score:63, love:67, trust:58, comm:60,
+    element:'Fire + Water: magnetic and combustible, usually both at the same time',
+    strengths:['Intense, consuming magnetic connection from day one.','Both warriors who genuinely respect each other\'s power.','Chemistry is undeniable and not easily forgotten.'],
+    challenges:['Power struggle that never quite fully resolves.','Scorpio\'s jealousy versus Aries\'s absolute need for freedom.','Aries\'s bluntness wounds Scorpio\'s hidden depth repeatedly.'],
+    verdict:'The most intense two weeks of your life. Then a stalemate for months. Then a repeat.'
+  },
+  'aries-taurus': {
+    score:60, love:62, trust:58, comm:58,
+    element:'Fire + Earth: earthy tension, stubborn in completely different directions',
+    strengths:['Taurus is the stability Aries secretly, desperately craves.','Aries is the excitement Taurus secretly wants but will not admit.','Physical attraction between them runs genuinely high.'],
+    challenges:['Aries\'s pace exhausts patient, steady Taurus.','Taurus\'s stubbornness infuriates impulsive Aries.','Different money mindsets create recurring friction.'],
+    verdict:'Aries wants to sprint. Taurus wants to stroll. Every walk together becomes a negotiation.'
+  },
+  'aries-virgo': {
+    score:50, love:50, trust:52, comm:50,
+    element:'Fire + Earth: friction that sparks brilliance or burns patience clean out',
+    strengths:['Aries energy motivates Virgo to act instead of just plan.','Virgo\'s practicality grounds Aries when they need it.','Can be surprisingly productive and effective together.'],
+    challenges:['Virgo\'s criticism cuts Aries, who does not take it well.','Aries\'s recklessness genuinely frustrates methodical Virgo.','Virgo finds Aries sloppy; Aries finds Virgo uptight.'],
+    verdict:'Aries jumps first. Virgo has already made a pros-and-cons list about the jump.'
+  },
+  'cancer-cancer': {
+    score:82, love:85, trust:85, comm:78,
+    element:'Water + Water: deeply intuitive, sometimes a beautiful drowning',
+    strengths:['Emotional depth and mutual understanding that needs no translation.','Home-builders who cherish exactly the same things.','Unconditional nurturing that actually, fully lands.'],
+    challenges:['Two crabs in shells: who comes out first?','Moodiness doubles and feeds itself in a difficult loop.','Conflict avoidance creates unspoken resentment over time.'],
+    verdict:'The coziest relationship imaginable, once they both agree to come out of their shells at the same time.'
+  },
+  'cancer-capricorn': {
+    score:76, love:78, trust:78, comm:72,
+    element:'Water + Earth (opposites): naturally complementary, built to last with real effort',
+    strengths:['The axis of family, legacy, and building a real life together.','Capricorn provides the structure; Cancer provides the warmth.','They complete each other in the most fundamental way.'],
+    challenges:['Capricorn\'s workaholism consistently neglects Cancer\'s emotional needs.','Cancer\'s moodiness frustrates Capricorn\'s practicality.','Different primary love languages require constant translation.'],
+    verdict:'The we built something real couple. Slow start. Major, undeniable payoff.'
+  },
+  'cancer-gemini': {
+    score:52, love:54, trust:50, comm:50,
+    element:'Water + Air: sweet in concept, genuinely tricky in practice',
+    strengths:['Gemini fascinates Cancer with the sheer scope of their mind.','Cancer offers Gemini a real anchor they did not know they needed.','Fun and unexpectedly sweet in the early stages.'],
+    challenges:['Gemini\'s inconsistency is Cancer\'s recurring nightmare.','Cancer\'s emotional intensity can overwhelm breezy Gemini.','Different needs: security versus freedom, always in tension.'],
+    verdict:'Cancer bakes a cake waiting for Gemini to come home. Gemini forgot they were going home.'
+  },
+  'cancer-leo': {
+    score:62, love:65, trust:60, comm:62,
+    element:'Water + Fire: loving but uneven, Cancer often adapts more',
+    strengths:['Leo\'s warmth feels like genuine sunshine to Cancer.','Cancer\'s devotion feeds Leo\'s deep need to be adored.','Both love a grand romantic gesture and mean it.'],
+    challenges:['Leo\'s need for the spotlight versus Cancer\'s need for intimacy.','Cancer\'s moodiness can dim even Leo\'s radiant energy.','Different definitions of home create recurring tension.'],
+    verdict:'Leo rules the stage. Cancer runs the backstage. It works beautifully until Cancer wants the spotlight too.'
+  },
+  'cancer-libra': {
+    score:55, love:57, trust:52, comm:53,
+    element:'Water + Air: aesthetically aligned, emotionally mismatched',
+    strengths:['Both romantic and genuinely want to be in love.','Libra\'s charm thoroughly delights Cancer.','Can create beautiful, warm domestic spaces together.'],
+    challenges:['Cancer\'s emotional waves versus Libra\'s constant need for peace.','Libra avoids conflict; Cancer needs direct emotional engagement.','Libra\'s indecision drives Cancer straight to anxiety.'],
+    verdict:'Two hopeless romantics who make a gorgeous Pinterest board together and then argue about feelings for six months.'
+  },
+  'cancer-pisces': {
+    score:90, love:92, trust:85, comm:88,
+    element:'Water + Water: deep, dreamy, and profoundly intuitive together',
+    strengths:['Soul-level emotional understanding that needs no words.','Home is wherever they are together.','Psychic-level intuition that reads as pure magic.'],
+    challenges:['Two feelers can drown in shared sadness without a lifeline.','Neither particularly good at setting emotional limits.','Escapism can quietly replace action over time.'],
+    verdict:'The most genuinely tender pairing in the zodiac. They do not just love each other; they understand each other.'
+  },
+  'cancer-sagittarius': {
+    score:48, love:50, trust:48, comm:48,
+    element:'Water + Fire: wanderer meets homebody, someone always compromises more',
+    strengths:['Sagittarius genuinely opens Cancer\'s world wide.','Cancer offers Sagittarius warmth they did not know they needed.','Memorable, meaningful connection when they truly meet.'],
+    challenges:['Sagittarius\'s need for freedom versus Cancer\'s need for security: constant.','Sagittarius can be blunt past the point of kindness.','Very different values around home and belonging.'],
+    verdict:'Cancer wants roots. Sagittarius wants wings. This is beautiful in a poem and exhausting in a relationship.'
+  },
+  'cancer-scorpio': {
+    score:91, love:92, trust:90, comm:85,
+    element:'Water + Water: intense, loyal, genuinely built for the long game',
+    strengths:['Depth, loyalty, and emotional safety unlike anything else in the zodiac.','Scorpio protects; Cancer nurtures: a perfect, sustaining loop.','They understand the unspoken without a single word.'],
+    challenges:['Both can be possessive and create emotional claustrophobia.','Scorpio\'s darkness can occasionally overwhelm even Cancer.','Moodiness amplifies moodiness in a difficult feedback loop.'],
+    verdict:'The deep end of the zodiac pool. They swim together beautifully. Nobody else gets in.'
+  },
+  'cancer-taurus': {
+    score:85, love:87, trust:85, comm:80,
+    element:'Water + Earth: nurturing, stable, and genuinely built to last',
+    strengths:['Both want security, warmth, and a beautiful, comfortable home.','Taurus\'s steadiness soothes Cancer\'s anxiety beautifully.','Cancer\'s devotion moves even stoic Taurus deeply.'],
+    challenges:['Stubbornness can calcify and harden both of them.','Taurus does not always have Cancer\'s full emotional vocabulary.','Old patterns are very hard for either of them to break.'],
+    verdict:'The couple who has the same dinner spot, the same weekend routine, and would die for each other.'
+  },
+  'cancer-virgo': {
+    score:78, love:80, trust:78, comm:76,
+    element:'Water + Earth: caring, thoughtful, and quietly devoted',
+    strengths:['Virgo\'s attentiveness makes Cancer feel truly, deeply seen.','Cancer\'s care touches Virgo\'s carefully guarded heart.','Both are devoted and thoughtful partners when committed.'],
+    challenges:['Virgo\'s criticism can land directly on Cancer\'s wounds.','Cancer\'s moodiness genuinely confuses Virgo\'s analytical mind.','Communication styles diverge significantly at emotional depth.'],
+    verdict:'The devoted nurse and the worried patient. Sometimes they switch roles. Always, they show up.'
+  },
+  'capricorn-capricorn': {
+    score:78, love:75, trust:85, comm:72,
+    element:'Earth + Earth: solid, ambitious, possibly emotionally arid',
+    strengths:['Shared drive and ambition creates genuinely deep mutual respect.','Both show love through reliability and consistent action.','They understand the long game better than anyone.'],
+    challenges:['Emotional expression is remarkably sparse between two Capricorns.','Work always threatens to win over the relationship.','Both too stubborn to thaw first: someone has to.'],
+    verdict:'The power couple who sends work emails in bed and calls it intimacy. Somehow it works.'
+  },
+  'capricorn-gemini': {
+    score:50, love:48, trust:52, comm:54,
+    element:'Earth + Air: structured meets spontaneous, frequently in beautiful conflict',
+    strengths:['Gemini\'s wit delights even Capricorn\'s deeply serious nature.','Capricorn\'s stability can genuinely ground wandering Gemini.','Interesting, sharp intellectual sparring between them.'],
+    challenges:['Capricorn finds Gemini flighty and fundamentally unreliable.','Gemini finds Capricorn boring and rigid. Both assessments are partially right.','Different timelines for absolutely everything.'],
+    verdict:'Capricorn has a ten-year plan. Gemini forgot they had a meeting tomorrow.'
+  },
+  'capricorn-leo': {
+    score:62, love:63, trust:62, comm:60,
+    element:'Earth + Fire: powerful but in competition unless they fully align',
+    strengths:['Both ambitious and genuinely status-aware in their own right.','Respect for each other\'s power and authority is real.','Can be a formidable, striking public pair.'],
+    challenges:['Leo wants praise. Capricorn is constitutionally stingy with it.','Leo\'s drama exhausts Capricorn\'s practical worldview.','Very different social needs create recurring friction.'],
+    verdict:'Two bosses fighting over the corner office. Sometimes they collaborate. Sometimes they are the office drama.'
+  },
+  'capricorn-libra': {
+    score:57, love:55, trust:60, comm:58,
+    element:'Earth + Air: graceful on the outside, work required on the inside',
+    strengths:['Both refined, both appreciate quality in all things.','Libra brings grace Capricorn genuinely admires.','Capricorn provides the security Libra deeply craves.'],
+    challenges:['Capricorn\'s work-focus versus Libra\'s need for real presence.','Decision-making is agonizing for both, in completely different ways.','Emotional temperature runs conspicuously low.'],
+    verdict:'Cashmere and strategy. Stylish, functional, occasionally cold.'
+  },
+  'capricorn-pisces': {
+    score:79, love:80, trust:78, comm:76,
+    element:'Earth + Water: complementary, grounding, genuinely good together',
+    strengths:['Pisces brings magic; Capricorn brings structure: real dreams get built.','Complementary in the most delightfully practical way.','Capricorn grounds Pisces; Pisces softens Capricorn.'],
+    challenges:['Capricorn\'s practicality can accidentally squash Pisces\'s dreams.','Pisces\'s vagueness frustrates Capricorn\'s need for actual plans.','Different realities, literally. Neptune versus Saturn.'],
+    verdict:'The architect and the dreamer. Together, they actually build the dream.'
+  },
+  'capricorn-sagittarius': {
+    score:55, love:54, trust:58, comm:55,
+    element:'Earth + Fire: ambitious but frequently pointing in different directions',
+    strengths:['Both goal-oriented in wildly, fascinatingly different ways.','Sagittarius opens Capricorn\'s world considerably.','Capricorn shows Sagittarius what you can actually build.'],
+    challenges:['Sagittarius needs the freedom Capricorn cannot always comfortably give.','Capricorn needs commitment Sagittarius genuinely struggles with.','Different definitions of success create recurring tension.'],
+    verdict:'The adventurer and the CFO. One wants a sabbatical. One has a spreadsheet about the sabbatical.'
+  },
+  'capricorn-scorpio': {
+    score:85, love:84, trust:88, comm:80,
+    element:'Earth + Water: deep, loyal, and genuinely, quietly powerful',
+    strengths:['Powerhouse pairing built on loyalty, ambition, and deep respect.','Both play the long game in love and in life.','Deep trust that develops deliberately and holds firm.'],
+    challenges:['Emotional repression from both sides creates distance.','Power and control issues surface eventually: count on it.','Neither will show vulnerability first: a long standoff.'],
+    verdict:'The most quietly formidable couple in the room. They have already planned their next ten moves.'
+  },
+  'capricorn-taurus': {
+    score:88, love:87, trust:90, comm:82,
+    element:'Earth + Earth: stable, sensual, and genuinely built for the long haul',
+    strengths:['Built on shared values of loyalty, security, and real pleasure.','Sensually and domestically compatible in daily life.','Long-term potential is enormous; trust is rock solid.'],
+    challenges:['Can get so comfortable together that they stop growing.','Stubbornness from both sides when change is needed.','Change is resisted even when it is clearly necessary.'],
+    verdict:'The couple who owns property together after a year and everyone is quietly jealous.'
+  },
+  'capricorn-virgo': {
+    score:86, love:84, trust:88, comm:86,
+    element:'Earth + Earth: efficient, reliable, and surprisingly tender once trust is built',
+    strengths:['Mutual, deep respect for hard work and sharp intelligence.','Both reliable, analytical, and devoted when fully committed.','They make perfect, complete sense to each other.'],
+    challenges:['Workaholism in stereo: both miss it when it becomes a problem.','Both can over-criticize and consistently under-emote.','Who says I love you first? Probably no one, for a while.'],
+    verdict:'The couple who has their entire life in a color-coded calendar and somehow finds it deeply romantic.'
+  },
+  'gemini-gemini': {
+    score:80, love:80, trust:70, comm:92,
+    element:'Air + Air: intellectually intoxicating, emotionally optional',
+    strengths:['The best conversations of their lives, every single day.','Electric chemistry built entirely on wit and genuine wonder.','They match each other\'s duality without judgment.'],
+    challenges:['Two inconsistent people double the chaos significantly.','Trust takes longer with two restless, changeable Geminis.','Emotional depth can be avoided indefinitely if they choose.'],
+    verdict:'Four people in a two-person relationship. Chaotic, charming, and somehow always interesting.'
+  },
+  'gemini-leo': {
+    score:83, love:84, trust:78, comm:88,
+    element:'Air + Fire: bright, playful, and mutually admiring',
+    strengths:['Gemini\'s wit is genuinely the only thing that amuses a Leo fully.','Leo\'s warmth gives Gemini a real reason to stay and mean it.','Playful, witty, and genuinely, uncomplicatedly fun together.'],
+    challenges:['Leo needs center stage; Gemini entertains everyone equally.','Jealousy appears when Leo notices Gemini\'s broad charm.','Leo may find Gemini too inconsistent for real, lasting trust.'],
+    verdict:'Gemini writes the jokes. Leo delivers them. Their entire relationship is a standing ovation.'
+  },
+  'gemini-libra': {
+    score:88, love:87, trust:80, comm:92,
+    element:'Air + Air: harmonious, witty, and absolutely charming together',
+    strengths:['Intellectual and romantic in perfect, natural measure.','Neither one smothers the other: space is built in.','Art, culture, and ideas are their shared, living love language.'],
+    challenges:['Decisions take years. Actual years.','Both conflict-averse, so things fester quietly.','Who commits first is genuinely, comically unclear.'],
+    verdict:'The most aesthetically perfect couple who will spend 45 minutes picking a restaurant and then have the best date.'
+  },
+  'gemini-pisces': {
+    score:60, love:62, trust:54, comm:60,
+    element:'Air + Water: imaginative but frequently lost in translation',
+    strengths:['Both creative and imaginative, in delightfully different ways.','Pisces\'s intuition and Gemini\'s intellect can genuinely click.','Playful and romantic when they are fully aligned.'],
+    challenges:['Gemini\'s logic frustrates Pisces\'s feeling-led navigation.','Pisces finds Gemini emotionally unavailable. Often correctly.','Gemini finds Pisces genuinely hard to read.'],
+    verdict:'Gemini speaks Morse code. Pisces speaks dolphin. The translation is beautiful and sometimes incomplete.'
+  },
+  'gemini-sagittarius': {
+    score:83, love:84, trust:76, comm:88,
+    element:'Air + Fire (opposites): electric, expansive, built for the journey not the destination',
+    strengths:['The freedom twins: both genuinely hate being caged.','Shared love of ideas, debate, and real adventure.','Electric, feeding energy between them.'],
+    challenges:['Two mutable signs: who anchors anything, ever?','Commitment is a soft, flexible concept for both.','Restlessness can mean never quite arriving anywhere together.'],
+    verdict:'The wanderers who keep finding each other across time zones and still have the best conversation in the room.'
+  },
+  'gemini-scorpio': {
+    score:55, love:57, trust:50, comm:58,
+    element:'Air + Water: intense for Scorpio, a lot for Gemini, fascinating for both',
+    strengths:['Intellectual depth that Scorpio genuinely, surprisingly respects.','Gemini is one of the few who can keep Scorpio actually interested.','Surprising, real chemistry in concentrated doses.'],
+    challenges:['Scorpio\'s intensity and need for truth clashes with Gemini\'s lightness.','Gemini finds Scorpio possessive and heavy; Scorpio finds Gemini shallow.','Trust is built slowly and broken fast between them.'],
+    verdict:'Scorpio wants to know everything. Gemini has already changed the subject.'
+  },
+  'gemini-taurus': {
+    score:55, love:55, trust:54, comm:60,
+    element:'Air + Earth: restless meets rooted, negotiating constantly',
+    strengths:['Taurus can actually pull Gemini into the present moment.','Gemini keeps Taurus from stagnating in familiar ruts.','Complementary in ways that genuinely surprise both.'],
+    challenges:['Taurus wants Gemini to settle. Gemini fundamentally will not.','Taurus\'s steady pace frustrates quicksilver Gemini.','Gemini\'s inconsistency profoundly unsettles Taurus.'],
+    verdict:'Taurus built a beautiful home. Gemini visits on weekends. It is complicated but never, ever boring.'
+  },
+  'gemini-virgo': {
+    score:60, love:58, trust:60, comm:65,
+    element:'Air + Earth (both Mercury-ruled): sharp minds, different emotional processors',
+    strengths:['Both Mercury-ruled: genuinely sharp and highly communicative.','Smart, adaptable, and analytically matched in different ways.','Can be surprisingly witty, effective partners together.'],
+    challenges:['Virgo\'s criticism exhausts Gemini\'s natural lightness.','Gemini\'s inconsistency frustrates Virgo\'s need for reliability.','Different emotional setpoints create persistent distance.'],
+    verdict:'Two Mercurials who can talk for hours and still completely miss the point of each other.'
+  },
+  'leo-leo': {
+    score:80, love:82, trust:75, comm:80,
+    element:'Fire + Fire: radiant and warm, just needs two separate stages',
+    strengths:['No one understands Leo like another Leo: period.','Mutual admiration and generosity that is genuinely moving.','Grand gestures, dramatic love, and real, lasting warmth.'],
+    challenges:['Two suns in one sky: who shines brighter is a constant question.','Ego battles are theatrical, prolonged, and exhausting.','Neither apologizes naturally or easily.'],
+    verdict:'The most gorgeous ego battle you have ever watched, with excellent fashion and real tenderness underneath.'
+  },
+  'leo-libra': {
+    score:82, love:83, trust:78, comm:82,
+    element:'Air + Fire: stylish, charming, and mutually dazzling',
+    strengths:['Aesthetics, charm, and romance are their shared religion.','Leo\'s boldness plus Libra\'s grace equals an iconic, memorable pair.','They bring out the best social version of each other.'],
+    challenges:['Libra\'s indecision tests Leo\'s need for decisive forward motion.','Leo needs more direct praise than Libra consistently remembers to give.','Both need to be adored: someone has to do the adoring.'],
+    verdict:'The most effortlessly beautiful couple in every room they walk into. They know it and are completely fine with that.'
+  },
+  'leo-pisces': {
+    score:65, love:67, trust:62, comm:64,
+    element:'Fire + Water: warm and dreamy, with real tenderness when they tune in',
+    strengths:['Leo brings the warmth and protection Pisces genuinely needs.','Pisces\'s imagination and quiet devotion feed Leo\'s heart.','A surprisingly sweet dynamic when they find the right frequency.'],
+    challenges:['Leo\'s ego needs can overwhelm sensitive, tender Pisces.','Pisces\'s mystery frustrates Leo\'s desire for clarity and directness.','Different emotional frequencies require real translation work.'],
+    verdict:'Leo brings the spotlight. Pisces brings the magic. Together they make something genuinely beautiful and slightly bewildering.'
+  },
+  'leo-sagittarius': {
+    score:88, love:89, trust:82, comm:87,
+    element:'Fire + Fire: joyful, expansive, and infectiously alive together',
+    strengths:['Both generous, enthusiastic, and devoted to enjoying this one life.','Shared optimism that is genuinely, constantly infectious.','Freedom-loving and non-possessive: the best kind of fire.'],
+    challenges:['Both self-focused and can miss each other\'s needs without realizing.','Fire on fire means someone has to cool it during conflicts.','Commitment can genuinely lag when life is so fun.'],
+    verdict:'The fun couple everyone loves and slightly envies. They have more fun than literally anyone else.'
+  },
+  'leo-scorpio': {
+    score:58, love:62, trust:55, comm:58,
+    element:'Fire + Water: explosive chemistry, combustible conflict',
+    strengths:['Magnetic, powerful, and deeply, compellingly compelling.','Both loyal to the absolute death once fully committed.','Real intensity and passion that neither will ever forget.'],
+    challenges:['Two fixed signs in a sustained power struggle: someone always loses.','Leo needs admiration; Scorpio controls it like a faucet.','Jealousy and control create recurring, escalating crises.'],
+    verdict:'The couple everyone talks about. Usually because something dramatic just happened.'
+  },
+  'leo-taurus': {
+    score:65, love:67, trust:65, comm:62,
+    element:'Fire + Earth: sensual and loyal, but stubbornness squared',
+    strengths:['Both deeply value loyalty, luxury, and genuine pleasure.','Mutual appreciation is real and lasting when aligned.','Physical attraction that does not fade easily.'],
+    challenges:['Two fixed signs: both stubborn, neither one yields.','Leo needs constant admiration Taurus does not naturally give.','Taurus\'s possessiveness clashes with Leo\'s social, expansive nature.'],
+    verdict:'Two fixed signs who genuinely love each other and also refuse to budge on anything, ever.'
+  },
+  'leo-virgo': {
+    score:60, love:60, trust:62, comm:60,
+    element:'Fire + Earth: devoted but operating in very different registers',
+    strengths:['Virgo\'s attentiveness makes Leo feel truly, precisely cared for.','Leo appreciates Virgo\'s quality and deep attention to detail.','Both genuinely devoted when fully committed.'],
+    challenges:['Virgo\'s criticism can wound Leo\'s considerable pride.','Leo\'s ego needs are more management than Virgo wants to provide.','Different social temperatures create persistent friction.'],
+    verdict:'Leo wants a standing ovation. Virgo wrote a detailed review with constructive feedback.'
+  },
+  'libra-libra': {
+    score:80, love:82, trust:76, comm:84,
+    element:'Air + Air: beautiful, balanced, occasionally completely paralyzed',
+    strengths:['Shared aesthetic, romantic, and intellectual values.','Natural flow and genuine beauty between them.','Both understand each other\'s deep need for balance.'],
+    challenges:['Decisions are impossible with two Libras involved.','Conflict avoidance becomes an entrenched pattern.','Someone needs to take the lead. Neither wants to.'],
+    verdict:'The most aesthetically pleasing impasse in the zodiac. They have been picking a restaurant for three hours.'
+  },
+  'libra-pisces': {
+    score:68, love:70, trust:64, comm:67,
+    element:'Air + Water: romantic, dreamy, and occasionally unmoored together',
+    strengths:['Both romantic idealists who genuinely, deeply believe in love.','Creative and artistic in beautifully different ways.','Sweet, dreamy, soft energy between them.'],
+    challenges:['Pisces\'s emotional depth versus Libra\'s need for perpetual balance.','Libra\'s indecision consistently frustrates Pisces\'s intuition.','Both can be escapist when reality gets uncomfortable.'],
+    verdict:'Two dreamers who fall in love with the idea of each other and spend years finding out who they actually are.'
+  },
+  'libra-sagittarius': {
+    score:80, love:80, trust:75, comm:82,
+    element:'Air + Fire: social, free, and genuinely compatible',
+    strengths:['Shared love of freedom, big ideas, and experience.','Neither one wants to cage the other: rare and beautiful.','Natural playfulness and mutual respect that holds.'],
+    challenges:['Commitment remains abstract for both of them.','Depth can stay surface-level indefinitely if unchallenged.','Sagittarius\'s bluntness occasionally wounds Libra\'s sensibility.'],
+    verdict:'The couple who signs up for everything and finishes some of it. Always the best dressed at the adventure.'
+  },
+  'libra-scorpio': {
+    score:62, love:64, trust:58, comm:60,
+    element:'Air + Water: fascinating contrast, requires real, sustained effort',
+    strengths:['Magnetic physical and intellectual chemistry from the start.','Scorpio\'s depth thoroughly intrigues Libra.','Libra\'s grace genuinely softens Scorpio.'],
+    challenges:['Scorpio\'s intensity overwhelms Libra\'s need for lightness.','Libra\'s indecision drives Scorpio to profound frustration.','Trust builds slowly and carefully between them.'],
+    verdict:'Libra wants everything to be lovely. Scorpio wants the truth. They will negotiate their entire relationship.'
+  },
+  'libra-taurus': {
+    score:72, love:73, trust:70, comm:72,
+    element:'Air + Earth (both Venus-ruled): beautiful, sensual, occasionally stuck',
+    strengths:['Both Venus-ruled: aesthetics, pleasure, and romance flow naturally.','Shared love of beauty, comfort, and quality living.','Warm, natural chemistry between them.'],
+    challenges:['Taurus\'s stubbornness versus Libra\'s need for occasional change.','Libra finds Taurus possessive; Taurus finds Libra perpetually indecisive.','Different paces toward commitment.'],
+    verdict:'Two Venus lovers who build a gorgeous life together and argue about who gets to redecorate.'
+  },
+  'libra-virgo': {
+    score:63, love:62, trust:63, comm:65,
+    element:'Air + Earth: refined but frequently at elegant odds',
+    strengths:['Both refined, detail-oriented, and genuine appreciators of quality.','Intellectually well-matched and capable of real depth.','Can be very devoted to each other when committed.'],
+    challenges:['Virgo\'s criticism versus Libra\'s need for peaceful coexistence.','Libra\'s indecision frustrates Virgo\'s preference for action.','Emotional expression runs cool from both sides.'],
+    verdict:'Both searching for perfect and both finding the other\'s version of perfect slightly, persistently wrong.'
+  },
+  'pisces-pisces': {
+    score:82, love:85, trust:78, comm:80,
+    element:'Water + Water: transcendent and tender, with one foot always in the clouds',
+    strengths:['Shared emotional universe that requires no explanation.','Deeply creative and romantic together in every way.','Neither judges the other\'s profound sensitivity.'],
+    challenges:['Can lose themselves in each other and quietly avoid reality.','Both need grounding and neither reliably provides it.','Shared sadness can cycle without resolution.'],
+    verdict:'Two fish swimming in the same dream. Beautiful, magical, and occasionally needs a Capricorn nearby.'
+  },
+  'pisces-sagittarius': {
+    score:65, love:67, trust:60, comm:64,
+    element:'Water + Fire: dreamy but mismatched in rhythm',
+    strengths:['Both philosophical with real dream-big energy.','Sagittarius consistently inspires Pisces to reach further.','Pisces offers Sagittarius tenderness they forget to seek.'],
+    challenges:['Sagittarius\'s bluntness can genuinely wound tender Pisces.','Pisces\'s emotional ocean can overwhelm freedom-loving Sagittarius.','Different realities: Neptune versus Jupiter.'],
+    verdict:'The philosopher and the mystic. They will have one perfect month, write poems about it, and circle back five years later.'
+  },
+  'pisces-scorpio': {
+    score:93, love:94, trust:90, comm:88,
+    element:'Water + Water: legendary, soulful, built for the deepest parts of each other',
+    strengths:['The stuff of actual astrological legend.','Scorpio\'s depth meets Pisces\'s soul and they both, finally, exhale.','Intuitive, passionate, and profoundly, completely bonded.'],
+    challenges:['Can drown together in shared emotional intensity.','Scorpio\'s jealousy can overwhelm Pisces over time.','Escapism is a shared, seductive trap to watch for.'],
+    verdict:'The best love story in the zodiac. Ask anyone. They already know.'
+  },
+  'pisces-taurus': {
+    score:82, love:84, trust:80, comm:78,
+    element:'Water + Earth: grounding and tender, one of the sweeter pairings',
+    strengths:['Taurus gives Pisces the stability they have always quietly needed.','Pisces softens Taurus\'s practical world with genuine wonder.','Sensual, romantic, and deeply caring between them.'],
+    challenges:['Taurus\'s stubbornness can frustrate Pisces\'s fluid nature.','Pisces\'s vagueness frustrates Taurus\'s need for solidity.','Pisces can feel like too much for grounded Taurus.'],
+    verdict:'The steady hand and the open heart. One grounds while the other dreams. It is a whole life.'
+  },
+  'pisces-virgo': {
+    score:77, love:78, trust:75, comm:76,
+    element:'Water + Earth (opposites): gentle, complementary, and quietly profound',
+    strengths:['Natural opposites who fill each other in completely.','Virgo grounds Pisces; Pisces gives Virgo permission to feel.','Complementary in the most quietly beautiful way.'],
+    challenges:['Virgo\'s criticism wounds Pisces\'s sensitivity consistently.','Pisces\'s boundlessness overwhelms Virgo\'s need for precision.','Different comfort zones require constant, loving navigation.'],
+    verdict:'The healer and the helper. They disagree on methods and agree on everything that matters.'
+  },
+  'sagittarius-sagittarius': {
+    score:84, love:86, trust:78, comm:85,
+    element:'Fire + Fire: free, expansive, and mutually inspiring',
+    strengths:['No one gets their need for freedom like another Sagittarius.','Shared philosophy, adventure, and ridiculous, genuine optimism.','The best travel companions in the entire zodiac.'],
+    challenges:['Both actively avoid the hard conversations.','Commitment still quietly feels like a cage to both.','Who stays home? Nobody. Problems follow.'],
+    verdict:'Two archers both aiming at the horizon. They are going to have the best life. Maybe together.'
+  },
+  'sagittarius-scorpio': {
+    score:58, love:60, trust:55, comm:57,
+    element:'Fire + Water: truthful and intense, eventually combustible',
+    strengths:['Intense, memorable physical chemistry between them.','Both honest in their very different, characteristic ways.','Sagittarius\'s directness is something Scorpio actually respects.'],
+    challenges:['Scorpio\'s possessiveness versus Sagittarius\'s freedom: a recurring, painful crisis.','Sagittarius is too direct for Scorpio\'s strategic, layered mind.','Very different emotional needs at a fundamental level.'],
+    verdict:'The most honest relationship either will ever have, and also the most painful. Sometimes simultaneously.'
+  },
+  'sagittarius-taurus': {
+    score:50, love:50, trust:52, comm:50,
+    element:'Earth + Fire: adventurous versus stable, fascinating versus frequently frustrating',
+    strengths:['Taurus grounds Sagittarius\'s expansive, wild energy.','Sagittarius genuinely expands Taurus\'s view of the world.','Can be a rewarding long-term pairing if both adapt.'],
+    challenges:['Taurus\'s need for routine versus Sagittarius\'s need for productive chaos.','Different financial values create recurring, real friction.','Taurus finds Sagittarius flaky; Sagittarius finds Taurus suffocating.'],
+    verdict:'Sagittarius wants to book a one-way ticket. Taurus wants to know the return policy.'
+  },
+  'sagittarius-virgo': {
+    score:52, love:52, trust:52, comm:54,
+    element:'Earth + Fire (both mutable): adaptable but pulling in different directions',
+    strengths:['Both mutable and adaptable, in their very different ways.','Virgo\'s practicality can genuinely impress Sagittarius.','Intellectual respect between them is real and lasting.'],
+    challenges:['Virgo\'s perfectionism versus Sagittarius\'s good-enough philosophy.','Sagittarius finds Virgo uptight; Virgo finds Sagittarius irresponsible.','Both assessments are at least partially correct.'],
+    verdict:'Virgo made an itinerary. Sagittarius lost it on the way to the airport and had a better trip anyway.'
+  },
+  'scorpio-scorpio': {
+    score:78, love:82, trust:75, comm:75,
+    element:'Water + Water: formidable, passionate, requires enormous mutual trust',
+    strengths:['The only person who can match Scorpio\'s intensity is another Scorpio.','Deep loyalty and commitment when they choose to give it.','Passion that genuinely, stubbornly does not fade.'],
+    challenges:['Power struggle of genuinely historic proportions.','Two people who test loyalty will absolutely test each other, constantly.','Emotional warfare is a real, documented risk.'],
+    verdict:'The most intense thing in any room. Beautiful if they decide to trust. Legendary if they actually do.'
+  },
+  'scorpio-taurus': {
+    score:74, love:76, trust:72, comm:70,
+    element:'Water + Earth (opposites): magnetically drawn, stubbornly devoted',
+    strengths:['Two fixed signs who are extraordinarily, completely loyal.','Physical and emotional chemistry that is genuinely undeniable.','The magnetic pull of true, destined opposites.'],
+    challenges:['Both possessive and neither one yields: ever.','Power struggles are long, quiet, and deeply felt.','Trust is demanded but given with painful slowness.'],
+    verdict:'The most stubborn love story in the zodiac. They will hold a grudge and also never, ever leave.'
+  },
+  'scorpio-virgo': {
+    score:82, love:82, trust:85, comm:80,
+    element:'Water + Earth: perceptive, loyal, and surprisingly warm once committed',
+    strengths:['Virgo\'s analytical mind plus Scorpio\'s emotional intelligence: a complete picture.','Both devoted, loyal, and deeply perceptive partners.','They understand each other\'s private depth without it being said.'],
+    challenges:['Both can be critical and emotionally withholding.','Scorpio\'s intensity sometimes pressures Virgo uncomfortably.','Virgo\'s perfectionism frustrates Scorpio\'s need for acceptance.'],
+    verdict:'The most quietly perceptive couple you will ever meet. They notice everything about each other and hold it with care.'
+  },
+  'taurus-taurus': {
+    score:80, love:82, trust:85, comm:75,
+    element:'Earth + Earth: solid, sensual, and perfectly content staying exactly here',
+    strengths:['No one understands Taurus like Taurus: that is the whole point.','Pure stability, loyalty, and deep, uncomplicated pleasure.','They build the life everyone quietly wants.'],
+    challenges:['Both stubbornly immovable: nothing changes easily here.','Routine can calcify into a rut neither one notices.','Change is avoided past the point of health.'],
+    verdict:'The most comfortable relationship in the zodiac. Also possibly the most immovable.'
+  },
+  'taurus-virgo': {
+    score:85, love:84, trust:87, comm:83,
+    element:'Earth + Earth: practical, devoted, and genuinely reliable',
+    strengths:['Practical, completely reliable, and deeply, quietly devoted.','Both show love through acts and consistent presence.','Shared values around quality, care, and real excellence.'],
+    challenges:['Both can be over-critical in ways that slowly erode warmth.','Neither particularly good at emotional vulnerability.','Can be too focused on perfection to enjoy what they have.'],
+    verdict:'The couple who renovates a house together and somehow, inexplicably makes it a love story.'
+  },
+  'virgo-virgo': {
+    score:77, love:76, trust:82, comm:80,
+    element:'Earth + Earth: precise, devoted, and surprisingly nurturing when truly safe',
+    strengths:['Deep mutual understanding of each other\'s high standards.','Quietly loyal and devoted when fully committed.','Shared dedication to quality in every meaningful area.'],
+    challenges:['Shared perfectionism means nothing is ever quite right enough.','Emotional vulnerability remains low-key terrifying for both.','Over-analysis of everything together, always.'],
+    verdict:'Two Virgos who have a detailed spreadsheet for the relationship and somehow find that deeply, genuinely romantic.'
+  }
+};
+
+// ─────────────────────────────────────────────
+// HELPERS
+// ─────────────────────────────────────────────
+function canonicalKey(a, b) {
+  return [a, b].sort().join('-');
+}
+
+function getLabel(score) {
+  if (score >= 90) return 'Cosmic soulmates';
+  if (score >= 82) return 'Written in the stars';
+  if (score >= 74) return 'Strong connection';
+  if (score >= 65) return 'Interesting dynamic';
+  if (score >= 55) return 'Worth working for';
+  if (score >= 45) return 'Challenging terrain';
+  return 'A cosmic lesson';
+}
+
+function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
+// ─────────────────────────────────────────────
+// QUIZ LOGIC
+// ─────────────────────────────────────────────
+function runQuiz(s1, s2) {
+  const sign1 = s1 || document.getElementById('sign1').value;
+  const sign2 = s2 || document.getElementById('sign2').value;
+
+  if (!sign1 || !sign2) {
+    const sel = !sign1 ? document.getElementById('sign1') : document.getElementById('sign2');
+    sel.style.borderColor = 'rgba(201,173,111,0.8)';
+    setTimeout(() => { sel.style.borderColor = ''; }, 1500);
+    return;
+  }
+
+  const key = canonicalKey(sign1, sign2);
+  const data = COMPAT[key];
+  if (!data) return;
+
+  // Update URL without reload
+  const newUrl = `/quiz/compatibility/?signs=${sign1}-${sign2}`;
+  history.pushState({}, '', newUrl);
+
+  renderResult(sign1, sign2, data);
+}
+
+function renderResult(sign1, sign2, data) {
+  const s1cap = cap(sign1);
+  const s2cap = cap(sign2);
+
+  // Pair title
+  document.getElementById('result-pair-names').innerHTML = `${s1cap} &amp; ${s2cap}`;
+  document.getElementById('result-element-badge').textContent = data.element;
+
+  // Score ring
+  const circumference = 2 * Math.PI * 56; // 351.86
+  const offset = circumference - (data.score / 100) * circumference;
+  const ring = document.getElementById('ring-fill');
+  ring.style.strokeDashoffset = circumference;
+  document.getElementById('score-big').textContent = data.score;
+  document.getElementById('score-ring-caption').textContent = getLabel(data.score);
+  // Animate after brief delay
+  requestAnimationFrame(() => {
+    setTimeout(() => { ring.style.strokeDashoffset = offset; }, 80);
+  });
+
+  // Sub-score bars
+  [['love', data.love], ['trust', data.trust], ['comm', data.comm]].forEach(([key, val]) => {
+    const bar = document.getElementById(`bar-${key}`);
+    const num = document.getElementById(`num-${key}`);
+    bar.style.width = '0%';
+    num.textContent = val;
+    requestAnimationFrame(() => {
+      setTimeout(() => { bar.style.width = val + '%'; }, 120);
+    });
+  });
+
+  // Verdict
+  document.getElementById('verdict-text').textContent = data.verdict;
+
+  // Strengths
+  const sl = document.getElementById('strengths-list');
+  sl.innerHTML = data.strengths.map(s => `<li>${s}</li>`).join('');
+
+  // Challenges
+  const cl = document.getElementById('challenges-list');
+  cl.innerHTML = data.challenges.map(c => `<li>${c}</li>`).join('');
+
+  // Full report link (canonical pair = alphabetical)
+  const canonPair = [sign1, sign2].sort().join('-');
+  const anchor = document.getElementById('full-report-anchor');
+  anchor.href = `/compatibility/${canonPair}`;
+  anchor.textContent = `Read the full ${s1cap} & ${s2cap} compatibility report \u2192`;
+
+  // Share URL
+  const shareUrl = `https://signseason.com/quiz/compatibility/?signs=${sign1}-${sign2}`;
+  document.getElementById('share-url').value = shareUrl;
+
+  // Twitter share
+  const tweetText = `I just checked ${s1cap} + ${s2cap} compatibility on Sign Season: ${data.score}/100. "${data.verdict.substring(0,80)}..." ✨`;
+  document.getElementById('share-twitter').href =
+    `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}&url=${encodeURIComponent(shareUrl)}`;
+
+  // Pinterest share
+  document.getElementById('share-pinterest').href =
+    `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(shareUrl)}&description=${encodeURIComponent(tweetText)}`;
+
+  // Update OG tags
+  document.getElementById('og-title').content = `${s1cap} & ${s2cap} Compatibility: ${data.score}/100 | Sign Season`;
+  document.getElementById('og-desc').content = data.verdict;
+  document.getElementById('og-url').content = shareUrl;
+  document.getElementById('canonical').href = shareUrl;
+  document.title = `${s1cap} & ${s2cap} Compatibility | Sign Season`;
+
+  // Show result section
+  const resultSection = document.getElementById('result-section');
+  resultSection.classList.add('visible');
+
+  // Scroll to result smoothly
+  setTimeout(() => {
+    resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 100);
+}
+
+// ─────────────────────────────────────────────
+// COPY LINK
+// ─────────────────────────────────────────────
+function copyLink() {
+  const url = document.getElementById('share-url').value;
+  const btn = document.getElementById('copy-btn');
+  navigator.clipboard.writeText(url).then(() => {
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = 'Copy';
+      btn.classList.remove('copied');
+    }, 2000);
+  }).catch(() => {
+    // Fallback for older browsers
+    const input = document.getElementById('share-url');
+    input.select();
+    document.execCommand('copy');
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = 'Copy';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+
+// ─────────────────────────────────────────────
+// EMAIL CAPTURE
+// ─────────────────────────────────────────────
+async function submitCapEmail() {
+  const input = document.getElementById('cap-email');
+  const email = input.value.trim();
+  if (!email || !input.checkValidity()) { input.reportValidity(); return; }
+
+  const btn = input.parentElement.querySelector('button');
+  btn.textContent = '...';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, source: 'compatibility-quiz' })
+    });
+    document.getElementById('email-cap-card').classList.add('done');
+  } catch {
+    // Save locally as fallback
+    const saved = JSON.parse(localStorage.getItem('ss_emails') || '[]');
+    saved.push({ email, source: 'compatibility-quiz', t: Date.now() });
+    localStorage.setItem('ss_emails', JSON.stringify(saved));
+    document.getElementById('email-cap-card').classList.add('done');
+  }
+}
+
+// ─────────────────────────────────────────────
+// READ URL PARAMS ON LOAD
+// ─────────────────────────────────────────────
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const signsParam = params.get('signs');
+  if (signsParam) {
+    const parts = signsParam.toLowerCase().split('-');
+    if (parts.length === 2 && SIGNS.includes(parts[0]) && SIGNS.includes(parts[1])) {
+      const [s1, s2] = parts;
+      // Pre-fill dropdowns
+      document.getElementById('sign1').value = s1;
+      document.getElementById('sign2').value = s2;
+      // Render result
+      const key = canonicalKey(s1, s2);
+      const data = COMPAT[key];
+      if (data) {
+        // Wait for DOM to be ready
+        document.addEventListener('DOMContentLoaded', () => {
+          renderResult(s1, s2, data);
+        });
+        // If DOMContentLoaded already fired (script at bottom)
+        if (document.readyState !== 'loading') {
+          renderResult(s1, s2, data);
+        }
+      }
+    }
+  }
+})();
+</script>
+</body>
+</html>

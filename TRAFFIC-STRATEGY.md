@@ -139,9 +139,10 @@ Build content at machine scale for long-tail queries.
 ## Phase 4: Compound (Months 9-12)
 **Goal: 500K-1M monthly uniques**
 
-### 10. Viral Mechanics
-- [ ] Interactive tools: "What's your big three?" calculator (shareable results page with unique URL)
-- [ ] "Zodiac compatibility quiz" (shareable results)
+### 10. Viral Mechanics (MOVED TO PHASE 1 — Building Now)
+Interactive tools moved to Phase 1 because every quiz share = a backlink. This directly solves our authority problem.
+- [x] Compatibility quiz with shareable result URLs (BUILDING NOW)
+- [ ] "What's your big three?" calculator (ephemeris engine already built)
 - [ ] "Which crystal should you wear?" quiz
 - [ ] Each tool generates a unique shareable URL = organic backlinks + social shares
 
