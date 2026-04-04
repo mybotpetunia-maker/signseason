@@ -156,23 +156,63 @@ Same specs as TikTok.
 
 ---
 
+## Engagement-First Design Principles (Added April 4, 2026)
+
+These override any conflicting specs below. Every slide must pass these tests:
+
+### 1. Scroll-Stop Title Slide
+The title slide (slide 1) determines if anyone sees slides 2-14. It must:
+- Use a **full-bleed DALL-E illustration** (edge to edge, no margins on the image itself)
+- Text overlays ON TOP of the illustration with sufficient contrast layer
+- Be **legible at thumbnail size** (200px wide on IG Explore). If you can't read the hook at 200px, redo it.
+- Typography: LARGER than content slides. TikTok title = 96-110px bold. IG title = 84-96px bold.
+- Dark gradient overlay (bottom 40-60% of image) for text area
+
+### 2. Sign Slides: Visual Identity Per Sign
+Each sign slide should feel unique, not template-stamped:
+- **Background variation**: Use tinted/cropped sections of the title illustration, or generate 2-3 mood illustrations (fire signs share one, water signs another, etc.)
+- **Zodiac glyph rendered large** (120-160px) as a watermark element, not a tiny icon
+- **More contrast and saturation**: These are viewed on phones at low brightness. Pump up the golds, deepen the plums. Safe pastels get scrolled past.
+
+### 3. Phone-First Color Rules
+- Dark backgrounds need BRIGHT gold (#DAC080 or lighter), not muted
+- Parchment backgrounds need DEEP plum text, not warm gray
+- Test: squint at the slide. If text blurs into background, increase contrast.
+- The 50% brightness test: would this pop on a phone screen in a dark room? If no, boost saturation.
+
+### 4. Title Slide DALL-E Prompt Formula
+```
+[THEME-SPECIFIC SCENE]. Dramatic, cinematic composition. Rich deep plum and midnight blue atmosphere with warm golden celestial light. Classical astronomical illustration meets modern editorial photography. Highly detailed, moody, intimate. No text. [ASPECT RATIO]. Style: dark academia meets celestial mysticism.
+```
+Generate at native resolution (1024x1024 for square, use dall-e for portrait). The image should be arresting enough to work WITHOUT text.
+
+### 5. CTA Slide: Clear and Bold
+- Not an afterthought. Same visual energy as title slide.
+- Handle text at 60px+ (was often too small)
+- "Follow for your sign" or topic-specific CTA, not generic
+
+---
+
 ## Post Types (4-type rotation)
 
 ### 1. Text Cards
 - **Background:** Dark (plum radial gradient + gold stars)
 - **Border:** Gold frame
 - **Text:** Parchment headlines, Gold Dim subtitles
+- **Title slide:** Full-bleed DALL-E thematic illustration with dark gradient overlay
 - **Use for:** Carousel covers, zodiac trait lists, red flags, rankings, CTAs
 
 ### 2. Engraving Illustrations
 - **Background:** DALL-E generated, matching PFP stipple style
 - **Border:** Gold frame
+- **Title slide:** Full-bleed DALL-E engraving, dramatic composition
 - **Label:** Zodiac name + symbol at bottom in gold
 - **Use for:** Zodiac sign features, sign-of-the-month intros
 
 ### 3. Editorial Quotes
 - **Background:** Light (parchment radial gradient)
 - **Border:** Plum frame
+- **Title slide:** Full-bleed DALL-E light/ethereal illustration with light overlay
 - **Text:** Plum italic headlines, Warm Gray attribution
 - **Label:** Mono category text at top (e.g., "ARIES SEASON")
 - **Use for:** Reflective quotes, poetic zodiac content, deeper insights
@@ -180,6 +220,7 @@ Same specs as TikTok.
 ### 4. Photo + Overlay
 - **Background:** DALL-E celestial photography (moons, night skies, stars)
 - **Overlay:** Dark semi-transparent layer for readability
+- **Title slide:** Full-bleed DALL-E cinematic celestial photo
 - **Text:** Gold or Parchment italic
 - **Use for:** Seasonal announcements, retrograde alerts, moon phases
 
