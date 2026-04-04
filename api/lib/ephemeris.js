@@ -656,7 +656,7 @@ export function getCityCoords(cityName, countryName) {
   // Common country aliases
   const COUNTRY_ALIASES = {
     uk:'united kingdom',us:'united states',usa:'united states',
-    uae:'united arab emirates',south korea:'korea',
+    uae:'united arab emirates','south korea':'korea',
   };
 
   // Try exact match on city name first
