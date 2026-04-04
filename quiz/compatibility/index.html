@@ -882,6 +882,10 @@
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                 Share on Facebook
               </a>
+              <button class="share-btn" id="download-card-btn" aria-label="Download shareable image">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Save for IG / TikTok
+              </button>
             </div>
           </div>
 
@@ -1454,6 +1458,10 @@ function showResult(s1, s2) {
   twitterBtn.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
   facebookBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
 
+  // Store for image generation
+  lastResultData = data;
+  lastResultNames = { n1, n2, g1, g2 };
+
   // Show result section
   quizSection.style.display = 'none';
   resultSection.removeAttribute('hidden');
@@ -1510,6 +1518,142 @@ copyLinkBtn.addEventListener('click', async () => {
     copyLinkBtn.textContent = 'Copied!';
     setTimeout(() => { copyLinkBtn.textContent = 'Copy Link'; }, 2000);
   }
+});
+
+// ═══════════════════════════════════════════════════
+// GENERATE SHAREABLE IMAGE (Canvas)
+// ═══════════════════════════════════════════════════
+let lastResultData = null;
+let lastResultNames = null;
+
+function generateShareImage() {
+  if (!lastResultData || !lastResultNames) return null;
+  const d = lastResultData;
+  const { n1, n2, g1, g2 } = lastResultNames;
+  const W = 1080, H = 1350; // IG story / TikTok ratio
+  const c = document.createElement('canvas');
+  c.width = W; c.height = H;
+  const ctx = c.getContext('2d');
+
+  // Background gradient (plum)
+  const grad = ctx.createLinearGradient(0, 0, 0, H);
+  grad.addColorStop(0, '#1E1528');
+  grad.addColorStop(0.5, '#2A1F33');
+  grad.addColorStop(1, '#1E1528');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, W, H);
+
+  // Subtle border
+  ctx.strokeStyle = 'rgba(201,173,111,0.25)';
+  ctx.lineWidth = 2;
+  ctx.strokeRect(40, 40, W - 80, H - 80);
+
+  // Header: "Sign Season"
+  ctx.fillStyle = 'rgba(201,173,111,0.5)';
+  ctx.font = '600 28px "Avenir Next", "Avenir", sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('SIGN SEASON', W / 2, 110);
+
+  // Glyphs + signs
+  ctx.fillStyle = '#C9AD6F';
+  ctx.font = '72px serif';
+  ctx.fillText(g1, W / 2 - 120, 240);
+  ctx.fillText(g2, W / 2 + 120, 240);
+  ctx.fillStyle = 'rgba(240,232,216,0.4)';
+  ctx.font = '36px serif';
+  ctx.fillText('+', W / 2, 230);
+
+  // Sign names
+  ctx.fillStyle = '#F0E8D8';
+  ctx.font = '600 38px "Avenir Next", "Avenir", sans-serif';
+  ctx.fillText(`${n1}  +  ${n2}`, W / 2, 310);
+
+  // Big score
+  ctx.fillStyle = '#C9AD6F';
+  ctx.font = '700 180px "Avenir Next", "Avenir", sans-serif';
+  ctx.fillText(`${d.overall}%`, W / 2, 520);
+
+  // Category
+  ctx.fillStyle = '#F0E8D8';
+  ctx.font = '600 42px "Avenir Next", "Avenir", sans-serif';
+  ctx.fillText(d.category, W / 2, 590);
+
+  // Score bars
+  const bars = [
+    { label: 'Love', val: d.love },
+    { label: 'Communication', val: d.comm },
+    { label: 'Trust', val: d.trust },
+    { label: 'Values', val: d.values },
+  ];
+  const barY = 670, barH = 24, barGap = 80, barW = 600, barX = (W - barW) / 2;
+  bars.forEach((b, i) => {
+    const y = barY + i * barGap;
+    // Label
+    ctx.fillStyle = 'rgba(240,232,216,0.7)';
+    ctx.font = '500 24px "Avenir Next", "Avenir", sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText(b.label, barX, y);
+    ctx.textAlign = 'right';
+    ctx.fillText(b.val + '%', barX + barW, y);
+    // Bar bg
+    ctx.fillStyle = 'rgba(240,232,216,0.1)';
+    const rY = y + 10;
+    ctx.beginPath();
+    ctx.roundRect(barX, rY, barW, barH, 12);
+    ctx.fill();
+    // Bar fill
+    const fillGrad = ctx.createLinearGradient(barX, 0, barX + barW * b.val / 100, 0);
+    fillGrad.addColorStop(0, '#C9AD6F');
+    fillGrad.addColorStop(1, '#E8D5A0');
+    ctx.fillStyle = fillGrad;
+    ctx.beginPath();
+    ctx.roundRect(barX, rY, barW * b.val / 100, barH, 12);
+    ctx.fill();
+  });
+
+  // Verdict
+  ctx.textAlign = 'center';
+  ctx.fillStyle = 'rgba(240,232,216,0.6)';
+  ctx.font = 'italic 28px Georgia, "Times New Roman", serif';
+  const verdict = d.description ? d.description.split('.')[0] + '.' : '';
+  // Word wrap verdict
+  if (verdict.length > 0) {
+    const words = verdict.split(' ');
+    let line = '', lineY = 1060;
+    ctx.fillStyle = 'rgba(240,232,216,0.55)';
+    words.forEach(word => {
+      const test = line + word + ' ';
+      if (ctx.measureText(test).width > 800) {
+        ctx.fillText(line.trim(), W / 2, lineY);
+        line = word + ' ';
+        lineY += 38;
+      } else {
+        line = test;
+      }
+    });
+    if (line.trim()) ctx.fillText(line.trim(), W / 2, lineY);
+  }
+
+  // Footer CTA
+  ctx.fillStyle = 'rgba(201,173,111,0.6)';
+  ctx.font = '500 26px "Avenir Next", "Avenir", sans-serif';
+  ctx.fillText('signseason.com/quiz/compatibility', W / 2, H - 80);
+
+  return c;
+}
+
+const downloadCardBtn = document.getElementById('download-card-btn');
+downloadCardBtn.addEventListener('click', () => {
+  const canvas = generateShareImage();
+  if (!canvas) return;
+  const link = document.createElement('a');
+  link.download = `signseason-compatibility-${lastResultNames.n1.toLowerCase()}-${lastResultNames.n2.toLowerCase()}.png`;
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+  downloadCardBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Saved!`;
+  setTimeout(() => {
+    downloadCardBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Save for IG / TikTok`;
+  }, 2000);
 });
 
 // ═══════════════════════════════════════════════════

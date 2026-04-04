@@ -903,6 +903,10 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.736l7.73-8.835L1.254 2.25H8.08l4.259 5.632 5.905-5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             Share on X
           </a>
+          <button class="share-btn" id="download-card-btn" type="button" aria-label="Download shareable image">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Save for IG / TikTok
+          </button>
         </div>
       </div>
 
@@ -1133,6 +1137,9 @@
     // Twitter link
     twitterBtn.href = `https://twitter.com/intent/tweet?text=${buildTwitterText(result)}`;
 
+    // Store for image generation
+    window._lastBigThreeResult = result;
+
     // Show results section
     quizSection.style.display = 'none';
     resultsSection.style.display = 'block';
@@ -1244,6 +1251,115 @@
       shareUrl.select();
       document.execCommand('copy');
     }
+  });
+
+  // ── Download shareable image ─────────────────────────────────────────────
+  const downloadCardBtn = document.getElementById('download-card-btn');
+  downloadCardBtn.addEventListener('click', () => {
+    const r = window._lastBigThreeResult;
+    if (!r) return;
+
+    const W = 1080, H = 1350;
+    const c = document.createElement('canvas');
+    c.width = W; c.height = H;
+    const ctx = c.getContext('2d');
+
+    // Background
+    const grad = ctx.createLinearGradient(0, 0, 0, H);
+    grad.addColorStop(0, '#1E1528');
+    grad.addColorStop(0.5, '#2A1F33');
+    grad.addColorStop(1, '#1E1528');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, W, H);
+
+    // Border
+    ctx.strokeStyle = 'rgba(201,173,111,0.25)';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(40, 40, W - 80, H - 80);
+
+    // Header
+    ctx.fillStyle = 'rgba(201,173,111,0.5)';
+    ctx.font = '600 28px "Avenir Next", "Avenir", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('SIGN SEASON', W / 2, 110);
+
+    // Title
+    ctx.fillStyle = '#F0E8D8';
+    ctx.font = '600 52px "Avenir Next", "Avenir", sans-serif';
+    ctx.fillText('My Big Three', W / 2, 200);
+
+    // Three sign cards
+    const signs = [];
+    if (r.sun)    signs.push({ label: 'SUN', sign: r.sun, glyph: r.sunGlyph, symbol: '☉' });
+    if (r.moon)   signs.push({ label: 'MOON', sign: r.moon, glyph: r.moonGlyph, symbol: '☽' });
+    if (r.rising) signs.push({ label: 'RISING', sign: r.rising, glyph: r.risingGlyph, symbol: '↑' });
+
+    const cardW = 280, cardH = 360, cardGap = 40;
+    const totalW = signs.length * cardW + (signs.length - 1) * cardGap;
+    let startX = (W - totalW) / 2;
+    const cardY = 300;
+
+    signs.forEach((s, i) => {
+      const x = startX + i * (cardW + cardGap);
+      // Card bg
+      ctx.fillStyle = 'rgba(240,232,216,0.06)';
+      ctx.beginPath();
+      ctx.roundRect(x, cardY, cardW, cardH, 16);
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(201,173,111,0.2)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.roundRect(x, cardY, cardW, cardH, 16);
+      ctx.stroke();
+      // Type label
+      ctx.fillStyle = 'rgba(201,173,111,0.6)';
+      ctx.font = '700 22px "Avenir Next", "Avenir", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(s.label, x + cardW / 2, cardY + 50);
+      // Glyph
+      ctx.fillStyle = '#C9AD6F';
+      ctx.font = '96px serif';
+      ctx.fillText(s.glyph, x + cardW / 2, cardY + 185);
+      // Sign name
+      ctx.fillStyle = '#F0E8D8';
+      ctx.font = '600 34px "Avenir Next", "Avenir", sans-serif';
+      ctx.fillText(s.sign, x + cardW / 2, cardY + 260);
+      // Symbol
+      ctx.fillStyle = 'rgba(240,232,216,0.3)';
+      ctx.font = '28px serif';
+      ctx.fillText(s.symbol, x + cardW / 2, cardY + 310);
+    });
+
+    // Brief descriptions
+    const descY = cardY + cardH + 80;
+    ctx.textAlign = 'center';
+    ctx.fillStyle = 'rgba(240,232,216,0.55)';
+    ctx.font = 'italic 28px Georgia, "Times New Roman", serif';
+    const lines = [
+      `${r.sun || ''} Sun: your core identity`,
+      `${r.moon || ''} Moon: your emotional world`,
+      r.rising ? `${r.rising} Rising: how you show up` : '',
+    ].filter(Boolean);
+    lines.forEach((line, i) => {
+      ctx.fillText(line, W / 2, descY + i * 48);
+    });
+
+    // Footer CTA
+    ctx.fillStyle = 'rgba(201,173,111,0.6)';
+    ctx.font = '500 26px "Avenir Next", "Avenir", sans-serif';
+    ctx.fillText('Find yours: signseason.com/quiz/big-three', W / 2, H - 80);
+
+    // Download
+    const link = document.createElement('a');
+    const sunName = (r.sun || 'unknown').toLowerCase();
+    link.download = `signseason-big-three-${sunName}.png`;
+    link.href = c.toDataURL('image/png');
+    link.click();
+
+    downloadCardBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Saved!`;
+    setTimeout(() => {
+      downloadCardBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Save for IG / TikTok`;
+    }, 2000);
   });
 
   // ── Email subscribe ───────────────────────────────────────────────────────
