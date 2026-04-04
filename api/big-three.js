@@ -51,9 +51,14 @@ export default async function handler(req, res) {
   let utcOffset = 0;
   let cityCoords = null;
 
+  let cityNotFound = false;
   if (city) {
     cityCoords = getCityCoords(city);
-    if (cityCoords) utcOffset = cityCoords.utcOffset;
+    if (cityCoords) {
+      utcOffset = cityCoords.utcOffset;
+    } else {
+      cityNotFound = true;
+    }
   }
 
   const moonResult = calculateMoonSign(date, time || null, utcOffset);
@@ -81,5 +86,6 @@ export default async function handler(req, res) {
     moonGlyph:  SIGN_GLYPHS[moonSign]  || '',
     risingGlyph: risingSign ? (SIGN_GLYPHS[risingSign] || '') : null,
     moonNote,
+    ...(cityNotFound ? { cityNotFound: true } : {}),
   });
 }

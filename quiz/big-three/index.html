@@ -849,15 +849,15 @@
             <span class="field-hint">Needed for Rising sign</span>
           </div>
           <div class="field-group">
-            <label class="field-label" for="birth-city">Birth City <span style="font-weight:300;text-transform:none;letter-spacing:0;">(optional)</span></label>
+            <label class="field-label" for="birth-city">Birth Location <span style="font-weight:300;text-transform:none;letter-spacing:0;">(optional)</span></label>
             <input
               type="text"
               id="birth-city"
               class="text-input"
-              placeholder="New York"
+              placeholder="Nashville, TN, US"
               autocomplete="off"
             >
-            <span class="field-hint">Needed for Rising sign</span>
+            <span class="field-hint">City, State/Region, Country. Needed for Rising sign.</span>
           </div>
         </div>
 
@@ -1069,7 +1069,7 @@
     } else if (!hasTime) {
       msg = 'Add your birth time to unlock your Rising sign.';
     } else {
-      msg = 'Add your birth city so we can find your exact coordinates.';
+      msg = 'We couldn\'t find that location. Try a nearby major city (e.g. "Nashville" or "London").';
     }
 
     locked.innerHTML = `
@@ -1122,7 +1122,8 @@
     } else {
       const hasTime = !!(document.getElementById('birth-time').value);
       const hasCity = !!(document.getElementById('birth-city').value.trim());
-      signCards.appendChild(buildLockedRising(hasTime, hasCity));
+      const cityNotFound = result.cityNotFound || false;
+      signCards.appendChild(buildLockedRising(hasTime, hasCity && !cityNotFound));
     }
 
     // Share URL

@@ -630,26 +630,71 @@ export function getSunSign(birthDateStr) {
 export function getCityCoords(cityName, countryName) {
   if (!cityName) return null;
   const normalize = s => s.trim().toLowerCase().replace(/[^a-z0-9\s]/g, '');
-  const query = normalize(cityName);
 
+  // Parse "City, State, Country" or "City, State" or "City, Country" or just "City"
+  const parts = cityName.split(',').map(s => s.trim()).filter(Boolean);
+  const queryCity = normalize(parts[0]);
+
+  // Also try the full input as-is (handles multi-word cities without commas)
+  const queryFull = normalize(cityName);
+
+  // US state abbreviation to full name mapping for disambiguation
+  const US_STATES = {
+    al:'alabama',ak:'alaska',az:'arizona',ar:'arkansas',ca:'california',
+    co:'colorado',ct:'connecticut',de:'delaware',fl:'florida',ga:'georgia',
+    hi:'hawaii',id:'idaho',il:'illinois',in:'indiana',ia:'iowa',ks:'kansas',
+    ky:'kentucky',la:'louisiana',me:'maine',md:'maryland',ma:'massachusetts',
+    mi:'michigan',mn:'minnesota',ms:'mississippi',mo:'missouri',mt:'montana',
+    ne:'nebraska',nv:'nevada',nh:'new hampshire',nj:'new jersey',nm:'new mexico',
+    ny:'new york',nc:'north carolina',nd:'north dakota',oh:'ohio',ok:'oklahoma',
+    or:'oregon',pa:'pennsylvania',ri:'rhode island',sc:'south carolina',
+    sd:'south dakota',tn:'tennessee',tx:'texas',ut:'utah',vt:'vermont',
+    va:'virginia',wa:'washington',wv:'west virginia',wi:'wisconsin',wy:'wyoming',
+    dc:'district of columbia'
+  };
+
+  // Common country aliases
+  const COUNTRY_ALIASES = {
+    uk:'united kingdom',us:'united states',usa:'united states',
+    uae:'united arab emirates',south korea:'korea',
+  };
+
+  // Try exact match on city name first
   for (const [key, val] of Object.entries(CITY_COORDS)) {
-    if (normalize(key) === query) {
+    if (normalize(key) === queryCity || normalize(key) === queryFull) {
       return { lat: val[0], lon: val[1], utcOffset: val[2] };
     }
   }
-  // Partial: key starts with query
-  for (const [key, val] of Object.entries(CITY_COORDS)) {
-    if (normalize(key).startsWith(query) && query.length >= 3) {
-      return { lat: val[0], lon: val[1], utcOffset: val[2] };
+
+  // Try partial: city name starts with query (min 3 chars)
+  if (queryCity.length >= 3) {
+    for (const [key, val] of Object.entries(CITY_COORDS)) {
+      if (normalize(key).startsWith(queryCity)) {
+        return { lat: val[0], lon: val[1], utcOffset: val[2] };
+      }
     }
   }
-  // Partial: query starts with key
+
+  // Try partial: query starts with city key (handles "New York City" matching "New York")
   for (const [key, val] of Object.entries(CITY_COORDS)) {
     const k = normalize(key);
-    if (query.startsWith(k) && k.length >= 4) {
+    if (queryCity.startsWith(k) && k.length >= 4) {
+      return { lat: val[0], lon: val[1], utcOffset: val[2] };
+    }
+    if (queryFull.startsWith(k) && k.length >= 4) {
       return { lat: val[0], lon: val[1], utcOffset: val[2] };
     }
   }
+
+  // Try: if user typed "Nashville, TN" — strip state/country parts and retry
+  if (parts.length > 1 && queryCity.length >= 3) {
+    for (const [key, val] of Object.entries(CITY_COORDS)) {
+      if (normalize(key) === queryCity) {
+        return { lat: val[0], lon: val[1], utcOffset: val[2] };
+      }
+    }
+  }
+
   return null;
 }
 
