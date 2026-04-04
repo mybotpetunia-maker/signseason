@@ -47,8 +47,24 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Could not determine sun sign from birth date. Please check the date format.' });
     }
 
-    // 2. Resolve city coordinates / timezone
-    const cityCoords = getCityCoords(birth_city, birth_country);
+    // 2. Resolve city coordinates / timezone (local table first, then geocode)
+    let cityCoords = getCityCoords(birth_city, birth_country);
+    if (!cityCoords && birth_city) {
+      try {
+        const geoUrl = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(birth_city + (birth_country ? ', ' + birth_country : ''))}&format=json&limit=1`;
+        const geoRes = await fetch(geoUrl, {
+          headers: { 'User-Agent': 'SignSeason/1.0 (stars@signseason.com)' }
+        });
+        if (geoRes.ok) {
+          const geoData = await geoRes.json();
+          if (geoData.length > 0) {
+            const lat = parseFloat(geoData[0].lat);
+            const lon = parseFloat(geoData[0].lon);
+            cityCoords = { lat, lon, utcOffset: Math.round(lon / 15) };
+          }
+        }
+      } catch (e) { /* geocoding failed silently */ }
+    }
     const utcOffset  = cityCoords ? cityCoords.utcOffset : 0;
 
     // 3. Calculate moon sign

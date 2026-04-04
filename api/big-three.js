@@ -53,7 +53,31 @@ export default async function handler(req, res) {
 
   let cityNotFound = false;
   if (city) {
+    // Try local lookup first (fast, no network)
     cityCoords = getCityCoords(city);
+
+    // Fallback: geocode via OpenStreetMap Nominatim (free, no API key)
+    if (!cityCoords) {
+      try {
+        const geoUrl = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(city)}&format=json&limit=1`;
+        const geoRes = await fetch(geoUrl, {
+          headers: { 'User-Agent': 'SignSeason/1.0 (stars@signseason.com)' }
+        });
+        if (geoRes.ok) {
+          const geoData = await geoRes.json();
+          if (geoData.length > 0) {
+            const lat = parseFloat(geoData[0].lat);
+            const lon = parseFloat(geoData[0].lon);
+            // Estimate UTC offset from longitude (rough but functional)
+            const estOffset = Math.round(lon / 15);
+            cityCoords = { lat, lon, utcOffset: estOffset };
+          }
+        }
+      } catch (e) {
+        // Geocoding failed silently, fall through to cityNotFound
+      }
+    }
+
     if (cityCoords) {
       utcOffset = cityCoords.utcOffset;
     } else {
