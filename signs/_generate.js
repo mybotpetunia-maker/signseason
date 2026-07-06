@@ -1,0 +1,177 @@
+const fs = require('fs');
+const path = require('path');
+
+// Shared nav/boilerplate template
+function buildPage({ title, desc, canonical, breadcrumbName, tagline, sections, faqs, keepReading, footSign, ctaId }) {
+  const faqSchema = JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":faqs.map(f => ({"@type":"Question","name":f.q,"acceptedAnswer":{"@type":"Answer","text":f.a}}))});
+  const articleSchema = JSON.stringify({"@context":"https://schema.org","@type":"Article","headline":title,"description":desc,"url":canonical,"publisher":{"@type":"Organization","name":"Sign Season","url":"https://signseason.com"},"author":{"@type":"Organization","name":"Sign Season"},"datePublished":"2026-07-06","dateModified":"2026-07-06","image":"https://signseason.com/assets/og-default.png"});
+  const bcSchema = JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Sign Season","item":"https://signseason.com/"},{"@type":"ListItem","position":2,"name":"Signs","item":"https://signseason.com/signs/"},{"@type":"ListItem","position":3,"name":breadcrumbName,"item":canonical}]});
+
+  // Build sections HTML
+  let sectionsHtml = '';
+  let midCtaInserted = false;
+  for (let i = 0; i < sections.length; i++) {
+    sectionsHtml += `\n    <div class="section">\n      <h2>${sections[i].heading}</h2>\n`;
+    for (const p of sections[i].paragraphs) {
+      sectionsHtml += `      <p>${p}</p>\n`;
+    }
+    if (sections[i].highlight) {
+      sectionsHtml += `      <div class="highlight-box"><div class="hb-label">${sections[i].highlight.label}</div><p>${sections[i].highlight.text}</p></div>\n`;
+    }
+    if (sections[i].pullQuote) {
+      sectionsHtml += `      <div class="pull-quote">${sections[i].pullQuote}</div>\n`;
+    }
+    sectionsHtml += `    </div>\n`;
+
+    // Insert divider after section 2
+    if (i === 1) sectionsHtml += `\n    <div class="div">&#10038;&ensp;&#10038;&ensp;&#10038;</div>\n`;
+    // Insert mid CTA after section 3
+    if (i === 2 && !midCtaInserted) {
+      midCtaInserted = true;
+      sectionsHtml += `\n    <div class="div">&#10038;&ensp;&#10038;&ensp;&#10038;</div>\n`;
+    }
+    if (i === 3 && midCtaInserted) {
+      sectionsHtml += `
+    <div class="mid-cta">
+      <div class="fw" id="fw1_${ctaId}">
+        <p>Weekly cosmic weather for your chart, every Sunday.</p>
+        <div class="mid-cta-row">
+          <input type="email" class="mid-cta-input" placeholder="your@email.com" required autocomplete="email" id="emailfw1_${ctaId}">
+          <button type="button" class="mid-cta-btn" onclick="submitForm('fw1_${ctaId}','emailfw1_${ctaId}')">Send Me the Tea</button>
+        </div>
+        <div class="mid-cta-success">Your reading is on the way. Check your inbox (and spam, we're new here).</div>
+      </div>
+    </div>\n`;
+    }
+  }
+
+  const faqsHtml = faqs.map((f, i) => `    <div class="faq-item"><h3>${f.q}</h3><p>${f.a}</p></div>`).join('\n');
+  const keepReadingHtml = keepReading.links.map(l => `      <a href="${l.href}">${l.text}</a>`).join('\n');
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="google53a81f31582ee8d7" />
+    <meta name="p:domain_verify" content="621b0e7155899f63b4676e823d77759b"/>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${title}</title>
+  <meta name="description" content="${desc}">
+  <meta name="theme-color" content="#2A1F33">
+  <meta property="og:title" content="${title}">
+  <meta property="og:description" content="${desc}">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="${canonical}">
+  <meta property="og:image" content="https://signseason.com/assets/og-default.png">
+  <meta property="og:site_name" content="Sign Season">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@signseasonco">
+  <link rel="canonical" href="${canonical}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fondamento:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script type="application/ld+json">${articleSchema}</script>
+  <script type="application/ld+json">${bcSchema}</script>
+  <script type="application/ld+json">${faqSchema}</script>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; } html { scroll-behavior: smooth; }
+    :root { --void: #1E1528; --plum: #2A1F33; --plum-mid: #352840; --plum-lift: #3D2E4A; --gold-dim: #B09A6E; --gold: #C9AD6F; --gold-light: #D4BC7C; --gold-pale: #E2D4A7; --display: 'Fondamento', cursive; --serif: 'EB Garamond', 'Garamond', 'Georgia', serif; --sans: 'DM Sans', -apple-system, sans-serif; }
+    body { background: var(--plum); color: var(--gold); font-family: var(--serif); font-size: 17px; line-height: 1.8; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    body > *:not(canvas) { position: relative; z-index: 1; }
+    ::selection { background: rgba(201,173,111,0.25); color: var(--gold-pale); }
+    .nav { max-width: 680px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; gap: 8px; font-family: var(--sans); font-size: 0.6rem; } .nav a { color: var(--gold-dim); text-decoration: none; } .nav a:first-child { font-family: var(--display); font-style: italic; font-size: 1rem; color: var(--gold); } .nav .sep { color: var(--gold-dim); opacity: 0.25; }
+    .sign-hero { max-width: 680px; margin: 0 auto; padding: 48px 24px 0; text-align: center; }
+    .sign-name { font-family: var(--display); font-style: italic; font-size: clamp(2.5rem, 7vw, 3.8rem); color: var(--gold-pale); font-weight: 400; margin-bottom: 12px; }
+    .sign-tagline { font-family: var(--serif); font-size: 1.15rem; font-style: italic; color: var(--gold-dim); margin-bottom: 40px; }
+    article { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 24px 0 0; } .section h2 { font-family: var(--serif); font-size: 1.5rem; font-weight: 600; color: var(--gold-light); margin-bottom: 18px; line-height: 1.2; } .section p { margin-bottom: 16px; line-height: 1.85; } .section a { color: var(--gold-light); text-decoration: underline; text-decoration-color: rgba(201,173,111,0.3); text-underline-offset: 2px; }
+    .highlight-box { background: linear-gradient(135deg, var(--plum-mid), var(--plum-lift)); border: 1px solid rgba(201,173,111,0.12); border-radius: 2px; padding: 28px 24px; margin: 32px 0; } .highlight-box .hb-label { font-family: var(--sans); font-size: 0.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 12px; } .highlight-box p { font-size: 1.05rem; color: var(--gold-light); margin-bottom: 0; line-height: 1.7; }
+    .pull-quote { border-left: 2px solid var(--gold-dim); padding: 4px 0 4px 24px; margin: 36px 0; font-family: var(--serif); font-size: 1.25rem; font-style: italic; color: var(--gold-light); line-height: 1.6; }
+    .div { text-align: center; padding: 32px 0; color: var(--gold-dim); opacity: 0.3; font-size: 6px; letter-spacing: 16px; }
+    .mid-cta { background: var(--plum-mid); border: 1px solid rgba(201,173,111,0.1); border-radius: 2px; padding: 32px 28px; margin: 48px 0; text-align: center; } .mid-cta p { font-family: var(--serif); font-size: 1.05rem; font-style: italic; color: var(--gold-dim); margin-bottom: 16px; }
+    .mid-cta-row { display: flex; flex-direction: column; gap: 8px; max-width: 380px; margin: 0 auto; }
+    .mid-cta-input { width: 100%; padding: 12px 14px; background: var(--plum-lift); color: var(--gold-pale); border: 1px solid var(--gold-dim); border-radius: 2px; font-family: var(--serif); font-size: 0.92rem; outline: none; } .mid-cta-input::placeholder { color: var(--gold-dim); }
+    .mid-cta-btn { padding: 12px; background: var(--gold); color: var(--void); border: none; border-radius: 2px; font-family: var(--sans); font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; cursor: pointer; }
+    .mid-cta-success { display: none; font-family: var(--serif); font-size: 1rem; font-style: italic; color: var(--gold-light); padding: 8px 0; }
+    .fw.done .mid-cta-row, .fw.done p { display: none; } .fw.done .mid-cta-success { display: block; }
+    @media (min-width: 481px) { .mid-cta-row { flex-direction: row; gap: 0; } .mid-cta-input { border-radius: 2px 0 0 2px; border-right: none; } .mid-cta-btn { width: auto; padding: 12px 20px; border-radius: 0 2px 2px 0; white-space: nowrap; } }
+    .bottom-cta { border: 1px solid rgba(201,173,111,0.1); border-radius: 2px; padding: 40px 28px; margin: 56px 0 0; text-align: center; } .bottom-cta .cta-title { font-family: var(--serif); font-size: 1.4rem; font-weight: 500; color: var(--gold-light); margin-bottom: 8px; } .bottom-cta .cta-sub { font-family: var(--serif); font-size: 0.92rem; font-style: italic; color: var(--gold-dim); margin-bottom: 20px; }
+    .faq-section { max-width: 680px; margin: 0 auto; padding: 48px 24px 0; } .faq-section h2 { font-family: var(--serif); font-size: 1.5rem; font-weight: 600; color: var(--gold-light); margin-bottom: 24px; }
+    .faq-item { border-bottom: 1px solid rgba(201,173,111,0.08); padding: 20px 0; } .faq-item:first-of-type { border-top: 1px solid rgba(201,173,111,0.08); } .faq-item h3 { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; color: var(--gold-light); margin-bottom: 8px; text-transform: none; letter-spacing: normal; } .faq-item p { font-family: var(--serif); font-size: 0.95rem; color: var(--gold); line-height: 1.75; margin: 0; }
+    .keep-reading { max-width: 680px; margin: 0 auto; padding: 40px 24px 0; } .keep-reading-label { font-family: var(--sans); font-size: 0.55rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: var(--gold-dim); margin-bottom: 8px; } .keep-reading-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; color: var(--gold-light); margin-bottom: 20px; }
+    .keep-reading-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; } .keep-reading-grid a { background: var(--plum-mid); border: 1px solid rgba(201,173,111,0.08); border-radius: 2px; padding: 14px 18px; color: var(--gold); text-decoration: none; font-family: var(--serif); font-size: 0.95rem; }
+    .foot { max-width: 680px; margin: 0 auto; padding: 32px 24px; text-align: center; border-top: 1px solid rgba(201,173,111,0.06); } .foot a { font-family: var(--sans); font-size: 0.58rem; color: var(--gold-dim); text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; }
+    @media (max-width: 480px) { .sign-name { font-size: 2.2rem; } .keep-reading-grid { grid-template-columns: 1fr; } }
+  </style>
+  <link rel="stylesheet" href="/css/nav.css">
+  <link rel="stylesheet" href="/css/global-fixes.css">
+</head>
+<body class="has-site-nav">
+<a href="#main-content" class="skip-nav">Skip to content</a>
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="site-nav-inner">
+    <a href="/" class="site-nav-brand">Sign Season</a>
+    <ul class="site-nav-links">
+      <li><button type="button">Signs <span class="nav-arrow">&#9662;</span></button><div class="nav-dropdown"><div class="nav-signs-grid"><a href="/signs/aries"><span class="sign-sym">&#9800;&#xFE0E;</span> Aries</a><a href="/signs/taurus"><span class="sign-sym">&#9801;&#xFE0E;</span> Taurus</a><a href="/signs/gemini"><span class="sign-sym">&#9802;&#xFE0E;</span> Gemini</a><a href="/signs/cancer"><span class="sign-sym">&#9803;&#xFE0E;</span> Cancer</a><a href="/signs/leo"><span class="sign-sym">&#9804;&#xFE0E;</span> Leo</a><a href="/signs/virgo"><span class="sign-sym">&#9805;&#xFE0E;</span> Virgo</a><a href="/signs/libra"><span class="sign-sym">&#9806;&#xFE0E;</span> Libra</a><a href="/signs/scorpio"><span class="sign-sym">&#9807;&#xFE0E;</span> Scorpio</a><a href="/signs/sagittarius"><span class="sign-sym">&#9808;&#xFE0E;</span> Sagittarius</a><a href="/signs/capricorn"><span class="sign-sym">&#9809;&#xFE0E;</span> Capricorn</a><a href="/signs/aquarius"><span class="sign-sym">&#9810;&#xFE0E;</span> Aquarius</a><a href="/signs/pisces"><span class="sign-sym">&#9811;&#xFE0E;</span> Pisces</a></div></div></li>
+      <li><button type="button">Topics <span class="nav-arrow">&#9662;</span></button><div class="nav-dropdown"><div class="nav-topics-list"><a href="/signs/#in-love">Love &amp; Dating</a><a href="/signs/#moon-signs">Moon Signs</a><a href="/signs/#rising-signs">Rising Signs</a><a href="/signs/#career">Career</a><a href="/signs/#toxic-traits">Toxic Traits</a><a href="/signs/#mercury-retrograde">Mercury Retrograde</a><a href="/signs/#horoscopes-2026">Horoscopes 2026</a></div></div></li>
+      <li><a href="/compatibility">Compatibility</a></li><li><a href="/crystals">Crystals</a></li><li><a href="/#subscribe">Subscribe</a></li>
+    </ul>
+    <button class="site-nav-hamburger" aria-label="Menu">&#9776;</button>
+  </div>
+</nav>
+<div class="site-nav-mobile">
+  <button class="site-nav-mobile-close" aria-label="Close menu">&times;</button>
+  <div class="mobile-nav-section"><div class="mobile-nav-section-title">Signs</div><div class="mobile-nav-signs-grid"><a href="/signs/aries">&#9800;&#xFE0E; Aries</a><a href="/signs/taurus">&#9801;&#xFE0E; Taurus</a><a href="/signs/gemini">&#9802;&#xFE0E; Gemini</a><a href="/signs/cancer">&#9803;&#xFE0E; Cancer</a><a href="/signs/leo">&#9804;&#xFE0E; Leo</a><a href="/signs/virgo">&#9805;&#xFE0E; Virgo</a><a href="/signs/libra">&#9806;&#xFE0E; Libra</a><a href="/signs/scorpio">&#9807;&#xFE0E; Scorpio</a><a href="/signs/sagittarius">&#9808;&#xFE0E; Sagittarius</a><a href="/signs/capricorn">&#9809;&#xFE0E; Capricorn</a><a href="/signs/aquarius">&#9810;&#xFE0E; Aquarius</a><a href="/signs/pisces">&#9811;&#xFE0E; Pisces</a></div></div>
+  <div class="mobile-nav-section"><div class="mobile-nav-section-title">Explore</div><div class="mobile-nav-links"><a href="/compatibility">Compatibility</a><a href="/crystals">Crystals</a><a href="/signs/">All Signs</a><a href="/#subscribe">Subscribe</a></div></div>
+</div>
+<nav class="nav breadcrumb-nav"><a href="/">Sign Season</a><span class="sep">/</span><a href="/signs/">Signs</a><span class="sep">/</span><span>${breadcrumbName}</span></nav>
+<header class="sign-hero">
+  <h1 class="sign-name">${breadcrumbName}</h1>
+  <p class="sign-tagline">${tagline}</p>
+</header>
+<div class="div">&#10038;&ensp;&#10038;&ensp;&#10038;</div>
+<article id="main-content">${sectionsHtml}
+    <div class="bottom-cta">
+      <div class="fw" id="fw3_${ctaId}">
+        <div class="cta-title">Your chart has something to say. Let's listen.</div>
+        <div class="cta-sub">Weekly astrology for the cosmically curious. No fluff, just real reads.</div>
+        <div class="mid-cta-row">
+          <input type="email" class="mid-cta-input" placeholder="your@email.com" required autocomplete="email" id="emailfw3_${ctaId}">
+          <button type="button" class="mid-cta-btn" onclick="submitForm('fw3_${ctaId}','emailfw3_${ctaId}')">Yes, Read Me</button>
+        </div>
+        <div class="mid-cta-success">Welcome to the season. Check your inbox.</div>
+      </div>
+    </div>
+</article>
+
+<div class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+${faqsHtml}
+</div>
+
+<div class="keep-reading">
+  <p class="keep-reading-label">Keep Reading</p>
+  <h2 class="keep-reading-title">${keepReading.title}</h2>
+  <div class="keep-reading-grid">
+${keepReadingHtml}
+  </div>
+</div>
+
+<footer class="foot">
+  <a href="/signs/${footSign}">${footSign.charAt(0).toUpperCase() + footSign.slice(1)}</a> &ensp;&middot;&ensp; <a href="/signs/">All Signs</a> &ensp;&middot;&ensp; <a href="/">Sign Season</a> &ensp;&middot;&ensp; <a href="/privacy">Privacy</a> &ensp;&middot;&ensp; <a href="/terms">Terms</a> &ensp;&middot;&ensp; <a href="/disclosure">Disclosure</a>
+  <p style="margin-top:10px;font-family:Georgia,serif;font-size:0.75rem;font-style:italic;color:rgba(201,173,111,0.35);">written by Stella</p>
+</footer>
+<script src="/js/stars.js"></script>
+<script>
+async function submitForm(fwId, inputId) { const input = document.getElementById(inputId); const email = input.value; if (!email || !input.checkValidity()) { input.reportValidity(); return; } const btn = input.parentElement.querySelector('button'); btn.textContent = '...'; btn.disabled = true; try { const res = await fetch('/api/subscribe', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email }) }); document.getElementById(fwId).classList.add('done'); if (!res.ok) fallbackSave(email); } catch { fallbackSave(email); document.getElementById(fwId).classList.add('done'); } }
+function fallbackSave(email) { const s = JSON.parse(localStorage.getItem('ss_emails') || '[]'); s.push({ email, t: Date.now() }); localStorage.setItem('ss_emails', JSON.stringify(s)); }
+</script>
+<script src="/js/analytics.js" defer></script>
+<script src="/js/nav.js"></script>
+<script src="/js/back-to-top.js" defer></script>
+</body>
+</html>`;
+}
+
+module.exports = { buildPage };

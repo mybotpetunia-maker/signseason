@@ -23,9 +23,27 @@ _Track what's been posted to maintain visual variety across the grid._
 
 | Date | Type | Topic | Notes |
 |------|------|-------|-------|
-| 2026-04-04 | EI | What Your Sign Secretly Wants to Hear | DALL-E engraving, LIGHT parchment bg — ASSETS READY |
-| 2026-04-05 | TC | Most Toxic Zodiac Pairings | Text card, high engagement |
-| 2026-04-06 | PO | Aries Season Crystals | Photo overlay, cosmic aesthetic |
+| 2026-04-04 | EI | What Your Sign Secretly Wants to Hear | DALL-E engraving, LIGHT parchment bg — POSTED |
+| 2026-04-05 | TC | Most Toxic Zodiac Pairings | Text card, high engagement — POSTED |
+| 2026-04-06 | PO | Aries Season Crystals | Photo overlay, cosmic aesthetic — DELIVERED |
+| 2026-04-07 | EQ | The Signs When They Stop Pretending They're Fine | Parchment bg, italic serif — DELIVERED |
+| 2026-04-08 | TC | How Each Sign Says 'I Love You' Without Saying It | Text card, plum/parchment — DELIVERED |
+| 2026-04-09 | EI | Each Sign in Their Villain Era | Engraving illustrations, plum bg — DELIVERED |
+| 2026-04-09 | EI | Each Sign in Their Villain Era | Engraving + plum bg — DELIVERED |
+| 2026-04-09 | EI | Each Sign in Their Villain Era | Engraving illustrations, plum bg — DELIVERED |
+| 2026-04-09 | EI | Each Sign in Their Villain Era | Engraving illustrations, plum bg — DELIVERED |
+| 2026-04-09 | EI | Each Sign in Their Villain Era | Engraving illustrations, gold-tinted zodiac animals — DELIVERED |
+| 2026-04-09 | EI | Each Sign in Their Villain Era | Engraving illustrations, plum bg — DELIVERED |
+| 2026-04-09 | EI | Each Sign in Their Villain Era | Engraving illustrations, plum bg — DELIVERED |
+| 2026-04-09 | EI | Each Sign in Their Villain Era | Engraving + plum bg — DELIVERED |
+| 2026-04-09 | EI | Each Sign in Their Villain Era | Engraving illustration, plum bg — DELIVERED |
+| 2026-04-09 | EI | Each Sign in Their Villain Era | Engraving illustrations, plum bg — DELIVERED |
+| 2026-04-09 | EI | Each Sign in Their Villain Era | Engraving + plum bg — DELIVERED |
+| 2026-04-09 | EI | Each Sign in Their Villain Era | Engraving + plum bg — DELIVERED |
+| 2026-04-09 | EI | Each Sign in Their Villain Era | Engraving illustrations, gold-tinted signs — DELIVERED |
+| 2026-04-09 | EI | Each Sign in Their Villain Era | Engraving + plum bg — DELIVERED |
+| 2026-04-09 | EI | Each Sign in Their Villain Era | Engraving + plum bg — DELIVERED |
+| 2026-04-10 | EQ | What Each Sign Needs to Hear Right Now | Parchment bg, italic serif — DELIVERED |
 
 ## Grid Rhythm (IG)
 Goal: no two adjacent posts are the same type when viewed in 3-column grid.
