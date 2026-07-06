@@ -24,19 +24,24 @@ function dateRange(days) {
 
 async function getSubscribers() {
   var RESEND_KEY = process.env.RESEND_API_KEY;
-  var audienceId = process.env.RESEND_AUDIENCE_ID;
-  if (!RESEND_KEY || !audienceId) return { total: 0, daily: [], list: [] };
+  if (!RESEND_KEY) return { total: 0, daily: [], list: [] };
 
-  var contactsRes = await fetch(
-    'https://api.resend.com/audiences/' + audienceId + '/contacts',
-    { headers: { Authorization: 'Bearer ' + RESEND_KEY } }
-  );
+  // Read from account-level contacts — same endpoint subscribe.js writes to.
+  // (Previously used audiences/{id}/contacts which was always empty.)
+  var contactsRes = await fetch('https://api.resend.com/contacts', {
+    headers: { Authorization: 'Bearer ' + RESEND_KEY },
+  });
   if (!contactsRes.ok) return { total: 0, daily: [], list: [] };
 
   var contacts = await contactsRes.json();
-  var OWNER_EMAILS = ['tara.c.fung@gmail.com', 'tara@cocreate.ink'];
+  var OWNER_EMAILS = ['tara.c.fung@gmail.com', 'tara@cocreate.ink', 'mybotpetunia@gmail.com'];
+  var TEST_PATTERNS = ['@example.com', 'petunia.', 'test-petunia', 'capturetest'];
   var active = (contacts.data || []).filter(function (c) {
-    return !c.unsubscribed && OWNER_EMAILS.indexOf(c.email.toLowerCase()) === -1;
+    var email = c.email.toLowerCase();
+    if (c.unsubscribed) return false;
+    if (OWNER_EMAILS.indexOf(email) !== -1) return false;
+    if (TEST_PATTERNS.some(function(p) { return email.indexOf(p) !== -1; })) return false;
+    return true;
   });
 
   // Group by date
